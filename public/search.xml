@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>用简单的物理方法证明牛顿莱布尼茨公式</title>
+      <link href="2020/12/25/zh-CN/newton-leibniz-proof/"/>
+      <url>2020/12/25/zh-CN/newton-leibniz-proof/</url>
+      
+        <content type="html"><![CDATA[<p>前几天经过苦思冥想，想出来了一种简单的证明方法，现在来简单分享一下。<br><a id="more"></a></p><h2 id="关于牛顿莱布尼茨公式"><a href="#关于牛顿莱布尼茨公式" class="headerlink" title="关于牛顿莱布尼茨公式"></a>关于牛顿莱布尼茨公式</h2><p>即微积分基本定理。</p><script type="math/tex; mode=display">\int_a^b f(x)dx = F(b) - F(a) = F(x)\bigg|_a^b</script><p>其中，$F(x)$ 为 $f(x)$ 原函数。</p><h2 id="构思"><a href="#构思" class="headerlink" title="构思"></a>构思</h2><p>有初中物理知识可以知道，在 v-t 图像中，面积就是位移，两点间面积之差就是时间差的积分。</p><p>所以很容易证明出这一定理。</p><h2 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h2><p>所以 v-t 函数的原函数就是 s(t) 函数，所以 [a,b] 区间内的位移就是 $s(t)\bigg|_a^b$</p><p>而上文已经得出 v(t) 函数在 [a,b] 区间的积分也指的是位移。</p><p>所以很容易得出要证明的结论。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本人仅是业余爱好进行学习，若有不足，请指正。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学 算法 CS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 高等数学 </tag>
+            
+            <tag> 微积分 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>简评荣耀手环6</title>
+      <link href="2020/12/25/zh-CN/honor-band6/"/>
+      <url>2020/12/25/zh-CN/honor-band6/</url>
+      
+        <content type="html"><![CDATA[<p><img data-src="https://i.loli.net/2020/12/25/bL2k4lVvfWIKxJp.png" alt="Band"></p><p>前几天买了个 <strong>荣耀手环6</strong>，简单点评点评。</p><a id="more"></a><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul><li><strong>屏幕</strong>在一般的手环里算是比较大的，比较全面屏，颜值也挺高的。</li><li><strong>续航</strong>把类似自动运动监测、心率检测、压力检测之类的打开了之后都有一个星期的续航。</li><li><strong>离线支付宝、NFC</strong>真的很方便。</li><li>etc</li></ul><h2 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h2><ul><li><strong>表盘</strong>，说实在的，真得没有小米的好看，还不支持自定义，希望以后能适配。话说。。。这设计者怕不是喝了假酒(bushi)。</li><li><strong>非华为系手机</strong>用不了一些特别功能，比如心脏健康什么的，不过可以破解，自行搜索。</li><li><strong>24小时血氧检测</strong>这个功能是不支持的。</li></ul><h2 id="期望"><a href="#期望" class="headerlink" title="期望"></a>期望</h2><p>第一次买华为系的产品（不过现在荣耀已经分离了），感觉还挺好。</p><p>就是希望官方能够加强自定义功能和对于非华为手机，特别是苹果手机的适配。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这一款产品还是非常值得买的，当然，这里不建议苹果用户购买NFC版本，不然很多功能无法使用。</p><p>价格：标准版 249，NFC 289</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 观点 想法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数码测评 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>海上生明月，天涯共此时。</title>
+      <link href="2020/10/01/zh-CN/mid-autumn-2020/"/>
+      <url>2020/10/01/zh-CN/mid-autumn-2020/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>使用单反拍摄，Louis Aeilot 版权所有。镜头不够。。。。。。</p></blockquote><p><img data-src="https://i.loli.net/2020/10/01/ouLZczWMdQA3Crw.png" alt="Photo"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 摄影 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>我为什么重新拿出了 iPod</title>
+      <link href="2020/09/11/zh-CN/ipod-shuffle/"/>
+      <url>2020/09/11/zh-CN/ipod-shuffle/</url>
+      
+        <content type="html"><![CDATA[<p>我有一个 iPod Shuffle，已经吃灰多年了。。。最近重新拿出来用了。</p><a id="more"></a><h2 id="事情的起因"><a href="#事情的起因" class="headerlink" title="事情的起因"></a>事情的起因</h2><p>我订阅了 Apple Music，挺不错的，只是在 Phone，Mac 这些设备上，不管多么优美悦耳的音乐都成了使用设备的背景音乐。。。无法让人专心听完一首歌曲。我们似乎已经忘记之前没有这些东西时，沉静在一首歌曲中的感受了。</p><p>我拿出了这款 iPod Shuffle，有点掉色，却不影响使用。感谢，它让我找回了之前发现一首好歌、听完一首好歌的激动、欣喜与感动！闭上眼睛，静下心来，享受着属于你自己的余音绕梁的乐曲。</p><h2 id="音乐来源"><a href="#音乐来源" class="headerlink" title="音乐来源"></a>音乐来源</h2><p>有人要问了，你的乐曲从哪里来的？众所周知，现在所有的平台都有 DRM…</p><p>我购买了网易云音乐包，8元一个月，然后使用这个 <a href="http://ncm.worthsee.com">Doge</a>。</p><h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>实际上 iPod 还有一个好处，就是小巧 <del>方便带到学校去，好藏</del>。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 观点 想法 </category>
+          
+          <category> 数码 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Swift 中的 SharedPreferance —— UserDefaults</title>
+      <link href="2020/08/24/zh-CN/swift-userdefaults/"/>
+      <url>2020/08/24/zh-CN/swift-userdefaults/</url>
+      
+        <content type="html"><![CDATA[<p>从 Android 开发又最终回到 iOS 了，好多东西都不知道。最近一直有需求要用一个类似 Android 的 SharedPreferance 的东西。找了一下资料，来总结一下。</p><a id="more"></a><h2 id="它是什么"><a href="#它是什么" class="headerlink" title="它是什么"></a>它是什么</h2><blockquote><p>不会吧？不会还有人不知道 SharedPreferance 吧？？？</p></blockquote><p><code>SharedPreferance</code> 是一种轻量级的 Android 储存API, 用于储存<strong>简单</strong>的数据，数据多了就不如其他方式高效了。</p><p>iOS 中，起同样作用的东西，叫 <code>UserDefaults</code>。</p><p>这两者都以 <code>key-value</code> 的形式存储。</p><h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p><strong>简单数据</strong></p><p><strong>简单数据</strong></p><p><strong>简单数据</strong></p><p>复杂数据建议使用 <code>SQLite</code> 或者 <code>Core Data</code>，不建议作死。。。</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><p>直接上代码，里面注释我都写好了。</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> defaults <span class="operator">=</span> <span class="type">UserDefaults</span>.standard <span class="comment">// 获取全局的 UserDefaults</span></span><br><span class="line"></span><br><span class="line">defaults.set(<span class="type">Int</span>.max, forKey: <span class="string">&quot;int&quot;</span>) <span class="comment">// 存储</span></span><br><span class="line">defaults.integer(forKey: <span class="string">&quot;int&quot;</span>) <span class="comment">// 读取</span></span><br><span class="line"></span><br><span class="line">defaults.set(<span class="literal">true</span>, forKey: <span class="string">&quot;bool&quot;</span>)</span><br><span class="line">defaults.bool(forKey: <span class="string">&quot;bool&quot;</span>)</span><br><span class="line"></span><br><span class="line">defaults.set(<span class="type">Double</span>.infinity, forKey: <span class="string">&quot;double&quot;</span>)</span><br><span class="line">defaults.double(forKey: <span class="string">&quot;double&quot;</span>)</span><br><span class="line"></span><br><span class="line">defaults.set(<span class="type">Float</span>.infinity, forKey: <span class="string">&quot;float&quot;</span>)</span><br><span class="line">defaults.float(forKey: <span class="string">&quot;float&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h2><p><code>Float</code>, <code>Int</code>, <code>Double</code> 的默认值都是 0；<code>Bool</code> 的默认值是 false。</p><h2 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h2><p>大家可以多在 Playgrounds 里面试试，还可以看看 <a href="https://developer.apple.com/documentation/foundation/userdefaults">Apple Developer Documentation</a>。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Swift </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>凝视那一轮明月</title>
+      <link href="2020/08/23/zh-CN/stare-at-moon/"/>
+      <url>2020/08/23/zh-CN/stare-at-moon/</url>
+      
+        <content type="html"><![CDATA[<p>随便乱写的，，，要拿去参加一个小比赛。。。</p><h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><p>初夏，深夜，我却还在熬夜赶作业。</p><p>夜里，恍惚着，偶然向窗外望了望。多完美的一轮明月啊！</p><p>凝视这一轮明月，它明亮，照白了月边稀疏的云；它洁净，仿佛世间没有什么比它跟洁白如雪；它深邃，好像有不尽的秘密。周围繁星点点，如同月亮的伙伴，与她共欢笑。明朗的夜空，月亮和繁星点缀，让这个夜晚，显得十分安静祥和。</p><p>我不禁陷入无尽的想象。月儿啊！这孤独的夜，你有着星星的陪伴，与我不同！月儿啊！夜深人静时，你怎么还没入睡？是否和我一样，还在努力奋斗？月儿啊！一个个夜晚，你是否感觉有点烦闷？……</p><p>想着想着，我突然想到：身处闹市区，是如何见到这样的明月的？这夜空明朗的，让人惊奇，我从未见过。这夜空，不应该满是雾霾、尘埃吗？</p><p>我回想起，好多年前，那也是一个这样的的夜晚，我和朋友们在路口乘凉，可能才刚上小学。</p><p>抬眼望去，一片灰蒙蒙的天，几乎看不清什么月亮，更别提星星了。那时候，上海的明朗的夜晚并不是天天有。</p><p>“这月儿，今天晚上又躲起来了，看不清了。”一旁的嘉豪一边向天上凝视，一边说。但是，最终他还是未能知晓月儿的真面目。</p><p>“环境污染太严重了，那些工厂、车辆，人类生活影响到了环境。”我说着，仿佛看到了远处郊区的几座大工厂，烟还在不断上升到大气中。</p><p>嘉豪打了个哈欠。现在已经是夜深人静时，远处的卡车的声音，很清楚，又很微弱。老师讲过，有些卡车用的油不符合标准，排放出来很是污染环境。我们站在这路口，似乎还能闻到汽油发出的一种难闻的味道。</p><p>这路口，昏黄的路灯还在亮着，高楼大厦还在发着光。“书上说，大部分的电力还是来自不清洁能源。”喜爱读书的嘉豪说。一个晚上，这灯火通明的闹市区，不知要浪费多少电呢。</p><p>夜深了，我记不起后面说了什么，想了什么。</p><p>恍惚间，我又陷入了沉思。啊，我的月儿！你看起来有些孤独！没有星星的陪伴，你还好吗！啊，我的月儿！你听见这卡车的声音，问道汽油的味道了吗？啊，我的月儿！这样一个夜晚，你却躲了起来，是有什么秘密吗？<br>……<br>夜晚，有些凉，我被冻醒，已经凌晨二三点了吧。</p><p>我再次举头凝视天边的月亮。诶？月亮怎么又躲起来了？我望向桌上杂乱摆放的作业。诶？我的作业怎么已经写完了！原来，一切，是梦。作业写完后，我太累了，就在书桌上睡着了。</p><p>我的月亮，答应我，以后不要再躲起来了？我都能见到你和星星，在无数个静寂而孤独的夜！答应我，让我梦想成真，好吗？</p><p>将来，我再次凝视那一轮明月……</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 散文 诗歌 文学 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 散文 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>用 GitHub Actions 部署 Hexo 博客</title>
+      <link href="2020/08/22/zh-CN/github-actions/"/>
+      <url>2020/08/22/zh-CN/github-actions/</url>
+      
+        <content type="html"><![CDATA[<p>最近有一个朋友找我，说她弄了一个 Hexo 博客，想做 GitHub Actions 自动部署，奈何不会弄，只好让我帮忙。</p><a id="more"></a><h2 id="GitHub-Actions"><a href="#GitHub-Actions" class="headerlink" title="GitHub Actions"></a>GitHub Actions</h2><p><a href="https://docs.github.com/en/actions">GitHub Actions</a> 是 GitHub 推出的持续集成服务，最近不要钱了，用(白嫖)的人就多起来了。</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>话不多说，直接上代码：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">&quot;Hexo Blog Builder&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span> [<span class="string">push</span>, <span class="string">pull_request</span>]</span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">&quot;Hexo Blog Build&quot;</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">fetch-depth:</span> <span class="number">1</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/setup-node@v1</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">&#x27;12&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">Hexo</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">npm</span> <span class="string">install</span> <span class="string">-g</span> <span class="string">hexo</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">Dependencies</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">npm</span> <span class="string">install</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Clean</span> <span class="string">Previous</span> <span class="string">Build</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">rm</span> <span class="string">-rf</span> <span class="string">docs</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Hexo</span> <span class="string">Clean</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">hexo</span> <span class="string">clean</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Generate</span> <span class="string">New</span> <span class="string">Build</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">hexo</span> <span class="string">generate</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Move</span> <span class="string">docs/</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">mv</span> <span class="string">public</span> <span class="string">docs</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Publish</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line">          <span class="string">mkdir</span> <span class="string">-p</span> <span class="string">~/.ssh/</span></span><br><span class="line">          <span class="string">echo</span> <span class="string">&quot;$<span class="template-variable">&#123;&#123; secrets.KEY &#125;&#125;</span>&quot;</span> <span class="string">&gt;</span> <span class="string">~/.ssh/id_rsa.pub</span></span><br><span class="line">          <span class="string">chmod</span> <span class="number">600</span> <span class="string">~/.ssh/id_rsa.pub</span></span><br><span class="line">          <span class="string">ssh-keyscan</span> <span class="string">github.com</span> <span class="string">&gt;&gt;</span> <span class="string">~/.ssh/known_hosts</span></span><br><span class="line">          <span class="string">git</span> <span class="string">config</span> <span class="string">--global</span> <span class="string">user.name</span> <span class="string">&quot;Hexo Deploy Bot&quot;</span></span><br><span class="line">          <span class="string">git</span> <span class="string">config</span> <span class="string">--global</span> <span class="string">user.email</span> <span class="string">&quot;nobody@nobody.nobody&quot;</span></span><br><span class="line">          <span class="string">git</span> <span class="string">config</span> <span class="string">--global</span> <span class="string">core.quotepath</span> <span class="literal">false</span></span><br><span class="line">          <span class="string">git</span> <span class="string">add</span> <span class="string">--all</span></span><br><span class="line">          <span class="string">git</span> <span class="string">commit</span> <span class="string">-m</span> <span class="string">&quot;Hexo Blog Build&quot;</span></span><br><span class="line">          <span class="string">git</span> <span class="string">push</span> <span class="string">origin</span> <span class="string">master</span></span><br></pre></td></tr></table></figure><p>本 Action 需要你的 ssh 公钥，也就是 <code>id_rsa.pub</code> 存在项目设置中的 Secrets 内。</p><h2 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><p>具体实现很简单，用 Hexo 自带生成器生成到 <code>public</code> 目录，把 <code>public</code> 目录改名为 <code>docs</code>。最后 <code>push</code> 到项目里。</p><p><code>push</code> 使用 SSH Key，实现免密码。</p><p>在 GitHub Pages 设置中，需要把 Source 改为 docs 目录。</p><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>如果大家有什么改进的好方法，可以在下方评论！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> GitHub </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>迟来的日志 - WWDC 2020 奖学金</title>
+      <link href="2020/08/19/zh-CN/wwdc2020/"/>
+      <url>2020/08/19/zh-CN/wwdc2020/</url>
+      
+        <content type="html"><![CDATA[<p>今年 6 月份，因为疫情的影响，WWDC改为线上，之前的奖学金重命名为 <a href="https://developer.apple.com/wwdc20/swift-student-challenge/">Swift Student Challenge</a>。</p><p>我老早就有参加这一活动的打算，只是一直没能实现，也没有达到要求。今年大胆尝试了一会，虽然成绩不理想，但还是收获了许多。</p><p>我今年的项目在 <a href="https://github.com/aeilot/WWDC2020">aeilot/WWDC2020</a>。</p><a id="more"></a><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>今年我的项目使用了 SwiftUI 和 SpriteKit。我做了一个 2D 的跑酷类游戏，内容是关于 COVID19 的。</p><p>整体开发下来，多亏了 Apple Document，里面的文档很详细，还有示例，👍。</p><p><img data-src="https://i.loli.net/2020/08/20/BXzAlu5jIvNg76O.png" alt="Apple Document"></p><p>当然开发中遇到的几个问题，我也是在 Apple Developer Forums 和 Stack Overflow 解决的。具体链接就不写了，社区很活跃，10分钟就有人回答了。</p><p>只是开发太赶，只有不到一个星期，决定参加都花了几天，🤦‍♀️。。。所以最后成果像一个半成品。。。</p><h2 id="Future"><a href="#Future" class="headerlink" title="Future"></a>Future</h2><p>关于明年的 WWDC，我想我是一定会去参加的！最好早点准备，加油！等着我的好消息！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+          <category> 观点 想法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Swift </tag>
+            
+            <tag> WWDC </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vcpkg - 方便的 C/C++ 库管理器</title>
+      <link href="2020/08/13/zh-CN/vcpkg/"/>
+      <url>2020/08/13/zh-CN/vcpkg/</url>
+      
+        <content type="html"><![CDATA[<p>最近在做一个大型的 C++ 项目 ── <a href="https://github.com/louis-studio/Albumist">Albumist</a>。它使用 Qt，需要用到很多类似 <code>sqlite3</code>、<code>exiv2</code>、<code>libcurl</code> 之类的库。第三方库管理似乎成了问题。</p><p>支持 git 的都可以使用　<code>git submodule</code> 来管理，但是还有少部分是不支持的，或者是二进制的，比如 <code>sqlite3</code>。这就要我们手动去下载，手动去更新，好生麻烦。</p><a id="more"></a><h2 id="vcpkg"><a href="#vcpkg" class="headerlink" title="vcpkg"></a>vcpkg</h2><p>我一直想要一个类似 <code>npm</code> <code>pip</code> 一样的东西，把依赖写在文件里面，然后直接 <code>install</code> 即可。</p><p>经过搜索，我发现了微软的一个项目 <a href="https://github.com/microsoft/vcpkg/">vcpkg</a>。官方定义它为 “C++ Library Manager for Windows, Linux, and MacOS”，简单翻译一下就是 “支持 Windows, Linux 和 macOS 的 C++ 库管理器”。</p><p>在 Arch Linux 上面，安装它并不复杂，只需要：<code>sudo pacman -S vcpkg-git</code> 即可。其他系统没有尝试过，跟着它的 README 也很方便安装。</p><h2 id="“清单”-功能"><a href="#“清单”-功能" class="headerlink" title="“清单” 功能"></a>“清单” 功能</h2><p>在项目根目录创建一个 <code>vcpkg.json</code>， 然后 <code>vcpkg install</code>。这一功能就是“清单”功能。它正好是我想要的，可是却暂时处在 Beta 阶段，不过也无关紧要。</p><p>要启用“清单”功能，在执行命令时，需要接参数 <code>--feature-flags = manifests</code>。</p><p>清单大概长这样：</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;&lt;name of your project&gt;&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;version-string&quot;</span>: <span class="string">&quot;&lt;version of your project&gt;&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;abseil&quot;</span>,</span><br><span class="line">    <span class="string">&quot;boost&quot;</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>很方便，也很快捷。</p><h2 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h2><p>比起这样一个纯粹的管理器，我更希望获得类似 Java 的 Gradle 的体验。如果 CMake 能加入类似功能，体验一定能够翻倍，快捷方便且无需第三方软件。</p><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>—- 2020 08 15 更新</p><p>又停止使用这个东西了，Windows 上面需要 MSVC。。。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C </tag>
+            
+            <tag> C++ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vimrc 配置指南</title>
+      <link href="2020/07/26/zh-CN/vimrc/"/>
+      <url>2020/07/26/zh-CN/vimrc/</url>
+      
+        <content type="html"><![CDATA[<p><img data-src="https://www.vim.org/images/vim_header.gif" alt="Vim"></p><p>Vim 即 Vi Improved，它的前身是 Vi。它是一个十分强大的编辑器，优点如下：</p><ul><li>不需要鼠标，纯键盘</li><li>Linux 系统预装</li><li>键盘命令肌肉记忆之后，效率非常高</li></ul><p>但是，它的配置许许多多，让人难以记住。我正好要在新电脑上配置它，故写此文。<br><a id="more"></a></p><h3 id="为什么不用别人现成的？"><a href="#为什么不用别人现成的？" class="headerlink" title="为什么不用别人现成的？"></a>为什么不用别人现成的？</h3><ol><li>自己的配置更顺手，自己更熟悉。</li><li>了解 Vim Script，可以自己造插件</li><li>etc.</li></ol><h2 id="不会-Vim-怎么办"><a href="#不会-Vim-怎么办" class="headerlink" title="不会 Vim 怎么办"></a>不会 Vim 怎么办</h2><p>啊这…… :smile::+1:</p><p>你可以试着在命令行输入 <code>vimtutor</code>。</p><h2 id="vimrc-的位置"><a href="#vimrc-的位置" class="headerlink" title="vimrc 的位置"></a>vimrc 的位置</h2><p>本篇文章以新安装的 vim 为例。Vim 的配置文件叫做 <code>vimrc</code>。在 Mac、Linux 等系统上，位于 <code>~/.vimrc</code>。在 Windows 系统中，它叫做 <code>_vimrc</code>，但是同样位于 Home 目录中。</p><p>全局的配置，在 Mac、Linux 等系统上，位于 <code>/etc/vimrc</code>。在 Windows 系统上，它储存在 Vim 安装目录，同样叫做 <code>vimrc</code>。</p><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>一个什么也没有配置的 Vim，打开可能是这样的:  </p><p><img data-src="https://i.loli.net/2020/07/25/VSRZMUnjOfDzq8b.png" alt="image.png"></p><p>下面各配置，你可以添加自己想要的。以下所有配置都可以在命令模式输入，临时启用或关闭。</p><h3 id="基本"><a href="#基本" class="headerlink" title="基本"></a>基本</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> nocompatible <span class="comment">&quot; 不使用 Vi 兼容模式</span></span><br><span class="line"><span class="keyword">filetype</span> plugin <span class="keyword">on</span>  <span class="comment">&quot; 检测文件类型，加载插件</span></span><br><span class="line"><span class="keyword">syntax</span> <span class="keyword">on</span> <span class="comment">&quot; 开启语法高亮</span></span><br><span class="line"><span class="keyword">set</span> showmode <span class="comment">&quot; 显示当前模式</span></span><br><span class="line"><span class="keyword">set</span> showcmd <span class="comment">&quot; 在底部显示命令</span></span><br><span class="line"><span class="keyword">set</span> mouse=<span class="keyword">a</span> <span class="comment">&quot; 启用鼠标，不建议开启</span></span><br><span class="line"><span class="keyword">set</span> encoding=utf-<span class="number">8</span>  </span><br><span class="line"><span class="keyword">set</span> t_Co=<span class="number">256</span></span><br><span class="line"><span class="keyword">filetype</span> <span class="built_in">indent</span> <span class="keyword">on</span> <span class="comment">&quot; 根据文件类型，不同缩进</span></span><br></pre></td></tr></table></figure><h3 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> autoindent <span class="comment">&quot; 自动缩进</span></span><br><span class="line"><span class="keyword">set</span> tabstop=<span class="number">4</span> <span class="comment">&quot; tab占4个空格</span></span><br><span class="line"><span class="keyword">set</span> <span class="built_in">shiftwidth</span>=<span class="number">4</span> <span class="comment">&quot; 在文本上按下&gt;&gt;（增加一级缩进）、&lt;&lt;（取消一级缩进）或者==（取消全部缩进）时，每一级的空格数。</span></span><br><span class="line"><span class="keyword">set</span> expandtab <span class="comment">&quot; tab自动转为空格</span></span><br><span class="line"><span class="keyword">set</span> softtabstop=<span class="number">2</span> <span class="comment">&quot; tab转为多少空格</span></span><br></pre></td></tr></table></figure><h3 id="界面"><a href="#界面" class="headerlink" title="界面"></a>界面</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">number</span> <span class="comment">&quot; 显示行号</span></span><br><span class="line"><span class="keyword">set</span> relativenumber <span class="comment">&quot; 显示光标所在行当前行号，其他都显示为相对于当前行的行号</span></span><br><span class="line"><span class="keyword">set</span> cursorline <span class="comment">&quot; 当前行高亮</span></span><br><span class="line"><span class="keyword">colorscheme</span> default <span class="comment">&quot; 设置颜色主题为 default，颜色主题储存在 Home 目录的 .vim/colors 文件夹，Windows 下叫做 vimfiles/colors</span></span><br><span class="line"><span class="keyword">set</span> wrap <span class="comment">&quot; 设置多于行宽的文本自动分拆为多行显示，反之: set nowrap</span></span><br><span class="line"><span class="keyword">set</span> linebreak <span class="comment">&quot; 遇到特殊的符号才折行</span></span><br><span class="line"><span class="keyword">set</span> laststatus=<span class="number">2</span> <span class="comment">&quot; 是否显示状态栏。0 不显示，1 只在多窗口时显示，2 显示。</span></span><br><span class="line"><span class="keyword">set</span> ruler <span class="comment">&quot; 状态栏显示光标位置</span></span><br><span class="line"><span class="keyword">set</span> showmatch <span class="comment">&quot; 高亮括号</span></span><br></pre></td></tr></table></figure><h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> hlsearch <span class="comment">&quot; 高亮搜索结果</span></span><br><span class="line"><span class="keyword">set</span> incsearch <span class="comment">&quot; 搜索输入时，即时跳转</span></span><br><span class="line"><span class="keyword">set</span> ignorecase <span class="comment">&quot; 忽略大小写</span></span><br></pre></td></tr></table></figure><h3 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h3><p>Vim 配置不止这些，我只介绍了一些常用的。Vim Script 值得学习，学完了还可以自己开发插件。</p><h2 id="题外话-插件"><a href="#题外话-插件" class="headerlink" title="题外话 - 插件"></a>题外话 - 插件</h2><p>插件管理，Vim 虽然新增了自带的，但我还是很推荐 <a href="https://github.com/junegunn/vim-plug">Vim-Plug</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件 配置 生产力 </category>
+          
+          <category> 编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> 编辑器 </tag>
+            
+            <tag> Vim </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>NextCloud - DIY NAS 解决方案</title>
+      <link href="2020/07/23/zh-CN/nextcloud/"/>
+      <url>2020/07/23/zh-CN/nextcloud/</url>
+      
+        <content type="html"><![CDATA[<p><img data-src="https://avatars0.githubusercontent.com/u/19211038?s=200&amp;v=4" alt="LOGO"></p><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我之前给家中的服务器做了一个 WebDAV 功能，带有不堪入目的 UI 和难以使用的功能。而且配置起来并不简单。一直想要改进，但是却一直没时间。最近有空了，便开始寻找替代品。</p><p>查了几下 GitHub，找到了一个标星 10k+ 的项目 —— <a href="https://github.com/nextcloud/">NextCloud</a>。了解了一下，NextCloud 是一个拥有 <strong>全平台客户端</strong>，支持 <strong>WebDAV</strong>，而且 <strong>插件化</strong>，可以 <strong>多用户</strong> 使用的私有云存储网盘项目。不仅如此，它还支持共享、版本控制、团队协作等功能。插件化让它拥有了类似 Markdown 在线编辑，Draw-io 在线编辑，显示 RAW 文件的功能。</p><p>而且，我发现它支持 Docker，这无疑简化了我们配置的步骤。</p><p>那么，我们开始吧！</p><a id="more"></a><h2 id="Docker-配置"><a href="#Docker-配置" class="headerlink" title="Docker 配置"></a>Docker 配置</h2><p>Docker 安装很简单，为了安装快速，你可以参考清华大学开源镜像站给出的 <a href="https://mirrors.tuna.tsinghua.edu.cn/help/docker-ce/">文档</a>。如果你已经安装了 Docker, 那么可以忽略这一步。</p><p>更换镜像也是让你更快体验的必不可少的一步，修改 <code>/etc/docker/daemon.json</code> 文件</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;registry-mirrors&quot;</span> : [</span><br><span class="line">    <span class="string">&quot;http://registry.docker-cn.com&quot;</span>,</span><br><span class="line">    <span class="string">&quot;http://docker.mirrors.ustc.edu.cn&quot;</span>,</span><br><span class="line">    <span class="string">&quot;http://hub-mirror.c.163.com&quot;</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">&quot;insecure-registries&quot;</span> : [</span><br><span class="line">    <span class="string">&quot;registry.docker-cn.com&quot;</span>,</span><br><span class="line">    <span class="string">&quot;docker.mirrors.ustc.edu.cn&quot;</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="安装-NextCloud"><a href="#安装-NextCloud" class="headerlink" title="安装 NextCloud"></a>安装 NextCloud</h2><p>运行如下命令即可：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -d \</span><br><span class="line">        --name nextcloud \</span><br><span class="line">        -p 8000:80 \</span><br><span class="line">        -v &lt;数据储存位置&gt;:/var/www/html \</span><br><span class="line">        nextcloud</span><br></pre></td></tr></table></figure><p>如果遇到如下问题：</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?</span><br></pre></td></tr></table></figure><p>可以运行：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart docker.service</span><br></pre></td></tr></table></figure><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>配置这一部分很简单，不用解释了。</p><p>选择数据库时，使用量小可以选择 SQLite，但是并不推荐。</p><h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>NextCloud 还是非常稳定的，基本配置完之后不会遇到什么问题。而且原生支持中文，只需要在设置中设置一下就可以了。</p><p>我主要用它储存我的照片，摄影还有一些不需要经常查看的文件。由于自己服务器性能不错，用起来很流畅，完全没必要买现成的，硬盘不够再买一个即可。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件 配置 生产力 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> Docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World!</title>
+      <link href="2020/07/22/en/helloworld-en/"/>
+      <url>2020/07/22/en/helloworld-en/</url>
+      
+        <content type="html"><![CDATA[<p>Hello! I am Louis Aeilot from China. This blog you are viewing now is mainly for sharing what I learnt or recording what I experienced.\</p><a id="more"></a><p>If you did not know about me but open the site by accident or whatever, check my introduction <a href="https://github.com/aeilot">here</a>.</p><p>Hopefully you will like my articles!</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Misc </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>sudo shutdown -r now</title>
+      <link href="2020/07/22/zh-CN/helloworld/"/>
+      <url>2020/07/22/zh-CN/helloworld/</url>
+      
+        <content type="html"><![CDATA[<p>你可能会惊奇地发现博客上面以前的文章全不见了。<strong>最近我对我博客进行了一次大清扫</strong>。</p><a id="more"></a><p><strong>tl;dr</strong></p><p>前几天，我突然发现自己的博客上面全是水文（以前就知道，懒得弄），心里总觉得过不去。所以，我下定决心，准备重新来过。这种感觉很好，当<code>_posts</code>目录空无一物时，我的心也释然了。</p><p>之前我所有的文章，要么是抄袭的，要么是很水的那种。<strong>在这里，我承诺，以后不再会有这种不可饶恕的情况发生了</strong>。这样做我自己心里也总是想着缺点什么。幸幸苦苦修改的自定义hexo主题（没错，我把 <a href="https://github.com/probberechts/hexo-theme-cactus">hexo-theme-cactus</a> 修改了很多，支持了 RSS，还弄了些 UI 改进，配置了 Valine.js，etc.），结果呢？上面全是水文！？这……</p><p>那么之前的文章都去哪里了呢？我并没有删除，而是把它们放置在了 <code>Draft</code> 目录下面，当然，你们看不到。<strong>手动狗头</strong></p><p>让我们重新认识对方，运行一次<code>sudo shutdown -r now</code>！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 杂文 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
