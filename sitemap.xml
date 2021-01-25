@@ -172,6 +172,20 @@
   </url>
   
   <url>
+    <loc>https://aeilot.github.io/tags/C/</loc>
+    <lastmod>2021-01-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://aeilot.github.io/tags/C/</loc>
+    <lastmod>2021-01-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://aeilot.github.io/tags/Swift/</loc>
     <lastmod>2021-01-25</lastmod>
     <changefreq>daily</changefreq>
@@ -179,14 +193,7 @@
   </url>
   
   <url>
-    <loc>https://aeilot.github.io/tags/C/</loc>
-    <lastmod>2021-01-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://aeilot.github.io/tags/C/</loc>
+    <loc>https://aeilot.github.io/tags/WWDC/</loc>
     <lastmod>2021-01-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -206,24 +213,17 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>https://aeilot.github.io/tags/WWDC/</loc>
-    <lastmod>2021-01-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   
   <url>
-    <loc>https://aeilot.github.io/categories/%E7%BC%96%E7%A8%8B/</loc>
+    <loc>https://aeilot.github.io/categories/%E6%9D%82%E6%96%87/</loc>
     <lastmod>2021-01-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://aeilot.github.io/categories/%E6%9D%82%E6%96%87/</loc>
+    <loc>https://aeilot.github.io/categories/%E7%BC%96%E7%A8%8B/</loc>
     <lastmod>2021-01-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
