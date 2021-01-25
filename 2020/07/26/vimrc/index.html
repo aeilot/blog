@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.3.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="../../../../../images/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../../../../../images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../../../../images/favicon-16x16.png">
-  <link rel="mask-icon" href="../../../../../images/safari-pinned-tab.svg" color="#222">
-  <link rel="manifest" href="../../../../../images/site.webmanifest">
-  <meta name="msapplication-config" content="../../../../../images/browserconfig.xml">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../../../images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../../../images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../../../images/favicon-16x16.png">
+  <link rel="mask-icon" href="../../../../images/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="../../../../images/site.webmanifest">
+  <meta name="msapplication-config" content="../../../../images/browserconfig.xml">
 
-<link rel="stylesheet" href="../../../../../css/main.css">
+<link rel="stylesheet" href="../../../../css/main.css">
 
 
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
@@ -25,29 +25,25 @@
     var CONFIG = {"hostname":"aeilot.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":true,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="使用单反拍摄，Louis Aeilot 版权所有。镜头不够。。。。。。">
+  <meta name="description" content="Vim 即 Vi Improved，它的前身是 Vi。它是一个十分强大的编辑器，优点如下：  不需要鼠标，纯键盘 Linux 系统预装 键盘命令肌肉记忆之后，效率非常高  但是，它的配置许许多多，让人难以记住。我正好要在新电脑上配置它，故写此文。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="海上生明月，天涯共此时。">
-<meta property="og:url" content="https://aeilot.github.io/2020/10/01/zh-CN/mid-autumn-2020/index.html">
+<meta property="og:title" content="vimrc 配置指南">
+<meta property="og:url" content="https://aeilot.github.io/2020/07/26/vimrc/index.html">
 <meta property="og:site_name" content="Louis Aeilot 的博客">
-<meta property="og:description" content="使用单反拍摄，Louis Aeilot 版权所有。镜头不够。。。。。。">
+<meta property="og:description" content="Vim 即 Vi Improved，它的前身是 Vi。它是一个十分强大的编辑器，优点如下：  不需要鼠标，纯键盘 Linux 系统预装 键盘命令肌肉记忆之后，效率非常高  但是，它的配置许许多多，让人难以记住。我正好要在新电脑上配置它，故写此文。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.loli.net/2020/10/01/ouLZczWMdQA3Crw.png">
-<meta property="article:published_time" content="2020-10-01T03:45:09.000Z">
-<meta property="article:modified_time" content="2021-01-24T11:14:18.114Z">
+<meta property="og:image" content="https://www.vim.org/images/vim_header.gif">
+<meta property="og:image" content="https://i.loli.net/2020/07/25/VSRZMUnjOfDzq8b.png">
+<meta property="article:published_time" content="2020-07-25T23:01:09.000Z">
+<meta property="article:modified_time" content="2021-01-24T11:14:08.607Z">
 <meta property="article:author" content="Louis Aeilot">
-<meta property="article:tag" content="编程">
-<meta property="article:tag" content="技术">
-<meta property="article:tag" content="艺术">
-<meta property="article:tag" content="OI">
-<meta property="article:tag" content="Louis Aeilot">
-<meta property="article:tag" content="文学">
-<meta property="article:tag" content="摄影">
-<meta property="article:tag" content="科技">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="编辑器">
+<meta property="article:tag" content="Vim">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2020/10/01/ouLZczWMdQA3Crw.png">
+<meta name="twitter:image" content="https://www.vim.org/images/vim_header.gif">
 
-<link rel="canonical" href="https://aeilot.github.io/2020/10/01/zh-CN/mid-autumn-2020/">
+<link rel="canonical" href="https://aeilot.github.io/2020/07/26/vimrc/">
 
 
 <script id="page-configurations">
@@ -60,7 +56,7 @@
   };
 </script>
 
-  <title>海上生明月，天涯共此时。 | Louis Aeilot 的博客</title>
+  <title>vimrc 配置指南 | Louis Aeilot 的博客</title>
   
     <script>
       function sendPageView() {
@@ -147,27 +143,27 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="../../../../../index.html" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+    <a href="../../../../index.html" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="../../../../../about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+    <a href="../../../../about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="../../../../../tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+    <a href="../../../../tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="../../../../../categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+    <a href="../../../../categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="../../../../../archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="../../../../archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -214,7 +210,7 @@
   <div class="reading-progress-bar"></div>
   <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
-  <a href="../../../../../https:/github.com/aeilot" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+  <a href="../../../../https:/github.com/aeilot" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
 
     <main class="main">
@@ -229,10 +225,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aeilot.github.io/2020/10/01/zh-CN/mid-autumn-2020/">
+    <link itemprop="mainEntityOfPage" href="https://aeilot.github.io/2020/07/26/vimrc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="../../../../../images/gravatar.jpeg">
+      <meta itemprop="image" content="../../../../images/gravatar.jpeg">
       <meta itemprop="name" content="Louis Aeilot">
       <meta itemprop="description" content="Stay Hungry. Stay Foolish.">
     </span>
@@ -242,7 +238,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          海上生明月，天涯共此时。
+          vimrc 配置指南
         </h1>
 
         <div class="post-meta">
@@ -252,14 +248,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-10-01 11:45:09" itemprop="dateCreated datePublished" datetime="2020-10-01T11:45:09+08:00">2020-10-01</time>
+              <time title="创建时间：2020-07-26 07:01:09" itemprop="dateCreated datePublished" datetime="2020-07-26T07:01:09+08:00">2020-07-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-24 19:14:18" itemprop="dateModified" datetime="2021-01-24T19:14:18+08:00">2021-01-24</time>
+                <time title="修改时间：2021-01-24 19:14:08" itemprop="dateModified" datetime="2021-01-24T19:14:08+08:00">2021-01-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -267,12 +263,16 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="../../../../../categories/%E6%91%84%E5%BD%B1/" itemprop="url" rel="index"><span itemprop="name">摄影</span></a>
+                  <a href="../../../../categories/%E8%BD%AF%E4%BB%B6-%E9%85%8D%E7%BD%AE-%E7%94%9F%E4%BA%A7%E5%8A%9B/" itemprop="url" rel="index"><span itemprop="name">软件 配置 生产力</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../../../categories/%E8%BD%AF%E4%BB%B6-%E9%85%8D%E7%BD%AE-%E7%94%9F%E4%BA%A7%E5%8A%9B/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
                 </span>
             </span>
 
           
-            <span id="" class="post-meta-item leancloud_visitors" data-flag-title="海上生明月，天涯共此时。" title="阅读次数">
+            <span id="" class="post-meta-item leancloud_visitors" data-flag-title="vimrc 配置指南" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -310,10 +310,32 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <blockquote>
-<p>使用单反拍摄，Louis Aeilot 版权所有。镜头不够。。。。。。</p>
-</blockquote>
-<p><img data-src="https://i.loli.net/2020/10/01/ouLZczWMdQA3Crw.png" alt="Photo"></p>
+        <p><img data-src="https://www.vim.org/images/vim_header.gif" alt="Vim"></p>
+<p>Vim 即 Vi Improved，它的前身是 Vi。它是一个十分强大的编辑器，优点如下：</p>
+<ul>
+<li>不需要鼠标，纯键盘</li>
+<li>Linux 系统预装</li>
+<li>键盘命令肌肉记忆之后，效率非常高</li>
+</ul>
+<p>但是，它的配置许许多多，让人难以记住。我正好要在新电脑上配置它，故写此文。<br><a id="more"></a></p>
+<h3 id="为什么不用别人现成的？"><a href="#为什么不用别人现成的？" class="headerlink" title="为什么不用别人现成的？"></a>为什么不用别人现成的？</h3><ol>
+<li>自己的配置更顺手，自己更熟悉。</li>
+<li>了解 Vim Script，可以自己造插件</li>
+<li>etc.</li>
+</ol>
+<h2 id="不会-Vim-怎么办"><a href="#不会-Vim-怎么办" class="headerlink" title="不会 Vim 怎么办"></a>不会 Vim 怎么办</h2><p>啊这…… :smile::+1:</p>
+<p>你可以试着在命令行输入 <code>vimtutor</code>。</p>
+<h2 id="vimrc-的位置"><a href="#vimrc-的位置" class="headerlink" title="vimrc 的位置"></a>vimrc 的位置</h2><p>本篇文章以新安装的 vim 为例。Vim 的配置文件叫做 <code>vimrc</code>。在 Mac、Linux 等系统上，位于 <code>~/.vimrc</code>。在 Windows 系统中，它叫做 <code>_vimrc</code>，但是同样位于 Home 目录中。</p>
+<p>全局的配置，在 Mac、Linux 等系统上，位于 <code>/etc/vimrc</code>。在 Windows 系统上，它储存在 Vim 安装目录，同样叫做 <code>vimrc</code>。</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>一个什么也没有配置的 Vim，打开可能是这样的:  </p>
+<p><img data-src="https://i.loli.net/2020/07/25/VSRZMUnjOfDzq8b.png" alt="image.png"></p>
+<p>下面各配置，你可以添加自己想要的。以下所有配置都可以在命令模式输入，临时启用或关闭。</p>
+<h3 id="基本"><a href="#基本" class="headerlink" title="基本"></a>基本</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> nocompatible <span class="comment">&quot; 不使用 Vi 兼容模式</span></span><br><span class="line"><span class="keyword">filetype</span> plugin <span class="keyword">on</span>  <span class="comment">&quot; 检测文件类型，加载插件</span></span><br><span class="line"><span class="keyword">syntax</span> <span class="keyword">on</span> <span class="comment">&quot; 开启语法高亮</span></span><br><span class="line"><span class="keyword">set</span> showmode <span class="comment">&quot; 显示当前模式</span></span><br><span class="line"><span class="keyword">set</span> showcmd <span class="comment">&quot; 在底部显示命令</span></span><br><span class="line"><span class="keyword">set</span> mouse=<span class="keyword">a</span> <span class="comment">&quot; 启用鼠标，不建议开启</span></span><br><span class="line"><span class="keyword">set</span> encoding=utf-<span class="number">8</span>  </span><br><span class="line"><span class="keyword">set</span> t_Co=<span class="number">256</span></span><br><span class="line"><span class="keyword">filetype</span> <span class="built_in">indent</span> <span class="keyword">on</span> <span class="comment">&quot; 根据文件类型，不同缩进</span></span><br></pre></td></tr></table></figure>
+<h3 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> autoindent <span class="comment">&quot; 自动缩进</span></span><br><span class="line"><span class="keyword">set</span> tabstop=<span class="number">4</span> <span class="comment">&quot; tab占4个空格</span></span><br><span class="line"><span class="keyword">set</span> <span class="built_in">shiftwidth</span>=<span class="number">4</span> <span class="comment">&quot; 在文本上按下&gt;&gt;（增加一级缩进）、&lt;&lt;（取消一级缩进）或者==（取消全部缩进）时，每一级的空格数。</span></span><br><span class="line"><span class="keyword">set</span> expandtab <span class="comment">&quot; tab自动转为空格</span></span><br><span class="line"><span class="keyword">set</span> softtabstop=<span class="number">2</span> <span class="comment">&quot; tab转为多少空格</span></span><br></pre></td></tr></table></figure>
+<h3 id="界面"><a href="#界面" class="headerlink" title="界面"></a>界面</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">number</span> <span class="comment">&quot; 显示行号</span></span><br><span class="line"><span class="keyword">set</span> relativenumber <span class="comment">&quot; 显示光标所在行当前行号，其他都显示为相对于当前行的行号</span></span><br><span class="line"><span class="keyword">set</span> cursorline <span class="comment">&quot; 当前行高亮</span></span><br><span class="line"><span class="keyword">colorscheme</span> default <span class="comment">&quot; 设置颜色主题为 default，颜色主题储存在 Home 目录的 .vim/colors 文件夹，Windows 下叫做 vimfiles/colors</span></span><br><span class="line"><span class="keyword">set</span> wrap <span class="comment">&quot; 设置多于行宽的文本自动分拆为多行显示，反之: set nowrap</span></span><br><span class="line"><span class="keyword">set</span> linebreak <span class="comment">&quot; 遇到特殊的符号才折行</span></span><br><span class="line"><span class="keyword">set</span> laststatus=<span class="number">2</span> <span class="comment">&quot; 是否显示状态栏。0 不显示，1 只在多窗口时显示，2 显示。</span></span><br><span class="line"><span class="keyword">set</span> ruler <span class="comment">&quot; 状态栏显示光标位置</span></span><br><span class="line"><span class="keyword">set</span> showmatch <span class="comment">&quot; 高亮括号</span></span><br></pre></td></tr></table></figure>
+<h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> hlsearch <span class="comment">&quot; 高亮搜索结果</span></span><br><span class="line"><span class="keyword">set</span> incsearch <span class="comment">&quot; 搜索输入时，即时跳转</span></span><br><span class="line"><span class="keyword">set</span> ignorecase <span class="comment">&quot; 忽略大小写</span></span><br></pre></td></tr></table></figure>
+<h3 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h3><p>Vim 配置不止这些，我只介绍了一些常用的。Vim Script 值得学习，学完了还可以自己开发插件。</p>
+<h2 id="题外话-插件"><a href="#题外话-插件" class="headerlink" title="题外话 - 插件"></a>题外话 - 插件</h2><p>插件管理，Vim 虽然新增了自带的，但我还是很推荐 <a target="_blank" rel="noopener" href="https://github.com/junegunn/vim-plug">Vim-Plug</a></p>
 
     </div>
 
@@ -321,6 +343,12 @@
     
     
       
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2020/07/23/nextcloud/" rel="bookmark">NextCloud - DIY NAS 解决方案</a></div>
+    </li>
+  </ul>
 
         <div class="reward-container">
   <div></div>
@@ -330,12 +358,12 @@
   <div id="qr" style="display: none;">
       
       <div style="display: inline-block;">
-        <img src="../../../../../images/wechatpay.jpg" alt="Louis Aeilot 微信支付">
+        <img src="../../../../images/wechatpay.jpg" alt="Louis Aeilot 微信支付">
         <p>微信支付</p>
       </div>
       
       <div style="display: inline-block;">
-        <img src="../../../../../images/alipay.jpg" alt="Louis Aeilot 支付宝">
+        <img src="../../../../images/alipay.jpg" alt="Louis Aeilot 支付宝">
         <p>支付宝</p>
       </div>
 
@@ -351,10 +379,10 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="../../../../../https:/aeilot.github.io/2020/10/01/zh-CN/mid-autumn-2020/" title="海上生明月，天涯共此时。">https://aeilot.github.io/2020/10/01/zh-CN/mid-autumn-2020/</a>
+    <a href="../../../../https:/aeilot.github.io/2020/07/26/vimrc/" title="vimrc 配置指南">https://aeilot.github.io/2020/07/26/vimrc/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="../../../../../https:/creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="../../../../https:/creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
   </li>
 </ul>
 </div>
@@ -400,6 +428,11 @@
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="../../../../tags/Linux/" rel="tag"># Linux</a>
+              <a href="../../../../tags/%E7%BC%96%E8%BE%91%E5%99%A8/" rel="tag"># 编辑器</a>
+              <a href="../../../../tags/Vim/" rel="tag"># Vim</a>
+          </div>
 
         
 
@@ -407,12 +440,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="../../../../09/11/zh-CN/ipod-shuffle/" rel="prev" title="我为什么重新拿出了 iPod">
-      <i class="fa fa-chevron-left"></i> 我为什么重新拿出了 iPod
+    <a href="../../23/nextcloud/" rel="prev" title="NextCloud - DIY NAS 解决方案">
+      <i class="fa fa-chevron-left"></i> NextCloud - DIY NAS 解决方案
     </a></div>
       <div class="post-nav-item">
-    <a href="../../../../12/25/zh-CN/honor-band6/" rel="next" title="简评荣耀手环6">
-      简评荣耀手环6 <i class="fa fa-chevron-right"></i>
+    <a href="../../../08/13/vcpkg/" rel="next" title="vcpkg - 方便的 C/C++ 库管理器">
+      vcpkg - 方便的 C/C++ 库管理器 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -473,33 +506,34 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%94%A8%E5%88%AB%E4%BA%BA%E7%8E%B0%E6%88%90%E7%9A%84%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">为什么不用别人现成的？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E4%BC%9A-Vim-%E6%80%8E%E4%B9%88%E5%8A%9E"><span class="nav-number"></span> <span class="nav-text">不会 Vim 怎么办</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vimrc-%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="nav-number"></span> <span class="nav-text">vimrc 的位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number"></span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC"><span class="nav-number">1.</span> <span class="nav-text">基本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%A9%E8%BF%9B"><span class="nav-number">2.</span> <span class="nav-text">缩进</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%95%8C%E9%9D%A2"><span class="nav-number">3.</span> <span class="nav-text">界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2"><span class="nav-number">4.</span> <span class="nav-text">搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E5%A4%9A"><span class="nav-number">5.</span> <span class="nav-text">更多</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E5%A4%96%E8%AF%9D-%E6%8F%92%E4%BB%B6"><span class="nav-number"></span> <span class="nav-text">题外话 - 插件</span></a></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="Louis Aeilot"
-      src="../../../../../images/gravatar.jpeg">
+      src="../../../../images/gravatar.jpeg">
   <p class="site-author-name" itemprop="name">Louis Aeilot</p>
   <div class="site-description" itemprop="description">Stay Hungry. Stay Foolish.</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="../../../../../archives/">
+          <a href="../../../../archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="../../../../../categories/">
+            <a href="../../../../categories/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="../../../../../tags/">
+            <a href="../../../../tags/">
           
         <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">标签</span></a>
@@ -513,17 +547,17 @@
   </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="../../../../../https:/github.com/aeilot" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;aeilot" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+        <a href="../../../../https:/github.com/aeilot" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;aeilot" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="../../../../../mailto:louis.aeilot@icloud.com" title="E-Mail → mailto:louis.aeilot@icloud.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+        <a href="../../../../mailto:louis.aeilot@icloud.com" title="E-Mail → mailto:louis.aeilot@icloud.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="../../../../../https:/stackoverflow.com/13011108" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;13011108" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+        <a href="../../../../https:/stackoverflow.com/13011108" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;13011108" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
       </span>
   </div>
   <div class="cc-license motion-element" itemprop="license">
-    <a href="../../../../../https:/creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="../../../../../images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+    <a href="../../../../https:/creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="../../../../images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
   </div>
 
 
@@ -553,7 +587,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Louis Aeilot</span>
 </div>
-  <div class="powered-by">由 <a href="../../../../../https:/hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="../../../../../https:/muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  <div class="powered-by">由 <a href="../../../../https:/hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="../../../../https:/muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
 
         
@@ -599,17 +633,17 @@
   <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
 
-<script src="../../../../../js/utils.js"></script>
+<script src="../../../../js/utils.js"></script>
 
-<script src="../../../../../js/motion.js"></script>
-
-
-<script src="../../../../../js/schemes/muse.js"></script>
+<script src="../../../../js/motion.js"></script>
 
 
-<script src="../../../../../js/next-boot.js"></script>
+<script src="../../../../js/schemes/muse.js"></script>
 
-<script src="../../../../../js/bookmark.js"></script>
+
+<script src="../../../../js/next-boot.js"></script>
+
+<script src="../../../../js/bookmark.js"></script>
 
   <script>
 var pjax = new Pjax({
@@ -704,7 +738,7 @@ window.addEventListener('pjax:success', () => {
 
 
   
-<script src="../../../../../js/local-search.js"></script>
+<script src="../../../../js/local-search.js"></script>
 
 
 
