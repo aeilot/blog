@@ -144,6 +144,13 @@
 
   
   <url>
+    <loc>https://aeilot.github.io/tags/GitHub/</loc>
+    <lastmod>2021-07-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://aeilot.github.io/tags/%E6%B4%9B%E8%B0%B7/</loc>
     <lastmod>2021-07-15</lastmod>
     <changefreq>daily</changefreq>
@@ -152,13 +159,6 @@
   
   <url>
     <loc>https://aeilot.github.io/tags/%E6%A8%A1%E7%89%88/</loc>
-    <lastmod>2021-07-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://aeilot.github.io/tags/GitHub/</loc>
     <lastmod>2021-07-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -179,20 +179,6 @@
   </url>
   
   <url>
-    <loc>https://aeilot.github.io/tags/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/</loc>
-    <lastmod>2021-07-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://aeilot.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/</loc>
-    <lastmod>2021-07-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://aeilot.github.io/tags/Linux/</loc>
     <lastmod>2021-07-15</lastmod>
     <changefreq>daily</changefreq>
@@ -201,6 +187,20 @@
   
   <url>
     <loc>https://aeilot.github.io/tags/Docker/</loc>
+    <lastmod>2021-07-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://aeilot.github.io/tags/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/</loc>
+    <lastmod>2021-07-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://aeilot.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/</loc>
     <lastmod>2021-07-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -258,14 +258,14 @@
 
   
   <url>
-    <loc>https://aeilot.github.io/categories/OI-%E5%88%B7%E9%A2%98/</loc>
+    <loc>https://aeilot.github.io/categories/%E7%BC%96%E7%A8%8B/</loc>
     <lastmod>2021-07-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://aeilot.github.io/categories/%E7%BC%96%E7%A8%8B/</loc>
+    <loc>https://aeilot.github.io/categories/OI-%E5%88%B7%E9%A2%98/</loc>
     <lastmod>2021-07-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -293,14 +293,14 @@
   </url>
   
   <url>
-    <loc>https://aeilot.github.io/categories/%E6%95%B0%E5%AD%A6-%E7%AE%97%E6%B3%95-CS/</loc>
+    <loc>https://aeilot.github.io/categories/%E8%BD%AF%E4%BB%B6-%E9%85%8D%E7%BD%AE-%E7%94%9F%E4%BA%A7%E5%8A%9B/</loc>
     <lastmod>2021-07-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://aeilot.github.io/categories/%E8%BD%AF%E4%BB%B6-%E9%85%8D%E7%BD%AE-%E7%94%9F%E4%BA%A7%E5%8A%9B/</loc>
+    <loc>https://aeilot.github.io/categories/%E6%95%B0%E5%AD%A6-%E7%AE%97%E6%B3%95-CS/</loc>
     <lastmod>2021-07-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
