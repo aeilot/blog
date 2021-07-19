@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://aeilot.github.io/2021/07/19/pylon-in-seasons/</loc>
+    
+    <lastmod>2021-07-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://aeilot.github.io/about/index.html</loc>
+    
+    <lastmod>2021-07-19</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://aeilot.github.io/2020/08/19/wwdc2020/</loc>
     
     <lastmod>2021-07-19</lastmod>
@@ -61,13 +75,6 @@
     <loc>https://aeilot.github.io/2020/12/25/honor-band6/</loc>
     
     <lastmod>2021-07-19</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://aeilot.github.io/about/index.html</loc>
-    
-    <lastmod>2021-07-14</lastmod>
     
   </url>
   
@@ -144,6 +151,13 @@
 
   
   <url>
+    <loc>https://aeilot.github.io/tags/GitHub/</loc>
+    <lastmod>2021-07-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://aeilot.github.io/tags/%E6%B4%9B%E8%B0%B7/</loc>
     <lastmod>2021-07-19</lastmod>
     <changefreq>daily</changefreq>
@@ -152,13 +166,6 @@
   
   <url>
     <loc>https://aeilot.github.io/tags/%E6%A8%A1%E7%89%88/</loc>
-    <lastmod>2021-07-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://aeilot.github.io/tags/GitHub/</loc>
     <lastmod>2021-07-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -207,14 +214,14 @@
   </url>
   
   <url>
-    <loc>https://aeilot.github.io/tags/%E6%95%A3%E6%96%87/</loc>
+    <loc>https://aeilot.github.io/tags/Swift/</loc>
     <lastmod>2021-07-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://aeilot.github.io/tags/Swift/</loc>
+    <loc>https://aeilot.github.io/tags/%E6%95%A3%E6%96%87/</loc>
     <lastmod>2021-07-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -258,14 +265,14 @@
 
   
   <url>
-    <loc>https://aeilot.github.io/categories/OI/</loc>
+    <loc>https://aeilot.github.io/categories/%E7%BC%96%E7%A8%8B/</loc>
     <lastmod>2021-07-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://aeilot.github.io/categories/%E7%BC%96%E7%A8%8B/</loc>
+    <loc>https://aeilot.github.io/categories/OI/</loc>
     <lastmod>2021-07-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
