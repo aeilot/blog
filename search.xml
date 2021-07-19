@@ -13,7 +13,7 @@
       
       <categories>
           
-          <category> OI 刷题 </category>
+          <category> OI </category>
           
       </categories>
       
@@ -40,7 +40,7 @@
       
       <categories>
           
-          <category> OI 刷题 </category>
+          <category> OI </category>
           
       </categories>
       
@@ -67,7 +67,7 @@
       
       <categories>
           
-          <category> 数学 算法 CS </category>
+          <category> 计算机科学与数学 </category>
           
       </categories>
       
@@ -94,14 +94,14 @@
       
       <categories>
           
-          <category> 观点 想法 </category>
+          <category> 数码 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 数码测评 </tag>
+            <tag> 测评 </tag>
             
         </tags>
       
@@ -137,8 +137,6 @@
       
       
       <categories>
-          
-          <category> 观点 想法 </category>
           
           <category> 数码 </category>
           
@@ -184,7 +182,7 @@
       
       <categories>
           
-          <category> 散文 诗歌 文学 </category>
+          <category> 文学 </category>
           
       </categories>
       
@@ -235,8 +233,6 @@
       <categories>
           
           <category> 编程 </category>
-          
-          <category> 观点 想法 </category>
           
       </categories>
       
@@ -290,9 +286,7 @@
       
       <categories>
           
-          <category> 软件 配置 生产力 </category>
-          
-          <category> 编程 </category>
+          <category> 软件 </category>
           
       </categories>
       
@@ -321,7 +315,7 @@
       
       <categories>
           
-          <category> 软件 配置 生产力 </category>
+          <category> 软件 </category>
           
       </categories>
       
