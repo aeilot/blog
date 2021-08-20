@@ -25,20 +25,20 @@
     var CONFIG = {"hostname":"blog.aeilot.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":true,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="随便乱写的，，，要拿去参加一个小比赛。。。">
+  <meta name="description" content="最近有一个朋友找我，说她弄了一个 Hexo 博客，想做 GitHub Actions 自动部署，奈何不会弄，只好让我帮忙。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="凝视那一轮明月">
-<meta property="og:url" content="https://blog.aeilot.top/2020/08/23/stare-at-moon/index.html">
+<meta property="og:title" content="用 GitHub Actions 部署 Hexo 博客">
+<meta property="og:url" content="https://blog.aeilot.top/2020/08/22/gh-action-hexo/index.html">
 <meta property="og:site_name" content="Louis Aeilot 的博客">
-<meta property="og:description" content="随便乱写的，，，要拿去参加一个小比赛。。。">
+<meta property="og:description" content="最近有一个朋友找我，说她弄了一个 Hexo 博客，想做 GitHub Actions 自动部署，奈何不会弄，只好让我帮忙。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-08-22T22:45:09.000Z">
-<meta property="article:modified_time" content="2021-07-19T06:39:33.113Z">
+<meta property="article:published_time" content="2020-08-21T22:45:09.000Z">
+<meta property="article:modified_time" content="2021-01-24T11:14:23.913Z">
 <meta property="article:author" content="Louis Aeilot">
-<meta property="article:tag" content="散文">
+<meta property="article:tag" content="GitHub">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://blog.aeilot.top/2020/08/23/stare-at-moon/">
+<link rel="canonical" href="https://blog.aeilot.top/2020/08/22/gh-action-hexo/">
 
 
 <script id="page-configurations">
@@ -51,7 +51,7 @@
   };
 </script>
 
-  <title>凝视那一轮明月 | Louis Aeilot 的博客</title>
+  <title>用 GitHub Actions 部署 Hexo 博客 | Louis Aeilot 的博客</title>
   
     <script>
       function sendPageView() {
@@ -230,7 +230,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.aeilot.top/2020/08/23/stare-at-moon/">
+    <link itemprop="mainEntityOfPage" href="https://blog.aeilot.top/2020/08/22/gh-action-hexo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="../../../../images/gravatar.jpeg">
@@ -243,7 +243,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          凝视那一轮明月
+          用 GitHub Actions 部署 Hexo 博客
         </h1>
 
         <div class="post-meta">
@@ -253,7 +253,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-08-23 06:45:09" itemprop="dateCreated datePublished" datetime="2020-08-23T06:45:09+08:00">2020-08-23</time>
+              <time title="创建时间：2020-08-22 06:45:09" itemprop="dateCreated datePublished" datetime="2020-08-22T06:45:09+08:00">2020-08-22</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -261,7 +261,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="../../../../categories/%E6%96%87%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">文学</span></a>
+                  <a href="../../../../categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
                 </span>
             </span>
 
@@ -292,7 +292,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>994</span>
+              <span>1.2k</span>
             </span>
 
         </div>
@@ -304,23 +304,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>随便乱写的，，，要拿去参加一个小比赛。。。</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><p>初夏，深夜，我却还在熬夜赶作业。</p>
-<p>夜里，恍惚着，偶然向窗外望了望。多完美的一轮明月啊！</p>
-<p>凝视这一轮明月，它明亮，照白了月边稀疏的云；它洁净，仿佛世间没有什么比它跟洁白如雪；它深邃，好像有不尽的秘密。周围繁星点点，如同月亮的伙伴，与她共欢笑。明朗的夜空，月亮和繁星点缀，让这个夜晚，显得十分安静祥和。</p>
-<p>我不禁陷入无尽的想象。月儿啊！这孤独的夜，你有着星星的陪伴，与我不同！月儿啊！夜深人静时，你怎么还没入睡？是否和我一样，还在努力奋斗？月儿啊！一个个夜晚，你是否感觉有点烦闷？……</p>
-<p>想着想着，我突然想到：身处闹市区，是如何见到这样的明月的？这夜空明朗的，让人惊奇，我从未见过。这夜空，不应该满是雾霾、尘埃吗？</p>
-<p>我回想起，好多年前，那也是一个这样的的夜晚，我和朋友们在路口乘凉，可能才刚上小学。</p>
-<p>抬眼望去，一片灰蒙蒙的天，几乎看不清什么月亮，更别提星星了。那时候，上海的明朗的夜晚并不是天天有。</p>
-<p>“这月儿，今天晚上又躲起来了，看不清了。”一旁的嘉豪一边向天上凝视，一边说。但是，最终他还是未能知晓月儿的真面目。</p>
-<p>“环境污染太严重了，那些工厂、车辆，人类生活影响到了环境。”我说着，仿佛看到了远处郊区的几座大工厂，烟还在不断上升到大气中。</p>
-<p>嘉豪打了个哈欠。现在已经是夜深人静时，远处的卡车的声音，很清楚，又很微弱。老师讲过，有些卡车用的油不符合标准，排放出来很是污染环境。我们站在这路口，似乎还能闻到汽油发出的一种难闻的味道。</p>
-<p>这路口，昏黄的路灯还在亮着，高楼大厦还在发着光。“书上说，大部分的电力还是来自不清洁能源。”喜爱读书的嘉豪说。一个晚上，这灯火通明的闹市区，不知要浪费多少电呢。</p>
-<p>夜深了，我记不起后面说了什么，想了什么。</p>
-<p>恍惚间，我又陷入了沉思。啊，我的月儿！你看起来有些孤独！没有星星的陪伴，你还好吗！啊，我的月儿！你听见这卡车的声音，问道汽油的味道了吗？啊，我的月儿！这样一个夜晚，你却躲了起来，是有什么秘密吗？<br>……<br>夜晚，有些凉，我被冻醒，已经凌晨二三点了吧。</p>
-<p>我再次举头凝视天边的月亮。诶？月亮怎么又躲起来了？我望向桌上杂乱摆放的作业。诶？我的作业怎么已经写完了！原来，一切，是梦。作业写完后，我太累了，就在书桌上睡着了。</p>
-<p>我的月亮，答应我，以后不要再躲起来了？我都能见到你和星星，在无数个静寂而孤独的夜！答应我，让我梦想成真，好吗？</p>
-<p>将来，我再次凝视那一轮明月……</p>
+        <p>最近有一个朋友找我，说她弄了一个 Hexo 博客，想做 GitHub Actions 自动部署，奈何不会弄，只好让我帮忙。</p>
+<a id="more"></a>
+<h2 id="GitHub-Actions"><a href="#GitHub-Actions" class="headerlink" title="GitHub Actions"></a>GitHub Actions</h2><p><a target="_blank" rel="noopener" href="https://docs.github.com/en/actions">GitHub Actions</a> 是 GitHub 推出的持续集成服务，最近不要钱了，用(白嫖)的人就多起来了。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>话不多说，直接上代码：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">&quot;Hexo Blog Builder&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span> [<span class="string">push</span>, <span class="string">pull_request</span>]</span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">&quot;Hexo Blog Build&quot;</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">fetch-depth:</span> <span class="number">1</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/setup-node@v1</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">&#x27;12&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">Hexo</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">npm</span> <span class="string">install</span> <span class="string">-g</span> <span class="string">hexo</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">Dependencies</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">npm</span> <span class="string">install</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Clean</span> <span class="string">Previous</span> <span class="string">Build</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">rm</span> <span class="string">-rf</span> <span class="string">docs</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Hexo</span> <span class="string">Clean</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">hexo</span> <span class="string">clean</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Generate</span> <span class="string">New</span> <span class="string">Build</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">hexo</span> <span class="string">generate</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Move</span> <span class="string">docs/</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">mv</span> <span class="string">public</span> <span class="string">docs</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Publish</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line">          <span class="string">mkdir</span> <span class="string">-p</span> <span class="string">~/.ssh/</span></span><br><span class="line">          <span class="string">echo</span> <span class="string">&quot;$<span class="template-variable">&#123;&#123; secrets.KEY &#125;&#125;</span>&quot;</span> <span class="string">&gt;</span> <span class="string">~/.ssh/id_rsa.pub</span></span><br><span class="line">          <span class="string">chmod</span> <span class="number">600</span> <span class="string">~/.ssh/id_rsa.pub</span></span><br><span class="line">          <span class="string">ssh-keyscan</span> <span class="string">github.com</span> <span class="string">&gt;&gt;</span> <span class="string">~/.ssh/known_hosts</span></span><br><span class="line">          <span class="string">git</span> <span class="string">config</span> <span class="string">--global</span> <span class="string">user.name</span> <span class="string">&quot;Hexo Deploy Bot&quot;</span></span><br><span class="line">          <span class="string">git</span> <span class="string">config</span> <span class="string">--global</span> <span class="string">user.email</span> <span class="string">&quot;nobody@nobody.nobody&quot;</span></span><br><span class="line">          <span class="string">git</span> <span class="string">config</span> <span class="string">--global</span> <span class="string">core.quotepath</span> <span class="literal">false</span></span><br><span class="line">          <span class="string">git</span> <span class="string">add</span> <span class="string">--all</span></span><br><span class="line">          <span class="string">git</span> <span class="string">commit</span> <span class="string">-m</span> <span class="string">&quot;Hexo Blog Build&quot;</span></span><br><span class="line">          <span class="string">git</span> <span class="string">push</span> <span class="string">origin</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+<p>本 Action 需要你的 ssh 公钥，也就是 <code>id_rsa.pub</code> 存在项目设置中的 Secrets 内。</p>
+<h2 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><p>具体实现很简单，用 Hexo 自带生成器生成到 <code>public</code> 目录，把 <code>public</code> 目录改名为 <code>docs</code>。最后 <code>push</code> 到项目里。</p>
+<p><code>push</code> 使用 SSH Key，实现免密码。</p>
+<p>在 GitHub Pages 设置中，需要把 Source 改为 docs 目录。</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>如果大家有什么改进的好方法，可以在下方评论！</p>
 
     </div>
 
@@ -328,6 +321,12 @@
     
     
       
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2021/08/20/gh-action-clang-format/" rel="bookmark">用 GitHub Actions 格式化 C/C++ 代码</a></div>
+    </li>
+  </ul>
 
         <div class="reward-container">
   <div></div>
@@ -358,7 +357,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="../../../../https:/blog.aeilot.top/2020/08/23/stare-at-moon/" title="凝视那一轮明月">https://blog.aeilot.top/2020/08/23/stare-at-moon/</a>
+    <a href="../../../../https:/blog.aeilot.top/2020/08/22/gh-action-hexo/" title="用 GitHub Actions 部署 Hexo 博客">https://blog.aeilot.top/2020/08/22/gh-action-hexo/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="../../../../https:/creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -409,7 +408,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="../../../../tags/%E6%95%A3%E6%96%87/" rel="tag"><i class="fa fa-tag"></i> 散文</a>
+              <a href="../../../../tags/GitHub/" rel="tag"><i class="fa fa-tag"></i> GitHub</a>
           </div>
 
         
@@ -418,12 +417,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="../../22/gh-action-hexo/" rel="prev" title="用 GitHub Actions 部署 Hexo 博客">
-      <i class="fa fa-chevron-left"></i> 用 GitHub Actions 部署 Hexo 博客
+    <a href="../../19/wwdc2020/" rel="prev" title="迟来的日志 - WWDC 2020 奖学金">
+      <i class="fa fa-chevron-left"></i> 迟来的日志 - WWDC 2020 奖学金
     </a></div>
       <div class="post-nav-item">
-    <a href="../../24/swift-userdefaults/" rel="next" title="Swift 中的 SharedPreferance —— UserDefaults">
-      Swift 中的 SharedPreferance —— UserDefaults <i class="fa fa-chevron-right"></i>
+    <a href="../../23/stare-at-moon/" rel="next" title="凝视那一轮明月">
+      凝视那一轮明月 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -484,7 +483,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub-Actions"><span class="nav-number">1.</span> <span class="nav-text">GitHub Actions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TL-DR"><span class="nav-number">3.</span> <span class="nav-text">TL;DR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E8%AE%B0"><span class="nav-number">4.</span> <span class="nav-text">后记</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

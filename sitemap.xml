@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.aeilot.top/2021/08/20/gh-action-clang-format/</loc>
+    
+    <lastmod>2021-08-20</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.aeilot.top/2021/07/19/pylon-in-seasons/</loc>
     
     <lastmod>2021-07-19</lastmod>
@@ -107,7 +114,7 @@
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/2020/08/22/github-actions/</loc>
+    <loc>https://blog.aeilot.top/2020/08/22/gh-action-hexo/</loc>
     
     <lastmod>2021-01-24</lastmod>
     
