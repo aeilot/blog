@@ -25,20 +25,21 @@
     var CONFIG = {"hostname":"blog.aeilot.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":true,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="我的 ProblemSet 项目，每次都 Format 太麻烦了，需要一个自动化 Format 的功能。利用 GitHub Actions，即可实现。">
+  <meta name="description" content="快要 CSP-S2 了，复习一下一些算法（弄文化课弄了好久了，很多东西都要忘了。。。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="用 GitHub Actions 格式化 C&#x2F;C++ 代码">
-<meta property="og:url" content="https://blog.aeilot.top/2021/08/20/gh-action-clang-format/index.html">
+<meta property="og:title" content="题解 导弹拦截">
+<meta property="og:url" content="https://blog.aeilot.top/2021/10/01/Luogu-P1020/index.html">
 <meta property="og:site_name" content="Louis Aeilot 的博客">
-<meta property="og:description" content="我的 ProblemSet 项目，每次都 Format 太麻烦了，需要一个自动化 Format 的功能。利用 GitHub Actions，即可实现。">
+<meta property="og:description" content="快要 CSP-S2 了，复习一下一些算法（弄文化课弄了好久了，很多东西都要忘了。。。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-08-19T22:45:09.000Z">
-<meta property="article:modified_time" content="2021-08-20T08:52:17.346Z">
+<meta property="article:published_time" content="2021-10-01T04:45:09.000Z">
+<meta property="article:modified_time" content="2021-10-01T09:28:48.628Z">
 <meta property="article:author" content="Louis Aeilot">
-<meta property="article:tag" content="GitHub">
+<meta property="article:tag" content="洛谷">
+<meta property="article:tag" content="动态规划">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://blog.aeilot.top/2021/08/20/gh-action-clang-format/">
+<link rel="canonical" href="https://blog.aeilot.top/2021/10/01/Luogu-P1020/">
 
 
 <script id="page-configurations">
@@ -51,7 +52,7 @@
   };
 </script>
 
-  <title>用 GitHub Actions 格式化 C/C++ 代码 | Louis Aeilot 的博客</title>
+  <title>题解 导弹拦截 | Louis Aeilot 的博客</title>
   
     <script>
       function sendPageView() {
@@ -230,7 +231,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.aeilot.top/2021/08/20/gh-action-clang-format/">
+    <link itemprop="mainEntityOfPage" href="https://blog.aeilot.top/2021/10/01/Luogu-P1020/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="../../../../images/gravatar.jpeg">
@@ -243,7 +244,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          用 GitHub Actions 格式化 C/C++ 代码
+          题解 导弹拦截
         </h1>
 
         <div class="post-meta">
@@ -253,7 +254,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-08-20 06:45:09" itemprop="dateCreated datePublished" datetime="2021-08-20T06:45:09+08:00">2021-08-20</time>
+              <time title="创建时间：2021-10-01 12:45:09" itemprop="dateCreated datePublished" datetime="2021-10-01T12:45:09+08:00">2021-10-01</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -261,7 +262,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="../../../../categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+                  <a href="../../../../categories/OI/" itemprop="url" rel="index"><span itemprop="name">OI</span></a>
                 </span>
             </span>
 
@@ -292,7 +293,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>610</span>
+              <span>1.5k</span>
             </span>
 
         </div>
@@ -304,12 +305,30 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>我的 <a target="_blank" rel="noopener" href="https://github.com/aeilot/ProblemSet/blob/master/.github/workflows/clang-format.yml">ProblemSet</a> 项目，每次都 Format 太麻烦了，需要一个自动化 Format 的功能。利用 GitHub Actions，即可实现。</p>
+        <p>快要 CSP-S2 了，复习一下一些算法（弄文化课弄了好久了，很多东西都要忘了。。。</p>
 <a id="more"></a>
-<h2 id="GitHub-Actions"><a href="#GitHub-Actions" class="headerlink" title="GitHub Actions"></a>GitHub Actions</h2><p><a target="_blank" rel="noopener" href="https://docs.github.com/en/actions">GitHub Actions</a> 是 GitHub 推出的持续集成服务，最近不要钱了，用(白嫖)的人就多起来了。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>直接上代码：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="attr">name:</span> <span class="string">&quot;Check Clang Format&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span> [<span class="string">push</span>, <span class="string">pull_request</span>]</span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">format:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">&quot;Run Clang Format&quot;</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">&quot;Install clang-format&quot;</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line">          <span class="string">sudo</span> <span class="string">apt-get</span> <span class="string">update</span></span><br><span class="line">          <span class="string">sudo</span> <span class="string">apt-get</span> <span class="string">install</span> <span class="string">clang-format-10</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">&quot;Format Codes&quot;</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">clang-format-10</span> <span class="string">-style=file</span> <span class="string">-i</span> <span class="string">*/*/*.cpp</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Push</span> <span class="string">changes</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions-go/push@v1</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">author-name:</span> <span class="string">Clang</span> <span class="string">Format</span> <span class="string">Bot</span></span><br><span class="line">          <span class="attr">commit-message:</span> <span class="string">Run</span> <span class="string">clang-format</span></span><br></pre></td></tr></table></figure>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>如果大家有什么改进的好方法，可以在下方评论！</p>
+<h2 id="读题"><a href="#读题" class="headerlink" title="读题"></a>读题</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1020">题目链接: Luogu P1020</a></p>
+<p>数据是这样的：<code>389 207 155 300 299 170 158 65</code></p>
+<p>推一推，我们发现，<code>389 300 299 170 158 65</code>是第一问的答案；在 <code>155-&gt;300</code>的时候，要使用另外一颗炮弹了，故最少应该配备两套。</p>
+<p>在草稿纸上面推一推，不难发现，这道题的两小问，就是让你求一个<code>不上升序列长度</code>和一个<code>上升序列长度</code>。</p>
+<h2 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h2><p>在求这两个东西之前，需要先学习<code>STL</code>中的两个函数：<code>lower_bound</code> <code>upper_bound</code>。</p>
+<p>其中， <code>lower_bound</code> 是求序列中第一个<strong>大于等于</strong>某个数的数；<code>upper_bound</code> 是求序列中第一个<strong>大于</strong>某个数的数。这两个函数返回的是<strong>指针</strong>。</p>
+<p>它们使用的前提是 序列是<strong>有序</strong>的。</p>
+<p>以lower_bound为例，具体用法类似：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">100</span>];</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">lower_bound(a, a+len, x); <span class="comment">// 前两个参数传入的都是指针</span></span><br></pre></td></tr></table></figure>
+<p>这一函数默认是求升序序列中符合条件的数，如果要改为降序序列，则需要一个 <code>cmp</code> 函数，这一点类似于 <code>sort</code>。比如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">100</span>];</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">lower_bound(a, a+len, x, <span class="built_in">std</span>::greater&lt;<span class="keyword">int</span>&gt;()); <span class="comment">// 前两个参数传入的都是指针</span></span><br></pre></td></tr></table></figure>
+<h2 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h2><p>我的 <a target="_blank" rel="noopener" href="https://github.com/aeilot/ProblemSet/blob/master/LuoGu/P1020/main.cpp">AC 代码</a>。</p>
+<p>本题有两种算法，$O(n)$，$O(nlogn)$。这里只讲后者。</p>
+<h3 id="不上升序列"><a href="#不上升序列" class="headerlink" title="不上升序列"></a>不上升序列</h3><p>我们用数组<code>d1</code>当作栈来存储它。</p>
+<p>遍历导弹高度，把栈顶元素和高度比较：</p>
+<ol>
+<li>若 $a_i &lt;= d_len$，此时$a_i$是符合要求的，直接入栈。</li>
+<li>若 $a_i &gt; d_len$，此时$a_i$把栈内第一个小于它的覆盖掉。这里说一下，能够覆盖它是因为我们不需要再访问它的值了。在测试数据中，此后几次都会进行这一操作，如果仅仅取这几个数据，最长不上升子序列长度仍然正确； 取所有数据，几次操作之后，就会执行操作1，结果仍然正确。</li>
+</ol>
+<h3 id="上升序列"><a href="#上升序列" class="headerlink" title="上升序列"></a>上升序列</h3><p>和不上升序列一样，只不过把 <code>upper_bound</code> 改为了 <code>lower_bound</code>，因为会出现两个相同高度的导弹的情况，这两个导弹仅仅需要同一的炮弹去拦截。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> ARR[<span class="number">100001</span>];</span><br><span class="line"><span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> d1[<span class="number">100001</span>];</span><br><span class="line"><span class="keyword">int</span> c1 = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> d2[<span class="number">100001</span>];</span><br><span class="line"><span class="keyword">int</span> c2 = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; ARR[n]) n++;</span><br><span class="line">    d1[<span class="number">0</span>] = ARR[<span class="number">0</span>];</span><br><span class="line">    d2[<span class="number">0</span>] = ARR[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (ARR[i] &lt;= d1[c1])</span><br><span class="line">            d1[++c1] = ARR[i];</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> j = upper_bound(d1, d1 + c1, ARR[i], greater&lt;<span class="keyword">int</span>&gt;()) - d1;</span><br><span class="line">            d1[j] = ARR[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (ARR[i] &gt; d2[c2])</span><br><span class="line">            d2[++c2] = ARR[i];</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> j = lower_bound(d2, d2 + c2, ARR[i]) - d2;</span><br><span class="line">            d2[j] = ARR[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; c1 + <span class="number">1</span> &lt;&lt; <span class="built_in">endl</span> &lt;&lt; c2 + <span class="number">1</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>能力有限，如有疏漏，请谅解并补充，谢谢。</p>
 
     </div>
 
@@ -320,7 +339,10 @@
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/2020/08/22/gh-action-hexo/" rel="bookmark">用 GitHub Actions 部署 Hexo 博客</a></div>
+      <div class="popular-posts-title"><a href="/2021/04/24/Luogu-P3379/" rel="bookmark">题解 最近公共祖先 (LCA)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2021/07/15/luogu-lgr087/" rel="bookmark">洛谷 7 月月赛 Div.2 总结</a></div>
     </li>
   </ul>
 
@@ -353,7 +375,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="../../../../https:/blog.aeilot.top/2021/08/20/gh-action-clang-format/" title="用 GitHub Actions 格式化 C&#x2F;C++ 代码">https://blog.aeilot.top/2021/08/20/gh-action-clang-format/</a>
+    <a href="../../../../https:/blog.aeilot.top/2021/10/01/Luogu-P1020/" title="题解 导弹拦截">https://blog.aeilot.top/2021/10/01/Luogu-P1020/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="../../../../https:/creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -404,7 +426,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="../../../../tags/GitHub/" rel="tag"><i class="fa fa-tag"></i> GitHub</a>
+              <a href="../../../../tags/%E6%B4%9B%E8%B0%B7/" rel="tag"><i class="fa fa-tag"></i> 洛谷</a>
+              <a href="../../../../tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag"><i class="fa fa-tag"></i> 动态规划</a>
           </div>
 
         
@@ -413,13 +436,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="../../../07/19/pylon-in-seasons/" rel="prev" title="四季的天空">
-      <i class="fa fa-chevron-left"></i> 四季的天空
+    <a href="../../../08/27/search-engine/" rel="prev" title="如何高效使用搜索引擎">
+      <i class="fa fa-chevron-left"></i> 如何高效使用搜索引擎
     </a></div>
-      <div class="post-nav-item">
-    <a href="../../27/search-engine/" rel="next" title="如何高效使用搜索引擎">
-      如何高效使用搜索引擎 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -479,7 +499,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub-Actions"><span class="nav-number">1.</span> <span class="nav-text">GitHub Actions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E8%AE%B0"><span class="nav-number">3.</span> <span class="nav-text">后记</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BB%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">读题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86"><span class="nav-number">2.</span> <span class="nav-text">预备知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">解题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E4%B8%8A%E5%8D%87%E5%BA%8F%E5%88%97"><span class="nav-number">3.1.</span> <span class="nav-text">不上升序列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E5%8D%87%E5%BA%8F%E5%88%97"><span class="nav-number">3.2.</span> <span class="nav-text">上升序列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">3.3.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">4.</span> <span class="nav-text">结语</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
