@@ -1,27 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Louis Aeilot 的博客</title>
+  <title>满五的博客</title>
   
   
   <link href="https://blog.aeilot.top/index.xml" rel="self"/>
   
   <link href="https://blog.aeilot.top/"/>
-  <updated>2021-10-01T11:45:48.830Z</updated>
+  <updated>2022-04-15T00:38:24.268Z</updated>
   <id>https://blog.aeilot.top/</id>
   
   <author>
-    <name>Louis Aeilot</name>
+    <name>满五</name>
     
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>从愚人节玩笑到真的玩笑(bushi): 浅谈 lsnotes</title>
+    <link href="https://blog.aeilot.top/2022/04/15/lsnotes/"/>
+    <id>https://blog.aeilot.top/2022/04/15/lsnotes/</id>
+    <published>2022-04-14T22:45:09.000Z</published>
+    <updated>2022-04-15T00:38:24.268Z</updated>
+    
+    <content type="html"><![CDATA[<p>离了个大谱 (不过这个想法挺好的<br><a id="more"></a></p><h2 id="想法"><a href="#想法" class="headerlink" title="想法"></a>想法</h2><p>愚人节本来是开玩笑的，结果发现，挺有用。笑死</p><p>前几天和朋友讨论，说要给每个目录加个提示语，<code>ls</code> <code>pwd</code> <code>cd</code> 这些命令时显示出来。</p><p>e.g.:</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ls</span><br><span class="line">The place <span class="built_in">where</span> I code!</span><br><span class="line">---</span><br><span class="line">Demo  OI  Playground  Projects</span><br></pre></td></tr></table></figure><p>这样就解决了，目录那么多，自己甚至都忘了这个干啥了的情况。当然，还有很多其他的用法，比如可以在 <code>.lsnotes</code> 中显示 build 方式。</p><h2 id="概况"><a href="#概况" class="headerlink" title="概况"></a>概况</h2><p><code>lsnotes</code> 是个<del>水项目</del>，目前只支持纯文本显示（未来会加上 Markdown 解析，短时间内先鸽了。</p><p>就目前的代码量而言，小学生都会写…</p><h2 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h2><p><a href="https://github.com/MrWillCom">MrWillCom</a> 又做了一个更强的 <code>lsnotes</code> 即 <a href="https://github.com/MrWillCom/lnn">lnn</a>。</p><p>这个项目功能简单，但实用，未来不怎么会维护了。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;离了个大谱 (不过这个想法挺好的&lt;br&gt;</summary>
+    
+    
+    
+    <category term="编程" scheme="https://blog.aeilot.top/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+    <category term="GitHub" scheme="https://blog.aeilot.top/tags/GitHub/"/>
+    
+    <category term="项目" scheme="https://blog.aeilot.top/tags/%E9%A1%B9%E7%9B%AE/"/>
+    
+  </entry>
+  
+  <entry>
     <title>题解 纪念品分组</title>
     <link href="https://blog.aeilot.top/2021/10/01/Luogu-P1094/"/>
     <id>https://blog.aeilot.top/2021/10/01/Luogu-P1094/</id>
     <published>2021-10-01T05:45:09.000Z</published>
-    <updated>2021-10-01T11:45:48.830Z</updated>
+    <updated>2021-10-01T11:48:47.710Z</updated>
     
     <content type="html"><![CDATA[<p>快要 CSP-S2 了，复习一下一些算法（弄文化课弄了好久了，很多东西都要忘了。。。</p><a id="more"></a><h2 id="读题"><a href="#读题" class="headerlink" title="读题"></a>读题</h2><p><a href="https://www.luogu.com.cn/problem/P1094">题目链接: Luogu P1094</a></p><p>看题，<strong>把购来的纪念品根据价格进行分组，但每组最多只能包括两件纪念品</strong>。看样子，应该是贪心。每次取一个大的，一个小的，就可以保证了。如果大的小的组合起来，超过了最大值，就只取大的。</p><h2 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h2><p>很容易就可以写出程序。</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> ar[<span class="number">30001</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, w;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; w &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) <span class="built_in">cin</span> &gt;&gt; ar[i];</span><br><span class="line">    sort(ar, ar + n);</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> l = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> r = n - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (r &gt;= l) &#123;</span><br><span class="line">        <span class="keyword">if</span> (ar[l] + ar[r] &lt;= w) &#123;</span><br><span class="line">            l++;</span><br><span class="line">            r--;</span><br><span class="line">            ans++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            r--;</span><br><span class="line">            ans++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h2><p>可以参考<a href="https://www.luogu.com.cn/blog/heidoudou/solution-p1094">这个</a></p><h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>能力有限，如有疏漏，请谅解并补充，谢谢。</p>]]></content>
     
