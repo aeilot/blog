@@ -22,7 +22,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.aeilot.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":true,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.aeilot.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="快要 CSP-S2 了，复习一下一些算法（弄文化课弄了好久了，很多东西都要忘了。。。">
@@ -273,21 +273,7 @@
               </span>
               <span class="post-meta-item-text">阅读次数：</span>
               <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
+            </span><br>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
@@ -315,9 +301,9 @@
 <p>其中， <code>lower_bound</code> 是求序列中第一个<strong>大于等于</strong>某个数的数；<code>upper_bound</code> 是求序列中第一个<strong>大于</strong>某个数的数。这两个函数返回的是<strong>指针</strong>。</p>
 <p>它们使用的前提是 序列是<strong>有序</strong>的。</p>
 <p>以lower_bound为例，具体用法类似：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">100</span>];</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">lower_bound(a, a+len, x); <span class="comment">// 前两个参数传入的都是指针</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">100</span>];</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="built_in">lower_bound</span>(a, a+len, x); <span class="comment">// 前两个参数传入的都是指针</span></span><br></pre></td></tr></table></figure>
 <p>这一函数默认是求升序序列中符合条件的数，如果要改为降序序列，则需要一个 <code>cmp</code> 函数，这一点类似于 <code>sort</code>。比如：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">100</span>];</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">lower_bound(a, a+len, x, <span class="built_in">std</span>::greater&lt;<span class="keyword">int</span>&gt;()); <span class="comment">// 前两个参数传入的都是指针</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">100</span>];</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="built_in">lower_bound</span>(a, a+len, x, std::greater&lt;<span class="keyword">int</span>&gt;()); <span class="comment">// 前两个参数传入的都是指针</span></span><br></pre></td></tr></table></figure>
 <h2 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h2><p>我的 <a target="_blank" rel="noopener" href="https://github.com/aeilot/ProblemSet/blob/master/LuoGu/P1020/main.cpp">AC 代码</a>。</p>
 <p>本题有两种算法，$O(n)$，$O(nlogn)$。这里只讲后者。</p>
 <h3 id="不上升序列"><a href="#不上升序列" class="headerlink" title="不上升序列"></a>不上升序列</h3><p>我们用数组<code>d1</code>当作栈来存储它。</p>
@@ -327,7 +313,7 @@
 <li>若 $a_i &gt; d_len$，此时$a_i$把栈内第一个小于它的覆盖掉。这里说一下，能够覆盖它是因为我们不需要再访问它的值了。在测试数据中，此后几次都会进行这一操作，如果仅仅取这几个数据，最长不上升子序列长度仍然正确； 取所有数据，几次操作之后，就会执行操作1，结果仍然正确。</li>
 </ol>
 <h3 id="上升序列"><a href="#上升序列" class="headerlink" title="上升序列"></a>上升序列</h3><p>和不上升序列一样，只不过把 <code>upper_bound</code> 改为了 <code>lower_bound</code>，因为会出现两个相同高度的导弹的情况，这两个导弹仅仅需要同一的炮弹去拦截。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> ARR[<span class="number">100001</span>];</span><br><span class="line"><span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> d1[<span class="number">100001</span>];</span><br><span class="line"><span class="keyword">int</span> c1 = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> d2[<span class="number">100001</span>];</span><br><span class="line"><span class="keyword">int</span> c2 = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; ARR[n]) n++;</span><br><span class="line">    d1[<span class="number">0</span>] = ARR[<span class="number">0</span>];</span><br><span class="line">    d2[<span class="number">0</span>] = ARR[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (ARR[i] &lt;= d1[c1])</span><br><span class="line">            d1[++c1] = ARR[i];</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> j = upper_bound(d1, d1 + c1, ARR[i], greater&lt;<span class="keyword">int</span>&gt;()) - d1;</span><br><span class="line">            d1[j] = ARR[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (ARR[i] &gt; d2[c2])</span><br><span class="line">            d2[++c2] = ARR[i];</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> j = lower_bound(d2, d2 + c2, ARR[i]) - d2;</span><br><span class="line">            d2[j] = ARR[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; c1 + <span class="number">1</span> &lt;&lt; <span class="built_in">endl</span> &lt;&lt; c2 + <span class="number">1</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> ARR[<span class="number">100001</span>];</span><br><span class="line"><span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> d1[<span class="number">100001</span>];</span><br><span class="line"><span class="keyword">int</span> c1 = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> d2[<span class="number">100001</span>];</span><br><span class="line"><span class="keyword">int</span> c2 = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (cin &gt;&gt; ARR[n]) n++;</span><br><span class="line">    d1[<span class="number">0</span>] = ARR[<span class="number">0</span>];</span><br><span class="line">    d2[<span class="number">0</span>] = ARR[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (ARR[i] &lt;= d1[c1])</span><br><span class="line">            d1[++c1] = ARR[i];</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> j = <span class="built_in">upper_bound</span>(d1, d1 + c1, ARR[i], greater&lt;<span class="keyword">int</span>&gt;()) - d1;</span><br><span class="line">            d1[j] = ARR[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (ARR[i] &gt; d2[c2])</span><br><span class="line">            d2[++c2] = ARR[i];</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> j = <span class="built_in">lower_bound</span>(d2, d2 + c2, ARR[i]) - d2;</span><br><span class="line">            d2[j] = ARR[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; c1 + <span class="number">1</span> &lt;&lt; endl &lt;&lt; c2 + <span class="number">1</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>能力有限，如有疏漏，请谅解并补充，谢谢。</p>
 
     </div>
@@ -458,7 +444,27 @@
 
           </div>
           
-    <div class="comments" id="valine-comments"></div>
+    
+  
+  <div class="comments">
+    <script src="https://giscus.app/client.js"
+        data-repo="aeilot/blog" 
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNjEwODA2OTY=" 
+        data-category="General"
+        data-category-id="DIC_kwDOD4_GeM4B_VIn"
+        data-mapping="pathname" 
+        data-reactions-enabled="1" 
+        data-emit-metadata="1" 
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        data-input-position="bottom"
+        data-loading="lazy"
+        async>
+    </script>
+  </div>
+  
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -787,23 +793,6 @@ if (document.querySelectorAll('pre.mermaid').length) {
   
 
   
-
-
-<script src="https://giscus.app/client.js"
-        data-repo="aeilot/blog"
-        data-repo-id="MDEwOlJlcG9zaXRvcnkyNjEwODA2OTY="
-        data-category="General"
-        data-category-id="DIC_kwDOD4_GeM4B_VIn"
-        data-mapping="pathname"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        data-loading="lazy"
-        crossorigin="anonymous"
-        async>
-</script>
 
     </div>
 </body>
