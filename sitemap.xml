@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.aeilot.top/about/index.html</loc>
+    
+    <lastmod>2022-05-27</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.aeilot.top/2022/04/15/lsnotes/</loc>
     
     <lastmod>2022-04-15</lastmod>
@@ -26,13 +33,6 @@
     <loc>https://blog.aeilot.top/draft/csp-s-2021.html</loc>
     
     <lastmod>2022-01-23</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.aeilot.top/about/index.html</loc>
-    
-    <lastmod>2022-01-14</lastmod>
     
   </url>
   
