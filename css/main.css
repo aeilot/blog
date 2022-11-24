@@ -2943,13 +2943,6 @@ mark.search-keyword {
   line-height: 2.4;
   margin: 0;
 }
-mjx-container[jax='CHTML'][display='true'],
-.has-jax {
-  overflow: auto hidden;
-}
-mjx-container[display='true'] + br {
-  display: none;
-}
 .use-motion .animated {
   animation-fill-mode: none;
   visibility: inherit;
@@ -3114,7 +3107,7 @@ mjx-container[display='true'] + br {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #95ff75;
+  background: #9a8ef1;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -3133,8 +3126,4 @@ mjx-container[display='true'] + br {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-.giscus {
-  max-width: unset;
-  box-sizing: border-box;
 }

@@ -25,33 +25,30 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blog.aeilot.top","root":"/","images":"../../../../images","scheme":"Muse","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"right","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"style":null,"show_result":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"../../../../search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true}}</script><script src="../../../../js/config.js"></script>
 
-    <meta name="description" content="Vim 即 Vi Improved，它的前身是 Vi。它是一个十分强大的编辑器，优点如下：  不需要鼠标，纯键盘 Linux 系统预装 键盘命令肌肉记忆之后，效率非常高  但是，它的配置许许多多，让人难以记住。我正好要在新电脑上配置它，故写此文。">
+    <meta name="description" content="最近在练树形 DP，正好看到 这一道 虚标的紫题，但本蒟蒻不会写，想出来了便记录一下">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vimrc 配置指南">
-<meta property="og:url" content="https://blog.aeilot.top/2020/07/26/vimrc/index.html">
+<meta property="og:title" content="P3354 Riv 河流 题解">
+<meta property="og:url" content="https://blog.aeilot.top/2022/11/23/riv-p3354/index.html">
 <meta property="og:site_name" content="满五的博客">
-<meta property="og:description" content="Vim 即 Vi Improved，它的前身是 Vi。它是一个十分强大的编辑器，优点如下：  不需要鼠标，纯键盘 Linux 系统预装 键盘命令肌肉记忆之后，效率非常高  但是，它的配置许许多多，让人难以记住。我正好要在新电脑上配置它，故写此文。">
+<meta property="og:description" content="最近在练树形 DP，正好看到 这一道 虚标的紫题，但本蒟蒻不会写，想出来了便记录一下">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.vim.org/images/vim_header.gif">
-<meta property="og:image" content="https://i.loli.net/2020/07/25/VSRZMUnjOfDzq8b.png">
-<meta property="article:published_time" content="2020-07-25T23:01:09.000Z">
-<meta property="article:modified_time" content="2021-07-19T06:39:44.900Z">
+<meta property="article:published_time" content="2022-11-23T02:45:09.000Z">
+<meta property="article:modified_time" content="2022-11-24T02:21:29.991Z">
 <meta property="article:author" content="满五">
-<meta property="article:tag" content="Linux">
-<meta property="article:tag" content="编辑器">
-<meta property="article:tag" content="Vim">
+<meta property="article:tag" content="洛谷">
+<meta property="article:tag" content="DP">
+<meta property="article:tag" content="树">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.vim.org/images/vim_header.gif">
 
 
-<link rel="canonical" href="https://blog.aeilot.top/2020/07/26/vimrc/">
+<link rel="canonical" href="https://blog.aeilot.top/2022/11/23/riv-p3354/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.aeilot.top/2020/07/26/vimrc/","path":"2020/07/26/vimrc/","title":"vimrc 配置指南"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.aeilot.top/2022/11/23/riv-p3354/","path":"2022/11/23/riv-p3354/","title":"P3354 Riv 河流 题解"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>vimrc 配置指南 | 满五的博客</title>
+<title>P3354 Riv 河流 题解 | 满五的博客</title>
   
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-138571809-2","only_pageview":true}</script>
   <script src="../../../../js/third-party/analytics/google-analytics.js"></script>
@@ -160,7 +157,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%94%A8%E5%88%AB%E4%BA%BA%E7%8E%B0%E6%88%90%E7%9A%84"><span class="nav-number">1.</span> <span class="nav-text"> 为什么不用别人现成的？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E4%BC%9A-vim-%E6%80%8E%E4%B9%88%E5%8A%9E"><span class="nav-number"></span> <span class="nav-text"> 不会 Vim 怎么办</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vimrc-%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="nav-number"></span> <span class="nav-text"> vimrc 的位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number"></span> <span class="nav-text"> 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC"><span class="nav-number">1.</span> <span class="nav-text"> 基本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%A9%E8%BF%9B"><span class="nav-number">2.</span> <span class="nav-text"> 缩进</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%95%8C%E9%9D%A2"><span class="nav-number">3.</span> <span class="nav-text"> 界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2"><span class="nav-number">4.</span> <span class="nav-text"> 搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E5%A4%9A"><span class="nav-number">5.</span> <span class="nav-text"> 更多</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E5%A4%96%E8%AF%9D-%E6%8F%92%E4%BB%B6"><span class="nav-number"></span> <span class="nav-text"> 题外话 - 插件</span></a></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E9%9D%A2-%E6%80%9D%E8%80%83"><span class="nav-number">1.</span> <span class="nav-text"> 题面 &amp; 思考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB%E6%96%B9%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text"> 状态转移方程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text"> 代码</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -274,7 +271,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.aeilot.top/2020/07/26/vimrc/">
+    <link itemprop="mainEntityOfPage" href="https://blog.aeilot.top/2022/11/23/riv-p3354/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="../../../../images/gravatar.jpeg">
@@ -287,12 +284,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="vimrc 配置指南 | 满五的博客">
+      <meta itemprop="name" content="P3354 Riv 河流 题解 | 满五的博客">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          vimrc 配置指南
+          P3354 Riv 河流 题解
         </h1>
 
         <div class="post-meta-container">
@@ -303,7 +300,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-07-26 07:01:09" itemprop="dateCreated datePublished" datetime="2020-07-26T07:01:09+08:00">2020-07-26</time>
+      <time title="创建时间：2022-11-23 10:45:09" itemprop="dateCreated datePublished" datetime="2022-11-23T10:45:09+08:00">2022-11-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -311,7 +308,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="../../../../categories/%E8%BD%AF%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">软件</span></a>
+          <a href="../../../../categories/OI/" itemprop="url" rel="index"><span itemprop="name">OI</span></a>
         </span>
     </span>
 
@@ -328,7 +325,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.4k</span>
+      <span>3.2k</span>
     </span>
 </div>
 
@@ -339,44 +336,33 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p><img data-src="https://www.vim.org/images/vim_header.gif" alt="Vim" /></p>
-<p>Vim 即 Vi Improved，它的前身是 Vi。它是一个十分强大的编辑器，优点如下：</p>
-<ul>
-<li>不需要鼠标，纯键盘</li>
-<li>Linux 系统预装</li>
-<li>键盘命令肌肉记忆之后，效率非常高</li>
-</ul>
-<p>但是，它的配置许许多多，让人难以记住。我正好要在新电脑上配置它，故写此文。</p>
+        <p>最近在练树形 DP，正好看到 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3354">这一道</a> 虚标的紫题，但本蒟蒻不会写，想出来了便记录一下</p>
 <a id="more"></a>
-<h3 id="为什么不用别人现成的"><a class="markdownIt-Anchor" href="#为什么不用别人现成的"></a> 为什么不用别人现成的？</h3>
-<ol>
-<li>自己的配置更顺手，自己更熟悉。</li>
-<li>了解 Vim Script，可以自己造插件</li>
-<li>etc.</li>
-</ol>
-<h2 id="不会-vim-怎么办"><a class="markdownIt-Anchor" href="#不会-vim-怎么办"></a> 不会 Vim 怎么办</h2>
-<p>啊这…… 🤣</p>
-<p>你可以试着在命令行输入 <code>vimtutor</code>。</p>
-<h2 id="vimrc-的位置"><a class="markdownIt-Anchor" href="#vimrc-的位置"></a> vimrc 的位置</h2>
-<p>本篇文章以新安装的 vim 为例。Vim 的配置文件叫做 <code>vimrc</code>。在 Mac、Linux 等系统上，位于 <code>~/.vimrc</code>。在 Windows 系统中，它叫做 <code>_vimrc</code>，但是同样位于 Home 目录中。</p>
-<p>全局的配置，在 Mac、Linux 等系统上，位于 <code>/etc/vimrc</code>。在 Windows 系统上，它储存在 Vim 安装目录，同样叫做 <code>vimrc</code>。</p>
-<h2 id="配置"><a class="markdownIt-Anchor" href="#配置"></a> 配置</h2>
-<p>一个什么也没有配置的 Vim，打开可能是这样的:</p>
-<p><img data-src="https://i.loli.net/2020/07/25/VSRZMUnjOfDzq8b.png" alt="image.png" /></p>
-<p>下面各配置，你可以添加自己想要的。以下所有配置都可以在命令模式输入，临时启用或关闭。</p>
-<h3 id="基本"><a class="markdownIt-Anchor" href="#基本"></a> 基本</h3>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> nocompatible <span class="comment">&quot; 不使用 Vi 兼容模式</span></span><br><span class="line"><span class="keyword">filetype</span> plugin <span class="keyword">on</span>  <span class="comment">&quot; 检测文件类型，加载插件</span></span><br><span class="line"><span class="keyword">syntax</span> <span class="keyword">on</span> <span class="comment">&quot; 开启语法高亮</span></span><br><span class="line"><span class="keyword">set</span> showmode <span class="comment">&quot; 显示当前模式</span></span><br><span class="line"><span class="keyword">set</span> showcmd <span class="comment">&quot; 在底部显示命令</span></span><br><span class="line"><span class="keyword">set</span> mouse=<span class="keyword">a</span> <span class="comment">&quot; 启用鼠标，不建议开启</span></span><br><span class="line"><span class="keyword">set</span> encoding=utf-<span class="number">8</span>  </span><br><span class="line"><span class="keyword">set</span> t_Co=<span class="number">256</span></span><br><span class="line"><span class="keyword">filetype</span> <span class="built_in">indent</span> <span class="keyword">on</span> <span class="comment">&quot; 根据文件类型，不同缩进</span></span><br></pre></td></tr></table></figure>
-<h3 id="缩进"><a class="markdownIt-Anchor" href="#缩进"></a> 缩进</h3>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> autoindent <span class="comment">&quot; 自动缩进</span></span><br><span class="line"><span class="keyword">set</span> tabstop=<span class="number">4</span> <span class="comment">&quot; tab占4个空格</span></span><br><span class="line"><span class="keyword">set</span> <span class="built_in">shiftwidth</span>=<span class="number">4</span> <span class="comment">&quot; 在文本上按下&gt;&gt;（增加一级缩进）、&lt;&lt;（取消一级缩进）或者==（取消全部缩进）时，每一级的空格数。</span></span><br><span class="line"><span class="keyword">set</span> expandtab <span class="comment">&quot; tab自动转为空格</span></span><br><span class="line"><span class="keyword">set</span> softtabstop=<span class="number">2</span> <span class="comment">&quot; tab转为多少空格</span></span><br></pre></td></tr></table></figure>
-<h3 id="界面"><a class="markdownIt-Anchor" href="#界面"></a> 界面</h3>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">number</span> <span class="comment">&quot; 显示行号</span></span><br><span class="line"><span class="keyword">set</span> relativenumber <span class="comment">&quot; 显示光标所在行当前行号，其他都显示为相对于当前行的行号</span></span><br><span class="line"><span class="keyword">set</span> cursorline <span class="comment">&quot; 当前行高亮</span></span><br><span class="line"><span class="keyword">colorscheme</span> default <span class="comment">&quot; 设置颜色主题为 default，颜色主题储存在 Home 目录的 .vim/colors 文件夹，Windows 下叫做 vimfiles/colors</span></span><br><span class="line"><span class="keyword">set</span> wrap <span class="comment">&quot; 设置多于行宽的文本自动分拆为多行显示，反之: set nowrap</span></span><br><span class="line"><span class="keyword">set</span> linebreak <span class="comment">&quot; 遇到特殊的符号才折行</span></span><br><span class="line"><span class="keyword">set</span> laststatus=<span class="number">2</span> <span class="comment">&quot; 是否显示状态栏。0 不显示，1 只在多窗口时显示，2 显示。</span></span><br><span class="line"><span class="keyword">set</span> ruler <span class="comment">&quot; 状态栏显示光标位置</span></span><br><span class="line"><span class="keyword">set</span> showmatch <span class="comment">&quot; 高亮括号</span></span><br></pre></td></tr></table></figure>
-<h3 id="搜索"><a class="markdownIt-Anchor" href="#搜索"></a> 搜索</h3>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> hlsearch <span class="comment">&quot; 高亮搜索结果</span></span><br><span class="line"><span class="keyword">set</span> incsearch <span class="comment">&quot; 搜索输入时，即时跳转</span></span><br><span class="line"><span class="keyword">set</span> ignorecase <span class="comment">&quot; 忽略大小写</span></span><br></pre></td></tr></table></figure>
-<h3 id="更多"><a class="markdownIt-Anchor" href="#更多"></a> 更多</h3>
-<p>Vim 配置不止这些，我只介绍了一些常用的。Vim Script 值得学习，学完了还可以自己开发插件。</p>
-<h2 id="题外话-插件"><a class="markdownIt-Anchor" href="#题外话-插件"></a> 题外话 - 插件</h2>
-<p>插件管理，Vim 虽然新增了自带的，但我还是很推荐 <a target="_blank" rel="noopener" href="https://github.com/junegunn/vim-plug">Vim-Plug</a></p>
-
+<h2 id="题面-思考"><a class="markdownIt-Anchor" href="#题面-思考"></a> 题面 &amp; 思考</h2>
+<p>先看题面，一颗有根树，选定 k 个节点作为 ”伐木场“，求运送木料最小费用。注意木料费用是 <code>dis * wood</code>。</p>
+<p>最开始想到简单的树形背包，状态转移方程：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f[i][k] = <span class="built_in">min</span>(f[j][s] + cost, f[i][k]);</span><br></pre></td></tr></table></figure>
+<p>但是注意到，如果某个后代节点如果是伐木场，cost 不需要计算，所以状态中还需要存储后代的伐木场情况。</p>
+<p>但是后代中锯木厂不止一个。考虑到树有唯一的父亲，且同一深度祖先唯一，可以记录最近的伐木场祖先，作为状态的一部分。</p>
+<p>有 <code>f[i][j][k]</code> 即 i 节点 最近的伐木场祖先为 j，后代（不算自己）有 k 个是伐木场。</p>
+<p>但是由于 f 自己也可能是伐木场，转移方程不同，需要分类讨论，于是改成：<code>f[i][j][k][0/1]</code> 其中 0 代表自己<strong>不是</strong>伐木场， 1 表示自己<strong>是</strong>伐木场。</p>
+<h2 id="状态转移方程"><a class="markdownIt-Anchor" href="#状态转移方程"></a> 状态转移方程</h2>
+<p>因为我们需要枚举祖先，在 DFS 时需要记录 Fa 数组：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DFS 开始时：fa[++tot] = x;</span><br><span class="line"></span><br><span class="line">结束时：tot--;</span><br></pre></td></tr></table></figure>
+<p>简单记录祖先 stack。</p>
+<p>回溯后，对于当前节点 <code>x</code> 和 子节点 <code>y</code> 每个祖先 <code>ff</code>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">先对每个 k 赋初值，对于每种伐木场个数 l：</span><br><span class="line">f[x][ff][l][<span class="number">0</span>] += f[y][ff][<span class="number">0</span>][<span class="number">0</span>]; --&gt; 当前节点不是伐木场，子节点 y 最近伐木场为 l，对任意 f，赋最大值，即 子结点中没有伐木场。</span><br><span class="line"></span><br><span class="line">f[x][ff][l][<span class="number">1</span>] += f[y][x][<span class="number">0</span>][<span class="number">0</span>]; --&gt; 当前节点是伐木场，子节点 y 最近伐木场为 当前节点，对任意 f，赋最大值，即 子结点中没有伐木场。</span><br></pre></td></tr></table></figure>
+<p>然后就是树形背包：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f[x][ff][l][<span class="number">0</span>] = <span class="built_in">min</span>(f[x][ff][l][<span class="number">0</span>], f[x][ff][l-s][<span class="number">0</span>] + f[y][ff][s][<span class="number">0</span>]); --&gt; 当前节点不是伐木场，对 y 节点分配 s 个伐木场个数</span><br><span class="line">f[x][ff][l][<span class="number">1</span>] = <span class="built_in">min</span>(f[x][ff][l][<span class="number">0</span>], f[x][ff][l-s][<span class="number">1</span>] + f[y][x][s][<span class="number">0</span>]); --&gt; 当前节点是伐木场，对 y 节点分配 s 个伐木场个数</span><br><span class="line"></span><br><span class="line">唯一的不同是 y 节点最近祖先为 x</span><br></pre></td></tr></table></figure>
+<p>注意在枚举 l 时，由于是01背包，需要倒过来枚举，不然状态计算会叠加。（很容易理解）</p>
+<p>做完了？好像还差一个 cost！</p>
+<p>考虑到 祖先节点 <code>ff</code> cost 的贡献，因为是 当前节点 W 乘以 到 <code>ff</code> 的总距离！</p>
+<p>需要计算总距离，维护 <code>dep</code> 数组，即当前节点到根节点距离，即可！很容易理解。<code>ff</code> 到 <code>x</code> 的距离就是 <code>dep[x] - dep[ff]</code></p>
+<p>对于当前节点 <code>x</code> 每一个祖先 <code>ff</code>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(l&gt;=<span class="number">1</span>)&#123; --&gt; 因为 l 需要 <span class="number">-1</span> ，要分类讨论。</span><br><span class="line">    f[x][ff][l][<span class="number">0</span>] = <span class="built_in">min</span>(f[x][ff][l][<span class="number">0</span>] + W[x] * (dep[x]-dep[ff]), f[x][ff][l][<span class="number">1</span>]);</span><br><span class="line">    合并 <span class="number">0</span> 和 <span class="number">1</span>，因为回溯之后，<span class="number">1</span> 的状态不再被使用，便于下一步计算。</span><br><span class="line">    <span class="number">-1</span> 是因为上文 f[x][ff][l][<span class="number">1</span>] = <span class="built_in">min</span>(f[x][ff][l][<span class="number">0</span>], f[x][ff][l-s][<span class="number">1</span>] + f[y][x][s][<span class="number">0</span>]); 时，s+l-s = l 但是当前节点也是伐木场，所以状态更新是 l+<span class="number">1</span> 的，要 <span class="number">-1</span> 获取正确结果</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    l = <span class="number">0</span> 时，当前节点不可能为伐木场，直接添加到 ff 增加的贡献</span><br><span class="line">    f[x][ff][l][<span class="number">0</span>] += W[x] * (dep[x]-dep[ff]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里再来聊一聊合并。为了便于讨论，上文背包转移的时候，我们没有考虑 <code>y</code> 的 1 的情况，而是在每次 <code>y</code> 回溯时 合并 0 和 1。这有点类似于滚动数组？回溯后 <code>0</code> 不再表示之前的意义，而是我们最初设计的状态：i 节点 最近的伐木场祖先为 j，后代（或自己）有 k 个是伐木场！</p>
+<h2 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> to, next, d;</span><br><span class="line">&#125; NDS[<span class="number">201</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> head[<span class="number">201</span>], vis[<span class="number">201</span>];</span><br><span class="line"><span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> W[<span class="number">201</span>];</span><br><span class="line"><span class="keyword">int</span> tot = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> d)</span> </span>&#123;</span><br><span class="line">    NDS[cnt].to = b;</span><br><span class="line">    NDS[cnt].next = head[a];</span><br><span class="line">    NDS[cnt].d = d;</span><br><span class="line">    head[a] = cnt++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> fa[<span class="number">201</span>];</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> f[<span class="number">201</span>][<span class="number">201</span>][<span class="number">52</span>][<span class="number">2</span>];</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> dep[<span class="number">201</span>];</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> n, k;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dp</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    fa[++tot] = x;</span><br><span class="line">    vis[x] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = head[x]; i != <span class="number">-1</span>; i = NDS[i].next) &#123;</span><br><span class="line">        <span class="keyword">int</span> y = NDS[i].to;</span><br><span class="line">        <span class="keyword">if</span> (vis[y]) <span class="keyword">continue</span>;</span><br><span class="line">        dep[y] = dep[x] + NDS[i].d;</span><br><span class="line">        <span class="built_in">dp</span>(y);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = tot; j &gt;= <span class="number">1</span>; j--) &#123;</span><br><span class="line">            <span class="keyword">int</span> ff = fa[j];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> l = k; l &gt;= <span class="number">0</span>; l--) &#123;</span><br><span class="line">                f[x][ff][l][<span class="number">0</span>] += f[y][ff][<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">                f[x][ff][l][<span class="number">1</span>] += f[y][x][<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> s = l; s&gt;=<span class="number">0</span>; s--)&#123;</span><br><span class="line">                    f[x][ff][l][<span class="number">0</span>] = <span class="built_in">min</span>(f[x][ff][l][<span class="number">0</span>], f[x][ff][l-s][<span class="number">0</span>] + f[y][ff][s][<span class="number">0</span>]);</span><br><span class="line">                    f[x][ff][l][<span class="number">1</span>] = <span class="built_in">min</span>(f[x][ff][l][<span class="number">1</span>], f[x][ff][l-s][<span class="number">1</span>] + f[y][x][s][<span class="number">0</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= tot; j++) &#123;</span><br><span class="line">        <span class="keyword">int</span> ff = fa[j];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> l = k; l &gt;= <span class="number">0</span>; l--) &#123;</span><br><span class="line">            <span class="keyword">if</span>(l&gt;=<span class="number">1</span>)&#123;</span><br><span class="line">                f[x][ff][l][<span class="number">0</span>] = <span class="built_in">min</span>(f[x][ff][l][<span class="number">0</span>] + W[x] * (dep[x]-dep[ff]), f[x][ff][l<span class="number">-1</span>][<span class="number">1</span>]);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                f[x][ff][l][<span class="number">0</span>] += W[x] * (dep[x]-dep[ff]);</span><br><span class="line">            &#125;</span><br><span class="line"><span class="comment">//            cout &lt;&lt; x &lt;&lt; &quot; &quot;&lt;&lt;ff &lt;&lt; &quot; &quot;&lt;&lt; l &lt;&lt; &quot; &quot; &lt;&lt; f[x][ff][l][0] &lt;&lt; &quot; &quot; &lt;&lt; endl;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//    cout &lt;&lt; dep[x] &lt;&lt; endl;</span></span><br><span class="line">    tot--;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Type your code here</span></span><br><span class="line">    <span class="built_in">memset</span>(head, <span class="number">-1</span>, <span class="built_in"><span class="keyword">sizeof</span></span>(head));</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> w, v, d;</span><br><span class="line">        cin &gt;&gt; w &gt;&gt; v &gt;&gt; d;</span><br><span class="line">        W[i] = w;</span><br><span class="line">        <span class="built_in">add</span>(i, v, d);</span><br><span class="line">        <span class="built_in">add</span>(v, i, d); <span class="comment">// 链式前向星</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">dp</span>(<span class="number">0</span>);</span><br><span class="line">    cout &lt;&lt; f[<span class="number">0</span>][<span class="number">0</span>][k][<span class="number">0</span>] &lt;&lt; endl; <span class="comment">// 输出结果，注意是 合并后，所以是 0</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -413,7 +399,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="../../../../https:/blog.aeilot.top/2020/07/26/vimrc/" title="vimrc 配置指南">https://blog.aeilot.top/2020/07/26/vimrc/</a>
+      <a href="../../../../https:/blog.aeilot.top/2022/11/23/riv-p3354/" title="P3354 Riv 河流 题解">https://blog.aeilot.top/2022/11/23/riv-p3354/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="../../../../https:/creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -459,23 +445,20 @@
 </div>
 
           <div class="post-tags">
-              <a href="../../../../tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
-              <a href="../../../../tags/%E7%BC%96%E8%BE%91%E5%99%A8/" rel="tag"><i class="fa fa-tag"></i> 编辑器</a>
-              <a href="../../../../tags/Vim/" rel="tag"><i class="fa fa-tag"></i> Vim</a>
+              <a href="../../../../tags/%E6%B4%9B%E8%B0%B7/" rel="tag"><i class="fa fa-tag"></i> 洛谷</a>
+              <a href="../../../../tags/DP/" rel="tag"><i class="fa fa-tag"></i> DP</a>
+              <a href="../../../../tags/%E6%A0%91/" rel="tag"><i class="fa fa-tag"></i> 树</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="../../23/nextcloud/" rel="prev" title="NextCloud - DIY NAS 解决方案">
-                  <i class="fa fa-chevron-left"></i> NextCloud - DIY NAS 解决方案
+                <a href="../../21/the-fog-1/" rel="prev" title="层雾">
+                  <i class="fa fa-chevron-left"></i> 层雾
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="../../../08/13/vcpkg/" rel="next" title="vcpkg - 方便的 C/C++ 库管理器">
-                  vcpkg - 方便的 C/C++ 库管理器 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
