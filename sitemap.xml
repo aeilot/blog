@@ -277,13 +277,6 @@
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/tags/%E6%A8%A1%E7%89%88/</loc>
-    <lastmod>2022-12-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.aeilot.top/tags/%E8%B4%AA%E5%BF%83/</loc>
     <lastmod>2022-12-13</lastmod>
     <changefreq>daily</changefreq>
@@ -312,6 +305,13 @@
   </url>
   
   <url>
+    <loc>https://blog.aeilot.top/tags/%E6%A8%A1%E7%89%88/</loc>
+    <lastmod>2022-12-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.aeilot.top/tags/GitHub/</loc>
     <lastmod>2022-12-13</lastmod>
     <changefreq>daily</changefreq>
@@ -326,14 +326,14 @@
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/tags/%E6%AF%94%E8%B5%9B/</loc>
+    <loc>https://blog.aeilot.top/tags/%E9%A1%B9%E7%9B%AE/</loc>
     <lastmod>2022-12-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/tags/%E9%A1%B9%E7%9B%AE/</loc>
+    <loc>https://blog.aeilot.top/tags/%E6%AF%94%E8%B5%9B/</loc>
     <lastmod>2022-12-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

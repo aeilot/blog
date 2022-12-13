@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/purple/pace-theme-minimal.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.aeilot.top","root":"/","images":"../../../../images","scheme":"Muse","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"right","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"style":null,"show_result":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"waline","storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"../../../../search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true}}</script><script src="../../../../js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.aeilot.top","root":"/","images":"../../../../images","scheme":"Muse","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"right","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"style":null,"show_result":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"../../../../search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true}}</script><script src="../../../../js/config.js"></script>
 
     <meta name="description" content="Vim 即 Vi Improved，它的前身是 Vi。它是一个十分强大的编辑器，优点如下：  不需要鼠标，纯键盘 Linux 系统预装 键盘命令肌肉记忆之后，效率非常高  但是，它的配置许许多多，让人难以记住。我正好要在新电脑上配置它，故写此文。">
 <meta property="og:type" content="article">
@@ -59,7 +59,7 @@
 
 
 
-
+<link rel="dns-prefetch" href="https://comments.aeilot.top">
   <noscript>
     <link rel="stylesheet" href="../../../../css/noscript.css">
   </noscript>
@@ -160,7 +160,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%94%A8%E5%88%AB%E4%BA%BA%E7%8E%B0%E6%88%90%E7%9A%84"><span class="nav-number">1.</span> <span class="nav-text"> 为什么不用别人现成的？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E4%BC%9A-vim-%E6%80%8E%E4%B9%88%E5%8A%9E"><span class="nav-number"></span> <span class="nav-text"> 不会 Vim 怎么办</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vimrc-%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="nav-number"></span> <span class="nav-text"> vimrc 的位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number"></span> <span class="nav-text"> 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC"><span class="nav-number">1.</span> <span class="nav-text"> 基本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%A9%E8%BF%9B"><span class="nav-number">2.</span> <span class="nav-text"> 缩进</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%95%8C%E9%9D%A2"><span class="nav-number">3.</span> <span class="nav-text"> 界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2"><span class="nav-number">4.</span> <span class="nav-text"> 搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E5%A4%9A"><span class="nav-number">5.</span> <span class="nav-text"> 更多</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E5%A4%96%E8%AF%9D-%E6%8F%92%E4%BB%B6"><span class="nav-number"></span> <span class="nav-text"> 题外话 - 插件</span></a></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%94%A8%E5%88%AB%E4%BA%BA%E7%8E%B0%E6%88%90%E7%9A%84%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">为什么不用别人现成的？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E4%BC%9A-Vim-%E6%80%8E%E4%B9%88%E5%8A%9E"><span class="nav-number"></span> <span class="nav-text">不会 Vim 怎么办</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vimrc-%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="nav-number"></span> <span class="nav-text">vimrc 的位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number"></span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC"><span class="nav-number">1.</span> <span class="nav-text">基本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%A9%E8%BF%9B"><span class="nav-number">2.</span> <span class="nav-text">缩进</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%95%8C%E9%9D%A2"><span class="nav-number">3.</span> <span class="nav-text">界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2"><span class="nav-number">4.</span> <span class="nav-text">搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E5%A4%9A"><span class="nav-number">5.</span> <span class="nav-text">更多</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E5%A4%96%E8%AF%9D-%E6%8F%92%E4%BB%B6"><span class="nav-number"></span> <span class="nav-text">题外话 - 插件</span></a></div>
         </div>
         <!--/noindex-->
 
@@ -326,6 +326,20 @@
       <span class="post-meta-item-text">阅读次数：</span>
       <span id="busuanzi_value_page_pv"></span>
     </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
     <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
@@ -342,43 +356,32 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p><img data-src="https://www.vim.org/images/vim_header.gif" alt="Vim" /></p>
+        <p><img data-src="https://www.vim.org/images/vim_header.gif" alt="Vim"></p>
 <p>Vim 即 Vi Improved，它的前身是 Vi。它是一个十分强大的编辑器，优点如下：</p>
 <ul>
 <li>不需要鼠标，纯键盘</li>
 <li>Linux 系统预装</li>
 <li>键盘命令肌肉记忆之后，效率非常高</li>
 </ul>
-<p>但是，它的配置许许多多，让人难以记住。我正好要在新电脑上配置它，故写此文。</p>
-<a id="more"></a>
-<h3 id="为什么不用别人现成的"><a class="markdownIt-Anchor" href="#为什么不用别人现成的"></a> 为什么不用别人现成的？</h3>
-<ol>
+<p>但是，它的配置许许多多，让人难以记住。我正好要在新电脑上配置它，故写此文。<br><a id="more"></a></p>
+<h3 id="为什么不用别人现成的？"><a href="#为什么不用别人现成的？" class="headerlink" title="为什么不用别人现成的？"></a>为什么不用别人现成的？</h3><ol>
 <li>自己的配置更顺手，自己更熟悉。</li>
 <li>了解 Vim Script，可以自己造插件</li>
 <li>etc.</li>
 </ol>
-<h2 id="不会-vim-怎么办"><a class="markdownIt-Anchor" href="#不会-vim-怎么办"></a> 不会 Vim 怎么办</h2>
-<p>啊这…… 🤣</p>
+<h2 id="不会-Vim-怎么办"><a href="#不会-Vim-怎么办" class="headerlink" title="不会 Vim 怎么办"></a>不会 Vim 怎么办</h2><p>啊这…… 🤣 </p>
 <p>你可以试着在命令行输入 <code>vimtutor</code>。</p>
-<h2 id="vimrc-的位置"><a class="markdownIt-Anchor" href="#vimrc-的位置"></a> vimrc 的位置</h2>
-<p>本篇文章以新安装的 vim 为例。Vim 的配置文件叫做 <code>vimrc</code>。在 Mac、Linux 等系统上，位于 <code>~/.vimrc</code>。在 Windows 系统中，它叫做 <code>_vimrc</code>，但是同样位于 Home 目录中。</p>
+<h2 id="vimrc-的位置"><a href="#vimrc-的位置" class="headerlink" title="vimrc 的位置"></a>vimrc 的位置</h2><p>本篇文章以新安装的 vim 为例。Vim 的配置文件叫做 <code>vimrc</code>。在 Mac、Linux 等系统上，位于 <code>~/.vimrc</code>。在 Windows 系统中，它叫做 <code>_vimrc</code>，但是同样位于 Home 目录中。</p>
 <p>全局的配置，在 Mac、Linux 等系统上，位于 <code>/etc/vimrc</code>。在 Windows 系统上，它储存在 Vim 安装目录，同样叫做 <code>vimrc</code>。</p>
-<h2 id="配置"><a class="markdownIt-Anchor" href="#配置"></a> 配置</h2>
-<p>一个什么也没有配置的 Vim，打开可能是这样的:</p>
-<p><img data-src="https://i.loli.net/2020/07/25/VSRZMUnjOfDzq8b.png" alt="image.png" /></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>一个什么也没有配置的 Vim，打开可能是这样的:  </p>
+<p><img data-src="https://i.loli.net/2020/07/25/VSRZMUnjOfDzq8b.png" alt="image.png"></p>
 <p>下面各配置，你可以添加自己想要的。以下所有配置都可以在命令模式输入，临时启用或关闭。</p>
-<h3 id="基本"><a class="markdownIt-Anchor" href="#基本"></a> 基本</h3>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> nocompatible <span class="comment">&quot; 不使用 Vi 兼容模式</span></span><br><span class="line"><span class="keyword">filetype</span> plugin <span class="keyword">on</span>  <span class="comment">&quot; 检测文件类型，加载插件</span></span><br><span class="line"><span class="keyword">syntax</span> <span class="keyword">on</span> <span class="comment">&quot; 开启语法高亮</span></span><br><span class="line"><span class="keyword">set</span> showmode <span class="comment">&quot; 显示当前模式</span></span><br><span class="line"><span class="keyword">set</span> showcmd <span class="comment">&quot; 在底部显示命令</span></span><br><span class="line"><span class="keyword">set</span> mouse=<span class="keyword">a</span> <span class="comment">&quot; 启用鼠标，不建议开启</span></span><br><span class="line"><span class="keyword">set</span> encoding=utf-<span class="number">8</span>  </span><br><span class="line"><span class="keyword">set</span> t_Co=<span class="number">256</span></span><br><span class="line"><span class="keyword">filetype</span> <span class="built_in">indent</span> <span class="keyword">on</span> <span class="comment">&quot; 根据文件类型，不同缩进</span></span><br></pre></td></tr></table></figure>
-<h3 id="缩进"><a class="markdownIt-Anchor" href="#缩进"></a> 缩进</h3>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> autoindent <span class="comment">&quot; 自动缩进</span></span><br><span class="line"><span class="keyword">set</span> tabstop=<span class="number">4</span> <span class="comment">&quot; tab占4个空格</span></span><br><span class="line"><span class="keyword">set</span> <span class="built_in">shiftwidth</span>=<span class="number">4</span> <span class="comment">&quot; 在文本上按下&gt;&gt;（增加一级缩进）、&lt;&lt;（取消一级缩进）或者==（取消全部缩进）时，每一级的空格数。</span></span><br><span class="line"><span class="keyword">set</span> expandtab <span class="comment">&quot; tab自动转为空格</span></span><br><span class="line"><span class="keyword">set</span> softtabstop=<span class="number">2</span> <span class="comment">&quot; tab转为多少空格</span></span><br></pre></td></tr></table></figure>
-<h3 id="界面"><a class="markdownIt-Anchor" href="#界面"></a> 界面</h3>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">number</span> <span class="comment">&quot; 显示行号</span></span><br><span class="line"><span class="keyword">set</span> relativenumber <span class="comment">&quot; 显示光标所在行当前行号，其他都显示为相对于当前行的行号</span></span><br><span class="line"><span class="keyword">set</span> cursorline <span class="comment">&quot; 当前行高亮</span></span><br><span class="line"><span class="keyword">colorscheme</span> default <span class="comment">&quot; 设置颜色主题为 default，颜色主题储存在 Home 目录的 .vim/colors 文件夹，Windows 下叫做 vimfiles/colors</span></span><br><span class="line"><span class="keyword">set</span> wrap <span class="comment">&quot; 设置多于行宽的文本自动分拆为多行显示，反之: set nowrap</span></span><br><span class="line"><span class="keyword">set</span> linebreak <span class="comment">&quot; 遇到特殊的符号才折行</span></span><br><span class="line"><span class="keyword">set</span> laststatus=<span class="number">2</span> <span class="comment">&quot; 是否显示状态栏。0 不显示，1 只在多窗口时显示，2 显示。</span></span><br><span class="line"><span class="keyword">set</span> ruler <span class="comment">&quot; 状态栏显示光标位置</span></span><br><span class="line"><span class="keyword">set</span> showmatch <span class="comment">&quot; 高亮括号</span></span><br></pre></td></tr></table></figure>
-<h3 id="搜索"><a class="markdownIt-Anchor" href="#搜索"></a> 搜索</h3>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> hlsearch <span class="comment">&quot; 高亮搜索结果</span></span><br><span class="line"><span class="keyword">set</span> incsearch <span class="comment">&quot; 搜索输入时，即时跳转</span></span><br><span class="line"><span class="keyword">set</span> ignorecase <span class="comment">&quot; 忽略大小写</span></span><br></pre></td></tr></table></figure>
-<h3 id="更多"><a class="markdownIt-Anchor" href="#更多"></a> 更多</h3>
-<p>Vim 配置不止这些，我只介绍了一些常用的。Vim Script 值得学习，学完了还可以自己开发插件。</p>
-<h2 id="题外话-插件"><a class="markdownIt-Anchor" href="#题外话-插件"></a> 题外话 - 插件</h2>
-<p>插件管理，Vim 虽然新增了自带的，但我还是很推荐 <a target="_blank" rel="noopener" href="https://github.com/junegunn/vim-plug">Vim-Plug</a></p>
+<h3 id="基本"><a href="#基本" class="headerlink" title="基本"></a>基本</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> nocompatible <span class="comment">&quot; 不使用 Vi 兼容模式</span></span><br><span class="line"><span class="keyword">filetype</span> plugin <span class="keyword">on</span>  <span class="comment">&quot; 检测文件类型，加载插件</span></span><br><span class="line"><span class="keyword">syntax</span> <span class="keyword">on</span> <span class="comment">&quot; 开启语法高亮</span></span><br><span class="line"><span class="keyword">set</span> showmode <span class="comment">&quot; 显示当前模式</span></span><br><span class="line"><span class="keyword">set</span> showcmd <span class="comment">&quot; 在底部显示命令</span></span><br><span class="line"><span class="keyword">set</span> mouse=<span class="keyword">a</span> <span class="comment">&quot; 启用鼠标，不建议开启</span></span><br><span class="line"><span class="keyword">set</span> encoding=utf-<span class="number">8</span>  </span><br><span class="line"><span class="keyword">set</span> t_Co=<span class="number">256</span></span><br><span class="line"><span class="keyword">filetype</span> <span class="built_in">indent</span> <span class="keyword">on</span> <span class="comment">&quot; 根据文件类型，不同缩进</span></span><br></pre></td></tr></table></figure>
+<h3 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> autoindent <span class="comment">&quot; 自动缩进</span></span><br><span class="line"><span class="keyword">set</span> tabstop=<span class="number">4</span> <span class="comment">&quot; tab占4个空格</span></span><br><span class="line"><span class="keyword">set</span> <span class="built_in">shiftwidth</span>=<span class="number">4</span> <span class="comment">&quot; 在文本上按下&gt;&gt;（增加一级缩进）、&lt;&lt;（取消一级缩进）或者==（取消全部缩进）时，每一级的空格数。</span></span><br><span class="line"><span class="keyword">set</span> expandtab <span class="comment">&quot; tab自动转为空格</span></span><br><span class="line"><span class="keyword">set</span> softtabstop=<span class="number">2</span> <span class="comment">&quot; tab转为多少空格</span></span><br></pre></td></tr></table></figure>
+<h3 id="界面"><a href="#界面" class="headerlink" title="界面"></a>界面</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">number</span> <span class="comment">&quot; 显示行号</span></span><br><span class="line"><span class="keyword">set</span> relativenumber <span class="comment">&quot; 显示光标所在行当前行号，其他都显示为相对于当前行的行号</span></span><br><span class="line"><span class="keyword">set</span> cursorline <span class="comment">&quot; 当前行高亮</span></span><br><span class="line"><span class="keyword">colorscheme</span> default <span class="comment">&quot; 设置颜色主题为 default，颜色主题储存在 Home 目录的 .vim/colors 文件夹，Windows 下叫做 vimfiles/colors</span></span><br><span class="line"><span class="keyword">set</span> wrap <span class="comment">&quot; 设置多于行宽的文本自动分拆为多行显示，反之: set nowrap</span></span><br><span class="line"><span class="keyword">set</span> linebreak <span class="comment">&quot; 遇到特殊的符号才折行</span></span><br><span class="line"><span class="keyword">set</span> laststatus=<span class="number">2</span> <span class="comment">&quot; 是否显示状态栏。0 不显示，1 只在多窗口时显示，2 显示。</span></span><br><span class="line"><span class="keyword">set</span> ruler <span class="comment">&quot; 状态栏显示光标位置</span></span><br><span class="line"><span class="keyword">set</span> showmatch <span class="comment">&quot; 高亮括号</span></span><br></pre></td></tr></table></figure>
+<h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> hlsearch <span class="comment">&quot; 高亮搜索结果</span></span><br><span class="line"><span class="keyword">set</span> incsearch <span class="comment">&quot; 搜索输入时，即时跳转</span></span><br><span class="line"><span class="keyword">set</span> ignorecase <span class="comment">&quot; 忽略大小写</span></span><br></pre></td></tr></table></figure>
+<h3 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h3><p>Vim 配置不止这些，我只介绍了一些常用的。Vim Script 值得学习，学完了还可以自己开发插件。</p>
+<h2 id="题外话-插件"><a href="#题外话-插件" class="headerlink" title="题外话 - 插件"></a>题外话 - 插件</h2><p>插件管理，Vim 虽然新增了自带的，但我还是很推荐 <a target="_blank" rel="noopener" href="https://github.com/junegunn/vim-plug">Vim-Plug</a></p>
 
     </div>
 
@@ -490,6 +493,7 @@
 
 
 
+    <div class="comments" id="waline"></div>
 </div>
   </main>
 
@@ -560,6 +564,17 @@
   <script src="../../../../js/third-party/math/katex.js"></script>
 
 
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"https://comments.aeilot.top","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo","https://unpkg.com/@waline/emojis@1.0.1/alus","https://unpkg.com/@waline/emojis@1.0.1/bilibili","https://unpkg.com/@waline/emojis@1.0.1/qq","https://unpkg.com/@waline/emojis@1.0.1/tieba","https://unpkg.com/@waline/emojis@1.0.1/tw-emoji"],"meta":["nick","mail","link"],"requiredMeta":["nick"],"el":"#waline","comment":true,"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","path":""}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
 
 </body>
 </html>

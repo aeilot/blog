@@ -23,14 +23,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/purple/pace-theme-minimal.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.aeilot.top","root":"/","images":"../../../../images","scheme":"Muse","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"right","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"style":null,"show_result":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"waline","storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"../../../../search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true}}</script><script src="../../../../js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.aeilot.top","root":"/","images":"../../../../images","scheme":"Muse","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"right","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"style":null,"show_result":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"../../../../search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true}}</script><script src="../../../../js/config.js"></script>
 
-    <meta name="description" content="前言 我之前给家中的服务器做了一个 WebDAV 功能，带有不堪入目的 UI 和难以使用的功能。而且配置起来并不简单。一直想要改进，但是却一直没时间。最近有空了，便开始寻找替代品。 查了几下 GitHub，找到了一个标星 10k+ 的项目 —— NextCloud。了解了一下，NextCloud 是一个拥有 全平台客户端，支持 WebDAV，而且 插件化，可以 多用户 使用的私有云存储网盘项目">
+    <meta name="description" content="前言我之前给家中的服务器做了一个 WebDAV 功能，带有不堪入目的 UI 和难以使用的功能。而且配置起来并不简单。一直想要改进，但是却一直没时间。最近有空了，便开始寻找替代品。 查了几下 GitHub，找到了一个标星 10k+ 的项目 —— NextCloud。了解了一下，NextCloud 是一个拥有 全平台客户端，支持 WebDAV，而且 插件化，可以 多用户 使用的私有云存储网盘项目。不">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NextCloud - DIY NAS 解决方案">
 <meta property="og:url" content="https://blog.aeilot.top/2020/07/23/nextcloud/index.html">
 <meta property="og:site_name" content="满五的博客">
-<meta property="og:description" content="前言 我之前给家中的服务器做了一个 WebDAV 功能，带有不堪入目的 UI 和难以使用的功能。而且配置起来并不简单。一直想要改进，但是却一直没时间。最近有空了，便开始寻找替代品。 查了几下 GitHub，找到了一个标星 10k+ 的项目 —— NextCloud。了解了一下，NextCloud 是一个拥有 全平台客户端，支持 WebDAV，而且 插件化，可以 多用户 使用的私有云存储网盘项目">
+<meta property="og:description" content="前言我之前给家中的服务器做了一个 WebDAV 功能，带有不堪入目的 UI 和难以使用的功能。而且配置起来并不简单。一直想要改进，但是却一直没时间。最近有空了，便开始寻找替代品。 查了几下 GitHub，找到了一个标星 10k+ 的项目 —— NextCloud。了解了一下，NextCloud 是一个拥有 全平台客户端，支持 WebDAV，而且 插件化，可以 多用户 使用的私有云存储网盘项目。不">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://avatars0.githubusercontent.com/u/19211038?s=200&amp;v=4">
 <meta property="article:published_time" content="2020-07-23T04:45:09.000Z">
@@ -57,7 +57,7 @@
 
 
 
-
+<link rel="dns-prefetch" href="https://comments.aeilot.top">
   <noscript>
     <link rel="stylesheet" href="../../../../css/noscript.css">
   </noscript>
@@ -158,7 +158,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text"> 前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker-%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text"> Docker 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-nextcloud"><span class="nav-number">3.</span> <span class="nav-text"> 安装 NextCloud</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text"> 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">5.</span> <span class="nav-text"> 结语</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">Docker 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-NextCloud"><span class="nav-number">3.</span> <span class="nav-text">安装 NextCloud</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">5.</span> <span class="nav-text">结语</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -324,6 +324,20 @@
       <span class="post-meta-item-text">阅读次数：</span>
       <span id="busuanzi_value_page_pv"></span>
     </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
     <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
@@ -340,29 +354,24 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p><img data-src="https://avatars0.githubusercontent.com/u/19211038?s=200&amp;v=4" alt="LOGO" /></p>
-<h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2>
-<p>我之前给家中的服务器做了一个 WebDAV 功能，带有不堪入目的 UI 和难以使用的功能。而且配置起来并不简单。一直想要改进，但是却一直没时间。最近有空了，便开始寻找替代品。</p>
+        <p><img data-src="https://avatars0.githubusercontent.com/u/19211038?s=200&amp;v=4" alt="LOGO"></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我之前给家中的服务器做了一个 WebDAV 功能，带有不堪入目的 UI 和难以使用的功能。而且配置起来并不简单。一直想要改进，但是却一直没时间。最近有空了，便开始寻找替代品。</p>
 <p>查了几下 GitHub，找到了一个标星 10k+ 的项目 —— <a target="_blank" rel="noopener" href="https://github.com/nextcloud/">NextCloud</a>。了解了一下，NextCloud 是一个拥有 <strong>全平台客户端</strong>，支持 <strong>WebDAV</strong>，而且 <strong>插件化</strong>，可以 <strong>多用户</strong> 使用的私有云存储网盘项目。不仅如此，它还支持共享、版本控制、团队协作等功能。插件化让它拥有了类似 Markdown 在线编辑，Draw-io 在线编辑，显示 RAW 文件的功能。</p>
 <p>而且，我发现它支持 Docker，这无疑简化了我们配置的步骤。</p>
 <p>那么，我们开始吧！</p>
 <a id="more"></a>
-<h2 id="docker-配置"><a class="markdownIt-Anchor" href="#docker-配置"></a> Docker 配置</h2>
-<p>Docker 安装很简单，为了安装快速，你可以参考清华大学开源镜像站给出的 <a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/docker-ce/">文档</a>。如果你已经安装了 Docker, 那么可以忽略这一步。</p>
+<h2 id="Docker-配置"><a href="#Docker-配置" class="headerlink" title="Docker 配置"></a>Docker 配置</h2><p>Docker 安装很简单，为了安装快速，你可以参考清华大学开源镜像站给出的 <a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/docker-ce/">文档</a>。如果你已经安装了 Docker, 那么可以忽略这一步。</p>
 <p>更换镜像也是让你更快体验的必不可少的一步，修改 <code>/etc/docker/daemon.json</code> 文件</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;registry-mirrors&quot;</span> : [</span><br><span class="line">    <span class="string">&quot;http://registry.docker-cn.com&quot;</span>,</span><br><span class="line">    <span class="string">&quot;http://docker.mirrors.ustc.edu.cn&quot;</span>,</span><br><span class="line">    <span class="string">&quot;http://hub-mirror.c.163.com&quot;</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">&quot;insecure-registries&quot;</span> : [</span><br><span class="line">    <span class="string">&quot;registry.docker-cn.com&quot;</span>,</span><br><span class="line">    <span class="string">&quot;docker.mirrors.ustc.edu.cn&quot;</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="安装-nextcloud"><a class="markdownIt-Anchor" href="#安装-nextcloud"></a> 安装 NextCloud</h2>
-<p>运行如下命令即可：</p>
+<h2 id="安装-NextCloud"><a href="#安装-NextCloud" class="headerlink" title="安装 NextCloud"></a>安装 NextCloud</h2><p>运行如下命令即可：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -d \</span><br><span class="line">        --name nextcloud \</span><br><span class="line">        -p 8000:80 \</span><br><span class="line">        -v &lt;数据储存位置&gt;:/var/www/html \</span><br><span class="line">        nextcloud</span><br></pre></td></tr></table></figure>
 <p>如果遇到如下问题：</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?</span><br></pre></td></tr></table></figure>
 <p>可以运行：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart docker.service</span><br></pre></td></tr></table></figure>
-<h2 id="配置"><a class="markdownIt-Anchor" href="#配置"></a> 配置</h2>
-<p>配置这一部分很简单，不用解释了。</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>配置这一部分很简单，不用解释了。</p>
 <p>选择数据库时，使用量小可以选择 SQLite，但是并不推荐。</p>
-<h2 id="结语"><a class="markdownIt-Anchor" href="#结语"></a> 结语</h2>
-<p>NextCloud 还是非常稳定的，基本配置完之后不会遇到什么问题。而且原生支持中文，只需要在设置中设置一下就可以了。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>NextCloud 还是非常稳定的，基本配置完之后不会遇到什么问题。而且原生支持中文，只需要在设置中设置一下就可以了。</p>
 <p>我主要用它储存我的照片，摄影还有一些不需要经常查看的文件。由于自己服务器性能不错，用起来很流畅，完全没必要买现成的，硬盘不够再买一个即可。</p>
 
     </div>
@@ -474,6 +483,7 @@
 
 
 
+    <div class="comments" id="waline"></div>
 </div>
   </main>
 
@@ -544,6 +554,17 @@
   <script src="../../../../js/third-party/math/katex.js"></script>
 
 
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"https://comments.aeilot.top","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo","https://unpkg.com/@waline/emojis@1.0.1/alus","https://unpkg.com/@waline/emojis@1.0.1/bilibili","https://unpkg.com/@waline/emojis@1.0.1/qq","https://unpkg.com/@waline/emojis@1.0.1/tieba","https://unpkg.com/@waline/emojis@1.0.1/tw-emoji"],"meta":["nick","mail","link"],"requiredMeta":["nick"],"el":"#waline","comment":true,"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","path":""}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
 
 </body>
 </html>

@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/purple/pace-theme-minimal.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.aeilot.top","root":"/","images":"../../../../images","scheme":"Muse","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"right","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"style":null,"show_result":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"waline","storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"../../../../search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true}}</script><script src="../../../../js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.aeilot.top","root":"/","images":"../../../../images","scheme":"Muse","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"right","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"style":null,"show_result":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"../../../../search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true}}</script><script src="../../../../js/config.js"></script>
 
     <meta name="description" content="昨天(7&#x2F;14)参加了洛谷的 7 月月赛，感觉题目挺新颖的，就是数据有点。。。">
 <meta property="og:type" content="article">
@@ -55,7 +55,7 @@
 
 
 
-
+<link rel="dns-prefetch" href="https://comments.aeilot.top">
   <noscript>
     <link rel="stylesheet" href="../../../../css/noscript.css">
   </noscript>
@@ -156,7 +156,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#a"><span class="nav-number">1.</span> <span class="nav-text"> A</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b"><span class="nav-number">2.</span> <span class="nav-text"> B</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c"><span class="nav-number">3.</span> <span class="nav-text"> C</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d"><span class="nav-number">4.</span> <span class="nav-text"> D</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text"> 小结</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#A"><span class="nav-number">1.</span> <span class="nav-text">A</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B"><span class="nav-number">2.</span> <span class="nav-text">B</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C"><span class="nav-number">3.</span> <span class="nav-text">C</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D"><span class="nav-number">4.</span> <span class="nav-text">D</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">小结</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -322,6 +322,20 @@
       <span class="post-meta-item-text">阅读次数：</span>
       <span id="busuanzi_value_page_pv"></span>
     </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
     <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
@@ -342,29 +356,24 @@
 <a id="more"></a>
 <p>比赛链接：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/contest/46177">这里</a></p>
 <p>我的代码在 <a target="_blank" rel="noopener" href="https://github.com/aeilot/ProblemSet/tree/master/Competition/LuoGu-2021July-Div2">这里</a></p>
-<h2 id="a"><a class="markdownIt-Anchor" href="#a"></a> A</h2>
-<p>乍一看好像没思路，但是想一想，其实很简单，就是会有几种情况：</p>
+<h2 id="A"><a href="#A" class="headerlink" title="A"></a>A</h2><p>乍一看好像没思路，但是想一想，其实很简单，就是会有几种情况：</p>
 <ol>
 <li><strong>0个空格</strong> 全是数字的话，需要判断一下 A. 两者完全相同 B. 非A，情况 A 是可以输出 <code>Yes</code> 的。</li>
 <li><strong>1个空格</strong> 这一种情况，从原理上分析，“选择一个有正整数的格子和一个与之相邻的空格子，将正整数移到那个空格子中”，可以得出，其实只要顺时针转一圈，初始和最终状态顺序相同，就符合条件。所以，只需要做三次判断即可，简单粗暴（在座的各位大佬要是有高端方法可以通知一下🙇）。</li>
 <li><strong>2、3、4个空格</strong> 这几个情况，经过分析会发现，不管如何，都是满足条件的。</li>
 </ol>
 <p>所以，这样分析下来，很简单就 AC 了，拿到 100 分！</p>
-<h2 id="b"><a class="markdownIt-Anchor" href="#b"></a> B</h2>
-<blockquote>
+<h2 id="B"><a href="#B" class="headerlink" title="B"></a>B</h2><blockquote>
 <p>这道题。。。无语了。。。测试数据通过了，结果测评数据每次都卡一个，万恶的捆绑测试。。。最后得不了 100 分了。。。</p>
 </blockquote>
 <p>这道题最开始想的是贪心算法，排序，但是会超时，就改了一下：开两个数组，不管顺序，只管符号，放进去。这样做基本上不超过 10ms。</p>
 <p>原理就是，计算 <code>+正数</code> <code>+负数</code> <code>*正数</code> <code>*负数</code> 出现的个数，进行排列，最后计算结果。</p>
-<h2 id="c"><a class="markdownIt-Anchor" href="#c"></a> C</h2>
-<blockquote>
+<h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><blockquote>
 <p>因为学业原因，离开了几个小时，回来了之后都没时间做了。。。有点思路，但没写完。。。</p>
 </blockquote>
 <p>其实，可以根据数第一次出现的位置判断从左、右数的位置，最后进行排列即可。</p>
-<h2 id="d"><a class="markdownIt-Anchor" href="#d"></a> D</h2>
-<p>看了一眼就懒得写。</p>
-<h2 id="小结"><a class="markdownIt-Anchor" href="#小结"></a> 小结</h2>
-<p>等题解吧！感觉题目很有意思，都是些需要仔细思考的题目。(奈何我太弱了。。。太弱小了！！！</p>
+<h2 id="D"><a href="#D" class="headerlink" title="D"></a>D</h2><p>看了一眼就懒得写。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>等题解吧！感觉题目很有意思，都是些需要仔细思考的题目。(奈何我太弱了。。。太弱小了！！！</p>
 
     </div>
 
@@ -475,6 +484,7 @@
 
 
 
+    <div class="comments" id="waline"></div>
 </div>
   </main>
 
@@ -545,6 +555,17 @@
   <script src="../../../../js/third-party/math/katex.js"></script>
 
 
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"https://comments.aeilot.top","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo","https://unpkg.com/@waline/emojis@1.0.1/alus","https://unpkg.com/@waline/emojis@1.0.1/bilibili","https://unpkg.com/@waline/emojis@1.0.1/qq","https://unpkg.com/@waline/emojis@1.0.1/tieba","https://unpkg.com/@waline/emojis@1.0.1/tw-emoji"],"meta":["nick","mail","link"],"requiredMeta":["nick"],"el":"#waline","comment":true,"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","path":""}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
 
 </body>
 </html>
