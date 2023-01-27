@@ -6,7 +6,7 @@
   <link href="https://blog.aeilot.top/index.xml" rel="self"/>
   
   <link href="https://blog.aeilot.top/"/>
-  <updated>2023-01-11T13:35:06.749Z</updated>
+  <updated>2023-01-27T07:12:07.981Z</updated>
   <id>https://blog.aeilot.top/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>浮尘</title>
+    <link href="https://blog.aeilot.top/2023/01/27/dust/"/>
+    <id>https://blog.aeilot.top/2023/01/27/dust/</id>
+    <published>2023-01-27T02:45:09.000Z</published>
+    <updated>2023-01-27T07:12:07.981Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近尝试随便乱写点诗歌。</p><a id="more"></a><p>微尘，<br />浮沉，<br />孤身行大漠的旅人。<br />跨越了半个世纪的风雪，<br />休憩在我的窗前。</p><p>行大漠，<br />越风雪，<br />如今在太阳的怒吼下，<br />飞舞，<br />浮沉，<br />像个不懂事的孩子。</p><p>微尘<br />浮沉，<br />微不足道的力量，<br />却敢向那太阳挑衅，<br />从不笃信是那太阳给了他生命和舞蹈。</p><p>跨越了半个世纪的风雪<br />休憩在我的窗前，<br />又用那剩下的半个世纪，<br />完成未竟的事业，<br />挑战太阳，<br />飞舞，<br />浮沉。</p><p>东方的太阳，<br />强壮的战士，<br />沉没在西方的深海。<br />火种熄灭。<br />熄灭，<br />浮尘，<br />黑暗中舞蹈。</p><p>黑暗中孕育着新的太阳。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;最近尝试随便乱写点诗歌。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="文学" scheme="https://blog.aeilot.top/categories/%E6%96%87%E5%AD%A6/"/>
+    
+    
+    <category term="诗歌" scheme="https://blog.aeilot.top/tags/%E8%AF%97%E6%AD%8C/"/>
+    
+  </entry>
   
   <entry>
     <title>复活</title>
@@ -113,9 +134,9 @@
     <category term="文学" scheme="https://blog.aeilot.top/categories/%E6%96%87%E5%AD%A6/"/>
     
     
-    <category term="转载" scheme="https://blog.aeilot.top/tags/%E8%BD%AC%E8%BD%BD/"/>
-    
     <category term="诗歌" scheme="https://blog.aeilot.top/tags/%E8%AF%97%E6%AD%8C/"/>
+    
+    <category term="转载" scheme="https://blog.aeilot.top/tags/%E8%BD%AC%E8%BD%BD/"/>
     
   </entry>
   
@@ -199,7 +220,7 @@
     <link href="https://blog.aeilot.top/2022/12/04/cut-vertex/"/>
     <id>https://blog.aeilot.top/2022/12/04/cut-vertex/</id>
     <published>2022-12-04T04:45:09.000Z</published>
-    <updated>2022-12-04T10:10:07.517Z</updated>
+    <updated>2023-01-14T13:59:12.814Z</updated>
     
     <content type="html"><![CDATA[<p>最近学习图论，写篇题解记录一下。</p><a id="more"></a><h2 id="定义"><a class="markdownIt-Anchor" href="#定义"></a> 定义</h2><ul><li>对于一个无向图，如果把一个点删除后这个图的极大连通分量数增加了，那么这个点就是这个图的割点（又称割顶）。</li></ul><p>这篇博客主要介绍，Tarjan 算法用于求 割点。</p><h2 id="割点"><a class="markdownIt-Anchor" href="#割点"></a> 割点</h2><p>Tarjan 算法，记录 节点访问时间戳 <code>dfn</code>，节点能够回溯到的最早的点的时间戳 <code>low</code>。</p><p>对于某一点：</p><ol><li>如果这个点是根节点，且有两个以上与它相连的连通分量，那这个点就是割点。</li><li>如果某个点后继是一个连通分量，而这个点不是根节点，那这个点是割点。</li></ol><h3 id="第一种情况"><a class="markdownIt-Anchor" href="#第一种情况"></a> 第一种情况</h3><p>我们需要记录根节点 <code>fa</code>，在遍历的时候，如果重复访问到了 <code>fa</code>，说明找到了 <code>fa</code> 下面的一个连通分量。</p><h3 id="第二种情况"><a class="markdownIt-Anchor" href="#第二种情况"></a> 第二种情况</h3><p>设当前点 <code>s</code>，对于访问的下一个节点 <code>y</code>：</p><p>如果 <code>low[y] &gt;= dfn[s]</code>，说明这个点下面有一个连通分量。</p><p>注：这里类似于 Tarjan 求 SCC 时，我们所做的 <code>min(low[s],dfn[y])</code>。</p><h3 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">tarjan</span><span class="params">(<span class="keyword">int</span> s, <span class="keyword">int</span> fa)</span></span>&#123;</span><br><span class="line">    dfn[s] = low[s] = ++cc;</span><br><span class="line">    <span class="keyword">int</span> child = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = head[s]; i!=<span class="number">-1</span>; i=NDS[i].next)&#123;</span><br><span class="line">        <span class="keyword">int</span> y = NDS[i].to;</span><br><span class="line">        <span class="keyword">if</span>(!dfn[y])&#123;</span><br><span class="line">            <span class="built_in">tarjan</span>(y,fa);</span><br><span class="line">            low[s] = <span class="built_in">min</span>(low[s], low[y]); <span class="comment">// 回溯后更新</span></span><br><span class="line">            <span class="keyword">if</span>(low[y]&gt;=dfn[s] &amp;&amp; s != fa) <span class="comment">// 情况 2</span></span><br><span class="line">                cut[s] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(s==fa) <span class="comment">// 情况 1 计数</span></span><br><span class="line">                child++;</span><br><span class="line">        &#125;</span><br><span class="line">        low[s] = <span class="built_in">min</span>(low[s], dfn[y]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(child&gt;=<span class="number">2</span>&amp;&amp;s==fa)&#123;</span><br><span class="line">        cut[s] = <span class="number">1</span>; <span class="comment">// 情况 1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
