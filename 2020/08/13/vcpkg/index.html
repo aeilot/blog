@@ -156,7 +156,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vcpkg"><span class="nav-number">1.</span> <span class="nav-text">vcpkg</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%80%9C%E6%B8%85%E5%8D%95%E2%80%9D-%E5%8A%9F%E8%83%BD"><span class="nav-number">2.</span> <span class="nav-text">“清单” 功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E8%B6%B3"><span class="nav-number">3.</span> <span class="nav-text">不足</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E8%AE%B0"><span class="nav-number">4.</span> <span class="nav-text">后记</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vcpkg"><span class="nav-number">1.</span> <span class="nav-text"> vcpkg</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%85%E5%8D%95-%E5%8A%9F%E8%83%BD"><span class="nav-number">2.</span> <span class="nav-text"> “清单” 功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E8%B6%B3"><span class="nav-number">3.</span> <span class="nav-text"> 不足</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E8%AE%B0"><span class="nav-number">4.</span> <span class="nav-text"> 后记</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -171,7 +171,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -341,7 +341,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>872</span>
+      <span>871</span>
     </span>
 </div>
 
@@ -355,16 +355,20 @@
         <p>最近在做一个大型的 C++ 项目 ── <a target="_blank" rel="noopener" href="https://github.com/louis-studio/Albumist">Albumist</a>。它使用 Qt，需要用到很多类似 <code>sqlite3</code>、<code>exiv2</code>、<code>libcurl</code> 之类的库。第三方库管理似乎成了问题。</p>
 <p>支持 git 的都可以使用　<code>git submodule</code> 来管理，但是还有少部分是不支持的，或者是二进制的，比如 <code>sqlite3</code>。这就要我们手动去下载，手动去更新，好生麻烦。</p>
 <a id="more"></a>
-<h2 id="vcpkg"><a href="#vcpkg" class="headerlink" title="vcpkg"></a>vcpkg</h2><p>我一直想要一个类似 <code>npm</code> <code>pip</code> 一样的东西，把依赖写在文件里面，然后直接 <code>install</code> 即可。</p>
+<h2 id="vcpkg"><a class="markdownIt-Anchor" href="#vcpkg"></a> vcpkg</h2>
+<p>我一直想要一个类似 <code>npm</code> <code>pip</code> 一样的东西，把依赖写在文件里面，然后直接 <code>install</code> 即可。</p>
 <p>经过搜索，我发现了微软的一个项目 <a target="_blank" rel="noopener" href="https://github.com/microsoft/vcpkg/">vcpkg</a>。官方定义它为 “C++ Library Manager for Windows, Linux, and MacOS”，简单翻译一下就是 “支持 Windows, Linux 和 macOS 的 C++ 库管理器”。</p>
 <p>在 Arch Linux 上面，安装它并不复杂，只需要：<code>sudo pacman -S vcpkg-git</code> 即可。其他系统没有尝试过，跟着它的 README 也很方便安装。</p>
-<h2 id="“清单”-功能"><a href="#“清单”-功能" class="headerlink" title="“清单” 功能"></a>“清单” 功能</h2><p>在项目根目录创建一个 <code>vcpkg.json</code>， 然后 <code>vcpkg install</code>。这一功能就是“清单”功能。它正好是我想要的，可是却暂时处在 Beta 阶段，不过也无关紧要。</p>
+<h2 id="清单-功能"><a class="markdownIt-Anchor" href="#清单-功能"></a> “清单” 功能</h2>
+<p>在项目根目录创建一个 <code>vcpkg.json</code>， 然后 <code>vcpkg install</code>。这一功能就是“清单”功能。它正好是我想要的，可是却暂时处在 Beta 阶段，不过也无关紧要。</p>
 <p>要启用“清单”功能，在执行命令时，需要接参数 <code>--feature-flags = manifests</code>。</p>
 <p>清单大概长这样：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;&lt;name of your project&gt;&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;version-string&quot;</span>: <span class="string">&quot;&lt;version of your project&gt;&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;abseil&quot;</span>,</span><br><span class="line">    <span class="string">&quot;boost&quot;</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>很方便，也很快捷。</p>
-<h2 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h2><p>比起这样一个纯粹的管理器，我更希望获得类似 Java 的 Gradle 的体验。如果 CMake 能加入类似功能，体验一定能够翻倍，快捷方便且无需第三方软件。</p>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>—- 2020 08 15 更新</p>
+<h2 id="不足"><a class="markdownIt-Anchor" href="#不足"></a> 不足</h2>
+<p>比起这样一个纯粹的管理器，我更希望获得类似 Java 的 Gradle 的体验。如果 CMake 能加入类似功能，体验一定能够翻倍，快捷方便且无需第三方软件。</p>
+<h2 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h2>
+<p>— 2020 08 15 更新</p>
 <p>又停止使用这个东西了，Windows 上面需要 MSVC。。。</p>
 
     </div>

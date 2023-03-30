@@ -155,7 +155,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%83%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.</span> <span class="nav-text">它是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">2.</span> <span class="nav-text">使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">3.</span> <span class="nav-text">Quick Start</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="nav-number">4.</span> <span class="nav-text">默认值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E5%A4%9A"><span class="nav-number">5.</span> <span class="nav-text">更多</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%83%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.</span> <span class="nav-text"> 它是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">2.</span> <span class="nav-text"> 使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#quick-start"><span class="nav-number">3.</span> <span class="nav-text"> Quick Start</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="nav-number">4.</span> <span class="nav-text"> 默认值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E5%A4%9A"><span class="nav-number">5.</span> <span class="nav-text"> 更多</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -170,7 +170,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -353,20 +353,25 @@
     <div class="post-body" itemprop="articleBody">
         <p>从 Android 开发又最终回到 iOS 了，好多东西都不知道。最近一直有需求要用一个类似 Android 的 SharedPreferance 的东西。找了一下资料，来总结一下。</p>
 <a id="more"></a>
-<h2 id="它是什么"><a href="#它是什么" class="headerlink" title="它是什么"></a>它是什么</h2><blockquote>
+<h2 id="它是什么"><a class="markdownIt-Anchor" href="#它是什么"></a> 它是什么</h2>
+<blockquote>
 <p>不会吧？不会还有人不知道 SharedPreferance 吧？？？</p>
 </blockquote>
 <p><code>SharedPreferance</code> 是一种轻量级的 Android 储存API, 用于储存<strong>简单</strong>的数据，数据多了就不如其他方式高效了。</p>
 <p>iOS 中，起同样作用的东西，叫 <code>UserDefaults</code>。</p>
 <p>这两者都以 <code>key-value</code> 的形式存储。</p>
-<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p><strong>简单数据</strong></p>
+<h2 id="使用场景"><a class="markdownIt-Anchor" href="#使用场景"></a> 使用场景</h2>
+<p><strong>简单数据</strong></p>
 <p><strong>简单数据</strong></p>
 <p><strong>简单数据</strong></p>
 <p>复杂数据建议使用 <code>SQLite</code> 或者 <code>Core Data</code>，不建议作死。。。</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><p>直接上代码，里面注释我都写好了。</p>
+<h2 id="quick-start"><a class="markdownIt-Anchor" href="#quick-start"></a> Quick Start</h2>
+<p>直接上代码，里面注释我都写好了。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> defaults <span class="operator">=</span> <span class="type">UserDefaults</span>.standard <span class="comment">// 获取全局的 UserDefaults</span></span><br><span class="line"></span><br><span class="line">defaults.set(<span class="type">Int</span>.max, forKey: <span class="string">&quot;int&quot;</span>) <span class="comment">// 存储</span></span><br><span class="line">defaults.integer(forKey: <span class="string">&quot;int&quot;</span>) <span class="comment">// 读取</span></span><br><span class="line"></span><br><span class="line">defaults.set(<span class="literal">true</span>, forKey: <span class="string">&quot;bool&quot;</span>)</span><br><span class="line">defaults.bool(forKey: <span class="string">&quot;bool&quot;</span>)</span><br><span class="line"></span><br><span class="line">defaults.set(<span class="type">Double</span>.infinity, forKey: <span class="string">&quot;double&quot;</span>)</span><br><span class="line">defaults.double(forKey: <span class="string">&quot;double&quot;</span>)</span><br><span class="line"></span><br><span class="line">defaults.set(<span class="type">Float</span>.infinity, forKey: <span class="string">&quot;float&quot;</span>)</span><br><span class="line">defaults.float(forKey: <span class="string">&quot;float&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h2><p><code>Float</code>, <code>Int</code>, <code>Double</code> 的默认值都是 0；<code>Bool</code> 的默认值是 false。</p>
-<h2 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h2><p>大家可以多在 Playgrounds 里面试试，还可以看看 <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/foundation/userdefaults">Apple Developer Documentation</a>。</p>
+<h2 id="默认值"><a class="markdownIt-Anchor" href="#默认值"></a> 默认值</h2>
+<p><code>Float</code>, <code>Int</code>, <code>Double</code> 的默认值都是 0；<code>Bool</code> 的默认值是 false。</p>
+<h2 id="更多"><a class="markdownIt-Anchor" href="#更多"></a> 更多</h2>
+<p>大家可以多在 Playgrounds 里面试试，还可以看看 <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/foundation/userdefaults">Apple Developer Documentation</a>。</p>
 
     </div>
 
