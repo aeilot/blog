@@ -382,14 +382,7 @@
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/tags/DP/</loc>
-    <lastmod>2023-08-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.aeilot.top/tags/%E5%8C%BA%E9%97%B4/</loc>
+    <loc>https://blog.aeilot.top/tags/%E6%A8%A1%E7%89%88/</loc>
     <lastmod>2023-08-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -403,7 +396,14 @@
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/tags/%E6%A8%A1%E7%89%88/</loc>
+    <loc>https://blog.aeilot.top/tags/DP/</loc>
+    <lastmod>2023-08-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.aeilot.top/tags/%E5%8C%BA%E9%97%B4/</loc>
     <lastmod>2023-08-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -431,6 +431,13 @@
   </url>
   
   <url>
+    <loc>https://blog.aeilot.top/tags/%E6%B5%8B%E8%AF%84/</loc>
+    <lastmod>2023-08-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.aeilot.top/tags/%E8%BD%AC%E8%BD%BD/</loc>
     <lastmod>2023-08-11</lastmod>
     <changefreq>daily</changefreq>
@@ -446,13 +453,6 @@
   
   <url>
     <loc>https://blog.aeilot.top/tags/%E6%84%8F%E8%AF%86%E6%B5%81/</loc>
-    <lastmod>2023-08-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.aeilot.top/tags/%E6%B5%8B%E8%AF%84/</loc>
     <lastmod>2023-08-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -599,13 +599,6 @@
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/tags/WWDC/</loc>
-    <lastmod>2023-08-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.aeilot.top/tags/%E7%BC%96%E8%BE%91%E5%99%A8/</loc>
     <lastmod>2023-08-11</lastmod>
     <changefreq>daily</changefreq>
@@ -614,6 +607,13 @@
   
   <url>
     <loc>https://blog.aeilot.top/tags/Vim/</loc>
+    <lastmod>2023-08-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.aeilot.top/tags/WWDC/</loc>
     <lastmod>2023-08-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -643,6 +643,13 @@
   </url>
   
   <url>
+    <loc>https://blog.aeilot.top/categories/%E6%95%B0%E7%A0%81/</loc>
+    <lastmod>2023-08-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.aeilot.top/categories/%E6%9D%82%E6%96%87/</loc>
     <lastmod>2023-08-11</lastmod>
     <changefreq>daily</changefreq>
@@ -651,13 +658,6 @@
   
   <url>
     <loc>https://blog.aeilot.top/categories/%E6%91%98%E5%BD%95/</loc>
-    <lastmod>2023-08-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.aeilot.top/categories/%E6%95%B0%E7%A0%81/</loc>
     <lastmod>2023-08-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
