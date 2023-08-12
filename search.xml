@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Python 中的 zip() 和 enumerate()</title>
+      <link href="/2023/08/11/python-zip-enumerate/"/>
+      <url>/2023/08/11/python-zip-enumerate/</url>
+      
+        <content type="html"><![CDATA[<p>最近要用 Python 做一些小项目，记录一些学习心得。以及这个博客再不更新技术文章，就变成文学博客了，显然和初衷相违背（）</p><a id="more"></a><h2 id="zip"><a class="markdownIt-Anchor" href="#zip"></a> zip()</h2><p><code>zip()</code> 函数用于将可迭代的对象作为参数，将对象中对应的元素打包成一个个元组，然后返回由这些元组组成的对象，这样做的好处是节约了空间，因为不用创建新的对象。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c = [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>zipped = <span class="built_in">zip</span>(a, b, c)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>zipped</span><br><span class="line">&lt;<span class="built_in">zip</span> <span class="built_in">object</span> at <span class="number">0x00000278786975C0</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(zipped)</span><br><span class="line">[(<span class="number">1</span>, <span class="number">4</span>, <span class="number">4</span>), (<span class="number">2</span>, <span class="number">5</span>, <span class="number">5</span>), (<span class="number">3</span>, <span class="number">6</span>, <span class="number">6</span>)]</span><br></pre></td></tr></table></figure><p>这样做的一种应用方式是在遍历的时候，可以同时遍历多个数组：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> i, j, k <span class="keyword">in</span> <span class="built_in">zip</span>(a, b, c):</span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span>(i, j, k)</span><br><span class="line">...</span><br><span class="line"><span class="number">1</span> <span class="number">4</span> <span class="number">4</span></span><br><span class="line"><span class="number">2</span> <span class="number">5</span> <span class="number">5</span></span><br><span class="line"><span class="number">3</span> <span class="number">6</span> <span class="number">6</span></span><br></pre></td></tr></table></figure><p>如果遇到数组不等长，会以最短的长度为准。</p><p>如果要按照最长的长度，可以使用另一个函数 <code>zip_longest()</code>，不多赘述。</p><h2 id="enumerate"><a class="markdownIt-Anchor" href="#enumerate"></a> enumerate()</h2><p><code>enumerate()</code> 函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和索引。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>seasons = [<span class="string">&#x27;Spring&#x27;</span>, <span class="string">&#x27;Summer&#x27;</span>, <span class="string">&#x27;Fall&#x27;</span>, <span class="string">&#x27;Winter&#x27;</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">enumerate</span>(seasons))</span><br><span class="line">[(<span class="number">0</span>, <span class="string">&#x27;Spring&#x27;</span>), (<span class="number">1</span>, <span class="string">&#x27;Summer&#x27;</span>), (<span class="number">2</span>, <span class="string">&#x27;Fall&#x27;</span>), (<span class="number">3</span>, <span class="string">&#x27;Winter&#x27;</span>)]</span><br></pre></td></tr></table></figure><p>这也可以在遍历的时候使用。</p><h2 id="注意事项"><a class="markdownIt-Anchor" href="#注意事项"></a> 注意事项</h2><p>这两个函数使用的时候，需要导入模块 <code>itertools</code>，否则会报错。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 技巧 </tag>
+            
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>泡沫</title>
       <link href="/2023/08/10/foams/"/>
       <url>/2023/08/10/foams/</url>
