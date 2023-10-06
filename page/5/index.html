@@ -174,7 +174,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -272,6 +272,113 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.aeilot.top/2020/08/13/vcpkg/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gravatar.jpeg">
+      <meta itemprop="name" content="满五">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="满五的博客">
+      <meta itemprop="description" content="Stay Hungry. Stay Foolish.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 满五的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/08/13/vcpkg/" class="post-title-link" itemprop="url">vcpkg - 方便的 C/C++ 库管理器</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-08-13 12:45:09" itemprop="dateCreated datePublished" datetime="2020-08-13T12:45:09+08:00">2020-08-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/08/13/vcpkg/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/08/13/vcpkg/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>871</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>最近在做一个大型的 C++ 项目 ── <a target="_blank" rel="noopener" href="https://github.com/louis-studio/Albumist">Albumist</a>。它使用 Qt，需要用到很多类似 <code>sqlite3</code>、<code>exiv2</code>、<code>libcurl</code> 之类的库。第三方库管理似乎成了问题。</p>
+<p>支持 git 的都可以使用　<code>git submodule</code> 来管理，但是还有少部分是不支持的，或者是二进制的，比如 <code>sqlite3</code>。这就要我们手动去下载，手动去更新，好生麻烦。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/08/13/vcpkg/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://blog.aeilot.top/2020/07/26/vimrc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -344,14 +451,14 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><img src="https://www.vim.org/images/vim_header.gif" alt="Vim"></p>
+          <p><img src="https://www.vim.org/images/vim_header.gif" alt="Vim" /></p>
 <p>Vim 即 Vi Improved，它的前身是 Vi。它是一个十分强大的编辑器，优点如下：</p>
 <ul>
 <li>不需要鼠标，纯键盘</li>
 <li>Linux 系统预装</li>
 <li>键盘命令肌肉记忆之后，效率非常高</li>
 </ul>
-<p>但是，它的配置许许多多，让人难以记住。我正好要在新电脑上配置它，故写此文。<br>
+<p>但是，它的配置许许多多，让人难以记住。我正好要在新电脑上配置它，故写此文。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/07/26/vimrc/#more" rel="contents">
@@ -457,8 +564,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><img src="https://avatars0.githubusercontent.com/u/19211038?s=200&amp;v=4" alt="LOGO"></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我之前给家中的服务器做了一个 WebDAV 功能，带有不堪入目的 UI 和难以使用的功能。而且配置起来并不简单。一直想要改进，但是却一直没时间。最近有空了，便开始寻找替代品。</p>
+          <p><img src="https://avatars0.githubusercontent.com/u/19211038?s=200&amp;v=4" alt="LOGO" /></p>
+<h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2>
+<p>我之前给家中的服务器做了一个 WebDAV 功能，带有不堪入目的 UI 和难以使用的功能。而且配置起来并不简单。一直想要改进，但是却一直没时间。最近有空了，便开始寻找替代品。</p>
 <p>查了几下 GitHub，找到了一个标星 10k+ 的项目 —— <a target="_blank" rel="noopener" href="https://github.com/nextcloud/">NextCloud</a>。了解了一下，NextCloud 是一个拥有 <strong>全平台客户端</strong>，支持 <strong>WebDAV</strong>，而且 <strong>插件化</strong>，可以 <strong>多用户</strong> 使用的私有云存储网盘项目。不仅如此，它还支持共享、版本控制、团队协作等功能。插件化让它拥有了类似 Markdown 在线编辑，Draw-io 在线编辑，显示 RAW 文件的功能。</p>
 <p>而且，我发现它支持 Docker，这无疑简化了我们配置的步骤。</p>
 <p>那么，我们开始吧！</p>
