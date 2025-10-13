@@ -6,7 +6,7 @@
   <link href="https://blog.aeilot.top/index.xml" rel="self"/>
   
   <link href="https://blog.aeilot.top/"/>
-  <updated>2025-09-11T03:00:10.094Z</updated>
+  <updated>2025-10-13T11:24:55.082Z</updated>
   <id>https://blog.aeilot.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>整数溢出与未定义行为</title>
+    <link href="https://blog.aeilot.top/2025/10/13/bitlab-optimizer/"/>
+    <id>https://blog.aeilot.top/2025/10/13/bitlab-optimizer/</id>
+    <published>2025-10-13T10:45:09.000Z</published>
+    <updated>2025-10-13T11:24:55.082Z</updated>
+    
+    <content type="html"><![CDATA[<p>在做 CSAPP Data Lab 的时候，关于整数溢出，遇到一些问题。</p><span id="more"></span><h2 id="题干"><a class="markdownIt-Anchor" href="#题干"></a> 题干</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * isTmax - returns 1 if x is the maximum, two&#x27;s complement number, </span></span><br><span class="line"><span class="comment"> *     and 0 otherwise </span></span><br><span class="line"><span class="comment"> *   Legal ops: ! ~ &amp; ^ | +</span></span><br><span class="line"><span class="comment"> *   Max ops: 10</span></span><br><span class="line"><span class="comment"> *   Rating: 1</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isTmax</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>题目要求，仅仅使用运算符 <code>! ~ &amp; ^ | +</code> 来判断一个数是否是最大的二的补码（<code>int</code> 范围内），即 <code>0x7fffffff</code>。如果是，输出 1；否则，输出 0。</p><h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2><p>由于我们不能使用移位操作（很多人会直接 <code>1&lt;&lt;31 - 1</code>），可以考虑整数溢出的特殊性质。</p><p>具体地，我们有 <code>0x7fffffff + 1 = 0x80000000</code>，符号改变。</p><p>而 <code>0x80000000 + 0x80000000 = 0</code></p><p>我们可以得到 <code>x = 0x7fffffff</code> 满足 <code>x + 1 + x + 1 = 0</code></p><p>而对于其他数字，假设 <code>y = x + k</code> 其中 <code>k</code> 非零，则有 <code>y + 1 + y + 1 = 2*k</code></p><p>此时，我们发现，对于 <code>y=-1</code> 也有 <code>y + 1 + y + 1 = 0</code>，需要排除掉</p><p>其他情况下，非零数转换为 <code>bool</code> 类型自动变为 <code>1</code></p><p>我们不难写出以下代码：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isTmax</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> p1 = x+<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">int</span> p2 = p1 + p1;</span><br><span class="line">  <span class="keyword">return</span> !(p2) &amp; !!(p1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="发现问题"><a class="markdownIt-Anchor" href="#发现问题"></a> 发现问题</h2><p>这段代码在我本地（macOS，Apple clang version 17.0.0 (clang-1700.3.19.1), Target: arm64-apple-darwin25.0.0) 上运行，使用命令 <code>clang main.c</code> 是没有任何问题的。</p><p>但是，检查到 CSAPP 提供的 Makefile，有</p><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Makefile that builds btest and other helper programs for the CS:APP data lab</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line">CC = gcc</span><br><span class="line">CFLAGS = -O -Wall</span><br><span class="line">LIBS = -lm</span><br><span class="line"></span><br><span class="line"><span class="section">all: btest fshow ishow</span></span><br><span class="line"></span><br><span class="line"><span class="section">btest: btest.c bits.c decl.c tests.c btest.h bits.h</span></span><br><span class="line"><span class="variable">$(CC)</span> <span class="variable">$(CFLAGS)</span> <span class="variable">$(LIBS)</span> -o btest bits.c btest.c decl.c tests.c</span><br><span class="line"></span><br><span class="line"><span class="section">fshow: fshow.c</span></span><br><span class="line"><span class="variable">$(CC)</span> <span class="variable">$(CFLAGS)</span> -o fshow fshow.c</span><br><span class="line"></span><br><span class="line"><span class="section">ishow: ishow.c</span></span><br><span class="line"><span class="variable">$(CC)</span> <span class="variable">$(CFLAGS)</span> -o ishow ishow.c</span><br><span class="line"></span><br><span class="line"><span class="comment"># Forces a recompile. Used by the driver program. </span></span><br><span class="line"><span class="section">btestexplicit:</span></span><br><span class="line"><span class="variable">$(CC)</span> <span class="variable">$(CFLAGS)</span> <span class="variable">$(LIBS)</span> -o btest bits.c btest.c decl.c tests.c </span><br><span class="line"></span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">rm -f *.o btest fshow ishow *~</span><br></pre></td></tr></table></figure><p>注意到，编译器使用了 <code>-O</code> flag，即 <code>O1</code> 优化。</p><p>此时执行这段代码，对于 <code>0x7fffffff</code> 输出 <code>0</code>，怀疑可能是编译器优化时，假设未定义行为（整数溢出）不会发生，将 !p2 优化。<code>p1 + p1</code> 的形式过于简单。</p><h2 id="未定义行为"><a class="markdownIt-Anchor" href="#未定义行为"></a> 未定义行为</h2><p>未定义行为（UB），根据 <code>cppreference</code> 的定义：</p><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">undefined</span> behavior - There are <span class="literal">no</span> restrictions <span class="literal">on</span> the behavior <span class="keyword">of</span> the program.</span><br></pre></td></tr></table></figure><p>有符号整数溢出是一种常见的未定义行为。</p><blockquote><p>Because correct C++ programs are free of undefined behavior, compilers may produce unexpected results when a program that actually has UB is compiled with optimization enabled.</p></blockquote><p>也就是说，编译器优化会对未定义行为产生意料之外的结果</p><p><code>cppreference</code> 给出了一个整数溢出的例子：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x + <span class="number">1</span> &gt; x; <span class="comment">// either true or UB due to signed overflow</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>编译之后却变成了</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">foo(int):</span><br><span class="line">        mov     eax, 1</span><br><span class="line">        ret</span><br></pre></td></tr></table></figure><p>意思是，不管怎么样都输出 <code>1</code></p><h2 id="观察出错代码"><a class="markdownIt-Anchor" href="#观察出错代码"></a> 观察出错代码</h2><p>我们通过 <code>gcc -S</code> 输出编译后的汇编代码</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">_Z6isTmaxi:</span><br><span class="line">.LFB2:</span><br><span class="line">.cfi_startproc</span><br><span class="line">endbr64</span><br><span class="line">movl$0, %eax</span><br><span class="line">ret</span><br><span class="line">.cfi_endproc</span><br></pre></td></tr></table></figure><p>我们看到，编译器直接把这个函数返回值改成了 <code>0</code>，不管输入什么，与我们的错误原因推断是相同的。</p><h2 id="修改"><a class="markdownIt-Anchor" href="#修改"></a> 修改</h2><p>我们可以尝试构造一个更复杂的、不易被简单规则匹配的表达式，躲过 <code>O1</code> 级别的优化。</p><p>核心思路不变，仍然是利用 <code>Tmax + 1 = Tmin</code> 这个特性。我们来观察一下 <code>Tmax</code> 和 <code>Tmin</code> 在二进制下的关系：</p><ul><li><code>Tmax</code> = <code>0x7fffffff</code> = <code>0111...1111</code></li><li><code>Tmin</code> = <code>0x80000000</code> = <code>1000...0000</code></li></ul><p>一个非常有趣的性质是 <code>Tmax + Tmin = -1</code> (<code>0xffffffff</code>)。</p><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">  0111 1111 ... 1111  (Tmax)</span></span><br><span class="line"><span class="section">+ 1000 0000 ... 0000  (Tmin)</span></span><br><span class="line"><span class="section">-------------------------</span></span><br><span class="line"><span class="code">  1111 1111 ... 1111  (-1)</span></span><br></pre></td></tr></table></figure><p>基于这个观察，我们可以设计一个新的检查方案：如果一个数 <code>x</code> 是 <code>Tmax</code>，那么 <code>x + (x+1)</code> 的结果就应该是 <code>-1</code>。取反后 <code>~(-1)</code> 则为 <code>0</code>。</p><p>我们可以写出如下的修改版代码：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isTmax</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> <span class="built_in">map</span> = x + <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">int</span> res = ~(<span class="built_in">map</span> + x);</span><br><span class="line">  <span class="keyword">return</span> !res &amp; (!!<span class="built_in">map</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这段代码的逻辑是：</p><ol><li>计算 <code>map = x + 1</code>。对于 <code>x = Tmax</code>，这里同样会发生有符号溢出，<code>map</code> 变为 <code>Tmin</code>。<strong>这依然是未定义行为（UB）</strong>。</li><li>计算 <code>res = ~(map + x)</code>。如果 <code>x</code> 是 <code>Tmax</code>，这一步就是 <code>~(Tmin + Tmax)</code>，结果为 <code>~(-1)</code>，即 <code>0</code>。</li><li><code>return !res &amp; (!!map)</code>。<code>!res</code> 为 <code>!0</code>，即 <code>1</code>。<code>!!map</code> 部分和之前的版本一样，是为了排除 <code>x = -1</code> 的情况（此时 <code>map</code> 为 0， <code>!!map</code> 为 0，最终返回 0）。</li></ol><p>这段代码在 <code>-O</code> 优化下<strong>可能</strong>会得到正确的结果。</p><h2 id="为什么这个可能有效"><a class="markdownIt-Anchor" href="#为什么这个可能有效"></a> 为什么这个“可能”有效？</h2><p>我们必须清醒地认识到，新版本的代码本质上没有解决未定义行为的问题，它只是“侥幸”地绕过了当前编译器版本的特定优化策略。</p><ul><li><strong>代码模式的复杂性</strong>：<code>p1 + p1</code> (<code>(x+1)+(x+1)</code>) 是一个非常简单直白的模式，优化器很容易建立一个“如果 <code>p1</code> 非零，则 <code>p1+p1</code> 结果也非零”的优化规则。而 <code>~((x+1)+x)</code> 混合了加法和位运算，模式更复杂，可能没有触发编译器中已有的、基于UB的优化捷径。</li><li><strong>优化的机会主义</strong>：编译器优化并不是要穷尽所有的数学可能，而是应用一系列已知的高效模式。我们的新代码恰好不在这些常见模式的“黑名单”上。</li></ul><p>所以，这个修改版只是一个更具迷惑性的“伪装”。它在特定环境下能工作，但其行为是不被C语言标准所保证的，在不同的编译器或未来的GCC版本下，它随时可能失效。</p><h2 id="结论如何正确面对未定义行为"><a class="markdownIt-Anchor" href="#结论如何正确面对未定义行为"></a> 结论：如何正确面对未定义行为</h2><p>通过 <code>isTmax</code> 这个小小的函数，我们可以一窥C语言中未定义行为的危险性以及现代编译器优化的强大。作为开发者，我们应该得到以下启示：</p><ol><li><strong>不要依赖未定义行为</strong>：永远不要编写依赖于UB的代码，即使它“在你的机器上看起来能跑”。代码的健壮性来源于对语言标准的严格遵守，而非侥幸。</li><li><strong>相信编译器，但要验证</strong>：编译器非常聪明，它会严格按照语言规范进行优化。当你发现优化后的代码行为不符合你的“直觉”时，首先应该怀疑自己的代码是否触碰了UB的红线。</li><li><strong>善用工具</strong>：<ul><li>始终开启编译器警告 (<code>-Wall -Wextra</code>) 并将警告视为错误 (<code>-Werror</code>)，这能帮你发现许多潜在问题。</li><li>使用运行时检测工具，如GCC/Clang的 <strong>UndefinedBehaviorSanitizer (UBSan)</strong>。只需在编译时加上 <code>-fsanitize=undefined</code>，它就能在程序运行时精确地捕获有符号整数溢出等UB，是调试这类问题的神器。</li></ul></li></ol><p>对于CSAPP Data Lab这道题来说，它的目的正是为了让我们在“规则的镣铐”下舞蹈，从而深刻理解整数表示、运算和编译器行为。而我们在实际工程中，最安全、最清晰的写法永远是第一选择。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;在做 CSAPP Data Lab 的时候，关于整数溢出，遇到一些问题。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="CSAPP" scheme="https://blog.aeilot.top/categories/CSAPP/"/>
+    
+    
+    <category term="CS" scheme="https://blog.aeilot.top/tags/CS/"/>
+    
+    <category term="C" scheme="https://blog.aeilot.top/tags/C/"/>
+    
+    <category term="系统" scheme="https://blog.aeilot.top/tags/%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>快速排序 几种划分方法讨论</title>
@@ -673,9 +698,9 @@
     
     <category term="年度回顾" scheme="https://blog.aeilot.top/tags/%E5%B9%B4%E5%BA%A6%E5%9B%9E%E9%A1%BE/"/>
     
-    <category term="散文" scheme="https://blog.aeilot.top/tags/%E6%95%A3%E6%96%87/"/>
-    
     <category term="情感" scheme="https://blog.aeilot.top/tags/%E6%83%85%E6%84%9F/"/>
+    
+    <category term="散文" scheme="https://blog.aeilot.top/tags/%E6%95%A3%E6%96%87/"/>
     
   </entry>
   
@@ -698,9 +723,9 @@
     <category term="文学" scheme="https://blog.aeilot.top/categories/%E6%96%87%E5%AD%A6/"/>
     
     
-    <category term="散文" scheme="https://blog.aeilot.top/tags/%E6%95%A3%E6%96%87/"/>
-    
     <category term="情感" scheme="https://blog.aeilot.top/tags/%E6%83%85%E6%84%9F/"/>
+    
+    <category term="散文" scheme="https://blog.aeilot.top/tags/%E6%95%A3%E6%96%87/"/>
     
     <category term="天气日记" scheme="https://blog.aeilot.top/tags/%E5%A4%A9%E6%B0%94%E6%97%A5%E8%AE%B0/"/>
     
@@ -819,9 +844,9 @@
     <category term="文学" scheme="https://blog.aeilot.top/categories/%E6%96%87%E5%AD%A6/"/>
     
     
-    <category term="散文" scheme="https://blog.aeilot.top/tags/%E6%95%A3%E6%96%87/"/>
-    
     <category term="情感" scheme="https://blog.aeilot.top/tags/%E6%83%85%E6%84%9F/"/>
+    
+    <category term="散文" scheme="https://blog.aeilot.top/tags/%E6%95%A3%E6%96%87/"/>
     
     <category term="天气日记" scheme="https://blog.aeilot.top/tags/%E5%A4%A9%E6%B0%94%E6%97%A5%E8%AE%B0/"/>
     
@@ -846,9 +871,9 @@
     <category term="文学" scheme="https://blog.aeilot.top/categories/%E6%96%87%E5%AD%A6/"/>
     
     
-    <category term="散文" scheme="https://blog.aeilot.top/tags/%E6%95%A3%E6%96%87/"/>
-    
     <category term="情感" scheme="https://blog.aeilot.top/tags/%E6%83%85%E6%84%9F/"/>
+    
+    <category term="散文" scheme="https://blog.aeilot.top/tags/%E6%95%A3%E6%96%87/"/>
     
     <category term="天气日记" scheme="https://blog.aeilot.top/tags/%E5%A4%A9%E6%B0%94%E6%97%A5%E8%AE%B0/"/>
     
