@@ -84,9 +84,8 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
-  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
-  <script src="/js/third-party/math/katex.js" defer></script>
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":false,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
 
 
 <link rel="dns-prefetch" href="https://comments.aeilot.top">
@@ -364,18 +363,26 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>最近要用 Python 做一些小專案，記錄一些學習心得。以及這個部落格再不更新技術文章，就變成文學部落格了，顯然和初衷相違背（）</p>
+    <div class="post-body" itemprop="articleBody"><p>最近要用 Python
+做一些小專案，記錄一些學習心得。以及這個部落格再不更新技術文章，就變成文學部落格了，顯然和初衷相違背（）</p>
 <span id="more"></span>
-<h2 id="zip"><a href="#zip" class="headerlink" title="zip()"></a>zip()</h2><p><code>zip()</code> 函式用於將可迭代的物件作為引數，將物件中對應的元素打包成一個個元組，然後返回由這些元組組成的物件。</p>
+<h2 id="zip">zip()</h2>
+<p><code>zip()</code>
+函式用於將可迭代的物件作為引數，將物件中對應的元素打包成一個個元組，然後返回由這些元組組成的物件。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c = [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>zipped = <span class="built_in">zip</span>(a, b, c)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>zipped</span><br><span class="line">&lt;<span class="built_in">zip</span> <span class="built_in">object</span> at <span class="number">0x00000278786975C0</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(zipped)</span><br><span class="line">[(<span class="number">1</span>, <span class="number">4</span>, <span class="number">4</span>), (<span class="number">2</span>, <span class="number">5</span>, <span class="number">5</span>), (<span class="number">3</span>, <span class="number">6</span>, <span class="number">6</span>)]</span><br></pre></td></tr></table></figure>
 <p>這樣做的一種應用方式是在遍歷的時候，可以同時遍歷多個陣列：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> i, j, k <span class="keyword">in</span> <span class="built_in">zip</span>(a, b, c):</span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span>(i, j, k)</span><br><span class="line">...</span><br><span class="line"><span class="number">1</span> <span class="number">4</span> <span class="number">4</span></span><br><span class="line"><span class="number">2</span> <span class="number">5</span> <span class="number">5</span></span><br><span class="line"><span class="number">3</span> <span class="number">6</span> <span class="number">6</span></span><br></pre></td></tr></table></figure>
 <p>如果遇到陣列不等長，會以最短的長度為準。</p>
-<p>如果要按照最長的長度，可以使用另一個函式 <code>zip_longest()</code>，不多贅述。</p>
-<h2 id="enumerate"><a href="#enumerate" class="headerlink" title="enumerate()"></a>enumerate()</h2><p><code>enumerate()</code> 函式用於將一個可遍歷的資料物件(如列表、元組或字串)組合為一個索引序列，同時列出資料和索引。</p>
+<p>如果要按照最長的長度，可以使用另一個函式
+<code>zip_longest()</code>，不多贅述。</p>
+<h2 id="enumerate">enumerate()</h2>
+<p><code>enumerate()</code>
+函式用於將一個可遍歷的資料物件(如列表、元組或字串)組合為一個索引序列，同時列出資料和索引。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>seasons = [<span class="string">&#x27;Spring&#x27;</span>, <span class="string">&#x27;Summer&#x27;</span>, <span class="string">&#x27;Fall&#x27;</span>, <span class="string">&#x27;Winter&#x27;</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">enumerate</span>(seasons))</span><br><span class="line">[(<span class="number">0</span>, <span class="string">&#x27;Spring&#x27;</span>), (<span class="number">1</span>, <span class="string">&#x27;Summer&#x27;</span>), (<span class="number">2</span>, <span class="string">&#x27;Fall&#x27;</span>), (<span class="number">3</span>, <span class="string">&#x27;Winter&#x27;</span>)]</span><br></pre></td></tr></table></figure>
 <p>這也可以在遍歷的時候使用。</p>
-<h2 id="注意事項"><a href="#注意事項" class="headerlink" title="注意事項"></a>注意事項</h2><p>這兩個函式使用的時候，需要匯入模組 <code>itertools</code>，否則會報錯。</p>
+<h2 id="注意事項">注意事項</h2>
+<p>這兩個函式使用的時候，需要匯入模組
+<code>itertools</code>，否則會報錯。</p>
 
     </div>
 

@@ -83,9 +83,8 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
-  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
-  <script src="/js/third-party/math/katex.js" defer></script>
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":false,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
 
 
 <link rel="dns-prefetch" href="https://comments.aeilot.top">
@@ -183,7 +182,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub-Actions"><span class="nav-number">1.</span> <span class="nav-text">GitHub Actions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BC%8F%E7%A2%BC"><span class="nav-number">2.</span> <span class="nav-text">程式碼</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TL-DR"><span class="nav-number">3.</span> <span class="nav-text">TL;DR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%8C%E8%A8%98"><span class="nav-number">4.</span> <span class="nav-text">後記</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#github-actions"><span class="nav-number">1.</span> <span class="nav-text">GitHub Actions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BC%8F%E7%A2%BC"><span class="nav-number">2.</span> <span class="nav-text">程式碼</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tldr"><span class="nav-number">3.</span> <span class="nav-text">TL;DR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%8C%E8%A8%98"><span class="nav-number">4.</span> <span class="nav-text">後記</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -363,16 +362,25 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>最近有一個朋友找我，說她弄了一個 Hexo 部落格，想做 GitHub Actions 自動部署，奈何不會弄，只好讓我幫忙。</p>
+    <div class="post-body" itemprop="articleBody"><p>最近有一個朋友找我，說她弄了一個 Hexo 部落格，想做 GitHub Actions
+自動部署，奈何不會弄，只好讓我幫忙。</p>
 <span id="more"></span>
-<h2 id="GitHub-Actions"><a href="#GitHub-Actions" class="headerlink" title="GitHub Actions"></a>GitHub Actions</h2><p><a target="_blank" rel="noopener" href="https://docs.github.com/en/actions">GitHub Actions</a> 是 GitHub 推出的持續整合服務，最近不要錢了，用(白嫖)的人就多起來了。</p>
-<h2 id="程式碼"><a href="#程式碼" class="headerlink" title="程式碼"></a>程式碼</h2><p>話不多說，直接上程式碼：</p>
+<h2 id="github-actions">GitHub Actions</h2>
+<p><a target="_blank" rel="noopener" href="https://docs.github.com/en/actions">GitHub Actions</a> 是
+GitHub 推出的持續整合服務，最近不要錢了，用(白嫖)的人就多起來了。</p>
+<h2 id="程式碼">程式碼</h2>
+<p>話不多說，直接上程式碼：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">&quot;Hexo Blog Builder&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span> [<span class="string">push</span>, <span class="string">pull_request</span>]</span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">&quot;Hexo Blog Build&quot;</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">fetch-depth:</span> <span class="number">1</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/setup-node@v1</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">&#x27;12&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">Hexo</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">npm</span> <span class="string">install</span> <span class="string">-g</span> <span class="string">hexo</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">Dependencies</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">npm</span> <span class="string">install</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Clean</span> <span class="string">Previous</span> <span class="string">Build</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">rm</span> <span class="string">-rf</span> <span class="string">docs</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Hexo</span> <span class="string">Clean</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">hexo</span> <span class="string">clean</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Generate</span> <span class="string">New</span> <span class="string">Build</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">hexo</span> <span class="string">generate</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Move</span> <span class="string">docs/</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">mv</span> <span class="string">public</span> <span class="string">docs</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Publish</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          mkdir -p ~/.ssh/</span></span><br><span class="line"><span class="string">          echo &quot;$&#123;&#123; secrets.KEY &#125;&#125;&quot; &gt; ~/.ssh/id_rsa.pub</span></span><br><span class="line"><span class="string">          chmod 600 ~/.ssh/id_rsa.pub</span></span><br><span class="line"><span class="string">          ssh-keyscan github.com &gt;&gt; ~/.ssh/known_hosts</span></span><br><span class="line"><span class="string">          git config --global user.name &quot;Hexo Deploy Bot&quot;</span></span><br><span class="line"><span class="string">          git config --global user.email &quot;nobody@nobody.nobody&quot;</span></span><br><span class="line"><span class="string">          git config --global core.quotepath false</span></span><br><span class="line"><span class="string">          git add --all</span></span><br><span class="line"><span class="string">          git commit -m &quot;Hexo Blog Build&quot;</span></span><br><span class="line"><span class="string">          git push origin master</span></span><br></pre></td></tr></table></figure>
-<p>本 Action 需要你的 ssh 公鑰，也就是 <code>id_rsa.pub</code> 存在專案設定中的 Secrets 內。</p>
-<h2 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><p>具體實現很簡單，用 Hexo 自帶生成器生成到 <code>public</code> 目錄，把 <code>public</code> 目錄改名為 <code>docs</code>。最後 <code>push</code> 到專案裡。</p>
+<p>本 Action 需要你的 ssh 公鑰，也就是 <code>id_rsa.pub</code>
+存在專案設定中的 Secrets 內。</p>
+<h2 id="tldr">TL;DR</h2>
+<p>具體實現很簡單，用 Hexo 自帶生成器生成到 <code>public</code> 目錄，把
+<code>public</code> 目錄改名為 <code>docs</code>。最後 <code>push</code>
+到專案裡。</p>
 <p><code>push</code> 使用 SSH Key，實現免密碼。</p>
 <p>在 GitHub Pages 設定中，需要把 Source 改為 docs 目錄。</p>
-<h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2><p>如果大家有什麼改進的好方法，可以在下方評論！</p>
+<h2 id="後記">後記</h2>
+<p>如果大家有什麼改進的好方法，可以在下方評論！</p>
 
     </div>
 

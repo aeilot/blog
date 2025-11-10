@@ -84,9 +84,8 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
-  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
-  <script src="/js/third-party/math/katex.js" defer></script>
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":false,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
 
 
 <link rel="dns-prefetch" href="https://comments.aeilot.top">
@@ -354,7 +353,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">文章字數：</span>
-      <span>752</span>
+      <span>756</span>
     </span>
 </div>
 
@@ -366,21 +365,30 @@
     
     <div class="post-body" itemprop="articleBody"><p>最近學習圖論，寫篇題解記錄一下。</p>
 <span id="more"></span>
-<h2 id="定義"><a href="#定義" class="headerlink" title="定義"></a>定義</h2><ul>
+<h2 id="定義">定義</h2>
+<ul>
 <li>對於一個無向圖，如果把一個點刪除後這個圖的極大連通分量數增加了，那麼這個點就是這個圖的割點（又稱割頂）。</li>
 </ul>
 <p>這篇部落格主要介紹，Tarjan 演算法用於求 割點。</p>
-<h2 id="割點"><a href="#割點" class="headerlink" title="割點"></a>割點</h2><p>Tarjan 演算法，記錄 節點訪問時間戳 <code>dfn</code>，節點能夠回溯到的最早的點的時間戳 <code>low</code>。</p>
-<p>對於某一點：</p>
-<ol>
-<li>如果這個點是根節點，且有兩個以上與它相連的連通分量，那這個點就是割點。</li>
-<li>如果某個點後繼是一個連通分量，而這個點不是根節點，那這個點是割點。</li>
-</ol>
-<h3 id="第一種情況"><a href="#第一種情況" class="headerlink" title="第一種情況"></a>第一種情況</h3><p>我們需要記錄根節點 <code>fa</code>，在遍歷的時候，如果重複訪問到了 <code>fa</code>，說明找到了 <code>fa</code> 下面的一個連通分量。</p>
-<h3 id="第二種情況"><a href="#第二種情況" class="headerlink" title="第二種情況"></a>第二種情況</h3><p>設當前點 <code>s</code>，對於訪問的下一個節點 <code>y</code>：</p>
-<p>如果 <code>low[y] &gt;= dfn[s]</code>，說明這個點下面有一個連通分量。</p>
-<p>注：這裡類似於 Tarjan 求 SCC 時，我們所做的 <code>min(low[s],dfn[y])</code>。</p>
-<h3 id="程式碼"><a href="#程式碼" class="headerlink" title="程式碼"></a>程式碼</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">tarjan</span><span class="params">(<span class="type">int</span> s, <span class="type">int</span> fa)</span></span>&#123;</span><br><span class="line">    dfn[s] = low[s] = ++cc;</span><br><span class="line">    <span class="type">int</span> child = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = head[s]; i!=<span class="number">-1</span>; i=NDS[i].next)&#123;</span><br><span class="line">        <span class="type">int</span> y = NDS[i].to;</span><br><span class="line">        <span class="keyword">if</span>(!dfn[y])&#123;</span><br><span class="line">            <span class="built_in">tarjan</span>(y,fa);</span><br><span class="line">            low[s] = <span class="built_in">min</span>(low[s], low[y]); <span class="comment">// 回溯後更新</span></span><br><span class="line">            <span class="keyword">if</span>(low[y]&gt;=dfn[s] &amp;&amp; s != fa) <span class="comment">// 情況 2</span></span><br><span class="line">                cut[s] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(s==fa) <span class="comment">// 情況 1 計數</span></span><br><span class="line">                child++;</span><br><span class="line">        &#125;</span><br><span class="line">        low[s] = <span class="built_in">min</span>(low[s], dfn[y]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(child&gt;=<span class="number">2</span>&amp;&amp;s==fa)&#123;</span><br><span class="line">        cut[s] = <span class="number">1</span>; <span class="comment">// 情況 1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="割點">割點</h2>
+<p>Tarjan 演算法，記錄 節點訪問時間戳
+<code>dfn</code>，節點能夠回溯到的最早的點的時間戳
+<code>low</code>。</p>
+<p>對於某一點： 1.
+如果這個點是根節點，且有兩個以上與它相連的連通分量，那這個點就是割點。
+2.
+如果某個點後繼是一個連通分量，而這個點不是根節點，那這個點是割點。</p>
+<h3 id="第一種情況">第一種情況</h3>
+<p>我們需要記錄根節點 <code>fa</code>，在遍歷的時候，如果重複訪問到了
+<code>fa</code>，說明找到了 <code>fa</code> 下面的一個連通分量。</p>
+<h3 id="第二種情況">第二種情況</h3>
+<p>設當前點 <code>s</code>，對於訪問的下一個節點 <code>y</code>：</p>
+<p>如果
+<code>low[y] &gt;= dfn[s]</code>，說明這個點下面有一個連通分量。</p>
+<p>注：這裡類似於 Tarjan 求 SCC 時，我們所做的
+<code>min(low[s],dfn[y])</code>。</p>
+<h3 id="程式碼">程式碼</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">tarjan</span><span class="params">(<span class="type">int</span> s, <span class="type">int</span> fa)</span></span>&#123;</span><br><span class="line">    dfn[s] = low[s] = ++cc;</span><br><span class="line">    <span class="type">int</span> child = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = head[s]; i!=<span class="number">-1</span>; i=NDS[i].next)&#123;</span><br><span class="line">        <span class="type">int</span> y = NDS[i].to;</span><br><span class="line">        <span class="keyword">if</span>(!dfn[y])&#123;</span><br><span class="line">            <span class="built_in">tarjan</span>(y,fa);</span><br><span class="line">            low[s] = <span class="built_in">min</span>(low[s], low[y]); <span class="comment">// 回溯後更新</span></span><br><span class="line">            <span class="keyword">if</span>(low[y]&gt;=dfn[s] &amp;&amp; s != fa) <span class="comment">// 情況 2</span></span><br><span class="line">                cut[s] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(s==fa) <span class="comment">// 情況 1 計數</span></span><br><span class="line">                child++;</span><br><span class="line">        &#125;</span><br><span class="line">        low[s] = <span class="built_in">min</span>(low[s], dfn[y]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(child&gt;=<span class="number">2</span>&amp;&amp;s==fa)&#123;</span><br><span class="line">        cut[s] = <span class="number">1</span>; <span class="comment">// 情況 1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
