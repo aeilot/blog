@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
-
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
@@ -15,45 +14,80 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fira+Mono:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
 
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/purple/pace-theme-minimal.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous" defer></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.aeilot.top","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"right","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"style":null,"show_result":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.aeilot.top","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12,"onmobile":false},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null,"show_result":false},"fold":{"enable":false,"height":500},"language":false,"highlight_theme":"normal"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":true,"preload":true,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="最近在练树形 DP，正好看到 这一道 虚标的紫题，但本蒟蒻不会写，想出来了便记录一下">
+    <meta name="description" content="最近在練樹形 DP，正好看到 這一道 虛標的紫題，但本蒟蒻不會寫，想出來了便記錄一下">
 <meta property="og:type" content="article">
-<meta property="og:title" content="P3354 Riv 河流 题解">
+<meta property="og:title" content="P3354 Riv 河流 題解">
 <meta property="og:url" content="https://blog.aeilot.top/2022/11/23/riv-p3354/index.html">
-<meta property="og:site_name" content="满五的博客">
-<meta property="og:description" content="最近在练树形 DP，正好看到 这一道 虚标的紫题，但本蒟蒻不会写，想出来了便记录一下">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="滿五的部落格">
+<meta property="og:description" content="最近在練樹形 DP，正好看到 這一道 虛標的紫題，但本蒟蒻不會寫，想出來了便記錄一下">
+<meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-11-23T02:45:09.000Z">
-<meta property="article:modified_time" content="2022-11-24T02:21:30.000Z">
-<meta property="article:author" content="满五">
-<meta property="article:tag" content="洛谷">
+<meta property="article:modified_time" content="2025-11-10T12:12:18.810Z">
+<meta property="article:author" content="滿五">
 <meta property="article:tag" content="DP">
-<meta property="article:tag" content="树">
+<meta property="article:tag" content="樹">
+<meta property="article:tag" content="洛谷">
 <meta name="twitter:card" content="summary">
 
 
 <link rel="canonical" href="https://blog.aeilot.top/2022/11/23/riv-p3354/">
 
 
-
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.aeilot.top/2022/11/23/riv-p3354/","path":"2022/11/23/riv-p3354/","title":"P3354 Riv 河流 题解"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://blog.aeilot.top/2022/11/23/riv-p3354/","path":"2022/11/23/riv-p3354/","title":"P3354 Riv 河流 題解"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>P3354 Riv 河流 题解 | 满五的博客</title>
+<title>P3354 Riv 河流 題解 | 滿五的部落格</title>
   
-  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-138571809-2","only_pageview":true}</script>
-  <script src="/js/third-party/analytics/google-analytics.js"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-138571809-2","only_pageview":true,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
 
 
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/7.2.0/pangu.umd.js" integrity="sha256-JnmRRnJK7DC6RQJbAJb6AXOM9OmWzS6z8eYultk/48Y=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/bookmark.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+  <script src="/js/third-party/pace.js" defer></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js" defer></script>
 
 
 <link rel="dns-prefetch" href="https://comments.aeilot.top">
@@ -64,17 +98,17 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><link rel="alternate" href="/index.xml" title="满五的博客" type="application/atom+xml">
+<!-- hexo injector head_end end --><link rel="alternate" href="/index.xml" title="滿五的部落格" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
 
   <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
+    <div class="toggle" aria-label="切換導航欄" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -85,13 +119,13 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <p class="site-title">满五的博客</p>
+      <p class="site-title">滿五的部落格</p>
       <i class="logo-line"></i>
     </a>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜尋" role="button">
         <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
@@ -100,9 +134,9 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/index.html" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-图片"><a href="https://www.instagram.com/louisaeilot/" rel="noopener" target="_blank"><i class="fas fa-images fa-fw"></i>图片</a></li><li class="menu-item menu-item-english"><a href="https://en.blog.aeilot.top/" rel="noopener" target="_blank"><i class="fa fa-language fa-fw"></i>English</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/index.html" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li><li class="menu-item menu-item-english"><a href="https://en.blog.aeilot.top/" rel="section" target="_blank"><i class="fa fa-language fa-fw"></i>English</a></li>
       <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
         </a>
       </li>
   </ul>
@@ -111,154 +145,136 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup"><div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close" role="button">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div class="search-result-container no-result">
-  <div class="search-result-icon">
-    <i class="fa fa-spinner fa-pulse fa-5x"></i>
-  </div>
-</div>
-
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜尋..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
     </div>
   </div>
 
-</div>
+</header>
         
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
-          文章目录
+          文章目錄
         </li>
         <li class="sidebar-nav-overview">
-          站点概览
+          本站概要
         </li>
       </ul>
 
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E9%9D%A2-%E6%80%9D%E8%80%83"><span class="nav-number">1.</span> <span class="nav-text"> 题面 &amp; 思考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB%E6%96%B9%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text"> 状态转移方程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text"> 代码</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%8C%E9%9D%A2-amp-%E6%80%9D%E8%80%83"><span class="nav-number">1.</span> <span class="nav-text">題面 &amp; 思考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8B%80%E6%85%8B%E8%BD%89%E7%A7%BB%E6%96%B9%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">狀態轉移方程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BC%8F%E7%A2%BC"><span class="nav-number">3.</span> <span class="nav-text">程式碼</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="满五"
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="滿五"
       src="/images/gravatar.jpeg">
-  <p class="site-author-name" itemprop="name">满五</p>
+  <p class="site-author-name" itemprop="name">滿五</p>
   <div class="site-description" itemprop="description">Stay Hungry. Stay Foolish.</div>
 </div>
-<div class="site-state-wrap site-overview-item animated">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
           <span class="site-state-item-count">58</span>
-          <span class="site-state-item-name">日志</span>
+          <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
         <span class="site-state-item-count">12</span>
-        <span class="site-state-item-name">分类</span></a>
+        <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
         <span class="site-state-item-count">45</span>
-        <span class="site-state-item-name">标签</span></a>
+        <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
 </div>
-  <div class="links-of-author site-overview-item animated">
+  <div class="links-of-author animated">
       <span class="links-of-author-item">
-        <a href="https://github.com/aeilot" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;aeilot" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+        <a href="https://github.com/aeilot" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;aeilot" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:louis.aeilot@icloud.com" title="E-Mail → mailto:louis.aeilot@icloud.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+        <a href="mailto:louis.aeilot@icloud.com" title="E-Mail → mailto:louis.aeilot@icloud.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://twitter.com/aeilot" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;aeilot" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+        <a href="https://twitter.com/aeilot" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;aeilot" rel="noopener me" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://stackoverflow.com/13011108" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;13011108" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+        <a href="https://stackoverflow.com/13011108" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;13011108" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://instagram.com/louisaeilot" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;louisaeilot" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+        <a href="https://instagram.com/louisaeilot" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;louisaeilot" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://space.bilibili.com/378981479" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;378981479" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i>Bilibili</a>
+        <a href="https://space.bilibili.com/378981479" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;378981479" rel="noopener me" target="_blank"><i class="fab fa-youtube fa-fw"></i>Bilibili</a>
       </span>
   </div>
-  <div class="cc-license site-overview-item animated" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
-  </div>
-
-
-  <div class="links-of-blogroll site-overview-item animated">
-    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
-      Links
-    </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://mrwillcom.now.sh/" title="https:&#x2F;&#x2F;mrwillcom.now.sh" rel="noopener" target="_blank">Mr.Will</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://chungzh.cn/" title="https:&#x2F;&#x2F;chungzh.cn" rel="noopener" target="_blank">ChungZH</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://shaojiaxu.github.io/" title="https:&#x2F;&#x2F;shaojiaxu.github.io" rel="noopener" target="_blank">SJX</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://clckblog.space/" title="http:&#x2F;&#x2F;clckblog.space&#x2F;" rel="noopener" target="_blank">CLCK</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://innei.in/" title="https:&#x2F;&#x2F;innei.in&#x2F;" rel="noopener" target="_blank">静かな森</a>
-        </li>
-    </ul>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-TW" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
   </div>
 
         </div>
       </div>
     </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
-    </header>
 
     
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
-  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+          連結
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://mrwillcom.now.sh/" title="https:&#x2F;&#x2F;mrwillcom.now.sh" rel="noopener" target="_blank">Mr.Will</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://chungzh.cn/" title="https:&#x2F;&#x2F;chungzh.cn" rel="noopener" target="_blank">ChungZH</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://shaojiaxu.github.io/" title="https:&#x2F;&#x2F;shaojiaxu.github.io" rel="noopener" target="_blank">SJX</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://clckblog.space/" title="http:&#x2F;&#x2F;clckblog.space&#x2F;" rel="noopener" target="_blank">CLCK</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://innei.in/" title="https:&#x2F;&#x2F;innei.in&#x2F;" rel="noopener" target="_blank">静かな森</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+        <div class="pjax">
+        </div>
+  </aside>
 
-  <a href="https://github.com/aeilot" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
+    </div>
 
     <div class="main-inner post posts-expand">
 
@@ -270,26 +286,26 @@
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://blog.aeilot.top/2022/11/23/riv-p3354/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/gravatar.jpeg">
-      <meta itemprop="name" content="满五">
+      <meta itemprop="name" content="滿五">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="满五的博客">
+      <meta itemprop="name" content="滿五的部落格">
       <meta itemprop="description" content="Stay Hungry. Stay Foolish.">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="P3354 Riv 河流 题解 | 满五的博客">
+      <meta itemprop="name" content="P3354 Riv 河流 題解 | 滿五的部落格">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          P3354 Riv 河流 题解
+          P3354 Riv 河流 題解
         </h1>
 
         <div class="post-meta-container">
@@ -298,26 +314,26 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
+      <span class="post-meta-item-text">發表於</span>
 
-      <time title="创建时间：2022-11-23 10:45:09" itemprop="dateCreated datePublished" datetime="2022-11-23T10:45:09+08:00">2022-11-23</time>
+      <time title="創建時間：2022-11-23 10:45:09" itemprop="dateCreated datePublished" datetime="2022-11-23T10:45:09+08:00">2022-11-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">分类于</span>
+      <span class="post-meta-item-text">分類於</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/OI/" itemprop="url" rel="index"><span itemprop="name">OI</span></a>
         </span>
     </span>
 
   
-    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+    <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv">
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
       </span>
-      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="post-meta-item-text">閱讀次數：</span>
       <span id="busuanzi_value_page_pv"></span>
     </span>
   
@@ -334,11 +350,11 @@
   </span>
   
   
-    <span class="post-meta-item" title="本文字数">
+    <span class="post-meta-item" title="文章字數">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
-      <span class="post-meta-item-text">本文字数：</span>
+      <span class="post-meta-item-text">文章字數：</span>
       <span>3.2k</span>
     </span>
 </div>
@@ -349,122 +365,98 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-        <p>最近在练树形 DP，正好看到 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3354">这一道</a> 虚标的紫题，但本蒟蒻不会写，想出来了便记录一下</p>
+    <div class="post-body" itemprop="articleBody"><p>最近在練樹形 DP，正好看到 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3354">這一道</a> 虛標的紫題，但本蒟蒻不會寫，想出來了便記錄一下</p>
 <span id="more"></span>
-<h2 id="题面-思考"><a class="markdownIt-Anchor" href="#题面-思考"></a> 题面 &amp; 思考</h2>
-<p>先看题面，一颗有根树，选定 k 个节点作为 ”伐木场“，求运送木料最小费用。注意木料费用是 <code>dis * wood</code>。</p>
-<p>最开始想到简单的树形背包，状态转移方程：</p>
+<h2 id="題面-amp-思考"><a href="#題面-amp-思考" class="headerlink" title="題面 &amp; 思考"></a>題面 &amp; 思考</h2><p>先看題面，一顆有根樹，選定 k 個節點作為 ”伐木場“，求運送木料最小費用。注意木料費用是 <code>dis * wood</code>。</p>
+<p>最開始想到簡單的樹形揹包，狀態轉移方程：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f[i][k] = <span class="built_in">min</span>(f[j][s] + cost, f[i][k]);</span><br></pre></td></tr></table></figure>
-<p>但是注意到，如果某个后代节点如果是伐木场，cost 不需要计算，所以状态中还需要存储后代的伐木场情况。</p>
-<p>但是后代中锯木厂不止一个。考虑到树有唯一的父亲，且同一深度祖先唯一，可以记录最近的伐木场祖先，作为状态的一部分。</p>
-<p>有 <code>f[i][j][k]</code> 即 i 节点 最近的伐木场祖先为 j，后代（不算自己）有 k 个是伐木场。</p>
-<p>但是由于 f 自己也可能是伐木场，转移方程不同，需要分类讨论，于是改成：<code>f[i][j][k][0/1]</code> 其中 0 代表自己<strong>不是</strong>伐木场， 1 表示自己<strong>是</strong>伐木场。</p>
-<h2 id="状态转移方程"><a class="markdownIt-Anchor" href="#状态转移方程"></a> 状态转移方程</h2>
-<p>因为我们需要枚举祖先，在 DFS 时需要记录 Fa 数组：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DFS 开始时：fa[++tot] = x;</span><br><span class="line"></span><br><span class="line">结束时：tot--;</span><br></pre></td></tr></table></figure>
-<p>简单记录祖先 stack。</p>
-<p>回溯后，对于当前节点 <code>x</code> 和 子节点 <code>y</code> 每个祖先 <code>ff</code>：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">先对每个 k 赋初值，对于每种伐木场个数 l：</span><br><span class="line">f[x][ff][l][<span class="number">0</span>] += f[y][ff][<span class="number">0</span>][<span class="number">0</span>]; --&gt; 当前节点不是伐木场，子节点 y 最近伐木场为 l，对任意 f，赋最大值，即 子结点中没有伐木场。</span><br><span class="line"></span><br><span class="line">f[x][ff][l][<span class="number">1</span>] += f[y][x][<span class="number">0</span>][<span class="number">0</span>]; --&gt; 当前节点是伐木场，子节点 y 最近伐木场为 当前节点，对任意 f，赋最大值，即 子结点中没有伐木场。</span><br></pre></td></tr></table></figure>
-<p>然后就是树形背包：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f[x][ff][l][<span class="number">0</span>] = <span class="built_in">min</span>(f[x][ff][l][<span class="number">0</span>], f[x][ff][l-s][<span class="number">0</span>] + f[y][ff][s][<span class="number">0</span>]); --&gt; 当前节点不是伐木场，对 y 节点分配 s 个伐木场个数</span><br><span class="line">f[x][ff][l][<span class="number">1</span>] = <span class="built_in">min</span>(f[x][ff][l][<span class="number">0</span>], f[x][ff][l-s][<span class="number">1</span>] + f[y][x][s][<span class="number">0</span>]); --&gt; 当前节点是伐木场，对 y 节点分配 s 个伐木场个数</span><br><span class="line"></span><br><span class="line">唯一的不同是 y 节点最近祖先为 x</span><br></pre></td></tr></table></figure>
-<p>注意在枚举 l 时，由于是01背包，需要倒过来枚举，不然状态计算会叠加。（很容易理解）</p>
-<p>做完了？好像还差一个 cost！</p>
-<p>考虑到 祖先节点 <code>ff</code> cost 的贡献，因为是 当前节点 W 乘以 到 <code>ff</code> 的总距离！</p>
-<p>需要计算总距离，维护 <code>dep</code> 数组，即当前节点到根节点距离，即可！很容易理解。<code>ff</code> 到 <code>x</code> 的距离就是 <code>dep[x] - dep[ff]</code></p>
-<p>对于当前节点 <code>x</code> 每一个祖先 <code>ff</code>：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(l&gt;=<span class="number">1</span>)&#123; --&gt; 因为 l 需要 <span class="number">-1</span> ，要分类讨论。</span><br><span class="line">    f[x][ff][l][<span class="number">0</span>] = <span class="built_in">min</span>(f[x][ff][l][<span class="number">0</span>] + W[x] * (dep[x]-dep[ff]), f[x][ff][l][<span class="number">1</span>]);</span><br><span class="line">    合并 <span class="number">0</span> 和 <span class="number">1</span>，因为回溯之后，<span class="number">1</span> 的状态不再被使用，便于下一步计算。</span><br><span class="line">    <span class="number">-1</span> 是因为上文 f[x][ff][l][<span class="number">1</span>] = <span class="built_in">min</span>(f[x][ff][l][<span class="number">0</span>], f[x][ff][l-s][<span class="number">1</span>] + f[y][x][s][<span class="number">0</span>]); 时，s+l-s = l 但是当前节点也是伐木场，所以状态更新是 l+<span class="number">1</span> 的，要 <span class="number">-1</span> 获取正确结果</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    l = <span class="number">0</span> 时，当前节点不可能为伐木场，直接添加到 ff 增加的贡献</span><br><span class="line">    f[x][ff][l][<span class="number">0</span>] += W[x] * (dep[x]-dep[ff]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里再来聊一聊合并。为了便于讨论，上文背包转移的时候，我们没有考虑 <code>y</code> 的 1 的情况，而是在每次 <code>y</code> 回溯时 合并 0 和 1。这有点类似于滚动数组？回溯后 <code>0</code> 不再表示之前的意义，而是我们最初设计的状态：i 节点 最近的伐木场祖先为 j，后代（或自己）有 k 个是伐木场！</p>
-<h2 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> to, next, d;</span><br><span class="line">&#125; NDS[<span class="number">201</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> head[<span class="number">201</span>], vis[<span class="number">201</span>];</span><br><span class="line"><span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> W[<span class="number">201</span>];</span><br><span class="line"><span class="keyword">int</span> tot = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> d)</span> </span>&#123;</span><br><span class="line">    NDS[cnt].to = b;</span><br><span class="line">    NDS[cnt].next = head[a];</span><br><span class="line">    NDS[cnt].d = d;</span><br><span class="line">    head[a] = cnt++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> fa[<span class="number">201</span>];</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> f[<span class="number">201</span>][<span class="number">201</span>][<span class="number">52</span>][<span class="number">2</span>];</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> dep[<span class="number">201</span>];</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> n, k;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dp</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    fa[++tot] = x;</span><br><span class="line">    vis[x] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = head[x]; i != <span class="number">-1</span>; i = NDS[i].next) &#123;</span><br><span class="line">        <span class="keyword">int</span> y = NDS[i].to;</span><br><span class="line">        <span class="keyword">if</span> (vis[y]) <span class="keyword">continue</span>;</span><br><span class="line">        dep[y] = dep[x] + NDS[i].d;</span><br><span class="line">        <span class="built_in">dp</span>(y);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = tot; j &gt;= <span class="number">1</span>; j--) &#123;</span><br><span class="line">            <span class="keyword">int</span> ff = fa[j];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> l = k; l &gt;= <span class="number">0</span>; l--) &#123;</span><br><span class="line">                f[x][ff][l][<span class="number">0</span>] += f[y][ff][<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">                f[x][ff][l][<span class="number">1</span>] += f[y][x][<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> s = l; s&gt;=<span class="number">0</span>; s--)&#123;</span><br><span class="line">                    f[x][ff][l][<span class="number">0</span>] = <span class="built_in">min</span>(f[x][ff][l][<span class="number">0</span>], f[x][ff][l-s][<span class="number">0</span>] + f[y][ff][s][<span class="number">0</span>]);</span><br><span class="line">                    f[x][ff][l][<span class="number">1</span>] = <span class="built_in">min</span>(f[x][ff][l][<span class="number">1</span>], f[x][ff][l-s][<span class="number">1</span>] + f[y][x][s][<span class="number">0</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= tot; j++) &#123;</span><br><span class="line">        <span class="keyword">int</span> ff = fa[j];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> l = k; l &gt;= <span class="number">0</span>; l--) &#123;</span><br><span class="line">            <span class="keyword">if</span>(l&gt;=<span class="number">1</span>)&#123;</span><br><span class="line">                f[x][ff][l][<span class="number">0</span>] = <span class="built_in">min</span>(f[x][ff][l][<span class="number">0</span>] + W[x] * (dep[x]-dep[ff]), f[x][ff][l<span class="number">-1</span>][<span class="number">1</span>]);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                f[x][ff][l][<span class="number">0</span>] += W[x] * (dep[x]-dep[ff]);</span><br><span class="line">            &#125;</span><br><span class="line"><span class="comment">//            cout &lt;&lt; x &lt;&lt; &quot; &quot;&lt;&lt;ff &lt;&lt; &quot; &quot;&lt;&lt; l &lt;&lt; &quot; &quot; &lt;&lt; f[x][ff][l][0] &lt;&lt; &quot; &quot; &lt;&lt; endl;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//    cout &lt;&lt; dep[x] &lt;&lt; endl;</span></span><br><span class="line">    tot--;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Type your code here</span></span><br><span class="line">    <span class="built_in">memset</span>(head, <span class="number">-1</span>, <span class="built_in"><span class="keyword">sizeof</span></span>(head));</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> w, v, d;</span><br><span class="line">        cin &gt;&gt; w &gt;&gt; v &gt;&gt; d;</span><br><span class="line">        W[i] = w;</span><br><span class="line">        <span class="built_in">add</span>(i, v, d);</span><br><span class="line">        <span class="built_in">add</span>(v, i, d); <span class="comment">// 链式前向星</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">dp</span>(<span class="number">0</span>);</span><br><span class="line">    cout &lt;&lt; f[<span class="number">0</span>][<span class="number">0</span>][k][<span class="number">0</span>] &lt;&lt; endl; <span class="comment">// 输出结果，注意是 合并后，所以是 0</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是注意到，如果某個後代節點如果是伐木場，cost 不需要計算，所以狀態中還需要儲存後代的伐木場情況。</p>
+<p>但是後代中鋸木廠不止一個。考慮到樹有唯一的父親，且同一深度祖先唯一，可以記錄最近的伐木場祖先，作為狀態的一部分。</p>
+<p>有 <code>f[i][j][k]</code> 即 i 節點 最近的伐木場祖先為 j，後代（不算自己）有 k 個是伐木場。</p>
+<p>但是由於 f 自己也可能是伐木場，轉移方程不同，需要分類討論，於是改成：<code>f[i][j][k][0/1]</code> 其中 0 代表自己<strong>不是</strong>伐木場， 1 表示自己<strong>是</strong>伐木場。</p>
+<h2 id="狀態轉移方程"><a href="#狀態轉移方程" class="headerlink" title="狀態轉移方程"></a>狀態轉移方程</h2><p>因為我們需要列舉祖先，在 DFS 時需要記錄 Fa 陣列：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DFS 開始時：fa[++tot] = x;</span><br><span class="line"></span><br><span class="line">結束時：tot--;</span><br></pre></td></tr></table></figure>
+<p>簡單記錄祖先 stack。</p>
+<p>回溯後，對於當前節點 <code>x</code> 和 子節點 <code>y</code> 每個祖先 <code>ff</code>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">先對每個 k 賦初值，對於每種伐木場個數 l：</span><br><span class="line">f[x][ff][l][<span class="number">0</span>] += f[y][ff][<span class="number">0</span>][<span class="number">0</span>]; --&gt; 當前節點不是伐木場，子節點 y 最近伐木場為 l，對任意 f，賦最大值，即 子結點中沒有伐木場。</span><br><span class="line"></span><br><span class="line">f[x][ff][l][<span class="number">1</span>] += f[y][x][<span class="number">0</span>][<span class="number">0</span>]; --&gt; 當前節點是伐木場，子節點 y 最近伐木場為 當前節點，對任意 f，賦最大值，即 子結點中沒有伐木場。</span><br></pre></td></tr></table></figure>
+<p>然後就是樹形揹包：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f[x][ff][l][<span class="number">0</span>] = <span class="built_in">min</span>(f[x][ff][l][<span class="number">0</span>], f[x][ff][l-s][<span class="number">0</span>] + f[y][ff][s][<span class="number">0</span>]); --&gt; 當前節點不是伐木場，對 y 節點分配 s 個伐木場個數</span><br><span class="line">f[x][ff][l][<span class="number">1</span>] = <span class="built_in">min</span>(f[x][ff][l][<span class="number">0</span>], f[x][ff][l-s][<span class="number">1</span>] + f[y][x][s][<span class="number">0</span>]); --&gt; 當前節點是伐木場，對 y 節點分配 s 個伐木場個數</span><br><span class="line"></span><br><span class="line">唯一的不同是 y 節點最近祖先為 x</span><br></pre></td></tr></table></figure>
+<p>注意在列舉 l 時，由於是01揹包，需要倒過來列舉，不然狀態計算會疊加。（很容易理解）</p>
+<p>做完了？好像還差一個 cost！</p>
+<p>考慮到 祖先節點 <code>ff</code> cost 的貢獻，因為是 當前節點 W 乘以 到 <code>ff</code> 的總距離！</p>
+<p>需要計算總距離，維護 <code>dep</code> 陣列，即當前節點到根節點距離，即可！很容易理解。<code>ff</code> 到 <code>x</code> 的距離就是 <code>dep[x] - dep[ff]</code></p>
+<p>對於當前節點 <code>x</code> 每一個祖先 <code>ff</code>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(l&gt;=<span class="number">1</span>)&#123; --&gt; 因為 l 需要 <span class="number">-1</span> ，要分類討論。</span><br><span class="line">    f[x][ff][l][<span class="number">0</span>] = <span class="built_in">min</span>(f[x][ff][l][<span class="number">0</span>] + W[x] * (dep[x]-dep[ff]), f[x][ff][l][<span class="number">1</span>]);</span><br><span class="line">    合併 <span class="number">0</span> 和 <span class="number">1</span>，因為回溯之後，<span class="number">1</span> 的狀態不再被使用，便於下一步計算。</span><br><span class="line">    <span class="number">-1</span> 是因為上文 f[x][ff][l][<span class="number">1</span>] = <span class="built_in">min</span>(f[x][ff][l][<span class="number">0</span>], f[x][ff][l-s][<span class="number">1</span>] + f[y][x][s][<span class="number">0</span>]); 時，s+l-s = l 但是當前節點也是伐木場，所以狀態更新是 l<span class="number">+1</span> 的，要 <span class="number">-1</span> 獲取正確結果</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    l = <span class="number">0</span> 時，當前節點不可能為伐木場，直接新增到 ff 增加的貢獻</span><br><span class="line">    f[x][ff][l][<span class="number">0</span>] += W[x] * (dep[x]-dep[ff]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>這裡再來聊一聊合併。為了便於討論，上文揹包轉移的時候，我們沒有考慮 <code>y</code> 的 1 的情況，而是在每次 <code>y</code> 回溯時 合併 0 和 1。這有點類似於滾動陣列？回溯後 <code>0</code> 不再表示之前的意義，而是我們最初設計的狀態：i 節點 最近的伐木場祖先為 j，後代（或自己）有 k 個是伐木場！</p>
+<h2 id="程式碼"><a href="#程式碼" class="headerlink" title="程式碼"></a>程式碼</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Node</span> &#123;</span><br><span class="line">    <span class="type">int</span> to, next, d;</span><br><span class="line">&#125; NDS[<span class="number">201</span>];</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> head[<span class="number">201</span>], vis[<span class="number">201</span>];</span><br><span class="line"><span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> W[<span class="number">201</span>];</span><br><span class="line"><span class="type">int</span> tot = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> d)</span> </span>&#123;</span><br><span class="line">    NDS[cnt].to = b;</span><br><span class="line">    NDS[cnt].next = head[a];</span><br><span class="line">    NDS[cnt].d = d;</span><br><span class="line">    head[a] = cnt++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> fa[<span class="number">201</span>];</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> f[<span class="number">201</span>][<span class="number">201</span>][<span class="number">52</span>][<span class="number">2</span>];</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> dep[<span class="number">201</span>];</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> n, k;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dp</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">    fa[++tot] = x;</span><br><span class="line">    vis[x] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = head[x]; i != <span class="number">-1</span>; i = NDS[i].next) &#123;</span><br><span class="line">        <span class="type">int</span> y = NDS[i].to;</span><br><span class="line">        <span class="keyword">if</span> (vis[y]) <span class="keyword">continue</span>;</span><br><span class="line">        dep[y] = dep[x] + NDS[i].d;</span><br><span class="line">        <span class="built_in">dp</span>(y);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = tot; j &gt;= <span class="number">1</span>; j--) &#123;</span><br><span class="line">            <span class="type">int</span> ff = fa[j];</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> l = k; l &gt;= <span class="number">0</span>; l--) &#123;</span><br><span class="line">                f[x][ff][l][<span class="number">0</span>] += f[y][ff][<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">                f[x][ff][l][<span class="number">1</span>] += f[y][x][<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> s = l; s&gt;=<span class="number">0</span>; s--)&#123;</span><br><span class="line">                    f[x][ff][l][<span class="number">0</span>] = <span class="built_in">min</span>(f[x][ff][l][<span class="number">0</span>], f[x][ff][l-s][<span class="number">0</span>] + f[y][ff][s][<span class="number">0</span>]);</span><br><span class="line">                    f[x][ff][l][<span class="number">1</span>] = <span class="built_in">min</span>(f[x][ff][l][<span class="number">1</span>], f[x][ff][l-s][<span class="number">1</span>] + f[y][x][s][<span class="number">0</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= tot; j++) &#123;</span><br><span class="line">        <span class="type">int</span> ff = fa[j];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> l = k; l &gt;= <span class="number">0</span>; l--) &#123;</span><br><span class="line">            <span class="keyword">if</span>(l&gt;=<span class="number">1</span>)&#123;</span><br><span class="line">                f[x][ff][l][<span class="number">0</span>] = <span class="built_in">min</span>(f[x][ff][l][<span class="number">0</span>] + W[x] * (dep[x]-dep[ff]), f[x][ff][l<span class="number">-1</span>][<span class="number">1</span>]);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                f[x][ff][l][<span class="number">0</span>] += W[x] * (dep[x]-dep[ff]);</span><br><span class="line">            &#125;</span><br><span class="line"><span class="comment">//            cout &lt;&lt; x &lt;&lt; &quot; &quot;&lt;&lt;ff &lt;&lt; &quot; &quot;&lt;&lt; l &lt;&lt; &quot; &quot; &lt;&lt; f[x][ff][l][0] &lt;&lt; &quot; &quot; &lt;&lt; endl;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//    cout &lt;&lt; dep[x] &lt;&lt; endl;</span></span><br><span class="line">    tot--;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Type your code here</span></span><br><span class="line">    <span class="built_in">memset</span>(head, <span class="number">-1</span>, <span class="built_in">sizeof</span>(head));</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="type">int</span> w, v, d;</span><br><span class="line">        cin &gt;&gt; w &gt;&gt; v &gt;&gt; d;</span><br><span class="line">        W[i] = w;</span><br><span class="line">        <span class="built_in">add</span>(i, v, d);</span><br><span class="line">        <span class="built_in">add</span>(v, i, d); <span class="comment">// 鏈式前向星</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">dp</span>(<span class="number">0</span>);</span><br><span class="line">    cout &lt;&lt; f[<span class="number">0</span>][<span class="number">0</span>][k][<span class="number">0</span>] &lt;&lt; endl; <span class="comment">// 輸出結果，注意是 合併後，所以是 0</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
     
     
     
-      
-
 
     <footer class="post-footer">
-          <div class="reward-container">
-  <div></div>
-  <button>
-    赞赏
-  </button>
-  <div class="post-reward">
-      <div>
-        <img src="/images/wechatpay.jpg" alt="满五 微信">
-        <span>微信</span>
-      </div>
-      <div>
-        <img src="/images/alipay.jpg" alt="满五 支付宝">
-        <span>支付宝</span>
-      </div>
-
-  </div>
-</div>
-
           
 
 <div class="post-copyright">
 <ul>
   <li class="post-copyright-author">
-      <strong>本文作者： </strong>满五
+      <strong>本文作者： </strong>滿五
   </li>
   <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="https://blog.aeilot.top/2022/11/23/riv-p3354/" title="P3354 Riv 河流 题解">https://blog.aeilot.top/2022/11/23/riv-p3354/</a>
+      <strong>文章連結：</strong>
+      <a href="https://blog.aeilot.top/2022/11/23/riv-p3354/" title="P3354 Riv 河流 題解">https://blog.aeilot.top/2022/11/23/riv-p3354/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+      <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-TW" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 許可協議。轉載請註明出處！
   </li>
 </ul>
 </div>
 
           <div class="followme">
-  <span>欢迎关注我的其它发布渠道</span>
+  <span>歡迎關注我的其它發布渠道</span>
 
   <div class="social-list">
 
       <div class="social-item">
-        <a target="_blank" class="social-link" href="https://twitter.com/aeilot">
-          <span class="icon">
-            <i class="fab fa-twitter"></i>
-          </span>
+          <a target="_blank" class="social-link" href="https://twitter.com/aeilot">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
 
-          <span class="label">Twitter</span>
-        </a>
+            <span class="label">Twitter</span>
+          </a>
       </div>
 
       <div class="social-item">
-        <a target="_blank" class="social-link" href="https://t.me/aeilot_post">
-          <span class="icon">
-            <i class="fab fa-telegram"></i>
-          </span>
+          <a target="_blank" class="social-link" href="https://t.me/aeilot_post">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
 
-          <span class="label">Telegram</span>
-        </a>
+            <span class="label">Telegram</span>
+          </a>
       </div>
 
       <div class="social-item">
-        <a target="_blank" class="social-link" href="/index.xml">
-          <span class="icon">
-            <i class="fa fa-rss"></i>
-          </span>
+          <a target="_blank" class="social-link" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
 
-          <span class="label">RSS</span>
-        </a>
+            <span class="label">RSS</span>
+          </a>
       </div>
 
       <div class="social-item">
-        <a target="_blank" class="social-link" href="https://www.zhihu.com/people/louis-80-27">
-          <span class="icon">
-            <i class="fa-brands fa-zhihu"></i>
-          </span>
+          <a target="_blank" class="social-link" href="https://www.zhihu.com/people/louis-80-27">
+            <span class="icon">
+              <i class="fa-brands fa-zhihu"></i>
+            </span>
 
-          <span class="label">知乎</span>
-        </a>
+            <span class="label">知乎</span>
+          </a>
       </div>
   </div>
 </div>
@@ -472,20 +464,20 @@
           <div class="post-tags">
               <a href="/tags/%E6%B4%9B%E8%B0%B7/" rel="tag"><i class="fa fa-tag"></i> 洛谷</a>
               <a href="/tags/DP/" rel="tag"><i class="fa fa-tag"></i> DP</a>
-              <a href="/tags/%E6%A0%91/" rel="tag"><i class="fa fa-tag"></i> 树</a>
+              <a href="/tags/%E6%A8%B9/" rel="tag"><i class="fa fa-tag"></i> 樹</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/11/20/manacher/" rel="prev" title="马拉车算法">
-                  <i class="fa fa-chevron-left"></i> 马拉车算法
+                <a href="/2022/11/20/manacher/" rel="prev" title="馬拉車演算法">
+                  <i class="fa fa-angle-left"></i> 馬拉車演算法
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/11/24/P3147-262144P/" rel="next" title="P3147 USACO16OPEN 262144 P 题解">
-                  P3147 USACO16OPEN 262144 P 题解 <i class="fa fa-chevron-right"></i>
+                <a href="/2022/11/24/P3147-262144P/" rel="next" title="P3147 USACO16OPEN 262144 P 題解">
+                  P3147 USACO16OPEN 262144 P 題解 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -505,21 +497,20 @@
   <footer class="footer">
     <div class="footer-inner">
 
-
-<div class="copyright">
-  &copy; 2015 – 
-  <span itemprop="copyrightYear">2025</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">满五</span>
-</div>
+  <div class="copyright">
+    &copy; 2015 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">滿五</span>
+  </div>
 <div class="busuanzi-count">
     <span class="post-meta-item" id="busuanzi_container_site_uv">
       <span class="post-meta-item-icon">
         <i class="fa fa-user"></i>
       </span>
-      <span class="site-uv" title="总访客量">
+      <span class="site-uv" title="訪客總數">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
@@ -527,7 +518,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
       </span>
-      <span class="site-pv" title="总访问量">
+      <span class="site-pv" title="總瀏覽次數">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
@@ -537,39 +528,25 @@
   </footer>
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
-  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
-<script src="/js/third-party/search/local-search.js"></script>
+  <a href="https://github.com/aeilot" class="github-corner" title="在 GitHub 上關注我" aria-label="在 GitHub 上關注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
-
-
-  <script src="/js/third-party/fancybox.js"></script>
-
-  <script src="/js/third-party/pace.js"></script>
-
-  
-  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
-  
-
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.3/katex.min.css" integrity="sha256-TThEtR+XalhWKkfF383YLOrI50NGNeIqrzS+q08afrY=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.3/contrib/copy-tex.min.css" integrity="sha256-Wk20U9mS/kHGcSgkjSiRezW5exqT6wAOKwySOaLotXM=" crossorigin="anonymous">
-  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.3/contrib/copy-tex.min.js","integrity":"sha256-etSqbSVF4+Lwe8MGk/Vanc1sR+mWv+qOG73fxWw9p94="}}</script>
-  <script src="/js/third-party/math/katex.js"></script>
-
-
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"https://comments.aeilot.top","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo","https://unpkg.com/@waline/emojis@1.0.1/alus","https://unpkg.com/@waline/emojis@1.0.1/bilibili","https://unpkg.com/@waline/emojis@1.0.1/qq","https://unpkg.com/@waline/emojis@1.0.1/tieba","https://unpkg.com/@waline/emojis@1.0.1/tw-emoji"],"meta":["nick","mail","link"],"requiredMeta":["nick"],"el":"#waline","comment":true,"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","path":"/2022/11/23/riv-p3354/"}</script>
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-TW","enable":true,"serverURL":"https://comments.aeilot.top","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"dark":"auto","emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo","https://unpkg.com/@waline/emojis@1.0.1/alus","https://unpkg.com/@waline/emojis@1.0.1/bilibili","https://unpkg.com/@waline/emojis@1.0.1/qq","https://unpkg.com/@waline/emojis@1.0.1/tieba","https://unpkg.com/@waline/emojis@1.0.1/tw-emoji"],"meta":["nick","mail","link"],"requiredMeta":["nick"],"el":"#waline","comment":true,"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","path":"/2022/11/23/riv-p3354/"}</script>
 <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
 <script>
 document.addEventListener('page:loaded', () => {

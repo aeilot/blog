@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
-
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
@@ -15,44 +14,79 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fira+Mono:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
 
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/purple/pace-theme-minimal.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous" defer></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.aeilot.top","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"right","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"style":null,"show_result":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.aeilot.top","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12,"onmobile":false},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null,"show_result":false},"fold":{"enable":false,"height":500},"language":false,"highlight_theme":"normal"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":true,"preload":true,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="最近在学习马拉车算法，简单记录一下心得。（如有疏漏，请指出">
+    <meta name="description" content="最近在學習馬拉車演算法，簡單記錄一下心得。（如有疏漏，請指出">
 <meta property="og:type" content="article">
-<meta property="og:title" content="马拉车算法">
+<meta property="og:title" content="馬拉車演算法">
 <meta property="og:url" content="https://blog.aeilot.top/2022/11/20/manacher/index.html">
-<meta property="og:site_name" content="满五的博客">
-<meta property="og:description" content="最近在学习马拉车算法，简单记录一下心得。（如有疏漏，请指出">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="滿五的部落格">
+<meta property="og:description" content="最近在學習馬拉車演算法，簡單記錄一下心得。（如有疏漏，請指出">
+<meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-11-20T09:45:09.000Z">
-<meta property="article:modified_time" content="2022-11-21T03:02:04.000Z">
-<meta property="article:author" content="满五">
-<meta property="article:tag" content="洛谷">
+<meta property="article:modified_time" content="2025-11-10T12:12:18.810Z">
+<meta property="article:author" content="滿五">
 <meta property="article:tag" content="模版">
+<meta property="article:tag" content="洛谷">
 <meta name="twitter:card" content="summary">
 
 
 <link rel="canonical" href="https://blog.aeilot.top/2022/11/20/manacher/">
 
 
-
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.aeilot.top/2022/11/20/manacher/","path":"2022/11/20/manacher/","title":"马拉车算法"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://blog.aeilot.top/2022/11/20/manacher/","path":"2022/11/20/manacher/","title":"馬拉車演算法"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>马拉车算法 | 满五的博客</title>
+<title>馬拉車演算法 | 滿五的部落格</title>
   
-  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-138571809-2","only_pageview":true}</script>
-  <script src="/js/third-party/analytics/google-analytics.js"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-138571809-2","only_pageview":true,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
 
 
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/7.2.0/pangu.umd.js" integrity="sha256-JnmRRnJK7DC6RQJbAJb6AXOM9OmWzS6z8eYultk/48Y=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/bookmark.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+  <script src="/js/third-party/pace.js" defer></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js" defer></script>
 
 
 <link rel="dns-prefetch" href="https://comments.aeilot.top">
@@ -63,17 +97,17 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><link rel="alternate" href="/index.xml" title="满五的博客" type="application/atom+xml">
+<!-- hexo injector head_end end --><link rel="alternate" href="/index.xml" title="滿五的部落格" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
 
   <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
+    <div class="toggle" aria-label="切換導航欄" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -84,13 +118,13 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <p class="site-title">满五的博客</p>
+      <p class="site-title">滿五的部落格</p>
       <i class="logo-line"></i>
     </a>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜尋" role="button">
         <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
@@ -99,9 +133,9 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/index.html" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-图片"><a href="https://www.instagram.com/louisaeilot/" rel="noopener" target="_blank"><i class="fas fa-images fa-fw"></i>图片</a></li><li class="menu-item menu-item-english"><a href="https://en.blog.aeilot.top/" rel="noopener" target="_blank"><i class="fa fa-language fa-fw"></i>English</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/index.html" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li><li class="menu-item menu-item-english"><a href="https://en.blog.aeilot.top/" rel="section" target="_blank"><i class="fa fa-language fa-fw"></i>English</a></li>
       <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
         </a>
       </li>
   </ul>
@@ -110,154 +144,136 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup"><div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close" role="button">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div class="search-result-container no-result">
-  <div class="search-result-icon">
-    <i class="fa fa-spinner fa-pulse fa-5x"></i>
-  </div>
-</div>
-
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜尋..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
     </div>
   </div>
 
-</div>
+</header>
         
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
-          文章目录
+          文章目錄
         </li>
         <li class="sidebar-nav-overview">
-          站点概览
+          本站概要
         </li>
       </ul>
 
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%B4%A8"><span class="nav-number">1.</span> <span class="nav-text"> 性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ac-code"><span class="nav-number">3.</span> <span class="nav-text"> AC Code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">4.</span> <span class="nav-text"> 小结</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA"><span class="nav-number">1.</span> <span class="nav-text">性質</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AC-Code"><span class="nav-number">3.</span> <span class="nav-text">AC Code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%B5%90"><span class="nav-number">4.</span> <span class="nav-text">小結</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="满五"
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="滿五"
       src="/images/gravatar.jpeg">
-  <p class="site-author-name" itemprop="name">满五</p>
+  <p class="site-author-name" itemprop="name">滿五</p>
   <div class="site-description" itemprop="description">Stay Hungry. Stay Foolish.</div>
 </div>
-<div class="site-state-wrap site-overview-item animated">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
           <span class="site-state-item-count">58</span>
-          <span class="site-state-item-name">日志</span>
+          <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
         <span class="site-state-item-count">12</span>
-        <span class="site-state-item-name">分类</span></a>
+        <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
         <span class="site-state-item-count">45</span>
-        <span class="site-state-item-name">标签</span></a>
+        <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
 </div>
-  <div class="links-of-author site-overview-item animated">
+  <div class="links-of-author animated">
       <span class="links-of-author-item">
-        <a href="https://github.com/aeilot" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;aeilot" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+        <a href="https://github.com/aeilot" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;aeilot" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:louis.aeilot@icloud.com" title="E-Mail → mailto:louis.aeilot@icloud.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+        <a href="mailto:louis.aeilot@icloud.com" title="E-Mail → mailto:louis.aeilot@icloud.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://twitter.com/aeilot" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;aeilot" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+        <a href="https://twitter.com/aeilot" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;aeilot" rel="noopener me" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://stackoverflow.com/13011108" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;13011108" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+        <a href="https://stackoverflow.com/13011108" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;13011108" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://instagram.com/louisaeilot" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;louisaeilot" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+        <a href="https://instagram.com/louisaeilot" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;louisaeilot" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://space.bilibili.com/378981479" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;378981479" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i>Bilibili</a>
+        <a href="https://space.bilibili.com/378981479" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;378981479" rel="noopener me" target="_blank"><i class="fab fa-youtube fa-fw"></i>Bilibili</a>
       </span>
   </div>
-  <div class="cc-license site-overview-item animated" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
-  </div>
-
-
-  <div class="links-of-blogroll site-overview-item animated">
-    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
-      Links
-    </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://mrwillcom.now.sh/" title="https:&#x2F;&#x2F;mrwillcom.now.sh" rel="noopener" target="_blank">Mr.Will</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://chungzh.cn/" title="https:&#x2F;&#x2F;chungzh.cn" rel="noopener" target="_blank">ChungZH</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://shaojiaxu.github.io/" title="https:&#x2F;&#x2F;shaojiaxu.github.io" rel="noopener" target="_blank">SJX</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://clckblog.space/" title="http:&#x2F;&#x2F;clckblog.space&#x2F;" rel="noopener" target="_blank">CLCK</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://innei.in/" title="https:&#x2F;&#x2F;innei.in&#x2F;" rel="noopener" target="_blank">静かな森</a>
-        </li>
-    </ul>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-TW" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
   </div>
 
         </div>
       </div>
     </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
-    </header>
 
     
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
-  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+          連結
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://mrwillcom.now.sh/" title="https:&#x2F;&#x2F;mrwillcom.now.sh" rel="noopener" target="_blank">Mr.Will</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://chungzh.cn/" title="https:&#x2F;&#x2F;chungzh.cn" rel="noopener" target="_blank">ChungZH</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://shaojiaxu.github.io/" title="https:&#x2F;&#x2F;shaojiaxu.github.io" rel="noopener" target="_blank">SJX</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://clckblog.space/" title="http:&#x2F;&#x2F;clckblog.space&#x2F;" rel="noopener" target="_blank">CLCK</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://innei.in/" title="https:&#x2F;&#x2F;innei.in&#x2F;" rel="noopener" target="_blank">静かな森</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+        <div class="pjax">
+        </div>
+  </aside>
 
-  <a href="https://github.com/aeilot" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
+    </div>
 
     <div class="main-inner post posts-expand">
 
@@ -269,26 +285,26 @@
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://blog.aeilot.top/2022/11/20/manacher/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/gravatar.jpeg">
-      <meta itemprop="name" content="满五">
+      <meta itemprop="name" content="滿五">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="满五的博客">
+      <meta itemprop="name" content="滿五的部落格">
       <meta itemprop="description" content="Stay Hungry. Stay Foolish.">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="马拉车算法 | 满五的博客">
+      <meta itemprop="name" content="馬拉車演算法 | 滿五的部落格">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          马拉车算法
+          馬拉車演算法
         </h1>
 
         <div class="post-meta-container">
@@ -297,26 +313,26 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
+      <span class="post-meta-item-text">發表於</span>
 
-      <time title="创建时间：2022-11-20 17:45:09" itemprop="dateCreated datePublished" datetime="2022-11-20T17:45:09+08:00">2022-11-20</time>
+      <time title="創建時間：2022-11-20 17:45:09" itemprop="dateCreated datePublished" datetime="2022-11-20T17:45:09+08:00">2022-11-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">分类于</span>
+      <span class="post-meta-item-text">分類於</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/OI/" itemprop="url" rel="index"><span itemprop="name">OI</span></a>
         </span>
     </span>
 
   
-    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+    <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv">
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
       </span>
-      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="post-meta-item-text">閱讀次數：</span>
       <span id="busuanzi_value_page_pv"></span>
     </span>
   
@@ -333,12 +349,12 @@
   </span>
   
   
-    <span class="post-meta-item" title="本文字数">
+    <span class="post-meta-item" title="文章字數">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.9k</span>
+      <span class="post-meta-item-text">文章字數：</span>
+      <span>1.8k</span>
     </span>
 </div>
 
@@ -348,131 +364,102 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-        <p>最近在学习马拉车算法，简单记录一下心得。（如有疏漏，请指出</p>
+    <div class="post-body" itemprop="articleBody"><p>最近在學習馬拉車演算法，簡單記錄一下心得。（如有疏漏，請指出</p>
 <span id="more"></span>
-<p>先看 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3805">模板题</a> ，要求最长回文串的长度。</p>
-<p>首先思考朴素算法，显然是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>3</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n^3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> ，无法通过。而马拉车算法能将时间复杂度优化到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>。</p>
-<h2 id="性质"><a class="markdownIt-Anchor" href="#性质"></a> 性质</h2>
-<ul>
-<li>对于一个回文字符串，必然有一个对称中心，在对称中心两侧的部分均全等。</li>
-<li>一个回文字符串对称之后得到的一定也是回文字符串<br />
-即 aba <strong>x</strong> aba
-<ul>
-<li>但是对于奇数、偶数长度的回文字符串，这个对称中心可能是字符，也可能在两个字符中间。<br />
-如：ab <strong>|</strong> ba, a <strong>b</strong> a</li>
+<p>先看 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3805">模板題</a> ，要求最長迴文串的長度。</p>
+<p>首先思考樸素演算法，顯然是 $O(n^3)$ ，無法透過。而馬拉車演算法能將時間複雜度最佳化到 $O(n)$。</p>
+<h2 id="性質"><a href="#性質" class="headerlink" title="性質"></a>性質</h2><ul>
+<li>對於一個迴文字串，必然有一個對稱中心，在對稱中心兩側的部分均全等。</li>
+<li>一個迴文字串對稱之後得到的一定也是迴文字串<br>即 aba <strong>x</strong> aba<ul>
+<li>但是對於奇數、偶數長度的迴文字串，這個對稱中心可能是字元，也可能在兩個字元中間。<br>如：ab <strong>|</strong> ba, a <strong>b</strong> a</li>
 </ul>
 </li>
 </ul>
-<p>所以考虑，在两个字符中间都插入隔板 <code>#</code>，即 <code>abba</code> 变成 <code>#a#b#b#a#</code>。原长度为 <code>n</code> 的字符串，增加 <code>n+1</code> 隔板，长度变成 <code>2n+1</code> 必然是奇数，方便统计。</p>
-<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
-<p>马拉车算法，即记录一直最长回文子串区间，对朴素算法进行优化。</p>
-<p>因为是朴素算法两侧向外拓展，隔板对判断回文无影响。<code>p[i]</code> 数组存储以 <code>str[i]</code> 为对称中心的回文字符串半径长度。半径长度中计算了隔板个数，所以得到的就是回文字符串长度。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>, l = <span class="number">0</span>, r = <span class="number">-1</span>;i&lt;s2.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">    <span class="keyword">int</span> k = (i&gt;r)? <span class="number">1</span> : <span class="built_in">min</span>(p[l+r-i], r-i+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">0</span> &lt;= i-k &amp;&amp; i+k&lt;s2.<span class="built_in">size</span>() &amp;&amp; s2[i-k]==s2[i+k])&#123;</span><br><span class="line">        k++;</span><br><span class="line">    &#125;</span><br><span class="line">    p[i] = --k; <span class="comment">// 注意最后一次循环会对加上一个 1</span></span><br><span class="line">    <span class="keyword">if</span>(i+k&gt;r)&#123;</span><br><span class="line">        l = i-k;</span><br><span class="line">        r = i+k;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>先记录 <code>i</code>，枚举每个对称中心，记录 <code>l</code> 和 <code>r</code> 即目前最长回文字符串的左右端点。<code>k</code> 则是目前半径长度。</p>
-<p>算法主体就是朴素算法，向左右两端拓展。</p>
-<p>考虑优化。如果<code>i</code>处在一个回文子串中，因为对称性，可以得到与<code>i</code>对称的点<code>j</code>的最长回文串长度。因为<code>i</code>不断增加，对称的点的坐标一定小于<code>i</code>即已经更新过。</p>
-<p>由于上文推断的性质，回文子串可以对称得到。注意单个字符也可以考虑成一个回文子串。所以 <code>k</code> 可以从 之前的 <code>p[j]</code> 开始计算。</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">(设 x 表示 [l,r] 对称中心，j 就是 i 关于 x 的对称点)</span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> 案例1</span><br><span class="line">l       r</span><br><span class="line"><span class="section">#a#b#b#a#</span></span><br><span class="line">  ^ ^ ^</span><br><span class="line">  j x i</span><br><span class="line"></span><br><span class="line"><span class="bullet">2.</span> 案例2</span><br><span class="line">l     r</span><br><span class="line"><span class="section">#a#b#a#b#a#b#a#</span></span><br><span class="line">   ^   ^   ^</span><br><span class="line">   j   x   i</span><br><span class="line"></span><br><span class="line">手推方便理解</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>然后考虑如何计算 <code>j</code>，因为中点坐标公式，得到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>l</mi><mo>+</mo><mi>r</mi></mrow><mn>2</mn></mfrac><mo>=</mo><mfrac><mrow><mi>i</mi><mo>+</mo><mi>j</mi></mrow><mn>2</mn></mfrac><mo>=</mo><mi>m</mi><mi>i</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">\frac{l+r}{2} = \frac{i+j}{2} = mid</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2251079999999999em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8801079999999999em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mbin mtight">+</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.252772em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.907772em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.446108em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">+</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">m</span><span class="mord mathnormal">i</span><span class="mord mathnormal">d</span></span></span></span> ，得到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi><mo>=</mo><mi>l</mi><mo>+</mo><mi>r</mi><mo>−</mo><mi>i</mi></mrow><annotation encoding="application/x-tex">j = l+r-i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span>。</p>
-<p>但是因为确定区间，且偶数情况存在。所以还应判断 <code>j</code> 是否在区间内。</p>
-<p>而如果不在区间内，很显然应该从<code>1</code>开始枚举。</p>
-<p>所以得到：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> k = (i&gt;r)? <span class="number">1</span> : <span class="built_in">min</span>(p[l+r-i], r-i+<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
-<p>每次更新 <code>l</code> <code>r</code> 区间长度即可。</p>
-<h2 id="ac-code"><a class="markdownIt-Anchor" href="#ac-code"></a> AC Code</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> p[<span class="number">110000001</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Type your code here</span></span><br><span class="line">    string s1;</span><br><span class="line">    cin &gt;&gt; s1;</span><br><span class="line">    string s2;</span><br><span class="line">    s2.<span class="built_in">resize</span>(s1.<span class="built_in">size</span>()*<span class="number">2</span>+<span class="number">4</span>);</span><br><span class="line">    s2[<span class="number">0</span>] = <span class="string">&#x27;~&#x27;</span>;</span><br><span class="line">    s2[<span class="number">1</span>] = <span class="string">&#x27;#&#x27;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>, j=<span class="number">2</span>; i&lt;s1.<span class="built_in">size</span>(); i++, j+=<span class="number">2</span>)&#123;</span><br><span class="line">        s2[j] = s1[i];</span><br><span class="line">        s2[j+<span class="number">1</span>] = <span class="string">&#x27;#&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>, l = <span class="number">0</span>, r = <span class="number">-1</span>;i&lt;s2.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> k = (i&gt;r)? <span class="number">1</span> : <span class="built_in">min</span>(p[l+r-i], r-i+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">while</span>(<span class="number">0</span> &lt;= i-k &amp;&amp; i+k&lt;s2.<span class="built_in">size</span>() &amp;&amp; s2[i-k]==s2[i+k])&#123;</span><br><span class="line">            k++;</span><br><span class="line">        &#125;</span><br><span class="line">        k--;</span><br><span class="line">        p[i] = k;</span><br><span class="line">        <span class="keyword">if</span>(i+k&gt;r)&#123;</span><br><span class="line">            l = i-k;</span><br><span class="line">            r = i+k;</span><br><span class="line">        &#125;</span><br><span class="line">        ans = <span class="built_in">max</span>(ans,p[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="小结"><a class="markdownIt-Anchor" href="#小结"></a> 小结</h2>
-<p>马拉车算法实用且容易理解，但熟练掌握还需要练习。</p>
-<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4555">作业 | 最长双回文串</a></p>
+<p>所以考慮，在兩個字元中間都插入隔板 <code>#</code>，即 <code>abba</code> 變成 <code>#a#b#b#a#</code>。原長度為 <code>n</code> 的字串，增加 <code>n+1</code> 隔板，長度變成 <code>2n+1</code> 必然是奇數，方便統計。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>馬拉車演算法，即記錄一直最長迴文子串區間，對樸素演算法進行最佳化。</p>
+<p>因為是樸素演算法兩側向外拓展，隔板對判斷迴文無影響。<code>p[i]</code> 陣列儲存以 <code>str[i]</code> 為對稱中心的迴文字串半徑長度。半徑長度中計算了隔板個數，所以得到的就是迴文字串長度。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>, l = <span class="number">0</span>, r = <span class="number">-1</span>;i&lt;s<span class="number">2.</span><span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">    <span class="type">int</span> k = (i&gt;r)? <span class="number">1</span> : <span class="built_in">min</span>(p[l+r-i], r-i<span class="number">+1</span>);</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">0</span> &lt;= i-k &amp;&amp; i+k&lt;s<span class="number">2.</span><span class="built_in">size</span>() &amp;&amp; s2[i-k]==s2[i+k])&#123;</span><br><span class="line">        k++;</span><br><span class="line">    &#125;</span><br><span class="line">    p[i] = --k; <span class="comment">// 注意最後一次迴圈會對加上一個 1</span></span><br><span class="line">    <span class="keyword">if</span>(i+k&gt;r)&#123;</span><br><span class="line">        l = i-k;</span><br><span class="line">        r = i+k;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>先記錄 <code>i</code>，列舉每個對稱中心，記錄 <code>l</code> 和 <code>r</code> 即目前最長迴文字串的左右端點。<code>k</code> 則是目前半徑長度。</p>
+<p>演算法主體就是樸素演算法，向左右兩端拓展。</p>
+<p>考慮最佳化。如果<code>i</code>處在一個迴文子串中，因為對稱性，可以得到與<code>i</code>對稱的點<code>j</code>的最長迴文串長度。因為<code>i</code>不斷增加，對稱的點的座標一定小於<code>i</code>即已經更新過。</p>
+<p>由於上文推斷的性質，迴文子串可以對稱得到。注意單個字元也可以考慮成一個迴文子串。所以 <code>k</code> 可以從 之前的 <code>p[j]</code> 開始計算。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">(設 x 表示 [l,r] 對稱中心，j 就是 i 關於 x 的對稱點)</span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> 案例1</span><br><span class="line">l       r</span><br><span class="line"><span class="section">#a#b#b#a#</span></span><br><span class="line">  ^ ^ ^</span><br><span class="line">  j x i</span><br><span class="line"></span><br><span class="line"><span class="bullet">2.</span> 案例2</span><br><span class="line">l     r</span><br><span class="line"><span class="section">#a#b#a#b#a#b#a#</span></span><br><span class="line">   ^   ^   ^</span><br><span class="line">   j   x   i</span><br><span class="line"></span><br><span class="line">手推方便理解</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>然後考慮如何計算 <code>j</code>，因為中點座標公式，得到 $\frac{l+r}{2} = \frac{i+j}{2} = mid$ ，得到 $j = l+r-i$。</p>
+<p>但是因為確定區間，且偶數情況存在。所以還應判斷 <code>j</code> 是否在區間內。</p>
+<p>而如果不在區間內，很顯然應該從<code>1</code>開始列舉。</p>
+<p>所以得到：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> k = (i&gt;r)? <span class="number">1</span> : <span class="built_in">min</span>(p[l+r-i], r-i<span class="number">+1</span>);</span><br></pre></td></tr></table></figure></p>
+<p>每次更新 <code>l</code> <code>r</code> 區間長度即可。</p>
+<h2 id="AC-Code"><a href="#AC-Code" class="headerlink" title="AC Code"></a>AC Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> p[<span class="number">110000001</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Type your code here</span></span><br><span class="line">    string s1;</span><br><span class="line">    cin &gt;&gt; s1;</span><br><span class="line">    string s2;</span><br><span class="line">    s<span class="number">2.</span><span class="built_in">resize</span>(s<span class="number">1.</span><span class="built_in">size</span>()*<span class="number">2</span><span class="number">+4</span>);</span><br><span class="line">    s2[<span class="number">0</span>] = <span class="string">&#x27;~&#x27;</span>;</span><br><span class="line">    s2[<span class="number">1</span>] = <span class="string">&#x27;#&#x27;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>, j=<span class="number">2</span>; i&lt;s<span class="number">1.</span><span class="built_in">size</span>(); i++, j+=<span class="number">2</span>)&#123;</span><br><span class="line">        s2[j] = s1[i];</span><br><span class="line">        s2[j<span class="number">+1</span>] = <span class="string">&#x27;#&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>, l = <span class="number">0</span>, r = <span class="number">-1</span>;i&lt;s<span class="number">2.</span><span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">        <span class="type">int</span> k = (i&gt;r)? <span class="number">1</span> : <span class="built_in">min</span>(p[l+r-i], r-i<span class="number">+1</span>);</span><br><span class="line">        <span class="keyword">while</span>(<span class="number">0</span> &lt;= i-k &amp;&amp; i+k&lt;s<span class="number">2.</span><span class="built_in">size</span>() &amp;&amp; s2[i-k]==s2[i+k])&#123;</span><br><span class="line">            k++;</span><br><span class="line">        &#125;</span><br><span class="line">        k--;</span><br><span class="line">        p[i] = k;</span><br><span class="line">        <span class="keyword">if</span>(i+k&gt;r)&#123;</span><br><span class="line">            l = i-k;</span><br><span class="line">            r = i+k;</span><br><span class="line">        &#125;</span><br><span class="line">        ans = <span class="built_in">max</span>(ans,p[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h2><p>馬拉車演算法實用且容易理解，但熟練掌握還需要練習。</p>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4555">作業 | 最長雙迴文串</a></p>
 
     </div>
 
     
     
     
-      
-
 
     <footer class="post-footer">
-          <div class="reward-container">
-  <div></div>
-  <button>
-    赞赏
-  </button>
-  <div class="post-reward">
-      <div>
-        <img src="/images/wechatpay.jpg" alt="满五 微信">
-        <span>微信</span>
-      </div>
-      <div>
-        <img src="/images/alipay.jpg" alt="满五 支付宝">
-        <span>支付宝</span>
-      </div>
-
-  </div>
-</div>
-
           
 
 <div class="post-copyright">
 <ul>
   <li class="post-copyright-author">
-      <strong>本文作者： </strong>满五
+      <strong>本文作者： </strong>滿五
   </li>
   <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="https://blog.aeilot.top/2022/11/20/manacher/" title="马拉车算法">https://blog.aeilot.top/2022/11/20/manacher/</a>
+      <strong>文章連結：</strong>
+      <a href="https://blog.aeilot.top/2022/11/20/manacher/" title="馬拉車演算法">https://blog.aeilot.top/2022/11/20/manacher/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+      <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-TW" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 許可協議。轉載請註明出處！
   </li>
 </ul>
 </div>
 
           <div class="followme">
-  <span>欢迎关注我的其它发布渠道</span>
+  <span>歡迎關注我的其它發布渠道</span>
 
   <div class="social-list">
 
       <div class="social-item">
-        <a target="_blank" class="social-link" href="https://twitter.com/aeilot">
-          <span class="icon">
-            <i class="fab fa-twitter"></i>
-          </span>
+          <a target="_blank" class="social-link" href="https://twitter.com/aeilot">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
 
-          <span class="label">Twitter</span>
-        </a>
+            <span class="label">Twitter</span>
+          </a>
       </div>
 
       <div class="social-item">
-        <a target="_blank" class="social-link" href="https://t.me/aeilot_post">
-          <span class="icon">
-            <i class="fab fa-telegram"></i>
-          </span>
+          <a target="_blank" class="social-link" href="https://t.me/aeilot_post">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
 
-          <span class="label">Telegram</span>
-        </a>
+            <span class="label">Telegram</span>
+          </a>
       </div>
 
       <div class="social-item">
-        <a target="_blank" class="social-link" href="/index.xml">
-          <span class="icon">
-            <i class="fa fa-rss"></i>
-          </span>
+          <a target="_blank" class="social-link" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
 
-          <span class="label">RSS</span>
-        </a>
+            <span class="label">RSS</span>
+          </a>
       </div>
 
       <div class="social-item">
-        <a target="_blank" class="social-link" href="https://www.zhihu.com/people/louis-80-27">
-          <span class="icon">
-            <i class="fa-brands fa-zhihu"></i>
-          </span>
+          <a target="_blank" class="social-link" href="https://www.zhihu.com/people/louis-80-27">
+            <span class="icon">
+              <i class="fa-brands fa-zhihu"></i>
+            </span>
 
-          <span class="label">知乎</span>
-        </a>
+            <span class="label">知乎</span>
+          </a>
       </div>
   </div>
 </div>
@@ -487,12 +474,12 @@
           <div class="post-nav">
             <div class="post-nav-item">
                 <a href="/2022/11/18/rain-at-night-1/" rel="prev" title="夜雨">
-                  <i class="fa fa-chevron-left"></i> 夜雨
+                  <i class="fa fa-angle-left"></i> 夜雨
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/11/23/riv-p3354/" rel="next" title="P3354 Riv 河流 题解">
-                  P3354 Riv 河流 题解 <i class="fa fa-chevron-right"></i>
+                <a href="/2022/11/23/riv-p3354/" rel="next" title="P3354 Riv 河流 題解">
+                  P3354 Riv 河流 題解 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -512,21 +499,20 @@
   <footer class="footer">
     <div class="footer-inner">
 
-
-<div class="copyright">
-  &copy; 2015 – 
-  <span itemprop="copyrightYear">2025</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">满五</span>
-</div>
+  <div class="copyright">
+    &copy; 2015 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">滿五</span>
+  </div>
 <div class="busuanzi-count">
     <span class="post-meta-item" id="busuanzi_container_site_uv">
       <span class="post-meta-item-icon">
         <i class="fa fa-user"></i>
       </span>
-      <span class="site-uv" title="总访客量">
+      <span class="site-uv" title="訪客總數">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
@@ -534,7 +520,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
       </span>
-      <span class="site-pv" title="总访问量">
+      <span class="site-pv" title="總瀏覽次數">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
@@ -544,39 +530,25 @@
   </footer>
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
-  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
-<script src="/js/third-party/search/local-search.js"></script>
+  <a href="https://github.com/aeilot" class="github-corner" title="在 GitHub 上關注我" aria-label="在 GitHub 上關注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
-
-
-  <script src="/js/third-party/fancybox.js"></script>
-
-  <script src="/js/third-party/pace.js"></script>
-
-  
-  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
-  
-
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.3/katex.min.css" integrity="sha256-TThEtR+XalhWKkfF383YLOrI50NGNeIqrzS+q08afrY=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.3/contrib/copy-tex.min.css" integrity="sha256-Wk20U9mS/kHGcSgkjSiRezW5exqT6wAOKwySOaLotXM=" crossorigin="anonymous">
-  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.3/contrib/copy-tex.min.js","integrity":"sha256-etSqbSVF4+Lwe8MGk/Vanc1sR+mWv+qOG73fxWw9p94="}}</script>
-  <script src="/js/third-party/math/katex.js"></script>
-
-
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"https://comments.aeilot.top","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo","https://unpkg.com/@waline/emojis@1.0.1/alus","https://unpkg.com/@waline/emojis@1.0.1/bilibili","https://unpkg.com/@waline/emojis@1.0.1/qq","https://unpkg.com/@waline/emojis@1.0.1/tieba","https://unpkg.com/@waline/emojis@1.0.1/tw-emoji"],"meta":["nick","mail","link"],"requiredMeta":["nick"],"el":"#waline","comment":true,"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","path":"/2022/11/20/manacher/"}</script>
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-TW","enable":true,"serverURL":"https://comments.aeilot.top","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"dark":"auto","emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo","https://unpkg.com/@waline/emojis@1.0.1/alus","https://unpkg.com/@waline/emojis@1.0.1/bilibili","https://unpkg.com/@waline/emojis@1.0.1/qq","https://unpkg.com/@waline/emojis@1.0.1/tieba","https://unpkg.com/@waline/emojis@1.0.1/tw-emoji"],"meta":["nick","mail","link"],"requiredMeta":["nick"],"el":"#waline","comment":true,"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","path":"/2022/11/20/manacher/"}</script>
 <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
 <script>
 document.addEventListener('page:loaded', () => {

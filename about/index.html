@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
-
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
@@ -15,50 +14,85 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fira+Mono:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
 
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/purple/pace-theme-minimal.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous" defer></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.aeilot.top","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"right","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"style":null,"show_result":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.aeilot.top","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12,"onmobile":false},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null,"show_result":false},"fold":{"enable":false,"height":500},"language":false,"highlight_theme":"normal"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":true,"preload":true,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="你好！This is a mixed blog，（生活+文学+技术+etc. 作者满五，Portfolio  TL;DR 你好，陌生人！我是 满五，很高兴见到你。 简短介绍我自己，就是内向 + 理想主义，MBTI 是 INFP，但 MBTI 毕竟仅供参考，具体的个体肯定情况复杂。喜欢发呆，开小差，思考一些天马行空的东西，有的时候会写下来。有时自卑，有时自负，有时乐观，有时悲观。当然，总的来说还是愿">
+    <meta name="description" content="你好！This is a mixed blog，（生活+文學+技術+etc. 作者滿五，Portfolio TL;DR你好，陌生人！我是 滿五，很高興見到你。 簡短介紹我自己，就是內向 + 理想主義，MBTI 是 INFP，但 MBTI 畢竟僅供參考，具體的個體肯定情況複雜。喜歡發呆，開小差，思考一些天馬行空的東西，有的時候會寫下來。有時自卑，有時自負，有時樂觀，有時悲觀。當然，總的來說還是願意認">
 <meta property="og:type" content="website">
-<meta property="og:title" content="关于">
+<meta property="og:title" content="關於">
 <meta property="og:url" content="https://blog.aeilot.top/about/index.html">
-<meta property="og:site_name" content="满五的博客">
-<meta property="og:description" content="你好！This is a mixed blog，（生活+文学+技术+etc. 作者满五，Portfolio  TL;DR 你好，陌生人！我是 满五，很高兴见到你。 简短介绍我自己，就是内向 + 理想主义，MBTI 是 INFP，但 MBTI 毕竟仅供参考，具体的个体肯定情况复杂。喜欢发呆，开小差，思考一些天马行空的东西，有的时候会写下来。有时自卑，有时自负，有时乐观，有时悲观。当然，总的来说还是愿">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-08-25T06:11:48.447Z">
-<meta property="article:modified_time" content="2025-01-19T06:28:31.000Z">
-<meta property="article:author" content="满五">
-<meta property="article:tag" content="编程">
-<meta property="article:tag" content="技术">
-<meta property="article:tag" content="艺术">
-<meta property="article:tag" content="OI">
+<meta property="og:site_name" content="滿五的部落格">
+<meta property="og:description" content="你好！This is a mixed blog，（生活+文學+技術+etc. 作者滿五，Portfolio TL;DR你好，陌生人！我是 滿五，很高興見到你。 簡短介紹我自己，就是內向 + 理想主義，MBTI 是 INFP，但 MBTI 畢竟僅供參考，具體的個體肯定情況複雜。喜歡發呆，開小差，思考一些天馬行空的東西，有的時候會寫下來。有時自卑，有時自負，有時樂觀，有時悲觀。當然，總的來說還是願意認">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2025-11-10T12:12:18.864Z">
+<meta property="article:modified_time" content="2025-11-10T12:12:18.864Z">
+<meta property="article:author" content="滿五">
 <meta property="article:tag" content="Louis Aeilot">
-<meta property="article:tag" content="文学">
-<meta property="article:tag" content="摄影">
+<meta property="article:tag" content="OI">
+<meta property="article:tag" content="技術">
+<meta property="article:tag" content="攝影">
+<meta property="article:tag" content="文學">
 <meta property="article:tag" content="科技">
+<meta property="article:tag" content="程式設計">
+<meta property="article:tag" content="藝術">
 <meta name="twitter:card" content="summary">
 
 
 <link rel="canonical" href="https://blog.aeilot.top/about/">
 
 
-
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":true,"permalink":"https://blog.aeilot.top/about/index.html","path":"about/index.html","title":"关于"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-TW","comments":true,"permalink":"https://blog.aeilot.top/about/index.html","path":"about/index.html","title":"關於"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>关于 | 满五的博客</title>
+<title>關於 | 滿五的部落格</title>
   
-  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-138571809-2","only_pageview":true}</script>
-  <script src="/js/third-party/analytics/google-analytics.js"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-138571809-2","only_pageview":true,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
 
 
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/7.2.0/pangu.umd.js" integrity="sha256-JnmRRnJK7DC6RQJbAJb6AXOM9OmWzS6z8eYultk/48Y=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/bookmark.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+  <script src="/js/third-party/pace.js" defer></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js" defer></script>
 
 
 <link rel="dns-prefetch" href="https://comments.aeilot.top">
@@ -69,17 +103,17 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><link rel="alternate" href="/index.xml" title="满五的博客" type="application/atom+xml">
+<!-- hexo injector head_end end --><link rel="alternate" href="/index.xml" title="滿五的部落格" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
 
   <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
+    <div class="toggle" aria-label="切換導航欄" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -90,13 +124,13 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <p class="site-title">满五的博客</p>
+      <p class="site-title">滿五的部落格</p>
       <i class="logo-line"></i>
     </a>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜尋" role="button">
         <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
@@ -105,9 +139,9 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/index.html" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-图片"><a href="https://www.instagram.com/louisaeilot/" rel="noopener" target="_blank"><i class="fas fa-images fa-fw"></i>图片</a></li><li class="menu-item menu-item-english"><a href="https://en.blog.aeilot.top/" rel="noopener" target="_blank"><i class="fa fa-language fa-fw"></i>English</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/index.html" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li><li class="menu-item menu-item-english"><a href="https://en.blog.aeilot.top/" rel="section" target="_blank"><i class="fa fa-language fa-fw"></i>English</a></li>
       <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
         </a>
       </li>
   </ul>
@@ -116,154 +150,136 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup"><div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close" role="button">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div class="search-result-container no-result">
-  <div class="search-result-icon">
-    <i class="fa fa-spinner fa-pulse fa-5x"></i>
-  </div>
-</div>
-
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜尋..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
     </div>
   </div>
 
-</div>
+</header>
         
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
-          文章目录
+          文章目錄
         </li>
         <li class="sidebar-nav-overview">
-          站点概览
+          本站概要
         </li>
       </ul>
 
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tldr"><span class="nav-number">1.</span> <span class="nav-text"> TL;DR</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tech"><span class="nav-number">1.1.</span> <span class="nav-text"> Tech</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5"><span class="nav-number">2.</span> <span class="nav-text"> 友情链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#changelog"><span class="nav-number">3.</span> <span class="nav-text"> CHANGELOG</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TL-DR"><span class="nav-number">1.</span> <span class="nav-text">TL;DR</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tech"><span class="nav-number">1.1.</span> <span class="nav-text">Tech</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8B%E6%83%85%E9%80%A3%E7%B5%90"><span class="nav-number">2.</span> <span class="nav-text">友情連結</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CHANGELOG"><span class="nav-number">3.</span> <span class="nav-text">CHANGELOG</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="满五"
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="滿五"
       src="/images/gravatar.jpeg">
-  <p class="site-author-name" itemprop="name">满五</p>
+  <p class="site-author-name" itemprop="name">滿五</p>
   <div class="site-description" itemprop="description">Stay Hungry. Stay Foolish.</div>
 </div>
-<div class="site-state-wrap site-overview-item animated">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
           <span class="site-state-item-count">58</span>
-          <span class="site-state-item-name">日志</span>
+          <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
         <span class="site-state-item-count">12</span>
-        <span class="site-state-item-name">分类</span></a>
+        <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
         <span class="site-state-item-count">45</span>
-        <span class="site-state-item-name">标签</span></a>
+        <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
 </div>
-  <div class="links-of-author site-overview-item animated">
+  <div class="links-of-author animated">
       <span class="links-of-author-item">
-        <a href="https://github.com/aeilot" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;aeilot" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+        <a href="https://github.com/aeilot" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;aeilot" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:louis.aeilot@icloud.com" title="E-Mail → mailto:louis.aeilot@icloud.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+        <a href="mailto:louis.aeilot@icloud.com" title="E-Mail → mailto:louis.aeilot@icloud.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://twitter.com/aeilot" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;aeilot" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+        <a href="https://twitter.com/aeilot" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;aeilot" rel="noopener me" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://stackoverflow.com/13011108" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;13011108" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+        <a href="https://stackoverflow.com/13011108" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;13011108" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://instagram.com/louisaeilot" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;louisaeilot" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+        <a href="https://instagram.com/louisaeilot" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;louisaeilot" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://space.bilibili.com/378981479" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;378981479" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i>Bilibili</a>
+        <a href="https://space.bilibili.com/378981479" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;378981479" rel="noopener me" target="_blank"><i class="fab fa-youtube fa-fw"></i>Bilibili</a>
       </span>
   </div>
-  <div class="cc-license site-overview-item animated" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
-  </div>
-
-
-  <div class="links-of-blogroll site-overview-item animated">
-    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
-      Links
-    </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://mrwillcom.now.sh/" title="https:&#x2F;&#x2F;mrwillcom.now.sh" rel="noopener" target="_blank">Mr.Will</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://chungzh.cn/" title="https:&#x2F;&#x2F;chungzh.cn" rel="noopener" target="_blank">ChungZH</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://shaojiaxu.github.io/" title="https:&#x2F;&#x2F;shaojiaxu.github.io" rel="noopener" target="_blank">SJX</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://clckblog.space/" title="http:&#x2F;&#x2F;clckblog.space&#x2F;" rel="noopener" target="_blank">CLCK</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://innei.in/" title="https:&#x2F;&#x2F;innei.in&#x2F;" rel="noopener" target="_blank">静かな森</a>
-        </li>
-    </ul>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-TW" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
   </div>
 
         </div>
       </div>
     </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
-    </header>
 
     
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
-  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+          連結
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://mrwillcom.now.sh/" title="https:&#x2F;&#x2F;mrwillcom.now.sh" rel="noopener" target="_blank">Mr.Will</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://chungzh.cn/" title="https:&#x2F;&#x2F;chungzh.cn" rel="noopener" target="_blank">ChungZH</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://shaojiaxu.github.io/" title="https:&#x2F;&#x2F;shaojiaxu.github.io" rel="noopener" target="_blank">SJX</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://clckblog.space/" title="http:&#x2F;&#x2F;clckblog.space&#x2F;" rel="noopener" target="_blank">CLCK</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://innei.in/" title="https:&#x2F;&#x2F;innei.in&#x2F;" rel="noopener" target="_blank">静かな森</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+        <div class="pjax">
+        </div>
+  </aside>
 
-  <a href="https://github.com/aeilot" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
+    </div>
 
     <div class="main-inner post posts-expand">
 
@@ -275,26 +291,26 @@
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://blog.aeilot.top/about/index.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/gravatar.jpeg">
-      <meta itemprop="name" content="满五">
+      <meta itemprop="name" content="滿五">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="满五的博客">
+      <meta itemprop="name" content="滿五的部落格">
       <meta itemprop="description" content="Stay Hungry. Stay Foolish.">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="关于 | 满五的博客">
+      <meta itemprop="name" content="關於 | 滿五的部落格">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          关于
+          關於
         </h1>
 
         <div class="post-meta-container">
@@ -303,17 +319,17 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
+      <span class="post-meta-item-text">發表於</span>
 
-      <time title="创建时间：2025-08-25 14:11:48" itemprop="dateCreated datePublished" datetime="2025-08-25T14:11:48+08:00">2025-08-25</time>
+      <time title="創建時間：2025-11-10 20:12:18" itemprop="dateCreated datePublished" datetime="2025-11-10T20:12:18+08:00">2025-11-10</time>
     </span>
 
   
-    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+    <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv">
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
       </span>
-      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="post-meta-item-text">閱讀次數：</span>
       <span id="busuanzi_value_page_pv"></span>
     </span>
   
@@ -330,11 +346,11 @@
   </span>
   
   
-    <span class="post-meta-item" title="本文字数">
+    <span class="post-meta-item" title="文章字數">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
-      <span class="post-meta-item-text">本文字数：</span>
+      <span class="post-meta-item-text">文章字數：</span>
       <span>1.3k</span>
     </span>
 </div>
@@ -345,16 +361,13 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-        <p>你好！This is a mixed blog，（生活+文学+技术+etc.</p>
-<p>作者满五，<a target="_blank" rel="noopener" href="https://aeilot.top">Portfolio</a></p>
-<h2 id="tldr"><a class="markdownIt-Anchor" href="#tldr"></a> TL;DR</h2>
-<p>你好，陌生人！我是 <strong>满五</strong>，很高兴见到你。</p>
-<p>简短介绍我自己，就是内向 + 理想主义，MBTI 是 <strong>INFP</strong>，但 MBTI 毕竟仅供参考，具体的个体肯定情况复杂。喜欢发呆，开小差，思考一些天马行空的东西，有的时候会写下来。有时自卑，有时自负，有时乐观，有时悲观。当然，总的来说还是愿意认识来自四海八方的各位。联系方式：<a target="_blank" rel="noopener" href="https://twitter.com/aeilot">Twitter</a> 以及 <a target="_blank" rel="noopener" href="https://t.me/aeilotd">Telegram</a>。</p>
-<p>从很早以前就开始对计算机感兴趣，于是自学了 C 语言和 Linux。后来认识了一些同学，比如 <a target="_blank" rel="noopener" href="https://mrwillcom.github.io">MrWillCom</a>，于是对前端开发有了一些了解。空闲时间喜欢做一些<strong>开源</strong>项目，或者在 <strong>GitHub</strong> 上面水，比如初中的时候开发了一款 <a target="_blank" rel="noopener" href="https://github.com/aeilot/DailyNotes">Android 应用</a>，还参与了一些项目文档的翻译工作。我目前是高中生，学校的技术顾问，负责<s>干苦力</s>维护一些<a target="_blank" rel="noopener" href="https://github.com/aeilot/HSEFZ-club-selection">机选系统</a>之类。高中之后<s>划水</s>专注于 <strong>OI</strong> 的学习，也混出了一些奖项。还有我的课题，我开始对 AI 有了初步的了解，未来可能从事相关的工作。</p>
-<p>自己觉得自己挺文艺（bushi），也有人这样说（。没事干喜欢看一些<strong>文学</strong>书籍/技术文献，自己也尝试过诗歌/散文的创作。小说？小说没有想到什么好的剧情（。也喜欢<strong>摄影</strong>，出远门一定会带相机的。学过一些设计/剪辑软件的使用，<strong>导演</strong>过初中毕业的 MV（），梦想之一是拍微电影。放松的时候喜欢<strong>听音乐</strong>，听得很杂，古典/J-Pop/国际流行/Rock/电子，什么都听。喜欢 ヨルシカ、YOASOBI、ずっと真夜中でいいのに。（）自己会<strong>弹吉他</strong>，但是技术就那样。自认为有一些<strong>语言</strong>天赋，在学习日语/西班牙语。英语在准备托福。总的来说是不爱运动的，但是有时还是会叫人出去<strong>骑车</strong>（。</p>
-<h3 id="tech"><a class="markdownIt-Anchor" href="#tech"></a> Tech</h3>
-<p>我的技术栈主要有：</p>
+    <div class="post-body" itemprop="articleBody"><p>你好！This is a mixed blog，（生活+文學+技術+etc.</p>
+<p>作者滿五，<a target="_blank" rel="noopener" href="https://aeilot.top">Portfolio</a></p>
+<h2 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><p>你好，陌生人！我是 <strong>滿五</strong>，很高興見到你。</p>
+<p>簡短介紹我自己，就是內向 + 理想主義，MBTI 是 <strong>INFP</strong>，但 MBTI 畢竟僅供參考，具體的個體肯定情況複雜。喜歡發呆，開小差，思考一些天馬行空的東西，有的時候會寫下來。有時自卑，有時自負，有時樂觀，有時悲觀。當然，總的來說還是願意認識來自四海八方的各位。聯絡方式：<a target="_blank" rel="noopener" href="https://twitter.com/aeilot">Twitter</a> 以及 <a target="_blank" rel="noopener" href="https://t.me/aeilotd">Telegram</a>。</p>
+<p>從很早以前就開始對計算機感興趣，於是自學了 C 語言和 Linux。後來認識了一些同學，比如 <a target="_blank" rel="noopener" href="https://mrwillcom.github.io">MrWillCom</a>，於是對前端開發有了一些瞭解。空閒時間喜歡做一些<strong>開源</strong>專案，或者在 <strong>GitHub</strong> 上面水，比如初中的時候開發了一款 <a target="_blank" rel="noopener" href="https://github.com/aeilot/DailyNotes">Android 應用</a>，還參與了一些專案文件的翻譯工作。我目前是高中生，學校的技術顧問，負責<del>幹苦力</del>維護一些<a target="_blank" rel="noopener" href="https://github.com/aeilot/HSEFZ-club-selection">機選系統</a>之類。高中之後<del>划水</del>專注於 <strong>OI</strong> 的學習，也混出了一些獎項。還有我的課題，我開始對 AI 有了初步的瞭解，未來可能從事相關的工作。</p>
+<p>自己覺得自己挺文藝（bushi），也有人這樣說（。沒事幹喜歡看一些<strong>文學</strong>書籍/技術文獻，自己也嘗試過詩歌/散文的創作。小說？小說沒有想到什麼好的劇情（。也喜歡<strong>攝影</strong>，出遠門一定會帶相機的。學過一些設計/剪輯軟體的使用，<strong>導演</strong>過初中畢業的 MV（），夢想之一是拍微電影。放鬆的時候喜歡<strong>聽音樂</strong>，聽得很雜，古典/J-Pop/國際流行/Rock/電子，什麼都聽。喜歡 ヨルシカ、YOASOBI、ずっと真夜中でいいのに。（）自己會<strong>彈吉他</strong>，但是技術就那樣。自認為有一些<strong>語言</strong>天賦，在學習日語/西班牙語。英語在準備託福。總的來說是不愛運動的，但是有時還是會叫人出去<strong>騎車</strong>（。</p>
+<h3 id="Tech"><a href="#Tech" class="headerlink" title="Tech"></a>Tech</h3><p>我的技術棧主要有：</p>
 <ul>
 <li>C/C++</li>
 <li>Java</li>
@@ -363,112 +376,90 @@
 <li>Swift</li>
 <li>Python</li>
 </ul>
-<p>我使用 macOS &gt; (Arch) Linux &gt; Windows.（但是<s>电子竞技</s>劳逸结合还是不得不 Windows（）</p>
-<h2 id="友情链接"><a class="markdownIt-Anchor" href="#友情链接"></a> 友情链接</h2>
-<p>大家可以到 <a target="_blank" rel="noopener" href="https://github.com/aeilot/aeilot.github.io">这里</a> 创建 Issue 来把自己的链接放到这里和主页侧边栏。</p>
+<p>我使用 macOS &gt; (Arch) Linux &gt; Windows.（但是<del>電子競技</del>勞逸結合還是不得不 Windows（）</p>
+<h2 id="友情連結"><a href="#友情連結" class="headerlink" title="友情連結"></a>友情連結</h2><p>大家可以到 <a target="_blank" rel="noopener" href="https://github.com/aeilot/aeilot.github.io">這裡</a> 建立 Issue 來把自己的連結放到這裡和主頁側邊欄。</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://mrwillcom.github.io">MrWillCom</a></li>
 <li><a target="_blank" rel="noopener" href="https://chungzh.cn">ChungZH</a></li>
 <li><a target="_blank" rel="noopener" href="https://shaojiaxu.github.io">SJX</a></li>
 <li><a target="_blank" rel="noopener" href="http://clckblog.space/">CLCK</a></li>
-<li><a target="_blank" rel="noopener" href="https://innei.in/">静かな森</a></li>
+<li><a target="_blank" rel="noopener" href="https://innei.in/">靜かな森</a></li>
 </ul>
-<h2 id="changelog"><a class="markdownIt-Anchor" href="#changelog"></a> CHANGELOG</h2>
-<p>2018 年之前，不知道什么时候开始，我使用的是 Google Blogspot。</p>
-<p>2018 年盛夏，我开发了本站的 1.0 版本，是完全自己编写的。但是由于事情多，且对于前端开发不熟悉，没几天就放弃了。</p>
-<p>接着，可能是 2019 年，我使用了 Jekyll 框架，但是，我很快就发现了它的弊端。Jekyll 很多地方不符合习惯，而且是 Ruby 写的，而我不常用它。</p>
-<p>过了几个月，我找到了 Hexo。我曾经用过一段时间，还改了几个主题，贡献了几行代码。但是，它实在是有点慢，而且插件分散，要下好多东西。</p>
-<p>2020 年夏季，我开始使用 Hugo。暂时我没有发现什么问题，而且生成迅速。</p>
-<p>2021 年春季，由于 Hugo 主题缺少，我货比三家之后回到了 Hexo。Hexo最近更新了 5.0，变得快了很多。。。</p>
-<p>2023 年夏季开始，部分博客将在知乎/xLog同步。</p>
+<h2 id="CHANGELOG"><a href="#CHANGELOG" class="headerlink" title="CHANGELOG"></a>CHANGELOG</h2><p>2018 年之前，不知道什麼時候開始，我使用的是 Google Blogspot。</p>
+<p>2018 年盛夏，我開發了本站的 1.0 版本，是完全自己編寫的。但是由於事情多，且對於前端開發不熟悉，沒幾天就放棄了。</p>
+<p>接著，可能是 2019 年，我使用了 Jekyll 框架，但是，我很快就發現了它的弊端。Jekyll 很多地方不符合習慣，而且是 Ruby 寫的，而我不常用它。</p>
+<p>過了幾個月，我找到了 Hexo。我曾經用過一段時間，還改了幾個主題，貢獻了幾行程式碼。但是，它實在是有點慢，而且外掛分散，要下好多東西。</p>
+<p>2020 年夏季，我開始使用 Hugo。暫時我沒有發現什麼問題，而且生成迅速。</p>
+<p>2021 年春季，由於 Hugo 主題缺少，我貨比三家之後回到了 Hexo。Hexo最近更新了 5.0，變得快了很多。。。</p>
+<p>2023 年夏季開始，部分部落格將在知乎/xLog同步。</p>
 
     </div>
 
     
     
     
-      
-
 
     <footer class="post-footer">
-          <div class="reward-container">
-  <div></div>
-  <button>
-    赞赏
-  </button>
-  <div class="post-reward">
-      <div>
-        <img src="/images/wechatpay.jpg" alt="满五 微信">
-        <span>微信</span>
-      </div>
-      <div>
-        <img src="/images/alipay.jpg" alt="满五 支付宝">
-        <span>支付宝</span>
-      </div>
-
-  </div>
-</div>
-
           
 
 <div class="post-copyright">
 <ul>
   <li class="post-copyright-author">
-      <strong>本文作者： </strong>满五
+      <strong>本文作者： </strong>滿五
   </li>
   <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="https://blog.aeilot.top/about/index.html" title="关于">https://blog.aeilot.top/about/index.html</a>
+      <strong>文章連結：</strong>
+      <a href="https://blog.aeilot.top/about/index.html" title="關於">https://blog.aeilot.top/about/index.html</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+      <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-TW" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 許可協議。轉載請註明出處！
   </li>
 </ul>
 </div>
 
           <div class="followme">
-  <span>欢迎关注我的其它发布渠道</span>
+  <span>歡迎關注我的其它發布渠道</span>
 
   <div class="social-list">
 
       <div class="social-item">
-        <a target="_blank" class="social-link" href="https://twitter.com/aeilot">
-          <span class="icon">
-            <i class="fab fa-twitter"></i>
-          </span>
+          <a target="_blank" class="social-link" href="https://twitter.com/aeilot">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
 
-          <span class="label">Twitter</span>
-        </a>
+            <span class="label">Twitter</span>
+          </a>
       </div>
 
       <div class="social-item">
-        <a target="_blank" class="social-link" href="https://t.me/aeilot_post">
-          <span class="icon">
-            <i class="fab fa-telegram"></i>
-          </span>
+          <a target="_blank" class="social-link" href="https://t.me/aeilot_post">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
 
-          <span class="label">Telegram</span>
-        </a>
+            <span class="label">Telegram</span>
+          </a>
       </div>
 
       <div class="social-item">
-        <a target="_blank" class="social-link" href="/index.xml">
-          <span class="icon">
-            <i class="fa fa-rss"></i>
-          </span>
+          <a target="_blank" class="social-link" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
 
-          <span class="label">RSS</span>
-        </a>
+            <span class="label">RSS</span>
+          </a>
       </div>
 
       <div class="social-item">
-        <a target="_blank" class="social-link" href="https://www.zhihu.com/people/louis-80-27">
-          <span class="icon">
-            <i class="fa-brands fa-zhihu"></i>
-          </span>
+          <a target="_blank" class="social-link" href="https://www.zhihu.com/people/louis-80-27">
+            <span class="icon">
+              <i class="fa-brands fa-zhihu"></i>
+            </span>
 
-          <span class="label">知乎</span>
-        </a>
+            <span class="label">知乎</span>
+          </a>
       </div>
   </div>
 </div>
@@ -492,21 +483,20 @@
   <footer class="footer">
     <div class="footer-inner">
 
-
-<div class="copyright">
-  &copy; 2015 – 
-  <span itemprop="copyrightYear">2025</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">满五</span>
-</div>
+  <div class="copyright">
+    &copy; 2015 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">滿五</span>
+  </div>
 <div class="busuanzi-count">
     <span class="post-meta-item" id="busuanzi_container_site_uv">
       <span class="post-meta-item-icon">
         <i class="fa fa-user"></i>
       </span>
-      <span class="site-uv" title="总访客量">
+      <span class="site-uv" title="訪客總數">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
@@ -514,7 +504,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
       </span>
-      <span class="site-pv" title="总访问量">
+      <span class="site-pv" title="總瀏覽次數">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
@@ -524,39 +514,25 @@
   </footer>
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
-  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
-<script src="/js/third-party/search/local-search.js"></script>
+  <a href="https://github.com/aeilot" class="github-corner" title="在 GitHub 上關注我" aria-label="在 GitHub 上關注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
-
-
-  <script src="/js/third-party/fancybox.js"></script>
-
-  <script src="/js/third-party/pace.js"></script>
-
-  
-  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
-  
-
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.3/katex.min.css" integrity="sha256-TThEtR+XalhWKkfF383YLOrI50NGNeIqrzS+q08afrY=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.3/contrib/copy-tex.min.css" integrity="sha256-Wk20U9mS/kHGcSgkjSiRezW5exqT6wAOKwySOaLotXM=" crossorigin="anonymous">
-  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.3/contrib/copy-tex.min.js","integrity":"sha256-etSqbSVF4+Lwe8MGk/Vanc1sR+mWv+qOG73fxWw9p94="}}</script>
-  <script src="/js/third-party/math/katex.js"></script>
-
-
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"https://comments.aeilot.top","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo","https://unpkg.com/@waline/emojis@1.0.1/alus","https://unpkg.com/@waline/emojis@1.0.1/bilibili","https://unpkg.com/@waline/emojis@1.0.1/qq","https://unpkg.com/@waline/emojis@1.0.1/tieba","https://unpkg.com/@waline/emojis@1.0.1/tw-emoji"],"meta":["nick","mail","link"],"requiredMeta":["nick"],"el":"#waline","comment":true,"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","path":"/about/"}</script>
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-TW","enable":true,"serverURL":"https://comments.aeilot.top","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"dark":"auto","emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo","https://unpkg.com/@waline/emojis@1.0.1/alus","https://unpkg.com/@waline/emojis@1.0.1/bilibili","https://unpkg.com/@waline/emojis@1.0.1/qq","https://unpkg.com/@waline/emojis@1.0.1/tieba","https://unpkg.com/@waline/emojis@1.0.1/tw-emoji"],"meta":["nick","mail","link"],"requiredMeta":["nick"],"el":"#waline","comment":true,"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","path":"/about/"}</script>
 <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
 <script>
 document.addEventListener('page:loaded', () => {
