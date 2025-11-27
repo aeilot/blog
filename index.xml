@@ -6,7 +6,7 @@
   <link href="https://blog.aeilot.top/index.xml" rel="self"/>
   
   <link href="https://blog.aeilot.top/"/>
-  <updated>2025-11-10T12:12:18.867Z</updated>
+  <updated>2025-11-27T14:49:18.780Z</updated>
   <id>https://blog.aeilot.top/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>矩陣的 Modified Gram Schmidt 方法</title>
+    <link href="https://blog.aeilot.top/2025/11/27/matrix-mqr/"/>
+    <id>https://blog.aeilot.top/2025/11/27/matrix-mqr/</id>
+    <published>2025-11-27T01:45:09.000Z</published>
+    <updated>2025-11-27T14:49:18.780Z</updated>
+    
+    <content type="html"><![CDATA[<p>矩陣的 QR 分解在電腦運算中可能造成誤差，本文探討一下一種改進版本的Gram-Schmidt 正交化方法。</p><span id="more"></span><p>經典的 Gram-Schmidt方法可能造成數值不穩定性。在電腦中，舍入誤差可能會累積，造成得到的正交基並不具有正交性。</p><h2 id="經典的-gram-schmidt">經典的 Gram-Schmidt</h2><p>我們先來回顧一下經典的 Gram-Schmidt 方法：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">for j = 1 : n</span><br><span class="line">    v_j = x_j</span><br><span class="line">    for k = 1 : j - 1</span><br><span class="line">        v_j = v_j - ( (v_k^T x_j) / (v_k^T v_k) ) * v_k</span><br><span class="line">    endfor</span><br><span class="line">endfor</span><br></pre></td></tr></table></figure><p>最終我們將 <spanclass="math inline"><em>v</em><sub><em>j</em></sub></span>歸一化得到標準正交基 <spanclass="math inline"><em>q</em><sub><em>j</em></sub> = (<em>v</em><sub><em>j</em></sub>)/(|<em>v</em><sub><em>j</em></sub>|)</span>。</p><p>注意：CGS 始終使用原始向量 <spanclass="math inline"><em>x</em><sub><em>j</em></sub></span>與之前的基向量計算投影</p><h3 id="數學證明">數學證明</h3><p>簡單進行數學證明</p><p>定義第 <span class="math inline"><em>j</em></span> 步生成的向量 <spanclass="math inline"><em>v</em><sub><em>j</em></sub></span></p><p><span class="math display">$$v_j = x_j - \sum_{k=1}^{j-1} ( (v_k^Tx_j) / (v_k^T v_k) ) v_k$$</span></p><p>選取任意一個之前的基向量 <spanclass="math inline"><em>v</em><sub><em>m</em></sub></span>（其中 <spanclass="math inline">1 ≤ <em>m</em> &lt; <em>j</em></span>），計算它與<span class="math inline"><em>v</em><sub><em>j</em></sub></span> 的內積<spanclass="math inline"><em>v</em><sub><em>m</em></sub><sup><em>T</em></sup><em>v</em><sub><em>j</em></sub></span>：<span class="math display">$$v_m^T v_j = v_m^T ( x_j - \sum_{k=1}^{j-1}((v_k^T x_j) / (v_k^T v_k)) v_k )$$</span></p><p>利用內積的線性性質，將 <spanclass="math inline"><em>v</em><sub><em>m</em></sub><sup><em>T</em></sup></span>乘進去：</p><p><span class="math display">$$v_m^T v_j = v_m^T x_j - \sum_{k=1}^{j-1}((v_k^T x_j) / (v_k^T v_k)) (v_m^T v_k)$$</span></p><p>由於前提假設 <spanclass="math inline"><em>v</em><sub>1</sub>, …, <em>v</em><sub><em>j</em> − 1</sub></span>是兩兩正交的，所以在求和符號 <span class="math inline">∑</span> 中：</p><ul><li>當 <span class="math inline"><em>k</em> ≠ <em>m</em></span>時，<spanclass="math inline"><em>v</em><sub><em>m</em></sub><sup><em>T</em></sup><em>v</em><sub><em>k</em></sub> = 0</span>。</li><li>當且僅當 <span class="math inline"><em>k</em> = <em>m</em></span>時，<spanclass="math inline"><em>v</em><sub><em>m</em></sub><sup><em>T</em></sup><em>v</em><sub><em>k</em></sub> = <em>v</em><sub><em>m</em></sub><sup><em>T</em></sup><em>v</em><sub><em>m</em></sub> ≠ 0</span>。</li></ul><p>因此，求和項中只剩下 <spanclass="math inline"><em>k</em> = <em>m</em></span> 這一項：</p><p><spanclass="math display"><em>v</em><sub><em>m</em></sub><sup><em>T</em></sup><em>v</em><sub><em>j</em></sub> = <em>v</em><sub><em>m</em></sub><sup><em>T</em></sup><em>x</em><sub><em>j</em></sub> − ((<em>v</em><sub><em>m</em></sub><sup><em>T</em></sup><em>x</em><sub><em>j</em></sub>)/(<em>v</em><sub><em>m</em></sub><sup><em>T</em></sup><em>v</em><sub><em>m</em></sub>))(<em>v</em><sub><em>m</em></sub><sup><em>T</em></sup><em>v</em><sub><em>m</em></sub>)</span></p><p>分子分母中的標量 <spanclass="math inline"><em>v</em><sub><em>m</em></sub><sup><em>T</em></sup><em>v</em><sub><em>m</em></sub></span>相互抵消：</p><p><spanclass="math display"><em>v</em><sub><em>m</em></sub><sup><em>T</em></sup><em>v</em><sub><em>j</em></sub> = <em>v</em><sub><em>m</em></sub><sup><em>T</em></sup><em>x</em><sub><em>j</em></sub> − <em>v</em><sub><em>m</em></sub><sup><em>T</em></sup><em>x</em><sub><em>j</em></sub></span></p><p><spanclass="math display"><em>v</em><sub><em>m</em></sub><sup><em>T</em></sup><em>v</em><sub><em>j</em></sub> = 0</span></p><p>證畢</p><h3 id="誤差分析">誤差分析</h3><p>如果在 CGS（經典格拉姆-施密特正交化）中計算 <spanclass="math inline"><em>q</em><sub>2</sub></span> 時發生誤差，導致 <spanclass="math inline"><em>q</em><sub>1</sub><sup><em>T</em></sup><em>q</em><sub>2</sub> = <em>δ</em></span>是一個很小但非零的數值，這個誤差將不會在隨後的任何計算中被修正：</p><p><spanclass="math display"><em>v</em><sub>3</sub> = <em>x</em><sub>3</sub> − (<em>q</em><sub>1</sub><sup><em>T</em></sup><em>x</em><sub>3</sub>)<em>q</em><sub>1</sub> − (<em>q</em><sub>2</sub><sup><em>T</em></sup><em>x</em><sub>3</sub>)<em>q</em><sub>2</sub></span></p><p><spanclass="math display"><em>q</em><sub>2</sub><sup><em>T</em></sup><em>v</em><sub>3</sub> = <em>q</em><sub>2</sub><sup><em>T</em></sup><em>x</em><sub>3</sub> − (<em>q</em><sub>1</sub><sup><em>T</em></sup><em>x</em><sub>3</sub>)<em>δ</em> − (<em>q</em><sub>2</sub><sup><em>T</em></sup><em>x</em><sub>3</sub>) = −(<em>q</em><sub>1</sub><sup><em>T</em></sup><em>x</em><sub>3</sub>)<em>δ</em></span></p><p><spanclass="math display"><em>q</em><sub>1</sub><sup><em>T</em></sup><em>v</em><sub>3</sub> = <em>q</em><sub>1</sub><sup><em>T</em></sup><em>x</em><sub>3</sub> − (<em>q</em><sub>1</sub><sup><em>T</em></sup><em>x</em><sub>3</sub>) − (<em>q</em><sub>2</sub><sup><em>T</em></sup><em>x</em><sub>3</sub>)<em>δ</em> = −(<em>q</em><sub>2</sub><sup><em>T</em></sup><em>x</em><sub>3</sub>)<em>δ</em></span></p><p>我們可以看出 <span class="math inline"><em>v</em><sub>3</sub></span>與 <span class="math inline"><em>q</em><sub>1</sub></span> 或 <spanclass="math inline"><em>q</em><sub>2</sub></span> 都不正交。</p><h2 id="改進的-gram-schmidt-mgs">改進的 Gram-Schmidt (MGS)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">for j = 1 : n</span><br><span class="line">    v_j = x_j</span><br><span class="line">endfor</span><br><span class="line"></span><br><span class="line">for j = 1 : n</span><br><span class="line">    q_j = v_j / ||v_j||_2</span><br><span class="line">    for k = j + 1 : n</span><br><span class="line">        v_k = v_k - (q_j^T v_k) q_j</span><br><span class="line">    endfor</span><br><span class="line">endfor</span><br></pre></td></tr></table></figure><p>最終我們將 <spanclass="math inline"><em>v</em><sub><em>j</em></sub></span>歸一化得到標準正交基 <spanclass="math inline"><em>q</em><sub><em>j</em></sub> = (<em>v</em><sub><em>j</em></sub>)/(|<em>v</em><sub><em>j</em></sub>|)</span>。</p><p>區別在於，一旦算出來一個向量 <spanclass="math inline"><em>q</em></span>，立即用它去更新後面所有的向量（減去向量在<span class="math inline"><em>q</em></span>上的投影），使得後面所有的向量與這個向量 <spanclass="math inline"><em>q</em></span> 正交。</p><h3 id="誤差分析-1">誤差分析</h3><p>假設 MGS 出現：<spanclass="math inline"><em>q</em><sub>1</sub><sup><em>T</em></sup><em>q</em><sub>2</sub> = <em>δ</em></span>很小但非零。</p><p>對於第三個向量 <spanclass="math inline"><em>v</em><sub>3</sub></span> ：</p><ul><li>初始狀態：<spanclass="math inline"><em>v</em><sub>3</sub><sup>(0)</sup> = <em>x</em><sub>3</sub></span></li><li><spanclass="math inline"><em>j</em> = 1 : <em>v</em><sub>3</sub><sup>(1)</sup> = <em>v</em><sub>3</sub><sup>(0)</sup> − (<em>q</em><sub>1</sub><sup><em>T</em></sup><em>v</em><sub>3</sub><sup>(0)</sup>)<em>q</em><sub>1</sub></span></li><li><spanclass="math inline"><em>j</em> = 2 : <em>v</em><sub>3</sub> = <em>v</em><sub>3</sub><sup>(1)</sup> − (<em>q</em><sub>2</sub><sup><em>T</em></sup><em>v</em><sub>3</sub><sup>(1)</sup>)<em>q</em><sub>2</sub></span></li></ul><p>此時 <span class="math inline"><em>v</em><sub>3</sub></span>是第三個向量在歸一化之前的最終形式。</p><p>讓我們檢查正交性，假設不再產生其他誤差：</p><p><spanclass="math inline"><em>q</em><sub>2</sub><sup><em>T</em></sup><em>v</em><sub>3</sub> = <em>q</em><sub>2</sub><sup><em>T</em></sup><em>v</em><sub>3</sub><sup>(1)</sup> − (<em>q</em><sub>2</sub><sup><em>T</em></sup><em>v</em><sub>3</sub><sup>(1)</sup>) = 0</span></p><p>所以，我們保留了對 <spanclass="math inline"><em>q</em><sub>2</sub></span> 的正交性。</p><p>接下來看 <spanclass="math inline"><em>q</em><sub>1</sub></span>：</p><p><spanclass="math display"><em>q</em><sub>1</sub><sup><em>T</em></sup><em>v</em><sub>3</sub> = <em>q</em><sub>1</sub><sup><em>T</em></sup><em>v</em><sub>3</sub><sup>(1)</sup> − (<em>q</em><sub>2</sub><sup><em>T</em></sup><em>v</em><sub>3</sub><sup>(1)</sup>)<em>δ</em></span></p><p><spanclass="math display"><em>q</em><sub>2</sub><sup><em>T</em></sup><em>v</em><sub>3</sub><sup>(1)</sup> = <em>q</em><sub>2</sub><sup><em>T</em></sup><em>v</em><sub>3</sub><sup>(0)</sup> − (<em>q</em><sub>1</sub><sup><em>T</em></sup><em>v</em><sub>3</sub><sup>(0)</sup>)<em>δ</em></span></p><p><spanclass="math display"><em>q</em><sub>1</sub><sup><em>T</em></sup><em>v</em><sub>3</sub><sup>(1)</sup> = <em>q</em><sub>1</sub><sup><em>T</em></sup><em>v</em><sub>3</sub><sup>(0)</sup> − (<em>q</em><sub>1</sub><sup><em>T</em></sup><em>v</em><sub>3</sub><sup>(0)</sup>) = 0</span></p><p>由此可得： <spanclass="math display"><em>q</em><sub>1</sub><sup><em>T</em></sup><em>v</em><sub>3</sub> = −(<em>q</em><sub>2</sub><sup><em>T</em></sup><em>v</em><sub>3</sub><sup>(0)</sup> − (<em>q</em><sub>1</sub><sup><em>T</em></sup><em>v</em><sub>3</sub><sup>(0)</sup>)<em>δ</em>)<em>δ</em> = −<em>q</em><sub>2</sub><sup><em>T</em></sup><em>v</em><sub>3</sub><sup>(0)</sup><em>δ</em> + <em>q</em><sub>1</sub><sup><em>T</em></sup><em>v</em><sub>3</sub><sup>(0)</sup><em>δ</em><sup>2</sup></span></p><p>由於 <span class="math inline"><em>δ</em></span> 非常小，<spanclass="math inline"><em>δ</em><sup>2</sup></span> 就更小了。因此 <spanclass="math inline"><em>q</em><sub>1</sub><sup><em>T</em></sup><em>v</em><sub>3</sub></span>中的誤差和 CGS 差不多，但我們消除了 <spanclass="math inline"><em>q</em><sub>2</sub><sup><em>T</em></sup><em>v</em><sub>3</sub></span>中的誤差，使得誤差更小。</p><h2 id="總結">總結</h2><p>在電腦中，由於浮點運算的特殊性，有許多數學方法需要重新考慮，儘量提高數值穩定性。這使得我們有必要重新審視我們學習過的數學知識，針對電腦的特殊性進行重新設計與優化。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;矩陣的 QR 分解在電腦運算中可能造成誤差，本文探討一下一種改進版本的
+Gram-Schmidt 正交化方法。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="程式設計" scheme="https://blog.aeilot.top/categories/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/"/>
+    
+    
+    <category term="數學" scheme="https://blog.aeilot.top/tags/%E6%95%B8%E5%AD%B8/"/>
+    
+    <category term="線性代數" scheme="https://blog.aeilot.top/tags/%E7%B7%9A%E6%80%A7%E4%BB%A3%E6%95%B8/"/>
+    
+  </entry>
   
   <entry>
     <title>聊一聊位掩碼（Bit Mask）</title>
@@ -726,9 +750,9 @@ to catch</summary>
     
     <category term="年度回顧" scheme="https://blog.aeilot.top/tags/%E5%B9%B4%E5%BA%A6%E5%9B%9E%E9%A1%A7/"/>
     
-    <category term="散文" scheme="https://blog.aeilot.top/tags/%E6%95%A3%E6%96%87/"/>
-    
     <category term="情感" scheme="https://blog.aeilot.top/tags/%E6%83%85%E6%84%9F/"/>
+    
+    <category term="散文" scheme="https://blog.aeilot.top/tags/%E6%95%A3%E6%96%87/"/>
     
   </entry>
   
@@ -751,9 +775,9 @@ to catch</summary>
     <category term="文學" scheme="https://blog.aeilot.top/categories/%E6%96%87%E5%AD%B8/"/>
     
     
-    <category term="散文" scheme="https://blog.aeilot.top/tags/%E6%95%A3%E6%96%87/"/>
-    
     <category term="情感" scheme="https://blog.aeilot.top/tags/%E6%83%85%E6%84%9F/"/>
+    
+    <category term="散文" scheme="https://blog.aeilot.top/tags/%E6%95%A3%E6%96%87/"/>
     
     <category term="天氣日記" scheme="https://blog.aeilot.top/tags/%E5%A4%A9%E6%B0%A3%E6%97%A5%E8%A8%98/"/>
     
@@ -874,9 +898,9 @@ href=&quot;https://www.luogu.com.cn/problem/P3354&quot;&gt;這一道&lt;/a&gt;
     <category term="文學" scheme="https://blog.aeilot.top/categories/%E6%96%87%E5%AD%B8/"/>
     
     
-    <category term="散文" scheme="https://blog.aeilot.top/tags/%E6%95%A3%E6%96%87/"/>
-    
     <category term="情感" scheme="https://blog.aeilot.top/tags/%E6%83%85%E6%84%9F/"/>
+    
+    <category term="散文" scheme="https://blog.aeilot.top/tags/%E6%95%A3%E6%96%87/"/>
     
     <category term="天氣日記" scheme="https://blog.aeilot.top/tags/%E5%A4%A9%E6%B0%A3%E6%97%A5%E8%A8%98/"/>
     
@@ -900,9 +924,9 @@ href=&quot;https://www.luogu.com.cn/problem/P3354&quot;&gt;這一道&lt;/a&gt;
     <category term="文學" scheme="https://blog.aeilot.top/categories/%E6%96%87%E5%AD%B8/"/>
     
     
-    <category term="散文" scheme="https://blog.aeilot.top/tags/%E6%95%A3%E6%96%87/"/>
-    
     <category term="情感" scheme="https://blog.aeilot.top/tags/%E6%83%85%E6%84%9F/"/>
+    
+    <category term="散文" scheme="https://blog.aeilot.top/tags/%E6%95%A3%E6%96%87/"/>
     
     <category term="天氣日記" scheme="https://blog.aeilot.top/tags/%E5%A4%A9%E6%B0%A3%E6%97%A5%E8%A8%98/"/>
     
