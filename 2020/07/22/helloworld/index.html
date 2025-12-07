@@ -90,8 +90,9 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":false,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
-<script src="/js/third-party/math/mathjax.js" defer></script>
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js" defer></script>
 
 
 <link rel="dns-prefetch" href="https://comments.aeilot.top">
@@ -203,13 +204,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -369,14 +370,8 @@
 <span id="more"></span>
 <p><strong>tl;dr</strong></p>
 <p>前幾天，我突然發現自己的部落格上面全是水文（以前就知道，懶得弄），心裡總覺得過不去。所以，我下定決心，準備重新來過。這種感覺很好，當<code>_posts</code>目錄空無一物時，我的心也釋然了。</p>
-<p>之前我所有的文章，要麼是抄襲的，要麼是很水的那種。<strong>在這裡，我承諾，以後不再會有這種不可饒恕的情況發生了</strong>。這樣做我自己心裡也總是想著缺點什麼。倖幸苦苦修改的自定義hexo主題（沒錯，我把
-<a
-target="_blank" rel="noopener" href="https://github.com/probberechts/hexo-theme-cactus">hexo-theme-cactus</a>
-修改了很多，支援了 RSS，還弄了些 UI 改進，配置了
-Valine.js，etc.），結果呢？上面全是水文！？這……</p>
-<p>那麼之前的文章都去哪裡了呢？我並沒有刪除，而是把它們放置在了
-<code>Draft</code>
-目錄下面，當然，你們看不到。<strong>手動狗頭</strong></p>
+<p>之前我所有的文章，要麼是抄襲的，要麼是很水的那種。<strong>在這裡，我承諾，以後不再會有這種不可饒恕的情況發生了</strong>。這樣做我自己心裡也總是想著缺點什麼。倖幸苦苦修改的自定義hexo主題（沒錯，我把 <a target="_blank" rel="noopener" href="https://github.com/probberechts/hexo-theme-cactus">hexo-theme-cactus</a> 修改了很多，支援了 RSS，還弄了些 UI 改進，配置了 Valine.js，etc.），結果呢？上面全是水文！？這……</p>
+<p>那麼之前的文章都去哪裡了呢？我並沒有刪除，而是把它們放置在了 <code>Draft</code> 目錄下面，當然，你們看不到。<strong>手動狗頭</strong></p>
 <p>讓我們重新認識對方，執行一次<code>sudo shutdown -r now</code>！</p>
 
     </div>

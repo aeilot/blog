@@ -84,8 +84,9 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":false,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
-<script src="/js/third-party/math/mathjax.js" defer></script>
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js" defer></script>
 
 
 <link rel="dns-prefetch" href="https://comments.aeilot.top">
@@ -183,7 +184,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vcpkg"><span class="nav-number">1.</span> <span class="nav-text">vcpkg</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%85%E5%96%AE-%E5%8A%9F%E8%83%BD"><span class="nav-number">2.</span> <span class="nav-text">“清單” 功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E8%B6%B3"><span class="nav-number">3.</span> <span class="nav-text">不足</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%8C%E8%A8%98"><span class="nav-number">4.</span> <span class="nav-text">後記</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vcpkg"><span class="nav-number">1.</span> <span class="nav-text"> vcpkg</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%85%E5%96%AE-%E5%8A%9F%E8%83%BD"><span class="nav-number">2.</span> <span class="nav-text"> “清單” 功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E8%B6%B3"><span class="nav-number">3.</span> <span class="nav-text"> 不足</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%8C%E8%A8%98"><span class="nav-number">4.</span> <span class="nav-text"> 後記</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -198,13 +199,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -360,39 +361,22 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>最近在做一個大型的 C++ 專案 ── <a
-target="_blank" rel="noopener" href="https://github.com/louis-studio/Albumist">Albumist</a>。它使用
-Qt，需要用到很多類似
-<code>sqlite3</code>、<code>exiv2</code>、<code>libcurl</code>
-之類的庫。第三方庫管理似乎成了問題。</p>
-<p>支援 git 的都可以使用　<code>git submodule</code>
-來管理，但是還有少部分是不支援的，或者是二進位制的，比如
-<code>sqlite3</code>。這就要我們手動去下載，手動去更新，好生麻煩。</p>
+    <div class="post-body" itemprop="articleBody"><p>最近在做一個大型的 C++ 專案 ── <a target="_blank" rel="noopener" href="https://github.com/louis-studio/Albumist">Albumist</a>。它使用 Qt，需要用到很多類似 <code>sqlite3</code>、<code>exiv2</code>、<code>libcurl</code> 之類的庫。第三方庫管理似乎成了問題。</p>
+<p>支援 git 的都可以使用　<code>git submodule</code> 來管理，但是還有少部分是不支援的，或者是二進位制的，比如 <code>sqlite3</code>。這就要我們手動去下載，手動去更新，好生麻煩。</p>
 <span id="more"></span>
-<h2 id="vcpkg">vcpkg</h2>
-<p>我一直想要一個類似 <code>npm</code> <code>pip</code>
-一樣的東西，把依賴寫在檔案裡面，然後直接 <code>install</code> 即可。</p>
-<p>經過搜尋，我發現了微軟的一個專案 <a
-target="_blank" rel="noopener" href="https://github.com/microsoft/vcpkg/">vcpkg</a>。官方定義它為 “C++
-Library Manager for Windows, Linux, and MacOS”，簡單翻譯一下就是 “支援
-Windows, Linux 和 macOS 的 C++ 庫管理器”。</p>
-<p>在 Arch Linux
-上面，安裝它並不複雜，只需要：<code>sudo pacman -S vcpkg-git</code>
-即可。其他系統沒有嘗試過，跟著它的 README 也很方便安裝。</p>
-<h2 id="清單-功能">“清單” 功能</h2>
-<p>在專案根目錄建立一個 <code>vcpkg.json</code>， 然後
-<code>vcpkg install</code>。這一功能就是“清單”功能。它正好是我想要的，可是卻暫時處在
-Beta 階段，不過也無關緊要。</p>
-<p>要啟用“清單”功能，在執行命令時，需要接引數
-<code>--feature-flags = manifests</code>。</p>
+<h2 id="vcpkg"><a class="markdownIt-Anchor" href="#vcpkg"></a> vcpkg</h2>
+<p>我一直想要一個類似 <code>npm</code> <code>pip</code> 一樣的東西，把依賴寫在檔案裡面，然後直接 <code>install</code> 即可。</p>
+<p>經過搜尋，我發現了微軟的一個專案 <a target="_blank" rel="noopener" href="https://github.com/microsoft/vcpkg/">vcpkg</a>。官方定義它為 “C++ Library Manager for Windows, Linux, and MacOS”，簡單翻譯一下就是 “支援 Windows, Linux 和 macOS 的 C++ 庫管理器”。</p>
+<p>在 Arch Linux 上面，安裝它並不複雜，只需要：<code>sudo pacman -S vcpkg-git</code> 即可。其他系統沒有嘗試過，跟著它的 README 也很方便安裝。</p>
+<h2 id="清單-功能"><a class="markdownIt-Anchor" href="#清單-功能"></a> “清單” 功能</h2>
+<p>在專案根目錄建立一個 <code>vcpkg.json</code>， 然後 <code>vcpkg install</code>。這一功能就是“清單”功能。它正好是我想要的，可是卻暫時處在 Beta 階段，不過也無關緊要。</p>
+<p>要啟用“清單”功能，在執行命令時，需要接引數 <code>--feature-flags = manifests</code>。</p>
 <p>清單大概長這樣：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&lt;name of your project&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;version-string&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&lt;version of your project&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;abseil&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;boost&quot;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 <p>很方便，也很快捷。</p>
-<h2 id="不足">不足</h2>
-<p>比起這樣一個純粹的管理器，我更希望獲得類似 Java 的 Gradle
-的體驗。如果 CMake
-能加入類似功能，體驗一定能夠翻倍，快捷方便且無需第三方軟體。</p>
-<h2 id="後記">後記</h2>
+<h2 id="不足"><a class="markdownIt-Anchor" href="#不足"></a> 不足</h2>
+<p>比起這樣一個純粹的管理器，我更希望獲得類似 Java 的 Gradle 的體驗。如果 CMake 能加入類似功能，體驗一定能夠翻倍，快捷方便且無需第三方軟體。</p>
+<h2 id="後記"><a class="markdownIt-Anchor" href="#後記"></a> 後記</h2>
 <p>— 2020 08 15 更新</p>
 <p>又停止使用這個東西了，Windows 上面需要 MSVC。。。</p>
 

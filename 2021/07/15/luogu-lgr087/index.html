@@ -84,8 +84,9 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":false,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
-<script src="/js/third-party/math/mathjax.js" defer></script>
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js" defer></script>
 
 
 <link rel="dns-prefetch" href="https://comments.aeilot.top">
@@ -183,7 +184,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#a"><span class="nav-number">1.</span> <span class="nav-text">A</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b"><span class="nav-number">2.</span> <span class="nav-text">B</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c"><span class="nav-number">3.</span> <span class="nav-text">C</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d"><span class="nav-number">4.</span> <span class="nav-text">D</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%B5%90"><span class="nav-number">5.</span> <span class="nav-text">小結</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#a"><span class="nav-number">1.</span> <span class="nav-text"> A</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b"><span class="nav-number">2.</span> <span class="nav-text"> B</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c"><span class="nav-number">3.</span> <span class="nav-text"> C</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d"><span class="nav-number">4.</span> <span class="nav-text"> D</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%B5%90"><span class="nav-number">5.</span> <span class="nav-text"> 小結</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -198,13 +199,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -360,42 +361,32 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>昨天(7/14)參加了洛谷的 7
-月月賽，感覺題目挺新穎的，就是資料有點。。。</p>
+    <div class="post-body" itemprop="articleBody"><p>昨天(7/14)參加了洛谷的 7 月月賽，感覺題目挺新穎的，就是資料有點。。。</p>
 <span id="more"></span>
-<p>比賽連結：<a
-target="_blank" rel="noopener" href="https://www.luogu.com.cn/contest/46177">這裡</a></p>
-<p>我的程式碼在 <a
-target="_blank" rel="noopener" href="https://github.com/aeilot/ProblemSet/tree/master/Competition/LuoGu-2021July-Div2">這裡</a></p>
-<h2 id="a">A</h2>
+<p>比賽連結：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/contest/46177">這裡</a></p>
+<p>我的程式碼在 <a target="_blank" rel="noopener" href="https://github.com/aeilot/ProblemSet/tree/master/Competition/LuoGu-2021July-Div2">這裡</a></p>
+<h2 id="a"><a class="markdownIt-Anchor" href="#a"></a> A</h2>
 <p>乍一看好像沒思路，但是想一想，其實很簡單，就是會有幾種情況：</p>
-<ol type="1">
-<li><strong>0個空格</strong> 全是數字的話，需要判斷一下 A. 兩者完全相同
-B. 非A，情況 A 是可以輸出 <code>Yes</code> 的。</li>
-<li><strong>1個空格</strong>
-這一種情況，從原理上分析，“選擇一個有正整數的格子和一個與之相鄰的空格子，將正整數移到那個空格子中”，可以得出，其實只要順時針轉一圈，初始和最終狀態順序相同，就符合條件。所以，只需要做三次判斷即可，簡單粗暴（在座的各位大佬要是有高階方法可以通知一下🙇）。</li>
-<li><strong>2、3、4個空格</strong>
-這幾個情況，經過分析會發現，不管如何，都是滿足條件的。</li>
+<ol>
+<li><strong>0個空格</strong> 全是數字的話，需要判斷一下 A. 兩者完全相同 B. 非A，情況 A 是可以輸出 <code>Yes</code> 的。</li>
+<li><strong>1個空格</strong> 這一種情況，從原理上分析，“選擇一個有正整數的格子和一個與之相鄰的空格子，將正整數移到那個空格子中”，可以得出，其實只要順時針轉一圈，初始和最終狀態順序相同，就符合條件。所以，只需要做三次判斷即可，簡單粗暴（在座的各位大佬要是有高階方法可以通知一下🙇）。</li>
+<li><strong>2、3、4個空格</strong> 這幾個情況，經過分析會發現，不管如何，都是滿足條件的。</li>
 </ol>
 <p>所以，這樣分析下來，很簡單就 AC 了，拿到 100 分！</p>
-<h2 id="b">B</h2>
+<h2 id="b"><a class="markdownIt-Anchor" href="#b"></a> B</h2>
 <blockquote>
-<p>這道題。。。無語了。。。測試資料透過了，結果測評資料每次都卡一個，萬惡的捆綁測試。。。最後得不了
-100 分了。。。</p>
+<p>這道題。。。無語了。。。測試資料透過了，結果測評資料每次都卡一個，萬惡的捆綁測試。。。最後得不了 100 分了。。。</p>
 </blockquote>
-<p>這道題最開始想的是貪心演算法，排序，但是會超時，就改了一下：開兩個陣列，不管順序，只管符號，放進去。這樣做基本上不超過
-10ms。</p>
-<p>原理就是，計算 <code>+正數</code> <code>+負數</code>
-<code>*正數</code> <code>*負數</code>
-出現的個數，進行排列，最後計算結果。</p>
-<h2 id="c">C</h2>
+<p>這道題最開始想的是貪心演算法，排序，但是會超時，就改了一下：開兩個陣列，不管順序，只管符號，放進去。這樣做基本上不超過 10ms。</p>
+<p>原理就是，計算 <code>+正數</code> <code>+負數</code> <code>*正數</code> <code>*負數</code> 出現的個數，進行排列，最後計算結果。</p>
+<h2 id="c"><a class="markdownIt-Anchor" href="#c"></a> C</h2>
 <blockquote>
 <p>因為學業原因，離開了幾個小時，回來了之後都沒時間做了。。。有點思路，但沒寫完。。。</p>
 </blockquote>
 <p>其實，可以根據數第一次出現的位置判斷從左、右數的位置，最後進行排列即可。</p>
-<h2 id="d">D</h2>
+<h2 id="d"><a class="markdownIt-Anchor" href="#d"></a> D</h2>
 <p>看了一眼就懶得寫。</p>
-<h2 id="小結">小結</h2>
+<h2 id="小結"><a class="markdownIt-Anchor" href="#小結"></a> 小結</h2>
 <p>等題解吧！感覺題目很有意思，都是些需要仔細思考的題目。(奈何我太弱了。。。太弱小了！！！</p>
 
     </div>

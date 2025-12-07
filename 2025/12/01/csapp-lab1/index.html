@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/site.webmanifest">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fira+Mono:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/purple/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous" defer></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.aeilot.top","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12,"onmobile":false},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null,"show_result":false},"fold":{"enable":false,"height":500},"language":false,"highlight_theme":"normal"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":true,"preload":true,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="前一段時間做完了 CSAPP 的第一個 Lab，寫一篇總結。（其實這篇文章拖了很久）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="“CSAPP Data Lab 解析&quot;">
+<meta property="og:url" content="https://blog.aeilot.top/2025/12/01/csapp-lab1/index.html">
+<meta property="og:site_name" content="滿五的部落格">
+<meta property="og:description" content="前一段時間做完了 CSAPP 的第一個 Lab，寫一篇總結。（其實這篇文章拖了很久）">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2025-12-01T05:45:09.000Z">
+<meta property="article:modified_time" content="2025-12-07T07:14:42.646Z">
+<meta property="article:author" content="滿五">
+<meta property="article:tag" content="C">
+<meta property="article:tag" content="CS">
+<meta property="article:tag" content="位運算">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.aeilot.top/2025/12/01/csapp-lab1/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://blog.aeilot.top/2025/12/01/csapp-lab1/","path":"2025/12/01/csapp-lab1/","title":"“CSAPP Data Lab 解析\""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>“CSAPP Data Lab 解析" | 滿五的部落格</title>
+  
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-138571809-2","only_pageview":true,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/7.2.0/pangu.umd.js" integrity="sha256-JnmRRnJK7DC6RQJbAJb6AXOM9OmWzS6z8eYultk/48Y=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/bookmark.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+  <script src="/js/third-party/pace.js" defer></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js" defer></script>
+
+
+<link rel="dns-prefetch" href="https://comments.aeilot.top">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><link rel="alternate" href="/index.xml" title="滿五的部落格" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">滿五的部落格</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜尋" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/index.html" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li><li class="menu-item menu-item-english"><a href="https://en.blog.aeilot.top/" rel="section" target="_blank"><i class="fa fa-language fa-fw"></i>English</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜尋..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#bitxor"><span class="nav-number">1.</span> <span class="nav-text"> bitXor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tmin"><span class="nav-number">2.</span> <span class="nav-text"> tmin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#istmax"><span class="nav-number">3.</span> <span class="nav-text"> isTmax</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#alloddbits"><span class="nav-number">4.</span> <span class="nav-text"> allOddBits</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#negate"><span class="nav-number">5.</span> <span class="nav-text"> negate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isasciidigit"><span class="nav-number">6.</span> <span class="nav-text"> isAsciiDigit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#conditional"><span class="nav-number">7.</span> <span class="nav-text"> conditional</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#islessorequal"><span class="nav-number">8.</span> <span class="nav-text"> isLessOrEqual</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#logicalneg"><span class="nav-number">9.</span> <span class="nav-text"> logicalNeg</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#howmanybits"><span class="nav-number">10.</span> <span class="nav-text"> howManyBits</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#floatscale2"><span class="nav-number">11.</span> <span class="nav-text"> floatScale2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ieee-754"><span class="nav-number">11.1.</span> <span class="nav-text"> IEEE 754</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#case-a-%E9%9D%9E%E8%A6%8F%E6%A0%BC%E5%8C%96-denormalized"><span class="nav-number">11.1.1.</span> <span class="nav-text"> Case A: 非規格化 (Denormalized)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#case-b-%E8%A6%8F%E6%A0%BC%E5%8C%96-normalized"><span class="nav-number">11.1.2.</span> <span class="nav-text"> Case B: 規格化 (Normalized)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#case-c-%E7%89%B9%E6%AE%8A%E5%80%BC-special-values"><span class="nav-number">11.1.3.</span> <span class="nav-text"> Case C: 特殊值 (Special Values)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#floatpower2"><span class="nav-number">12.</span> <span class="nav-text"> floatPower2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%B5%90"><span class="nav-number">13.</span> <span class="nav-text"> 小結</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="滿五"
+      src="/images/gravatar.jpeg">
+  <p class="site-author-name" itemprop="name">滿五</p>
+  <div class="site-description" itemprop="description">Stay Hungry. Stay Foolish.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/aeilot" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;aeilot" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:louis.aeilot@icloud.com" title="E-Mail → mailto:louis.aeilot@icloud.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/13011108" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;13011108" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/louisaeilot" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;louisaeilot" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/378981479" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;378981479" rel="noopener me" target="_blank"><i class="fab fa-youtube fa-fw"></i>Bilibili</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-TW" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+          連結
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://mrwillcom.now.sh/" title="https:&#x2F;&#x2F;mrwillcom.now.sh" rel="noopener" target="_blank">Mr.Will</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://chungzh.cn/" title="https:&#x2F;&#x2F;chungzh.cn" rel="noopener" target="_blank">ChungZH</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://shaojiaxu.github.io/" title="https:&#x2F;&#x2F;shaojiaxu.github.io" rel="noopener" target="_blank">SJX</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://clckblog.space/" title="http:&#x2F;&#x2F;clckblog.space&#x2F;" rel="noopener" target="_blank">CLCK</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://innei.in/" title="https:&#x2F;&#x2F;innei.in&#x2F;" rel="noopener" target="_blank">静かな森</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+        <div class="pjax">
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://blog.aeilot.top/2025/12/01/csapp-lab1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gravatar.jpeg">
+      <meta itemprop="name" content="滿五">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="滿五的部落格">
+      <meta itemprop="description" content="Stay Hungry. Stay Foolish.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="“CSAPP Data Lab 解析&quot; | 滿五的部落格">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          “CSAPP Data Lab 解析"
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2025-12-01 13:45:09" itemprop="dateCreated datePublished" datetime="2025-12-01T13:45:09+08:00">2025-12-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E2%80%9CCSAPP/" itemprop="url" rel="index"><span itemprop="name">“CSAPP"</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">閱讀次數：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2025/12/01/csapp-lab1/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2025/12/01/csapp-lab1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="文章字數">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">文章字數：</span>
+      <span>7.6k</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>前一段時間做完了 CSAPP 的第一個 Lab，寫一篇總結。（其實這篇文章拖了很久）</p>
+<span id="more"></span>
+<p>CS:APP Data Lab 旨在通過一系列位操作謎題，訓練對整數和浮點數底層表示（特別是補碼和 IEEE 754 標準）的理解。要求在嚴格限制的操作符和操作數數量下，實現特定的數學或邏輯功能。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函數名 (Name)</th>
+<th style="text-align:left">描述 (Description)</th>
+<th style="text-align:center">難度 (Rating)</th>
+<th style="text-align:center">最大操作數 (Max ops)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong><code>bitXor(x, y)</code></strong></td>
+<td style="text-align:left">只使用 <code>&amp;</code> 和 <code>~</code> 實現 <code>x ^ y</code> (異或)。</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">14</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>tmin()</code></strong></td>
+<td style="text-align:left">返回最小的補碼整數 (Two’s complement integer)。</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>isTmax(x)</code></strong></td>
+<td style="text-align:left">僅當 <code>x</code> 是最大的補碼整數時返回 True。</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>allOddBits(x)</code></strong></td>
+<td style="text-align:left">僅當 <code>x</code> 的所有奇數位都為 1 時返回 True。</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">12</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>negate(x)</code></strong></td>
+<td style="text-align:left">返回 <code>-x</code>，<strong>不使用</strong> <code>-</code> 運算符。</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>isAsciiDigit(x)</code></strong></td>
+<td style="text-align:left">如果 <code>0x30 &lt;= x &lt;= 0x39</code> (即 ASCII 數字字元) 則返回 True。</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">15</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>conditional(x, y, z)</code></strong></td>
+<td style="text-align:left">等同於 <code>x ? y : z</code> (三元運算符)。</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">16</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>isLessOrEqual(x, y)</code></strong></td>
+<td style="text-align:left">如果 <code>x &lt;= y</code> 返回 True，否則返回 False。</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">24</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>logicalNeg(x)</code></strong></td>
+<td style="text-align:left">計算 <code>!x</code> (邏輯非)，<strong>不使用</strong> <code>!</code> 運算符。</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">12</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>howManyBits(x)</code></strong></td>
+<td style="text-align:left">用補碼表示 <code>x</code> 所需的最小位數。</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">90</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>floatScale2(uf)</code></strong></td>
+<td style="text-align:left">對於浮點參數 <code>f</code>，返回 <code>2 * f</code> 的位級等價表示。</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">30</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>floatFloat2Int(uf)</code></strong></td>
+<td style="text-align:left">對於浮點參數 <code>f</code>，返回 <code>(int)f</code> 的位級等價表示。</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">30</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>floatPower2(x)</code></strong></td>
+<td style="text-align:left">對於整數 <code>x</code>，返回 <code>2.0^x</code> 的位級等價表示。</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">30</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bitxor"><a class="markdownIt-Anchor" href="#bitxor"></a> bitXor</h2>
+<p>該題要求僅使用 <code>~</code>（取反） 和 <code>&amp;</code>（與），實現 <code>^</code>（異或）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">bitXor</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> ~((~(x&amp;~y))&amp;(~((~x)&amp;y)));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用 De Morgan 律，容易得到 <code>~(x&amp;y) = (～x)|(~y)</code>，於是我們可以使用 <code>~</code> 和 <code>&amp;</code> 實現 <code>|</code> 操作。</p>
+<p>異或操作，可以表示為 <code>x^y = (~x &amp; y) | (x &amp; ~y)</code>，結合 De Morgan 律，我們很容易得到最終的答案 <code>x^y = ~((~(x&amp;~y))&amp;(~((~x)&amp;y)))</code>。</p>
+<h2 id="tmin"><a class="markdownIt-Anchor" href="#tmin"></a> tmin</h2>
+<p>這道題很簡單，返回最小的補碼整數。回顧補碼的定義，最高位取負權，故令符號位為 1 即可。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">tmin</span><span class="params">(<span class="type">void</span>)</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">1</span>&lt;&lt;<span class="number">31</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="istmax"><a class="markdownIt-Anchor" href="#istmax"></a> isTmax</h2>
+<p>判斷 <code>x</code> 是否是最大的補碼。若是，返回 <code>1</code>；否則，返回 <code>0</code>。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">isTmax</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">  <span class="type">int</span> <span class="built_in">map</span> = x + <span class="number">1</span>;</span><br><span class="line">  <span class="type">int</span> res = ~(<span class="built_in">map</span> + x);</span><br><span class="line">  <span class="keyword">return</span> !res &amp; (!!<span class="built_in">map</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最大的補碼有一個性質，加一之後變成最小的補碼：<code>0x7fffffff -&gt; 0x80000000</code></p>
+<p>而最大的補碼加上最小的補碼等於 <code>0xffffffff</code> 即 <code>-1</code>，取反之後為 <code>0</code> （這裡推出 <code>0</code> 是為了得到返回值中的 <code>0/1</code>）</p>
+<p>因此，我們可以通過 <code>~(x+x+1)</code> 得到答案。</p>
+<p>但是 <code>-1+0</code> 也等於 <code>-1</code>，即如果 <code>x=0</code> 時，<code>~(x+x+1)</code> 同樣等於 <code>1</code>，是一個 Corner Case。</p>
+<p>因此，我們還需要對結果與 <code>!!(x+1)</code>，才能得到最終的答案。（如果 <code>x=-1</code>，<code>!!(x+1)=0</code>；其餘情況均為 <code>1</code>）</p>
+<p>於是我們得到最終的答案 <code>!(~(x+x+1)) &amp; (!!(x+1))</code></p>
+<h2 id="alloddbits"><a class="markdownIt-Anchor" href="#alloddbits"></a> allOddBits</h2>
+<p>僅當 <code>x</code> 的所有奇數位都為 1 時返回 1</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">allOddBits</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">  <span class="type">int</span> a = <span class="number">0xAA</span>;</span><br><span class="line">  <span class="type">int</span> b = (a&lt;&lt;<span class="number">8</span>) + (a&lt;&lt;<span class="number">16</span>) + (a &lt;&lt;<span class="number">24</span>) + a;</span><br><span class="line">  <span class="type">int</span> bm = ~b+<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> !((x&amp;b)+bm);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我們做一個奇數位掩碼即可 <code>0xAA = 0b10101010</code>，通過左移，可以得到 <code>a + (a&lt;&lt;8) + (a&lt;&lt;16) + (a &lt;&lt;24) = 0xAAAAAAAA = b</code></p>
+<p>於是 <code>x&amp;b</code> 取出所有奇數位，但是我們需要得到 <code>0/1</code> 的答案</p>
+<p><code>bm = ~b + 1</code>，得到 <code>-b</code>（取反加一是補碼相反數），<code>b+(-b) = 0</code>，再取邏輯非，就可以得到答案</p>
+<h2 id="negate"><a class="markdownIt-Anchor" href="#negate"></a> negate</h2>
+<p>這道題要求不使用 <code>-</code> 運算符計算 <code>-x</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">negate</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> ~x+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>非常簡單，根據補碼的定義得到。取反加一就是相反數。</p>
+<h2 id="isasciidigit"><a class="markdownIt-Anchor" href="#isasciidigit"></a> isAsciiDigit</h2>
+<p>如果 <code>0x30 &lt;= x &lt;= 0x39</code> (即 ASCII 數字字元) 則返回 True。</p>
+<p>我們在這道題中不能使用 <code>&lt;=</code> 這類運算符，因此，我們想到，進行減法之後取符號位的操作。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">isAsciiDigit</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">    <span class="type">int</span> ge_30 = !((x + (~<span class="number">0x30</span> + <span class="number">1</span>)) &gt;&gt; <span class="number">31</span>);     </span><br><span class="line">    <span class="type">int</span> le_39 = !((<span class="number">0x39</span> + (~x + <span class="number">1</span>)) &gt;&gt; <span class="number">31</span>); </span><br><span class="line">    <span class="keyword">return</span> ge_30 &amp; le_39; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="conditional"><a class="markdownIt-Anchor" href="#conditional"></a> conditional</h2>
+<p>使用位運算實現三目運算符（<code>x ? y : z</code>）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">conditional</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y, <span class="type">int</span> z)</span> &#123;</span><br><span class="line">  <span class="type">int</span> xb = !(!x);</span><br><span class="line">  <span class="type">int</span> M = ~xb + <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> (M&amp;y) | (~M&amp;z);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我們可以使用邏輯掩碼</p>
+<p>先使用 <code>!(!x)</code> 將 x 轉換成 <code>0/1</code>，記為 <code>xb</code></p>
+<p><code>~xb + 1</code>，則有 <code>0 -&gt; 0</code>；<code>1 -&gt; -1 = 0xffffffff</code>（掩碼，取所有位）</p>
+<p>因此，<code>(M&amp;y) | (~M&amp;z)</code> 就是最終的答案。</p>
+<p>如果 <code>x = 1</code>，<code>M = 0xffffffff</code>，<code>~M = 0</code>，取 <code>y</code>；否則，取 <code>z</code></p>
+<h2 id="islessorequal"><a class="markdownIt-Anchor" href="#islessorequal"></a> isLessOrEqual</h2>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">isLessOrEqual</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> !((y+(~x+<span class="number">1</span>))&gt;&gt;<span class="number">31</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>簡單判斷符號位即可。但是實現的是 <code>&lt;=</code>，對 <code>&gt;</code> 取非即可</p>
+<h2 id="logicalneg"><a class="markdownIt-Anchor" href="#logicalneg"></a> logicalNeg</h2>
+<p>計算 <code>!x</code> (邏輯非)，<strong>不使用</strong> <code>!</code> 運算符</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">logicalNeg</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> ((x&gt;&gt;<span class="number">31</span>) | ((~x+<span class="number">1</span>)&gt;&gt;<span class="number">31</span>))+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="howmanybits"><a class="markdownIt-Anchor" href="#howmanybits"></a> howManyBits</h2>
+<p>計算用補碼表示 <code>x</code> 所需的最小位數</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">howManyBits</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">  <span class="type">int</span> fg = x&gt;&gt;<span class="number">31</span>;</span><br><span class="line">  x = ((~fg) &amp; x) | (fg &amp;(~x));</span><br><span class="line">  <span class="type">int</span> h16 = !!(x &gt;&gt; <span class="number">16</span>) &lt;&lt; <span class="number">4</span>;</span><br><span class="line">  x &gt;&gt;= h16;</span><br><span class="line">  <span class="type">int</span> h8 = !!(x&gt;&gt;<span class="number">8</span>) &lt;&lt; <span class="number">3</span>;</span><br><span class="line">  x &gt;&gt;= h8;</span><br><span class="line">  <span class="type">int</span> h4 = !!(x&gt;&gt;<span class="number">4</span>) &lt;&lt; <span class="number">2</span>;</span><br><span class="line">  x &gt;&gt;= h4;</span><br><span class="line">  <span class="type">int</span> h2 = !!(x&gt;&gt;<span class="number">2</span>) &lt;&lt; <span class="number">1</span>;</span><br><span class="line">  x&gt;&gt;=h2;</span><br><span class="line">  <span class="type">int</span> h1 = !!(x&gt;&gt;<span class="number">1</span>);</span><br><span class="line">  x&gt;&gt;=h1;</span><br><span class="line">  <span class="type">int</span> h0 = x;</span><br><span class="line">  <span class="keyword">return</span> h0 + h1 + h2 + h4 + h8 + h16 + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>這道題，先選取符號位，然後計算之後的最高位即可。</p>
+<p>為了方便計算，我們把負數補碼表示為正數，這樣就只用計算最高位的 <code>1</code> 在哪裡就行了</p>
+<p><code>((~fg) &amp; x) | (fg &amp; (~x))</code> 是一個條件取反操作，相當於 <code>x = (x &lt; 0) ? ~x : x</code></p>
+<ul>
+<li>若 fg 為 0（正數）：表達式變為 (All_1 &amp; x) | (0 &amp; ~x) -&gt; x。保持不變。</li>
+<li>若 fg 為 -1（負數）：表達式變為 (0 &amp; x) | (All_1 &amp; ~x) -&gt; ~x。按位取反。</li>
+</ul>
+<p>這裡提醒各位，此處補碼右移是<strong>算術右移</strong>，所以負數右移得到一個所有位都為 <code>1</code> 的數，也就是 <code>-1</code>。</p>
+<p>接下來進行位的二份尋找：</p>
+<p>這裡的邏輯是**“分治法”**。我們有 32 位要檢查，像二分尋找一樣：</p>
+<ol>
+<li>
+<p>檢查高 16 位：</p>
+<ul>
+<li><code>x &gt;&gt; 16</code>：如果不為 0，說明最高位的 1 在高 16 位中（即位 16-31）。</li>
+<li><code>!!(...)</code>：將結果轉化為 0 或 1。如果高 16 位有數，結果為 1，否則為 0。</li>
+<li><code>1&lt;&lt; 4</code>：如果高 16 位有數，說明我們至少需要 16 位，即 <code>1 &lt;&lt; 4 = 16</code>。</li>
+<li><code>h16</code>：這就是我們找到的基數（0 或 16）。</li>
+<li><code>x &gt;&gt;= h16</code>：關鍵點。如果我們確定高 16 位有數，我們將 x 右移 16 位，丟棄低 16 位，接下來的檢查只關注剛才的高 16 位。如果高 16 位全是 0，x 保持不變，我們繼續檢查原本的低 16 位。</li>
+</ul>
+</li>
+<li>
+<p>檢查高 8 位（在剩下的 16 位範圍內）：</p>
+</li>
+</ol>
+<p>邏輯同上。如果剩下的這部分的高 8 位有數，則 <code>h8 = 8</code>，並將 x 右移 8 位。</p>
+<ol start="3">
+<li>依此類推：</li>
+</ol>
+<ul>
+<li><code>h4</code>：檢查剩下的 4 位中的高 2 位… (這裡代碼邏輯是一致的，檢查高4位)。</li>
+<li><code>h2</code>：檢查剩下的 4 位。</li>
+<li><code>h1</code>：檢查剩下的 2 位。</li>
+<li><code>h0 = x</code>：檢查最後剩下的 1 位。</li>
+</ul>
+<p>最後，我們計算 <code>h16+…+h0</code> 的總和即可。這裡要注意，補碼有一個符號位，所以結果還要再 <code>+1</code>。</p>
+<p>得到答案：<code>h0 + h1 + h2 + h4 + h8 + h16 + 1</code></p>
+<h2 id="floatscale2"><a class="markdownIt-Anchor" href="#floatscale2"></a> floatScale2</h2>
+<p>對於浮點參數 <code>f</code>，返回 <code>2 * f</code> 的位級等價表示</p>
+<h3 id="ieee-754"><a class="markdownIt-Anchor" href="#ieee-754"></a> IEEE 754</h3>
+<p>我們先來回顧一下浮點數的位級表示，即 IEEE 754，這裡以 <code>float</code> 為例</p>
+<p>浮點數位中有三段：</p>
+<ul>
+<li>Sign (s): 1 bit [31] -&gt; 符號位</li>
+<li>Exponent (exp): 8 bits [30:23] -&gt; 階碼</li>
+<li>Fraction (frac): 23 bits [22:0] -&gt; 尾數</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> sign = (uf &gt;&gt; <span class="number">31</span>) &amp; <span class="number">0x1</span>;</span><br><span class="line"><span class="type">int</span> <span class="built_in">exp</span>  = (uf &gt;&gt; <span class="number">23</span>) &amp; <span class="number">0xFF</span>;</span><br><span class="line"><span class="type">int</span> frac = uf &amp; <span class="number">0x7FFFFF</span>;</span><br></pre></td></tr></table></figure>
+<p>對於一個浮點數的解釋，有三種情況：</p>
+<h4 id="case-a-非規格化-denormalized"><a class="markdownIt-Anchor" href="#case-a-非規格化-denormalized"></a> Case A: 非規格化 (Denormalized)</h4>
+<ul>
+<li><strong>特徵</strong>：<code>exp == 0</code></li>
+<li><strong>真實值</strong>：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mo stretchy="false">(</mo><mo>−</mo><mn>1</mn><msup><mo stretchy="false">)</mo><mi>s</mi></msup><mo>×</mo><mi>M</mi><mo>×</mo><msup><mn>2</mn><mrow><mn>1</mn><mo>−</mo><mi>B</mi><mi>i</mi><mi>a</mi><mi>s</mi></mrow></msup></mrow><annotation encoding="application/x-tex">V = (-1)^s \times M \times 2^{1-Bias}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">−</span><span class="mord">1</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">s</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mbin mtight">−</span><span class="mord mathnormal mtight" style="margin-right:0.05017em;">B</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight">s</span></span></span></span></span></span></span></span></span></span></span></span>
+<ul>
+<li>這裡 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mn>0.</mn><mi>f</mi><mi>r</mi><mi>a</mi><mi>c</mi></mrow><annotation encoding="application/x-tex">M = 0.frac</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">a</span><span class="mord mathnormal">c</span></span></span></span> (沒有隱含的 1)</li>
+</ul>
+</li>
+</ul>
+<h4 id="case-b-規格化-normalized"><a class="markdownIt-Anchor" href="#case-b-規格化-normalized"></a> Case B: 規格化 (Normalized)</h4>
+<ul>
+<li><strong>特徵</strong>：<code>exp != 0</code> 且 <code>exp != 255</code></li>
+<li><strong>真實值</strong>：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mo stretchy="false">(</mo><mo>−</mo><mn>1</mn><msup><mo stretchy="false">)</mo><mi>s</mi></msup><mo>×</mo><mi>M</mi><mo>×</mo><msup><mn>2</mn><mrow><mi>e</mi><mi>x</mi><mi>p</mi><mo>−</mo><mi>B</mi><mi>i</mi><mi>a</mi><mi>s</mi></mrow></msup></mrow><annotation encoding="application/x-tex">V = (-1)^s \times M \times 2^{exp-Bias}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">−</span><span class="mord">1</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">s</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">x</span><span class="mord mathnormal mtight">p</span><span class="mbin mtight">−</span><span class="mord mathnormal mtight" style="margin-right:0.05017em;">B</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight">s</span></span></span></span></span></span></span></span></span></span></span></span>
+<ul>
+<li>這裡 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mn>1.</mn><mi>f</mi><mi>r</mi><mi>a</mi><mi>c</mi></mrow><annotation encoding="application/x-tex">M = 1.frac</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">a</span><span class="mord mathnormal">c</span></span></span></span> (有一個隱含的 1)</li>
+<li>Bias = 127</li>
+</ul>
+</li>
+</ul>
+<h4 id="case-c-特殊值-special-values"><a class="markdownIt-Anchor" href="#case-c-特殊值-special-values"></a> Case C: 特殊值 (Special Values)</h4>
+<ul>
+<li><strong>特徵</strong>：<code>exp == 255</code> (全 1)</li>
+<li><strong>類型</strong>：
+<ul>
+<li><code>frac == 0</code>：Infinity (無窮大)</li>
+<li><code>frac != 0</code>：NaN (Not a Number)</li>
+</ul>
+</li>
+</ul>
+<p>接下來我們看這道題，這道題只需要注意分類討論就可以。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="title function_">floatScale2</span><span class="params">(<span class="type">unsigned</span> uf)</span> &#123;</span><br><span class="line">  <span class="type">unsigned</span> s = uf &gt;&gt; <span class="number">31</span>;</span><br><span class="line">  <span class="type">unsigned</span> <span class="built_in">exp</span> = (uf &gt;&gt; <span class="number">23</span>) &amp; <span class="number">0xFF</span>;</span><br><span class="line">  <span class="type">unsigned</span> ff = uf &amp; <span class="number">0x7fffff</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 特殊值 (Special Values)</span></span><br><span class="line">  <span class="comment">// 如果階碼全為1 (exp == 255)，表示 NaN (非數) 或 Infinity (無窮大)</span></span><br><span class="line">  <span class="comment">// 規則：NaN * 2 = NaN, Inf * 2 = Inf，直接返回原值</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">exp</span> == <span class="number">0xFF</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> uf;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 非規格化數 (Denormalized)</span></span><br><span class="line">  <span class="comment">// 如果階碼為0，表示非規格化數，數值非常接近 0</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">exp</span> == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="comment">// 非規格化數乘以2：直接將尾數左移一位</span></span><br><span class="line">    ff &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 檢查尾數是否溢出 (從非規格化過渡到規格化)</span></span><br><span class="line">    <span class="comment">// 如果左移後 ff 超過了 23 位能表示的最大值 (即 0x7fffff)</span></span><br><span class="line">    <span class="comment">// 說明最高位變成了 1，這個 1 應該“進位”給階碼</span></span><br><span class="line">    <span class="keyword">if</span> (ff &gt; <span class="number">0x7fffff</span>) &#123;</span><br><span class="line">      ff -= <span class="number">0x800000</span>; <span class="comment">// 去掉溢出的那一位 (因為它現在變成了隱含的 1)</span></span><br><span class="line">      <span class="built_in">exp</span> += <span class="number">1</span>;       <span class="comment">// 階碼從 0 變為 1 (成為規格化數)</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125; </span><br><span class="line">  <span class="comment">// 規格化數 (Normalized)</span></span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 規格化數乘以2：直接給階碼加 1</span></span><br><span class="line">    <span class="built_in">exp</span> += <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 檢查階碼上溢 (Overflow)</span></span><br><span class="line">    <span class="comment">// 如果加 1 後階碼變成了 255，說明數值太大，變成了無窮大 (Infinity)</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">exp</span> == <span class="number">0xFF</span>) &#123;</span><br><span class="line">      ff = <span class="number">0</span>; <span class="comment">// 無窮大的定義是 exp=255 且 frac=0</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (s &lt;&lt; <span class="number">31</span>) | (<span class="built_in">exp</span> &lt;&lt; <span class="number">23</span>) | (ff);</span><br><span class="line">&#125;```</span><br><span class="line"></span><br><span class="line">## floatFloat2Int</span><br><span class="line"></span><br><span class="line">對於浮點參數 `f`，返回 `(<span class="type">int</span>)f` 的位級等價表示</span><br><span class="line"></span><br><span class="line">```c</span><br><span class="line"><span class="type">int</span> <span class="title function_">floatFloat2Int</span><span class="params">(<span class="type">unsigned</span> uf)</span> &#123;</span><br><span class="line">  <span class="type">unsigned</span> s = uf &gt;&gt; <span class="number">31</span>;</span><br><span class="line">  <span class="type">unsigned</span> <span class="built_in">exp</span> = (uf &gt;&gt; <span class="number">23</span>) &amp; <span class="number">0xFF</span>;</span><br><span class="line">  <span class="type">unsigned</span> ff = uf &amp; <span class="number">0x7fffff</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 處理特殊情況：NaN (非數) 或 Infinity (無窮大)</span></span><br><span class="line">  <span class="comment">// 當階碼全為 1 時。根據題目要求，越界通常返回 TMin (0x80000000)</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">exp</span> == <span class="number">0xFF</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0x80000000u</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 處理非規格化數 (Denormalized)</span></span><br><span class="line">  <span class="comment">// 當階碼全為 0 時，數值極小 (0.xxxx * 2^-126)，轉換為 int 必定為 0</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">exp</span> == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 計算真實指數 E</span></span><br><span class="line">  <span class="comment">// Bias (偏置值) 是 127。 E = exp - Bias</span></span><br><span class="line">  <span class="type">int</span> E = (<span class="type">int</span>)<span class="built_in">exp</span> - <span class="number">127</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 處理小於 1 的數</span></span><br><span class="line">  <span class="comment">// 如果真實指數小於 0 (例如 2^-1, 2^-2)，數值為 0.xxxx</span></span><br><span class="line">  <span class="comment">// 強轉 int 會向零截斷，結果為 0</span></span><br><span class="line">  <span class="keyword">if</span> (E &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 還原隱含的 1 (Restore Implicit 1)</span></span><br><span class="line">  <span class="comment">// 規格化數的真實尾數形式是 1.fffff...</span></span><br><span class="line">  <span class="comment">// 我們手動把第 23 位置 1，代表那個隱含的整數部分 &quot;1&quot;</span></span><br><span class="line">  ff = ff | (<span class="number">1</span> &lt;&lt; <span class="number">23</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 處理溢出 (Overflow)</span></span><br><span class="line">  <span class="comment">// 如果指數 E &gt;= 31，說明數值 magnitude &gt;= 2^31</span></span><br><span class="line">  <span class="comment">// int 的最大值是 2^31 - 1。</span></span><br><span class="line">  <span class="comment">// 無論是正數溢出，還是負數正好是 TMin (-2^31) 或更小，</span></span><br><span class="line">  <span class="comment">// 按照題目規則，都返回 TMin (0x80000000)</span></span><br><span class="line">  <span class="keyword">if</span> (E &gt;= <span class="number">31</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0x80000000u</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 位移對齊 (Bit Shifting)</span></span><br><span class="line">  <span class="comment">// 現在的 ff 看起來是這樣： [1]. [xxxxxx]... (1 在第 23 位)</span></span><br><span class="line">  <span class="comment">// 這相當於 1.xxxxx * 2^23 (如果在整數暫存器看)</span></span><br><span class="line">  <span class="comment">// 我們實際需要的是 1.xxxxx * 2^E</span></span><br><span class="line">  <span class="keyword">if</span> (E &lt; <span class="number">23</span>) &#123;</span><br><span class="line">    <span class="comment">// 情況 A: 指數較小 (例如 E = 20)</span></span><br><span class="line">    <span class="comment">// 我們需要將小數點右移 20 位。</span></span><br><span class="line">    <span class="comment">// 但當前 ff 是左對齊在第 23 位的，所以需要**右移**丟棄多餘的小數位。</span></span><br><span class="line">    <span class="comment">// 移位量 = 23 - 20 = 3</span></span><br><span class="line">    ff = ff &gt;&gt; (<span class="number">23</span> - E);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 情況 B: 指數較大 (例如 E = 30)</span></span><br><span class="line">    <span class="comment">// 我們需要將小數點右移 30 位。</span></span><br><span class="line">    <span class="comment">// 當前只在第 23 位，不夠，需要**左移**補零。</span></span><br><span class="line">    <span class="comment">// 移位量 = 30 - 23 = 7</span></span><br><span class="line">    ff = ff &lt;&lt; (E - <span class="number">23</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 處理符號</span></span><br><span class="line">  <span class="comment">// 如果原數是負數，進行取反加一 (即 -ff)</span></span><br><span class="line">  <span class="keyword">if</span> (s) <span class="keyword">return</span> -ff;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 原數是正數，直接返回</span></span><br><span class="line">  <span class="keyword">return</span> ff;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="floatpower2"><a class="markdownIt-Anchor" href="#floatpower2"></a> floatPower2</h2>
+<p>對於整數 <code>x</code>，返回 <code>2.0^x</code> 的位級等價表示。對於這道題，計算出幾個臨界點即可。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="title function_">floatPower2</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">    <span class="comment">// 1. 處理下溢 (Underflow)</span></span><br><span class="line">    <span class="comment">// 最小的非規格化數是 2^(-149)。</span></span><br><span class="line">    <span class="comment">// 計算邏輯：Min Denorm = 2^(1-Bias) * 2^(-23) = 2^(-126) * 2^(-23) = 2^(-149)</span></span><br><span class="line">    <span class="comment">// 如果 x 比這個還小，說明數值太小無法表示，直接返回 0.0</span></span><br><span class="line">    <span class="keyword">if</span> (x &lt; <span class="number">-149</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 處理非規格化數 (Denormalized)</span></span><br><span class="line">    <span class="comment">// 範圍：[-149, -127]</span></span><br><span class="line">    <span class="comment">// 非規格化數的階碼 (exp) 全為 0，值公式為：M * 2^(-126)</span></span><br><span class="line">    <span class="comment">// 我們需要構建 2^x。</span></span><br><span class="line">    <span class="comment">// 方程：2^x = (1 &lt;&lt; shift) * 2^(-23) * 2^(-126)  &lt;-- (1&lt;&lt;shift)*2^-23 是尾數部分</span></span><br><span class="line">    <span class="comment">//      2^x = 2^shift * 2^(-149)</span></span><br><span class="line">    <span class="comment">//      x = shift - 149</span></span><br><span class="line">    <span class="comment">//      shift = x + 149</span></span><br><span class="line">    <span class="comment">// 所以，我們將 1 左移 (x + 149) 位放在尾數部分 (Fraction)</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (x &lt; <span class="number">-126</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span> &lt;&lt; (x + <span class="number">149</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 處理規格化數 (Normalized)</span></span><br><span class="line">    <span class="comment">// 範圍：[-126, 127]</span></span><br><span class="line">    <span class="comment">// 規格化數的值公式為：1.0 * 2^(exp - Bias)</span></span><br><span class="line">    <span class="comment">// 我們需要 2^x，尾數部分保持為 0 (即 1.0)，只需要設置階碼。</span></span><br><span class="line">    <span class="comment">// 方程：x = exp - Bias</span></span><br><span class="line">    <span class="comment">//      exp = x + Bias</span></span><br><span class="line">    <span class="comment">//      exp = x + 127</span></span><br><span class="line">    <span class="comment">// 將計算出的 exp 移到階碼的位置 (第 23-30 位)</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (x &lt;= <span class="number">127</span>)</span><br><span class="line">        <span class="keyword">return</span> (x + <span class="number">127</span>) &lt;&lt; <span class="number">23</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4. 處理上溢 (Overflow)</span></span><br><span class="line">    <span class="comment">// 範圍：x &gt; 127</span></span><br><span class="line">    <span class="comment">// 單精度浮點數最大能表示的 2 的冪是 2^127。</span></span><br><span class="line">    <span class="comment">// 超過這個值，返回正無窮大 (+Infinity)。</span></span><br><span class="line">    <span class="comment">// +Inf 的表示：符號位 0，階碼全 1 (0xFF)，尾數全 0。</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> (<span class="number">0xFF</span>) &lt;&lt; <span class="number">23</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="小結"><a class="markdownIt-Anchor" href="#小結"></a> 小結</h2>
+<p><code>Data Lab</code> 實驗使我深入理解整數（補碼）和浮點數（IEEE 754）在二進制層面的表示方法，透過使用一組極其受限的位運算符（如 ~, &amp;, |, ^, +, &lt;&lt;, &gt;&gt;）來實現複雜的邏輯、算術、比較和類型轉換操作，從而真正掌握了位運算的技巧。</p>
+<p>我的代碼存放在 <a target="_blank" rel="noopener" href="https://github.com/aeilot/CSAPP-Labs">aeilot/CSAPP-Labs</a>。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>滿五
+  </li>
+  <li class="post-copyright-link">
+      <strong>文章連結：</strong>
+      <a href="https://blog.aeilot.top/2025/12/01/csapp-lab1/" title="“CSAPP Data Lab 解析&quot;">https://blog.aeilot.top/2025/12/01/csapp-lab1/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-TW" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 許可協議。轉載請註明出處！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>歡迎關注我的其它發布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/aeilot">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://t.me/aeilot_post">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">Telegram</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.zhihu.com/people/louis-80-27">
+            <span class="icon">
+              <i class="fa-brands fa-zhihu"></i>
+            </span>
+
+            <span class="label">知乎</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/CS/" rel="tag"><i class="fa fa-tag"></i> CS</a>
+              <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C</a>
+              <a href="/tags/%E4%BD%8D%E9%81%8B%E7%AE%97/" rel="tag"><i class="fa fa-tag"></i> 位運算</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/11/27/matrix-mqr/" rel="prev" title="矩陣的 Modified Gram Schmidt 方法">
+                  <i class="fa fa-angle-left"></i> 矩陣的 Modified Gram Schmidt 方法
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2015 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">滿五</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="訪客總數">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="總瀏覽次數">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/aeilot" class="github-corner" title="在 GitHub 上關注我" aria-label="在 GitHub 上關注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-TW","enable":true,"serverURL":"https://comments.aeilot.top","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"dark":"auto","emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo","https://unpkg.com/@waline/emojis@1.0.1/alus","https://unpkg.com/@waline/emojis@1.0.1/bilibili","https://unpkg.com/@waline/emojis@1.0.1/qq","https://unpkg.com/@waline/emojis@1.0.1/tieba","https://unpkg.com/@waline/emojis@1.0.1/tw-emoji"],"meta":["nick","mail","link"],"requiredMeta":["nick"],"el":"#waline","comment":true,"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","path":"/2025/12/01/csapp-lab1/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>

@@ -85,8 +85,9 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":false,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
-<script src="/js/third-party/math/mathjax.js" defer></script>
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js" defer></script>
 
 
 <link rel="dns-prefetch" href="https://comments.aeilot.top">
@@ -184,7 +185,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%8C%E5%B9%B9"><span class="nav-number">1.</span> <span class="nav-text">題幹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%99%BC%E7%8F%BE%E5%95%8F%E9%A1%8C"><span class="nav-number">3.</span> <span class="nav-text">發現問題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AA%E5%AE%9A%E7%BE%A9%E8%A1%8C%E7%82%BA"><span class="nav-number">4.</span> <span class="nav-text">未定義行為</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%80%E5%AF%9F%E5%87%BA%E9%8C%AF%E7%A8%8B%E5%BC%8F%E7%A2%BC"><span class="nav-number">5.</span> <span class="nav-text">觀察出錯程式碼</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9"><span class="nav-number">6.</span> <span class="nav-text">修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E9%80%99%E5%80%8B%E5%8F%AF%E8%83%BD%E6%9C%89%E6%95%88"><span class="nav-number">7.</span> <span class="nav-text">為什麼這個“可能”有效？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AB%96%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A2%BA%E9%9D%A2%E5%B0%8D%E6%9C%AA%E5%AE%9A%E7%BE%A9%E8%A1%8C%E7%82%BA"><span class="nav-number">8.</span> <span class="nav-text">結論：如何正確面對未定義行為</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%8C%E5%B9%B9"><span class="nav-number">1.</span> <span class="nav-text"> 題幹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%99%BC%E7%8F%BE%E5%95%8F%E9%A1%8C"><span class="nav-number">3.</span> <span class="nav-text"> 發現問題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AA%E5%AE%9A%E7%BE%A9%E8%A1%8C%E7%82%BA"><span class="nav-number">4.</span> <span class="nav-text"> 未定義行為</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%80%E5%AF%9F%E5%87%BA%E9%8C%AF%E7%A8%8B%E5%BC%8F%E7%A2%BC"><span class="nav-number">5.</span> <span class="nav-text"> 觀察出錯程式碼</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9"><span class="nav-number">6.</span> <span class="nav-text"> 修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E9%80%99%E5%80%8B%E5%8F%AF%E8%83%BD%E6%9C%89%E6%95%88"><span class="nav-number">7.</span> <span class="nav-text"> 為什麼這個“可能”有效？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AB%96%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A2%BA%E9%9D%A2%E5%B0%8D%E6%9C%AA%E5%AE%9A%E7%BE%A9%E8%A1%8C%E7%82%BA"><span class="nav-number">8.</span> <span class="nav-text"> 結論：如何正確面對未定義行為</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -199,13 +200,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -363,46 +364,31 @@
     
     <div class="post-body" itemprop="articleBody"><p>在做 CSAPP Data Lab 的時候，關於整數溢位，遇到一些問題。</p>
 <span id="more"></span>
-<h2 id="題幹">題幹</h2>
+<h2 id="題幹"><a class="markdownIt-Anchor" href="#題幹"></a> 題幹</h2>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * isTmax - returns 1 if x is the maximum, two&#x27;s complement number, </span></span><br><span class="line"><span class="comment"> *     and 0 otherwise </span></span><br><span class="line"><span class="comment"> *   Legal ops: ! ~ &amp; ^ | +</span></span><br><span class="line"><span class="comment"> *   Max ops: 10</span></span><br><span class="line"><span class="comment"> *   Rating: 1</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">isTmax</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>題目要求，僅僅使用運算子 <code>! ~ &amp; ^ | +</code>
-來判斷一個數是否是最大的二的補碼（<code>int</code> 範圍內），即
-<code>0x7fffffff</code>。如果是，輸出 1；否則，輸出 0。</p>
-<h2 id="思路">思路</h2>
-<p>由於我們不能使用移位操作（很多人會直接
-<code>1&lt;&lt;31 - 1</code>），可以考慮整數溢位的特殊性質。</p>
-<p>具體地，我們有
-<code>0x7fffffff + 1 = 0x80000000</code>，符號改變。</p>
+<p>題目要求，僅僅使用運算子 <code>! ~ &amp; ^ | +</code> 來判斷一個數是否是最大的二的補碼（<code>int</code> 範圍內），即 <code>0x7fffffff</code>。如果是，輸出 1；否則，輸出 0。</p>
+<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
+<p>由於我們不能使用移位操作（很多人會直接 <code>1&lt;&lt;31 - 1</code>），可以考慮整數溢位的特殊性質。</p>
+<p>具體地，我們有 <code>0x7fffffff + 1 = 0x80000000</code>，符號改變。</p>
 <p>而 <code>0x80000000 + 0x80000000 = 0</code></p>
-<p>我們可以得到 <code>x = 0x7fffffff</code> 滿足
-<code>x + 1 + x + 1 = 0</code></p>
-<p>而對於其他數字，假設 <code>y = x + k</code> 其中 <code>k</code>
-非零，則有 <code>y + 1 + y + 1 = 2*k</code></p>
-<p>此時，我們發現，對於 <code>y=-1</code> 也有
-<code>y + 1 + y + 1 = 0</code>，需要排除掉</p>
-<p>其他情況下，非零數轉換為 <code>bool</code> 型別自動變為
-<code>1</code></p>
+<p>我們可以得到 <code>x = 0x7fffffff</code> 滿足 <code>x + 1 + x + 1 = 0</code></p>
+<p>而對於其他數字，假設 <code>y = x + k</code> 其中 <code>k</code> 非零，則有 <code>y + 1 + y + 1 = 2*k</code></p>
+<p>此時，我們發現，對於 <code>y=-1</code> 也有 <code>y + 1 + y + 1 = 0</code>，需要排除掉</p>
+<p>其他情況下，非零數轉換為 <code>bool</code> 型別自動變為 <code>1</code></p>
 <p>我們不難寫出以下程式碼：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">isTmax</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">  <span class="type">int</span> p1 = x+<span class="number">1</span>;</span><br><span class="line">  <span class="type">int</span> p2 = p1 + p1;</span><br><span class="line">  <span class="keyword">return</span> !(p2) &amp; !!(p1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="發現問題">發現問題</h2>
-<p>這段程式碼在我本地（macOS，Apple clang version 17.0.0
-(clang-1700.3.19.1), Target: arm64-apple-darwin25.0.0) 上執行，使用命令
-<code>clang main.c</code> 是沒有任何問題的。</p>
+<h2 id="發現問題"><a class="markdownIt-Anchor" href="#發現問題"></a> 發現問題</h2>
+<p>這段程式碼在我本地（macOS，Apple clang version 17.0.0 (clang-1700.3.19.1), Target: arm64-apple-darwin25.0.0) 上執行，使用命令 <code>clang main.c</code> 是沒有任何問題的。</p>
 <p>但是，檢查到 CSAPP 提供的 Makefile，有</p>
 <figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Makefile that builds btest and other helper programs for the CS:APP data lab</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line">CC = gcc</span><br><span class="line">CFLAGS = -O -Wall</span><br><span class="line">LIBS = -lm</span><br><span class="line"></span><br><span class="line"><span class="section">all: btest fshow ishow</span></span><br><span class="line"></span><br><span class="line"><span class="section">btest: btest.c bits.c decl.c tests.c btest.h bits.h</span></span><br><span class="line">	<span class="variable">$(CC)</span> <span class="variable">$(CFLAGS)</span> <span class="variable">$(LIBS)</span> -o btest bits.c btest.c decl.c tests.c</span><br><span class="line"></span><br><span class="line"><span class="section">fshow: fshow.c</span></span><br><span class="line">	<span class="variable">$(CC)</span> <span class="variable">$(CFLAGS)</span> -o fshow fshow.c</span><br><span class="line"></span><br><span class="line"><span class="section">ishow: ishow.c</span></span><br><span class="line">	<span class="variable">$(CC)</span> <span class="variable">$(CFLAGS)</span> -o ishow ishow.c</span><br><span class="line"></span><br><span class="line"><span class="comment"># Forces a recompile. Used by the driver program. </span></span><br><span class="line"><span class="section">btestexplicit:</span></span><br><span class="line">	<span class="variable">$(CC)</span> <span class="variable">$(CFLAGS)</span> <span class="variable">$(LIBS)</span> -o btest bits.c btest.c decl.c tests.c </span><br><span class="line"></span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">	rm -f *.o btest fshow ishow *~</span><br></pre></td></tr></table></figure>
-<p>注意到，編譯器使用了 <code>-O</code> flag，即 <code>O1</code>
-最佳化。</p>
-<p>此時執行這段程式碼，對於 <code>0x7fffffff</code> 輸出
-<code>0</code>，懷疑可能是編譯器最佳化時，假設未定義行為（整數溢位）不會發生，將
-!p2 最佳化。<code>p1 + p1</code> 的形式過於簡單。</p>
-<h2 id="未定義行為">未定義行為</h2>
+<p>注意到，編譯器使用了 <code>-O</code> flag，即 <code>O1</code> 最佳化。</p>
+<p>此時執行這段程式碼，對於 <code>0x7fffffff</code> 輸出 <code>0</code>，懷疑可能是編譯器最佳化時，假設未定義行為（整數溢位）不會發生，將 !p2 最佳化。<code>p1 + p1</code> 的形式過於簡單。</p>
+<h2 id="未定義行為"><a class="markdownIt-Anchor" href="#未定義行為"></a> 未定義行為</h2>
 <p>未定義行為（UB），根據 <code>cppreference</code> 的定義：</p>
 <figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">undefined</span> behavior - There are <span class="literal">no</span> restrictions <span class="literal">on</span> the behavior <span class="keyword">of</span> the program.</span><br></pre></td></tr></table></figure>
 <p>有符號整數溢位是一種常見的未定義行為。</p>
 <blockquote>
-<p>Because correct C++ programs are free of undefined behavior,
-compilers may produce unexpected results when a program that actually
-has UB is compiled with optimization enabled.</p>
+<p>Because correct C++ programs are free of undefined behavior, compilers may produce unexpected results when a program that actually has UB is compiled with optimization enabled.</p>
 </blockquote>
 <p>也就是說，編譯器最佳化會對未定義行為產生意料之外的結果</p>
 <p><code>cppreference</code> 給出了一個整數溢位的例子：</p>
@@ -410,75 +396,49 @@ has UB is compiled with optimization enabled.</p>
 <p>編譯之後卻變成了</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">foo(int):</span><br><span class="line">        mov     eax, 1</span><br><span class="line">        ret</span><br></pre></td></tr></table></figure>
 <p>意思是，不管怎麼樣都輸出 <code>1</code></p>
-<h2 id="觀察出錯程式碼">觀察出錯程式碼</h2>
+<h2 id="觀察出錯程式碼"><a class="markdownIt-Anchor" href="#觀察出錯程式碼"></a> 觀察出錯程式碼</h2>
 <p>我們透過 <code>gcc -S</code> 輸出編譯後的彙編程式碼</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">_Z6isTmaxi:</span><br><span class="line">.LFB2:</span><br><span class="line">	.cfi_startproc</span><br><span class="line">	endbr64</span><br><span class="line">	movl	$0, %eax</span><br><span class="line">	ret</span><br><span class="line">	.cfi_endproc</span><br></pre></td></tr></table></figure>
-<p>我們看到，編譯器直接把這個函式返回值改成了
-<code>0</code>，不管輸入什麼，與我們的錯誤原因推斷是相同的。</p>
-<h2 id="修改">修改</h2>
-<p>我們可以嘗試構造一個更復雜的、不易被簡單規則匹配的表示式，躲過
-<code>O1</code> 級別的最佳化。</p>
-<p>核心思路不變，仍然是利用 <code>Tmax + 1 = Tmin</code>
-這個特性。我們來觀察一下 <code>Tmax</code> 和 <code>Tmin</code>
-在二進位制下的關係：</p>
+<p>我們看到，編譯器直接把這個函式返回值改成了 <code>0</code>，不管輸入什麼，與我們的錯誤原因推斷是相同的。</p>
+<h2 id="修改"><a class="markdownIt-Anchor" href="#修改"></a> 修改</h2>
+<p>我們可以嘗試構造一個更復雜的、不易被簡單規則匹配的表示式，躲過 <code>O1</code> 級別的最佳化。</p>
+<p>核心思路不變，仍然是利用 <code>Tmax + 1 = Tmin</code> 這個特性。我們來觀察一下 <code>Tmax</code> 和 <code>Tmin</code> 在二進位制下的關係：</p>
 <ul>
-<li><code>Tmax</code> = <code>0x7fffffff</code> =
-<code>0111...1111</code></li>
-<li><code>Tmin</code> = <code>0x80000000</code> =
-<code>1000...0000</code></li>
+<li><code>Tmax</code> = <code>0x7fffffff</code> = <code>0111...1111</code></li>
+<li><code>Tmin</code> = <code>0x80000000</code> = <code>1000...0000</code></li>
 </ul>
-<p>一個非常有趣的性質是 <code>Tmax + Tmin = -1</code>
-(<code>0xffffffff</code>)。</p>
+<p>一個非常有趣的性質是 <code>Tmax + Tmin = -1</code> (<code>0xffffffff</code>)。</p>
 <figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">  0111 1111 ... 1111  (Tmax)</span></span><br><span class="line"><span class="section">+ 1000 0000 ... 0000  (Tmin)</span></span><br><span class="line"><span class="section">-------------------------</span></span><br><span class="line"><span class="code">  1111 1111 ... 1111  (-1)</span></span><br></pre></td></tr></table></figure>
-<p>基於這個觀察，我們可以設計一個新的檢查方案：如果一個數 <code>x</code>
-是 <code>Tmax</code>，那麼 <code>x + (x+1)</code> 的結果就應該是
-<code>-1</code>。取反後 <code>~(-1)</code> 則為 <code>0</code>。</p>
+<p>基於這個觀察，我們可以設計一個新的檢查方案：如果一個數 <code>x</code> 是 <code>Tmax</code>，那麼 <code>x + (x+1)</code> 的結果就應該是 <code>-1</code>。取反後 <code>~(-1)</code> 則為 <code>0</code>。</p>
 <p>我們可以寫出如下的修改版程式碼：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">isTmax</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">  <span class="type">int</span> <span class="built_in">map</span> = x + <span class="number">1</span>;</span><br><span class="line">  <span class="type">int</span> res = ~(<span class="built_in">map</span> + x);</span><br><span class="line">  <span class="keyword">return</span> !res &amp; (!!<span class="built_in">map</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>這段程式碼的邏輯是：</p>
-<ol type="1">
-<li>計算 <code>map = x + 1</code>。對於
-<code>x = Tmax</code>，這裡同樣會發生有符號溢位，<code>map</code> 變為
-<code>Tmin</code>。<strong>這依然是未定義行為（UB）</strong>。</li>
-<li>計算 <code>res = ~(map + x)</code>。如果 <code>x</code> 是
-<code>Tmax</code>，這一步就是 <code>~(Tmin + Tmax)</code>，結果為
-<code>~(-1)</code>，即 <code>0</code>。</li>
-<li><code>return !res &amp; (!!map)</code>。<code>!res</code> 為
-<code>!0</code>，即 <code>1</code>。<code>!!map</code>
-部分和之前的版本一樣，是為了排除 <code>x = -1</code> 的情況（此時
-<code>map</code> 為 0， <code>!!map</code> 為 0，最終返回 0）。</li>
+<ol>
+<li>計算 <code>map = x + 1</code>。對於 <code>x = Tmax</code>，這裡同樣會發生有符號溢位，<code>map</code> 變為 <code>Tmin</code>。<strong>這依然是未定義行為（UB）</strong>。</li>
+<li>計算 <code>res = ~(map + x)</code>。如果 <code>x</code> 是 <code>Tmax</code>，這一步就是 <code>~(Tmin + Tmax)</code>，結果為 <code>~(-1)</code>，即 <code>0</code>。</li>
+<li><code>return !res &amp; (!!map)</code>。<code>!res</code> 為 <code>!0</code>，即 <code>1</code>。<code>!!map</code> 部分和之前的版本一樣，是為了排除 <code>x = -1</code> 的情況（此時 <code>map</code> 為 0， <code>!!map</code> 為 0，最終返回 0）。</li>
 </ol>
-<p>這段程式碼在 <code>-O</code>
-最佳化下<strong>可能</strong>會得到正確的結果。</p>
-<h2 id="為什麼這個可能有效">為什麼這個“可能”有效？</h2>
+<p>這段程式碼在 <code>-O</code> 最佳化下<strong>可能</strong>會得到正確的結果。</p>
+<h2 id="為什麼這個可能有效"><a class="markdownIt-Anchor" href="#為什麼這個可能有效"></a> 為什麼這個“可能”有效？</h2>
 <p>我們必須清醒地認識到，新版本的程式碼本質上沒有解決未定義行為的問題，它只是“僥倖”地繞過了當前編譯器版本的特定最佳化策略。</p>
 <ul>
-<li><strong>程式碼模式的複雜性</strong>：<code>p1 + p1</code>
-(<code>(x+1)+(x+1)</code>)
-是一個非常簡單直白的模式，最佳化器很容易建立一個“如果 <code>p1</code>
-非零，則 <code>p1+p1</code> 結果也非零”的最佳化規則。而
-<code>~((x+1)+x)</code>
-混合了加法和位運算，模式更復雜，可能沒有觸發編譯器中已有的、基於UB的最佳化捷徑。</li>
+<li><strong>程式碼模式的複雜性</strong>：<code>p1 + p1</code> (<code>(x+1)+(x+1)</code>) 是一個非常簡單直白的模式，最佳化器很容易建立一個“如果 <code>p1</code> 非零，則 <code>p1+p1</code> 結果也非零”的最佳化規則。而 <code>~((x+1)+x)</code> 混合了加法和位運算，模式更復雜，可能沒有觸發編譯器中已有的、基於UB的最佳化捷徑。</li>
 <li><strong>最佳化的機會主義</strong>：編譯器最佳化並不是要窮盡所有的數學可能，而是應用一系列已知的高效模式。我們的新程式碼恰好不在這些常見模式的“黑名單”上。</li>
 </ul>
 <p>所以，這個修改版只是一個更具迷惑性的“偽裝”。它在特定環境下能工作，但其行為是不被C語言標準所保證的，在不同的編譯器或未來的GCC版本下，它隨時可能失效。</p>
-<h2 id="結論如何正確面對未定義行為">結論：如何正確面對未定義行為</h2>
-<p>透過 <code>isTmax</code>
-這個小小的函式，我們可以一窺C語言中未定義行為的危險性以及現代編譯器最佳化的強大。作為開發者，我們應該得到以下啟示：</p>
-<ol type="1">
+<h2 id="結論如何正確面對未定義行為"><a class="markdownIt-Anchor" href="#結論如何正確面對未定義行為"></a> 結論：如何正確面對未定義行為</h2>
+<p>透過 <code>isTmax</code> 這個小小的函式，我們可以一窺C語言中未定義行為的危險性以及現代編譯器最佳化的強大。作為開發者，我們應該得到以下啟示：</p>
+<ol>
 <li><strong>不要依賴未定義行為</strong>：永遠不要編寫依賴於UB的程式碼，即使它“在你的機器上看起來能跑”。程式碼的健壯性來源於對語言標準的嚴格遵守，而非僥倖。</li>
 <li><strong>相信編譯器，但要驗證</strong>：編譯器非常聰明，它會嚴格按照語言規範進行最佳化。當你發現最佳化後的程式碼行為不符合你的“直覺”時，首先應該懷疑自己的程式碼是否觸碰了UB的紅線。</li>
 <li><strong>善用工具</strong>：
 <ul>
-<li>始終開啟編譯器警告 (<code>-Wall -Wextra</code>) 並將警告視為錯誤
-(<code>-Werror</code>)，這能幫你發現許多潛在問題。</li>
-<li>使用執行時檢測工具，如GCC/Clang的 <strong>UndefinedBehaviorSanitizer
-(UBSan)</strong>。只需在編譯時加上
-<code>-fsanitize=undefined</code>，它就能在程式執行時精確地捕獲有符號整數溢位等UB，是除錯這類問題的神器。</li>
-</ul></li>
+<li>始終開啟編譯器警告 (<code>-Wall -Wextra</code>) 並將警告視為錯誤 (<code>-Werror</code>)，這能幫你發現許多潛在問題。</li>
+<li>使用執行時檢測工具，如GCC/Clang的 <strong>UndefinedBehaviorSanitizer (UBSan)</strong>。只需在編譯時加上 <code>-fsanitize=undefined</code>，它就能在程式執行時精確地捕獲有符號整數溢位等UB，是除錯這類問題的神器。</li>
+</ul>
+</li>
 </ol>
-<p>對於CSAPP Data
-Lab這道題來說，它的目的正是為了讓我們在“規則的鐐銬”下舞蹈，從而深刻理解整數表示、運算和編譯器行為。而我們在實際工程中，最安全、最清晰的寫法永遠是第一選擇。</p>
+<p>對於CSAPP Data Lab這道題來說，它的目的正是為了讓我們在“規則的鐐銬”下舞蹈，從而深刻理解整數表示、運算和編譯器行為。而我們在實際工程中，最安全、最清晰的寫法永遠是第一選擇。</p>
 
     </div>
 

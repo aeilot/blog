@@ -83,8 +83,9 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":false,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
-<script src="/js/third-party/math/mathjax.js" defer></script>
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js" defer></script>
 
 
 <link rel="dns-prefetch" href="https://comments.aeilot.top">
@@ -182,7 +183,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E6%80%9D%E8%B7%AF"><span class="nav-number">1.</span> <span class="nav-text">快速排序思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%BA%96%E6%95%B8%E7%9A%84%E9%81%B8%E5%8F%96"><span class="nav-number">2.</span> <span class="nav-text">基準數的選取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%BE%E7%A8%AE%E5%8A%83%E5%88%86%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">幾種劃分方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%B8%E7%B4%A0%E5%8A%83%E5%88%86"><span class="nav-number">3.1.</span> <span class="nav-text">樸素劃分</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lomuto-%E5%8A%83%E5%88%86"><span class="nav-number">4.</span> <span class="nav-text">Lomuto 劃分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hoare-%E5%8A%83%E5%88%86"><span class="nav-number">5.</span> <span class="nav-text">Hoare 劃分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E6%BC%94%E7%AE%97%E6%B3%95"><span class="nav-number">6.</span> <span class="nav-text">快速排序演算法</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E6%80%9D%E8%B7%AF"><span class="nav-number">1.</span> <span class="nav-text"> 快速排序思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%BA%96%E6%95%B8%E7%9A%84%E9%81%B8%E5%8F%96"><span class="nav-number">2.</span> <span class="nav-text"> 基準數的選取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%BE%E7%A8%AE%E5%8A%83%E5%88%86%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text"> 幾種劃分方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%B8%E7%B4%A0%E5%8A%83%E5%88%86"><span class="nav-number">3.1.</span> <span class="nav-text"> 樸素劃分</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lomuto-%E5%8A%83%E5%88%86"><span class="nav-number">4.</span> <span class="nav-text"> Lomuto 劃分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hoare-%E5%8A%83%E5%88%86"><span class="nav-number">5.</span> <span class="nav-text"> Hoare 劃分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E6%BC%94%E7%AE%97%E6%B3%95"><span class="nav-number">6.</span> <span class="nav-text"> 快速排序演算法</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -197,13 +198,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -361,42 +362,44 @@
     
     <div class="post-body" itemprop="articleBody"><p>最近在複習資料結構與演算法，聊聊快速排序的幾種劃分演算法。</p>
 <span id="more"></span>
-<h2 id="快速排序思路">快速排序思路</h2>
+<h2 id="快速排序思路"><a class="markdownIt-Anchor" href="#快速排序思路"></a> 快速排序思路</h2>
 <p>快速排序是一種基於分治策略的排序演算法。</p>
-<p>對於待排序陣列，其核心操作是： 1. 選取一個基準數<code>pivot</code> 2.
-將陣列分為兩塊，一塊小於等於基準數，另一塊大於等於基準數（注意
-基準數作為分界點） 3. 遞迴地對於分出來的兩個數字再次進行快速排序</p>
+<p>對於待排序陣列，其核心操作是：</p>
+<ol>
+<li>選取一個基準數<code>pivot</code></li>
+<li>將陣列分為兩塊，一塊小於等於基準數，另一塊大於等於基準數（注意 基準數作為分界點）</li>
+<li>遞迴地對於分出來的兩個數字再次進行快速排序</li>
+</ol>
 <p>不斷地進行劃分，遞迴，最後能保證整個陣列有序。</p>
-<h2 id="基準數的選取">基準數的選取</h2>
-<p>一般來說，基準數有幾種選取方法： 1.
-選取第一個數或者最後一個數：這樣做，如果陣列已經排好序，則每次劃分都是基準數和剩餘數，時間複雜度升至<code>O(n^2)</code>
-2. 隨機選擇一個數 3.
-選取中位數：這樣做始終能對原陣列進行等分，尋找中位數是線性時間的。</p>
+<h2 id="基準數的選取"><a class="markdownIt-Anchor" href="#基準數的選取"></a> 基準數的選取</h2>
+<p>一般來說，基準數有幾種選取方法：</p>
+<ol>
+<li>選取第一個數或者最後一個數：這樣做，如果陣列已經排好序，則每次劃分都是基準數和剩餘數，時間複雜度升至<code>O(n^2)</code></li>
+<li>隨機選擇一個數</li>
+<li>選取中位數：這樣做始終能對原陣列進行等分，尋找中位數是線性時間的。</li>
+</ol>
 <p>下面以最無腦的方法1為例。</p>
-<h2 id="幾種劃分方法">幾種劃分方法</h2>
-<p>主要的劃分方法有： 1. 樸素劃分 2. Lomuto 劃分 3. Hoare 劃分</p>
+<h2 id="幾種劃分方法"><a class="markdownIt-Anchor" href="#幾種劃分方法"></a> 幾種劃分方法</h2>
+<p>主要的劃分方法有：</p>
+<ol>
+<li>樸素劃分</li>
+<li>Lomuto 劃分</li>
+<li>Hoare 劃分</li>
+</ol>
 <p>中國大陸教材中經常出現的是第三種，即 Hoare 劃分，也叫哨兵劃分。</p>
-<h3 id="樸素劃分">樸素劃分</h3>
-<p>思路很無腦。直接開一個新陣列，把比 <code>pivot</code> 小的放左邊，比
-<code>pivot</code> 大的放右邊，最後把陣列複製回到原陣列。需要
-<code>O(n)</code> 的額外空間。</p>
+<h3 id="樸素劃分"><a class="markdownIt-Anchor" href="#樸素劃分"></a> 樸素劃分</h3>
+<p>思路很無腦。直接開一個新陣列，把比 <code>pivot</code> 小的放左邊，比 <code>pivot</code> 大的放右邊，最後把陣列複製回到原陣列。需要 <code>O(n)</code> 的額外空間。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> N; <span class="comment">// 陣列長度</span></span><br><span class="line"><span class="type">int</span> A[N];</span><br><span class="line"><span class="type">int</span> tmp[N];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Native_Partition</span><span class="params">(<span class="type">int</span> left, <span class="type">int</span> right)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> pivot = A[left];</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> idx = left;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = left; i &lt;= right; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (A[i] &lt; pivot)</span><br><span class="line">            tmp[idx++] = A[i];</span><br><span class="line">    &#125;  <span class="comment">// 先將小於等於 pivot 的複製進入</span></span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> pid = idx;</span><br><span class="line">    tmp[idx++] = pivot;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = left; i &lt;= right; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (A[i] &gt; pivot)</span><br><span class="line">            tmp[idx++] = A[i];</span><br><span class="line">    &#125;  <span class="comment">// 再將大於 pivot 的複製進入</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = left; i &lt;= right; i++) &#123;</span><br><span class="line">        A[i] = tmp[i];</span><br><span class="line">    &#125; <span class="comment">// 複製回到 A</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> pid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="lomuto-劃分">Lomuto 劃分</h2>
+<h2 id="lomuto-劃分"><a class="markdownIt-Anchor" href="#lomuto-劃分"></a> Lomuto 劃分</h2>
 <p>Lomuto 劃分即使用單個指標，從左到右掃描陣列，交換，維持劃分順序。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">Lomuto_Partition</span><span class="params">(<span class="type">int</span> left, <span class="type">int</span> right)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> pivot = A[right];</span><br><span class="line">  </span><br><span class="line">    <span class="type">int</span> i = left - <span class="number">1</span>; <span class="comment">// 維護的劃分中最右側的比 pivot 小的元素的下標</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 遍歷陣列，把所有比 pivot 小的元素全部移動到左邊</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = left; j &lt;= right - <span class="number">1</span>; j++) &#123;  <span class="comment">// 遍歷到 right - 1 可以對 pivot 進行保護，使得 pivot 不與自己對比，使邏輯更清晰，但或許沒必要</span></span><br><span class="line">        <span class="keyword">if</span> (A[j] &lt; pivot) &#123;</span><br><span class="line">            i++;</span><br><span class="line">            <span class="built_in">swap</span>(A[i], A[j]);</span><br><span class="line">        &#125; <span class="comment">// j 維護的是遍歷時下標，當發現一個比 pivot 小的數時，如果 i + 1 == j 則不動，否則說明之前存在一個數比 `pivot` 大需要交換，則及時進行交換</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 把 pivot 移回來</span></span><br><span class="line">    <span class="built_in">swap</span>(A[i + <span class="number">1</span>], A[right]);  </span><br><span class="line">    <span class="keyword">return</span> i + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="hoare-劃分">Hoare 劃分</h2>
+<h2 id="hoare-劃分"><a class="markdownIt-Anchor" href="#hoare-劃分"></a> Hoare 劃分</h2>
 <p>Hoare 劃分採用雙指標，進行交換。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">Hoare_Partition</span><span class="params">(<span class="type">int</span> left, <span class="type">int</span> right)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> pivot = A[left];</span><br><span class="line">    <span class="type">int</span> pid = left;</span><br><span class="line">    <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right &amp;&amp; A[right] &gt;= pivot) &#123;</span><br><span class="line">            right--;</span><br><span class="line">        &#125; <span class="comment">// 先從右往左掃描，保護 pivot</span></span><br><span class="line">        <span class="keyword">while</span> (left &lt; right &amp;&amp; A[left] &lt;= pivot) &#123;</span><br><span class="line">            left++;</span><br><span class="line">        &#125; <span class="comment">// 再從左往右掃描</span></span><br><span class="line">        <span class="built_in">swap</span>(A[left], A[right]); <span class="comment">// 交換不正確的數</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 跳出迴圈時，left = right 說明找到了 pivot 的位置</span></span><br><span class="line">    <span class="built_in">swap</span>(A[pid], A[left]);</span><br><span class="line">    <span class="keyword">return</span> pid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>掃描順序對於結果有影響。<code>pivot</code>
-在最左邊時，應該先從右往左掃描。</p>
-<p>如果先從左往右掃，找第一個大於 <code>pivot</code> 的數
-a，而第一個小於 <code>pivot</code> 的數在 a 左側，此時進行 pivot 和
-<code>A[left]</code> 的交換，會導致交換錯誤。故應該優先保證
-<code>pivot</code> 左側都小於等於 <code>pivot</code>，即先尋找第一個小於
-<code>pivot</code> 的數，這樣交換是安全的。</p>
-<h2 id="快速排序演算法">快速排序演算法</h2>
-<p>對於某劃分函式
-<code>partition(int st, int end) -&gt; pivot: int</code> 有</p>
+<p>掃描順序對於結果有影響。<code>pivot</code> 在最左邊時，應該先從右往左掃描。</p>
+<p>如果先從左往右掃，找第一個大於 <code>pivot</code> 的數 a，而第一個小於 <code>pivot</code> 的數在 a 左側，此時進行 pivot 和 <code>A[left]</code> 的交換，會導致交換錯誤。故應該優先保證 <code>pivot</code> 左側都小於等於 <code>pivot</code>，即先尋找第一個小於 <code>pivot</code> 的數，這樣交換是安全的。</p>
+<h2 id="快速排序演算法"><a class="markdownIt-Anchor" href="#快速排序演算法"></a> 快速排序演算法</h2>
+<p>對於某劃分函式 <code>partition(int st, int end) -&gt; pivot: int</code> 有</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> N; <span class="comment">// 陣列長度</span></span><br><span class="line"><span class="type">int</span> A[N]; <span class="comment">// 待排序陣列</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">qsort</span><span class="params">(<span class="type">int</span> st, <span class="type">int</span> end)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(st &gt;= end) <span class="keyword">return</span>; <span class="comment">// 遞迴終止條件</span></span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> pivot = <span class="built_in">partition</span>(st, end);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 遞迴</span></span><br><span class="line">    <span class="built_in">qsort</span>(st, pivot<span class="number">-1</span>);</span><br><span class="line">    <span class="built_in">qsort</span>(pivot<span class="number">+1</span>, end);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>

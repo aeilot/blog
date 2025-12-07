@@ -84,8 +84,9 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":false,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
-<script src="/js/third-party/math/mathjax.js" defer></script>
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js" defer></script>
 
 
 <link rel="dns-prefetch" href="https://comments.aeilot.top">
@@ -183,7 +184,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA"><span class="nav-number">1.</span> <span class="nav-text">性質</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ac-code"><span class="nav-number">3.</span> <span class="nav-text">AC Code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%B5%90"><span class="nav-number">4.</span> <span class="nav-text">小結</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA"><span class="nav-number">1.</span> <span class="nav-text"> 性質</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text"> 思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ac-code"><span class="nav-number">3.</span> <span class="nav-text"> AC Code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%B5%90"><span class="nav-number">4.</span> <span class="nav-text"> 小結</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -198,13 +199,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -350,7 +351,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">文章字數：</span>
-      <span>1.8k</span>
+      <span>1.9k</span>
     </span>
 </div>
 
@@ -362,55 +363,40 @@
     
     <div class="post-body" itemprop="articleBody"><p>最近在學習馬拉車演算法，簡單記錄一下心得。（如有疏漏，請指出</p>
 <span id="more"></span>
-<p>先看 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3805">模板題</a>
-，要求最長迴文串的長度。</p>
-<p>首先思考樸素演算法，顯然是 <span
-class="math inline"><em>O</em>(<em>n</em><sup>3</sup>)</span>
-，無法透過。而馬拉車演算法能將時間複雜度最佳化到 <span
-class="math inline"><em>O</em>(<em>n</em>)</span>。</p>
-<h2 id="性質">性質</h2>
+<p>先看 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3805">模板題</a> ，要求最長迴文串的長度。</p>
+<p>首先思考樸素演算法，顯然是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>3</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n^3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> ，無法透過。而馬拉車演算法能將時間複雜度最佳化到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>。</p>
+<h2 id="性質"><a class="markdownIt-Anchor" href="#性質"></a> 性質</h2>
 <ul>
 <li>對於一個迴文字串，必然有一個對稱中心，在對稱中心兩側的部分均全等。</li>
-<li>一個迴文字串對稱之後得到的一定也是迴文字串 即 aba <strong>x</strong>
-aba
+<li>一個迴文字串對稱之後得到的一定也是迴文字串<br />
+即 aba <strong>x</strong> aba
 <ul>
-<li>但是對於奇數、偶數長度的迴文字串，這個對稱中心可能是字元，也可能在兩個字元中間。
+<li>但是對於奇數、偶數長度的迴文字串，這個對稱中心可能是字元，也可能在兩個字元中間。<br />
 如：ab <strong>|</strong> ba, a <strong>b</strong> a</li>
-</ul></li>
 </ul>
-<p>所以考慮，在兩個字元中間都插入隔板 <code>#</code>，即
-<code>abba</code> 變成 <code>#a#b#b#a#</code>。原長度為 <code>n</code>
-的字串，增加 <code>n+1</code> 隔板，長度變成 <code>2n+1</code>
-必然是奇數，方便統計。</p>
-<h2 id="思路">思路</h2>
+</li>
+</ul>
+<p>所以考慮，在兩個字元中間都插入隔板 <code>#</code>，即 <code>abba</code> 變成 <code>#a#b#b#a#</code>。原長度為 <code>n</code> 的字串，增加 <code>n+1</code> 隔板，長度變成 <code>2n+1</code> 必然是奇數，方便統計。</p>
+<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
 <p>馬拉車演算法，即記錄一直最長迴文子串區間，對樸素演算法進行最佳化。</p>
-<p>因為是樸素演算法兩側向外拓展，隔板對判斷迴文無影響。<code>p[i]</code>
-陣列儲存以 <code>str[i]</code>
-為對稱中心的迴文字串半徑長度。半徑長度中計算了隔板個數，所以得到的就是迴文字串長度。</p>
+<p>因為是樸素演算法兩側向外拓展，隔板對判斷迴文無影響。<code>p[i]</code> 陣列儲存以 <code>str[i]</code> 為對稱中心的迴文字串半徑長度。半徑長度中計算了隔板個數，所以得到的就是迴文字串長度。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>, l = <span class="number">0</span>, r = <span class="number">-1</span>;i&lt;s<span class="number">2.</span><span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">    <span class="type">int</span> k = (i&gt;r)? <span class="number">1</span> : <span class="built_in">min</span>(p[l+r-i], r-i<span class="number">+1</span>);</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">0</span> &lt;= i-k &amp;&amp; i+k&lt;s<span class="number">2.</span><span class="built_in">size</span>() &amp;&amp; s2[i-k]==s2[i+k])&#123;</span><br><span class="line">        k++;</span><br><span class="line">    &#125;</span><br><span class="line">    p[i] = --k; <span class="comment">// 注意最後一次迴圈會對加上一個 1</span></span><br><span class="line">    <span class="keyword">if</span>(i+k&gt;r)&#123;</span><br><span class="line">        l = i-k;</span><br><span class="line">        r = i+k;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>先記錄 <code>i</code>，列舉每個對稱中心，記錄 <code>l</code> 和
-<code>r</code> 即目前最長迴文字串的左右端點。<code>k</code>
-則是目前半徑長度。</p>
+<p>先記錄 <code>i</code>，列舉每個對稱中心，記錄 <code>l</code> 和 <code>r</code> 即目前最長迴文字串的左右端點。<code>k</code> 則是目前半徑長度。</p>
 <p>演算法主體就是樸素演算法，向左右兩端拓展。</p>
 <p>考慮最佳化。如果<code>i</code>處在一個迴文子串中，因為對稱性，可以得到與<code>i</code>對稱的點<code>j</code>的最長迴文串長度。因為<code>i</code>不斷增加，對稱的點的座標一定小於<code>i</code>即已經更新過。</p>
-<p>由於上文推斷的性質，迴文子串可以對稱得到。注意單個字元也可以考慮成一個迴文子串。所以
-<code>k</code> 可以從 之前的 <code>p[j]</code> 開始計算。</p>
+<p>由於上文推斷的性質，迴文子串可以對稱得到。注意單個字元也可以考慮成一個迴文子串。所以 <code>k</code> 可以從 之前的 <code>p[j]</code> 開始計算。</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">(設 x 表示 [l,r] 對稱中心，j 就是 i 關於 x 的對稱點)</span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> 案例1</span><br><span class="line">l       r</span><br><span class="line"><span class="section">#a#b#b#a#</span></span><br><span class="line">  ^ ^ ^</span><br><span class="line">  j x i</span><br><span class="line"></span><br><span class="line"><span class="bullet">2.</span> 案例2</span><br><span class="line">l     r</span><br><span class="line"><span class="section">#a#b#a#b#a#b#a#</span></span><br><span class="line">   ^   ^   ^</span><br><span class="line">   j   x   i</span><br><span class="line"></span><br><span class="line">手推方便理解</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>然後考慮如何計算 <code>j</code>，因為中點座標公式，得到 <span
-class="math inline">$\frac{l+r}{2} = \frac{i+j}{2} = mid$</span> ，得到
-<span
-class="math inline"><em>j</em> = <em>l</em> + <em>r</em> − <em>i</em></span>。</p>
-<p>但是因為確定區間，且偶數情況存在。所以還應判斷 <code>j</code>
-是否在區間內。</p>
+<p>然後考慮如何計算 <code>j</code>，因為中點座標公式，得到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>l</mi><mo>+</mo><mi>r</mi></mrow><mn>2</mn></mfrac><mo>=</mo><mfrac><mrow><mi>i</mi><mo>+</mo><mi>j</mi></mrow><mn>2</mn></mfrac><mo>=</mo><mi>m</mi><mi>i</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">\frac{l+r}{2} = \frac{i+j}{2} = mid</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2251079999999999em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8801079999999999em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mbin mtight">+</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.252772em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.907772em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.446108em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">+</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">m</span><span class="mord mathnormal">i</span><span class="mord mathnormal">d</span></span></span></span> ，得到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi><mo>=</mo><mi>l</mi><mo>+</mo><mi>r</mi><mo>−</mo><mi>i</mi></mrow><annotation encoding="application/x-tex">j = l+r-i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span>。</p>
+<p>但是因為確定區間，且偶數情況存在。所以還應判斷 <code>j</code> 是否在區間內。</p>
 <p>而如果不在區間內，很顯然應該從<code>1</code>開始列舉。</p>
-<p>所以得到： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> k = (i&gt;r)? <span class="number">1</span> : <span class="built_in">min</span>(p[l+r-i], r-i<span class="number">+1</span>);</span><br></pre></td></tr></table></figure></p>
+<p>所以得到：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> k = (i&gt;r)? <span class="number">1</span> : <span class="built_in">min</span>(p[l+r-i], r-i<span class="number">+1</span>);</span><br></pre></td></tr></table></figure>
 <p>每次更新 <code>l</code> <code>r</code> 區間長度即可。</p>
-<h2 id="ac-code">AC Code</h2>
+<h2 id="ac-code"><a class="markdownIt-Anchor" href="#ac-code"></a> AC Code</h2>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> p[<span class="number">110000001</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Type your code here</span></span><br><span class="line">    string s1;</span><br><span class="line">    cin &gt;&gt; s1;</span><br><span class="line">    string s2;</span><br><span class="line">    s<span class="number">2.</span><span class="built_in">resize</span>(s<span class="number">1.</span><span class="built_in">size</span>()*<span class="number">2</span><span class="number">+4</span>);</span><br><span class="line">    s2[<span class="number">0</span>] = <span class="string">&#x27;~&#x27;</span>;</span><br><span class="line">    s2[<span class="number">1</span>] = <span class="string">&#x27;#&#x27;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>, j=<span class="number">2</span>; i&lt;s<span class="number">1.</span><span class="built_in">size</span>(); i++, j+=<span class="number">2</span>)&#123;</span><br><span class="line">        s2[j] = s1[i];</span><br><span class="line">        s2[j<span class="number">+1</span>] = <span class="string">&#x27;#&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>, l = <span class="number">0</span>, r = <span class="number">-1</span>;i&lt;s<span class="number">2.</span><span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">        <span class="type">int</span> k = (i&gt;r)? <span class="number">1</span> : <span class="built_in">min</span>(p[l+r-i], r-i<span class="number">+1</span>);</span><br><span class="line">        <span class="keyword">while</span>(<span class="number">0</span> &lt;= i-k &amp;&amp; i+k&lt;s<span class="number">2.</span><span class="built_in">size</span>() &amp;&amp; s2[i-k]==s2[i+k])&#123;</span><br><span class="line">            k++;</span><br><span class="line">        &#125;</span><br><span class="line">        k--;</span><br><span class="line">        p[i] = k;</span><br><span class="line">        <span class="keyword">if</span>(i+k&gt;r)&#123;</span><br><span class="line">            l = i-k;</span><br><span class="line">            r = i+k;</span><br><span class="line">        &#125;</span><br><span class="line">        ans = <span class="built_in">max</span>(ans,p[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="小結">小結</h2>
+<h2 id="小結"><a class="markdownIt-Anchor" href="#小結"></a> 小結</h2>
 <p>馬拉車演算法實用且容易理解，但熟練掌握還需要練習。</p>
-<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4555">作業 |
-最長雙迴文串</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4555">作業 | 最長雙迴文串</a></p>
 
     </div>
 
