@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.aeilot.top/2025/12/09/x64-registers/</loc>
+    <lastmod>2025-12-09</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.aeilot.top/draft/csapp-lab2.html</loc>
+    <lastmod>2025-12-07</lastmod>
+  </url>
+  <url>
     <loc>https://blog.aeilot.top/2025/12/01/csapp-lab1/</loc>
     <lastmod>2025-12-07</lastmod>
   </url>
