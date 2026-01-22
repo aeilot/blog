@@ -137,11 +137,7 @@
   
 <script src="/js/head.js"></script>
 
-  <link
-rel="stylesheet"
-href="https://unpkg.com/@waline/client@v3/dist/waline.css"
-/> 
-
+  
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
@@ -305,27 +301,21 @@ href="https://unpkg.com/@waline/client@v3/dist/waline.css"
   </div>
 
   
-    <div id="waline"></div>
-<script type="module">
-  import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
-
-  init({
-    el: '#waline',
-    serverURL: 'https://comments.aeilot.top',
-    lang: 'en-US',
-    dark: 'auto',
-    meta: ['nick', 'mail', 'link'],
-    requiredMeta: ['nick'],
-    pageview: true,
-    emoji: [
-      'https://unpkg.com/@waline/emojis@1.0.1/weibo',
-      'https://unpkg.com/@waline/emojis@1.0.1/alus',
-      'https://unpkg.com/@waline/emojis@1.0.1/bilibili',
-      'https://unpkg.com/@waline/emojis@1.0.1/qq',
-      'https://unpkg.com/@waline/emojis@1.0.1/tieba',
-      'https://unpkg.com/@waline/emojis@1.0.1/tw-emoji',
-    ],
-  });
+    <script src="https://giscus.app/client.js"
+        data-repo="aeilot/blog"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNjEwODA2OTY="
+        data-category="General"
+        data-category-id="DIC_kwDOD4_GeM4B_VIn"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
 </script>
 
   
@@ -419,7 +409,7 @@ href="https://unpkg.com/@waline/client@v3/dist/waline.css"
     
 
     <style>
-  #waline {
+  .giscus {
     max-width: 800px; 
     margin: 40px auto;
     padding: 30px;   
@@ -430,7 +420,7 @@ href="https://unpkg.com/@waline/client@v3/dist/waline.css"
 
   @container document-body style(--config-corner-squircle: true) {
       @supports (corner-shape: squircle) {
-          #waline {
+          .giscus {
               corner-shape: squircle;
               --radius-tiny: 10px;
               --radius-small: 20px;
@@ -442,7 +432,7 @@ href="https://unpkg.com/@waline/client@v3/dist/waline.css"
   }
 
   @media (max-width: 768px) {
-    #waline {
+    .giscus {
       margin: 20px 10px; 
       padding: 20px;
     }

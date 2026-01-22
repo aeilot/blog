@@ -162,11 +162,7 @@
   
 <script src="/js/head.js"></script>
 
-  <link
-rel="stylesheet"
-href="https://unpkg.com/@waline/client@v3/dist/waline.css"
-/> 
-
+  
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
@@ -590,7 +586,7 @@ href="https://unpkg.com/@waline/client@v3/dist/waline.css"
     
 
     <style>
-  #waline {
+  .giscus {
     max-width: 800px; 
     margin: 40px auto;
     padding: 30px;   
@@ -601,7 +597,7 @@ href="https://unpkg.com/@waline/client@v3/dist/waline.css"
 
   @container document-body style(--config-corner-squircle: true) {
       @supports (corner-shape: squircle) {
-          #waline {
+          .giscus {
               corner-shape: squircle;
               --radius-tiny: 10px;
               --radius-small: 20px;
@@ -613,7 +609,7 @@ href="https://unpkg.com/@waline/client@v3/dist/waline.css"
   }
 
   @media (max-width: 768px) {
-    #waline {
+    .giscus {
       margin: 20px 10px; 
       padding: 20px;
     }
