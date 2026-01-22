@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>洛谷 7 月月賽 Div.2 總結 - 滿五 | Louis D&#39;s Blog</title>
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="昨天(7&#x2F;14)參加了洛谷的 7 月月賽，感覺題目挺新穎的，就是資料有點。。。 比賽連結：這裡 我的程式碼在 這裡  A 乍一看好像沒思路，但是想一想，其實很簡單，就是會有幾種情況：  0個空格 全是數字的話，需要判斷一下 A. 兩者完全相同 B. 非A，情況 A 是可以輸出 Yes 的。 1個空格 這一種情況，從原理上分析，“選擇一個有正整數的格子和一個與之相鄰的空格子，將正整數移到那個空格子">
+<meta property="og:type" content="article">
+<meta property="og:title" content="洛谷 7 月月賽 Div.2 總結">
+<meta property="og:url" content="https://blog.aeilot.top/2021/07/14/luogu-lgr087/index.html">
+<meta property="og:site_name" content="滿五 | Louis D&#39;s Blog">
+<meta property="og:description" content="昨天(7&#x2F;14)參加了洛谷的 7 月月賽，感覺題目挺新穎的，就是資料有點。。。 比賽連結：這裡 我的程式碼在 這裡  A 乍一看好像沒思路，但是想一想，其實很簡單，就是會有幾種情況：  0個空格 全是數字的話，需要判斷一下 A. 兩者完全相同 B. 非A，情況 A 是可以輸出 Yes 的。 1個空格 這一種情況，從原理上分析，“選擇一個有正整數的格子和一個與之相鄰的空格子，將正整數移到那個空格子">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2021-07-14T22:45:09.000Z">
+<meta property="article:modified_time" content="2026-01-22T17:20:57.020Z">
+<meta property="article:author" content="滿五">
+<meta property="article:tag" content="比賽">
+<meta property="article:tag" content="洛谷">
+<meta name="twitter:card" content="summary">
+
+  <script>window.ThemeCupertino = {}</script>
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@16/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  <script>ThemeCupertino['_calloutStyles'] = `
+<link rel="stylesheet" href="/css/components/callout.css">
+`</script>
+  
+<script src="/js/components/callout.js"></script>
+
+  
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+<script src="/js/head.js"></script>
+
+  <link
+rel="stylesheet"
+href="https://unpkg.com/@waline/client@v3/dist/waline.css"
+/> 
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-rainbow-banner="true"
+    data-rainbow-banner-shown="auto"
+    data-rainbow-banner-month="6"
+    data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+    style="--config-corner-squircle: true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  
+  <div style="--sharp: 1"></div>
+  
+  <div style="--sharp: 2"></div>
+  
+  <div style="--sharp: 3"></div>
+  
+  <div style="--sharp: 4"></div>
+  
+  <div style="--sharp: 5"></div>
+  
+  <div style="--sharp: 6"></div>
+  
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Blog</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" target="_blank" rel="noopener" href="https://aeilot.top/" style="--index: 1">Portfolio</a>
+      
+      <a class="nav-item" href="/archives" style="--index: 2">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 3"><i class="bi bi-search"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/中文-OI/">中文 | OI</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2021-07-14T18:45:09-04:00">
+      July 14, 2021
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">洛谷 7 月月賽 Div.2 總結</h1>
+  </div>
+
+  <div class="content">
+    <span id="more"></span>
+<p>昨天(7/14)參加了洛谷的 7 月月賽，感覺題目挺新穎的，就是資料有點。。。</p>
+<p>比賽連結：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/contest/46177">這裡</a></p>
+<p>我的程式碼在 <a target="_blank" rel="noopener" href="https://github.com/aeilot/ProblemSet/tree/master/Competition/LuoGu-2021July-Div2">這裡</a></p>
+<h2 id="a"><a class="markdownIt-Anchor" href="#a"></a> A</h2>
+<p>乍一看好像沒思路，但是想一想，其實很簡單，就是會有幾種情況：</p>
+<ol>
+<li><strong>0個空格</strong> 全是數字的話，需要判斷一下 A. 兩者完全相同 B. 非A，情況 A 是可以輸出 <code>Yes</code> 的。</li>
+<li><strong>1個空格</strong> 這一種情況，從原理上分析，“選擇一個有正整數的格子和一個與之相鄰的空格子，將正整數移到那個空格子中”，可以得出，其實只要順時針轉一圈，初始和最終狀態順序相同，就符合條件。所以，只需要做三次判斷即可，簡單粗暴（在座的各位大佬要是有高階方法可以通知一下🙇）。</li>
+<li><strong>2、3、4個空格</strong> 這幾個情況，經過分析會發現，不管如何，都是滿足條件的。</li>
+</ol>
+<p>所以，這樣分析下來，很簡單就 AC 了，拿到 100 分！</p>
+<h2 id="b"><a class="markdownIt-Anchor" href="#b"></a> B</h2>
+<blockquote>
+<p>這道題。。。無語了。。。測試資料透過了，結果測評資料每次都卡一個，萬惡的捆綁測試。。。最後得不了 100 分了。。。</p>
+</blockquote>
+<p>這道題最開始想的是貪心演算法，排序，但是會超時，就改了一下：開兩個陣列，不管順序，只管符號，放進去。這樣做基本上不超過 10ms。</p>
+<p>原理就是，計算 <code>+正數</code> <code>+負數</code> <code>*正數</code> <code>*負數</code> 出現的個數，進行排列，最後計算結果。</p>
+<h2 id="c"><a class="markdownIt-Anchor" href="#c"></a> C</h2>
+<blockquote>
+<p>因為學業原因，離開了幾個小時，回來了之後都沒時間做了。。。有點思路，但沒寫完。。。</p>
+</blockquote>
+<p>其實，可以根據數第一次出現的位置判斷從左、右數的位置，最後進行排列即可。</p>
+<h2 id="d"><a class="markdownIt-Anchor" href="#d"></a> D</h2>
+<p>看了一眼就懶得寫。</p>
+<h2 id="小結"><a class="markdownIt-Anchor" href="#小結"></a> 小結</h2>
+<p>等題解吧！感覺題目很有意思，都是些需要仔細思考的題目。(奈何我太弱了。。。太弱小了！！！</p>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h2>About this Post</h2>
+    <div class="details">This post is written by 滿五, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</div>
+    
+    <p class="tags">
+      <i class="bi bi-tags icon"></i>
+      
+      <a href="/tags/%E6%B4%9B%E8%B0%B7/" class="tag">#洛谷</a>
+      
+      <a href="/tags/%E6%AF%94%E8%B3%BD/" class="tag">#比賽</a>
+      
+    </p>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/2021/07/18/pylon-in-seasons/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">四季的天空</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/2021/04/24/Luogu-P3379/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">題解 最近公共祖先 (LCA)</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    <div id="waline"></div>
+<script type="module">
+  import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+
+  init({
+    el: '#waline',
+    serverURL: 'https://comments.aeilot.top',
+    lang: 'en-US',
+    dark: 'auto',
+    meta: ['nick', 'mail', 'link'],
+    requiredMeta: ['nick'],
+    pageview: true,
+    emoji: [
+      'https://unpkg.com/@waline/emojis@1.0.1/weibo',
+      'https://unpkg.com/@waline/emojis@1.0.1/alus',
+      'https://unpkg.com/@waline/emojis@1.0.1/bilibili',
+      'https://unpkg.com/@waline/emojis@1.0.1/qq',
+      'https://unpkg.com/@waline/emojis@1.0.1/tieba',
+      'https://unpkg.com/@waline/emojis@1.0.1/tw-emoji',
+    ],
+  });
+</script>
+
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/index.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Links</h2>
+        
+        <a target="_blank" rel="noopener" href="https://aeilot.top" class="item">Portfolio</a>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/aeilot" class="item">GitHub</a>
+        
+        <a target="_blank" rel="noopener" href="https://www.instagram.com/aeilotd/" class="item">Instagram</a>
+        
+        <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/chenluo-d-85b37a33a/" class="item">LinkedIn</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Friends</h2>
+        
+        <a target="_blank" rel="noopener" href="https://mrwillcom.now.sh" class="item">Mr.Will</a>
+        
+        <a target="_blank" rel="noopener" href="https://chungzh.cn" class="item">ChungZH</a>
+        
+        <a target="_blank" rel="noopener" href="https://shaojiaxu.github.io" class="item">SJX</a>
+        
+        <a target="_blank" rel="noopener" href="http://clckblog.space/" class="item">CLCK</a>
+        
+        <a target="_blank" rel="noopener" href="https://innei.in/" class="item">静かな森</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2026 滿五<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    <style>
+  #waline {
+    max-width: 800px; 
+    margin: 40px auto;
+    padding: 30px;   
+    
+    background: var(--color-background-secondary); 
+    border-radius: var(--radius-medium); 
+  }
+
+  @container document-body style(--config-corner-squircle: true) {
+      @supports (corner-shape: squircle) {
+          #waline {
+              corner-shape: squircle;
+              --radius-tiny: 10px;
+              --radius-small: 20px;
+              --radius-medium: 30px;
+              --radius-large: 40px;
+              --radius-full: 999px;
+          }
+      }
+  }
+
+  @media (max-width: 768px) {
+    #waline {
+      margin: 20px 10px; 
+      padding: 20px;
+    }
+  }
+</style>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

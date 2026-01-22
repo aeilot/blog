@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>割點 Tarjan 演算法 - 滿五 | Louis D&#39;s Blog</title>
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="最近學習圖論，寫篇題解記錄一下。  定義  對於一個無向圖，如果把一個點刪除後這個圖的極大連通分量數增加了，那麼這個點就是這個圖的割點（又稱割頂）。  這篇部落格主要介紹，Tarjan 演算法用於求 割點。  割點 Tarjan 演算法，記錄 節點訪問時間戳 dfn，節點能夠回溯到的最早的點的時間戳 low。 對於某一點：  如果這個點是根節點，且有兩個以上與它相連的連通分量，那這個點就是割點。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="割點 Tarjan 演算法">
+<meta property="og:url" content="https://blog.aeilot.top/2022/12/03/cut-vertex/index.html">
+<meta property="og:site_name" content="滿五 | Louis D&#39;s Blog">
+<meta property="og:description" content="最近學習圖論，寫篇題解記錄一下。  定義  對於一個無向圖，如果把一個點刪除後這個圖的極大連通分量數增加了，那麼這個點就是這個圖的割點（又稱割頂）。  這篇部落格主要介紹，Tarjan 演算法用於求 割點。  割點 Tarjan 演算法，記錄 節點訪問時間戳 dfn，節點能夠回溯到的最早的點的時間戳 low。 對於某一點：  如果這個點是根節點，且有兩個以上與它相連的連通分量，那這個點就是割點。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2022-12-04T04:45:09.000Z">
+<meta property="article:modified_time" content="2026-01-22T17:20:57.022Z">
+<meta property="article:author" content="滿五">
+<meta property="article:tag" content="圖論">
+<meta property="article:tag" content="洛谷">
+<meta name="twitter:card" content="summary">
+
+  <script>window.ThemeCupertino = {}</script>
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@16/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  <script>ThemeCupertino['_calloutStyles'] = `
+<link rel="stylesheet" href="/css/components/callout.css">
+`</script>
+  
+<script src="/js/components/callout.js"></script>
+
+  
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+<script src="/js/head.js"></script>
+
+  <link
+rel="stylesheet"
+href="https://unpkg.com/@waline/client@v3/dist/waline.css"
+/> 
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-rainbow-banner="true"
+    data-rainbow-banner-shown="auto"
+    data-rainbow-banner-month="6"
+    data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+    style="--config-corner-squircle: true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  
+  <div style="--sharp: 1"></div>
+  
+  <div style="--sharp: 2"></div>
+  
+  <div style="--sharp: 3"></div>
+  
+  <div style="--sharp: 4"></div>
+  
+  <div style="--sharp: 5"></div>
+  
+  <div style="--sharp: 6"></div>
+  
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Blog</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" target="_blank" rel="noopener" href="https://aeilot.top/" style="--index: 1">Portfolio</a>
+      
+      <a class="nav-item" href="/archives" style="--index: 2">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 3"><i class="bi bi-search"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/中文-OI/">中文 | OI</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2022-12-03T23:45:09-05:00">
+      December 3, 2022
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">割點 Tarjan 演算法</h1>
+  </div>
+
+  <div class="content">
+    <span id="more"></span>
+<p>最近學習圖論，寫篇題解記錄一下。</p>
+<h2 id="定義"><a class="markdownIt-Anchor" href="#定義"></a> 定義</h2>
+<ul>
+<li>對於一個無向圖，如果把一個點刪除後這個圖的極大連通分量數增加了，那麼這個點就是這個圖的割點（又稱割頂）。</li>
+</ul>
+<p>這篇部落格主要介紹，Tarjan 演算法用於求 割點。</p>
+<h2 id="割點"><a class="markdownIt-Anchor" href="#割點"></a> 割點</h2>
+<p>Tarjan 演算法，記錄 節點訪問時間戳 <code>dfn</code>，節點能夠回溯到的最早的點的時間戳 <code>low</code>。</p>
+<p>對於某一點：</p>
+<ol>
+<li>如果這個點是根節點，且有兩個以上與它相連的連通分量，那這個點就是割點。</li>
+<li>如果某個點後繼是一個連通分量，而這個點不是根節點，那這個點是割點。</li>
+</ol>
+<h3 id="第一種情況"><a class="markdownIt-Anchor" href="#第一種情況"></a> 第一種情況</h3>
+<p>我們需要記錄根節點 <code>fa</code>，在遍歷的時候，如果重複訪問到了 <code>fa</code>，說明找到了 <code>fa</code> 下面的一個連通分量。</p>
+<h3 id="第二種情況"><a class="markdownIt-Anchor" href="#第二種情況"></a> 第二種情況</h3>
+<p>設當前點 <code>s</code>，對於訪問的下一個節點 <code>y</code>：</p>
+<p>如果 <code>low[y] &gt;= dfn[s]</code>，說明這個點下面有一個連通分量。</p>
+<p>注：這裡類似於 Tarjan 求 SCC 時，我們所做的 <code>min(low[s],dfn[y])</code>。</p>
+<h3 id="程式碼"><a class="markdownIt-Anchor" href="#程式碼"></a> 程式碼</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">tarjan</span><span class="params">(<span class="type">int</span> s, <span class="type">int</span> fa)</span></span>&#123;</span><br><span class="line">    dfn[s] = low[s] = ++cc;</span><br><span class="line">    <span class="type">int</span> child = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = head[s]; i!=<span class="number">-1</span>; i=NDS[i].next)&#123;</span><br><span class="line">        <span class="type">int</span> y = NDS[i].to;</span><br><span class="line">        <span class="keyword">if</span>(!dfn[y])&#123;</span><br><span class="line">            <span class="built_in">tarjan</span>(y,fa);</span><br><span class="line">            low[s] = <span class="built_in">min</span>(low[s], low[y]); <span class="comment">// 回溯後更新</span></span><br><span class="line">            <span class="keyword">if</span>(low[y]&gt;=dfn[s] &amp;&amp; s != fa) <span class="comment">// 情況 2</span></span><br><span class="line">                cut[s] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(s==fa) <span class="comment">// 情況 1 計數</span></span><br><span class="line">                child++;</span><br><span class="line">        &#125;</span><br><span class="line">        low[s] = <span class="built_in">min</span>(low[s], dfn[y]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(child&gt;=<span class="number">2</span>&amp;&amp;s==fa)&#123;</span><br><span class="line">        cut[s] = <span class="number">1</span>; <span class="comment">// 情況 1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h2>About this Post</h2>
+    <div class="details">This post is written by 滿五, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</div>
+    
+    <p class="tags">
+      <i class="bi bi-tags icon"></i>
+      
+      <a href="/tags/%E6%B4%9B%E8%B0%B7/" class="tag">#洛谷</a>
+      
+      <a href="/tags/%E5%9C%96%E8%AB%96/" class="tag">#圖論</a>
+      
+    </p>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/2022/12/12/moonlight/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">清夜</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/2022/11/23/P3147-262144P/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">P3147 USACO16OPEN 262144 P 題解</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    <div id="waline"></div>
+<script type="module">
+  import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+
+  init({
+    el: '#waline',
+    serverURL: 'https://comments.aeilot.top',
+    lang: 'en-US',
+    dark: 'auto',
+    meta: ['nick', 'mail', 'link'],
+    requiredMeta: ['nick'],
+    pageview: true,
+    emoji: [
+      'https://unpkg.com/@waline/emojis@1.0.1/weibo',
+      'https://unpkg.com/@waline/emojis@1.0.1/alus',
+      'https://unpkg.com/@waline/emojis@1.0.1/bilibili',
+      'https://unpkg.com/@waline/emojis@1.0.1/qq',
+      'https://unpkg.com/@waline/emojis@1.0.1/tieba',
+      'https://unpkg.com/@waline/emojis@1.0.1/tw-emoji',
+    ],
+  });
+</script>
+
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/index.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Links</h2>
+        
+        <a target="_blank" rel="noopener" href="https://aeilot.top" class="item">Portfolio</a>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/aeilot" class="item">GitHub</a>
+        
+        <a target="_blank" rel="noopener" href="https://www.instagram.com/aeilotd/" class="item">Instagram</a>
+        
+        <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/chenluo-d-85b37a33a/" class="item">LinkedIn</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Friends</h2>
+        
+        <a target="_blank" rel="noopener" href="https://mrwillcom.now.sh" class="item">Mr.Will</a>
+        
+        <a target="_blank" rel="noopener" href="https://chungzh.cn" class="item">ChungZH</a>
+        
+        <a target="_blank" rel="noopener" href="https://shaojiaxu.github.io" class="item">SJX</a>
+        
+        <a target="_blank" rel="noopener" href="http://clckblog.space/" class="item">CLCK</a>
+        
+        <a target="_blank" rel="noopener" href="https://innei.in/" class="item">静かな森</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2026 滿五<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    <style>
+  #waline {
+    max-width: 800px; 
+    margin: 40px auto;
+    padding: 30px;   
+    
+    background: var(--color-background-secondary); 
+    border-radius: var(--radius-medium); 
+  }
+
+  @container document-body style(--config-corner-squircle: true) {
+      @supports (corner-shape: squircle) {
+          #waline {
+              corner-shape: squircle;
+              --radius-tiny: 10px;
+              --radius-small: 20px;
+              --radius-medium: 30px;
+              --radius-large: 40px;
+              --radius-full: 999px;
+          }
+      }
+  }
+
+  @media (max-width: 768px) {
+    #waline {
+      margin: 20px 10px; 
+      padding: 20px;
+    }
+  }
+</style>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

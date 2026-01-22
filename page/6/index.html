@@ -1,1412 +1,624 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+<html lang="en-US">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>滿五 | Louis D&#39;s Blog</title>
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
-  <link rel="manifest" href="/images/site.webmanifest">
-
-<link rel="stylesheet" href="/css/main.css">
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fira+Mono:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/purple/pace-theme-minimal.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous" defer></script>
-
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.aeilot.top","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12,"onmobile":false},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null,"show_result":false},"fold":{"enable":false,"height":500},"language":false,"highlight_theme":"normal"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":true,"preload":true,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
-
-    <meta name="description" content="Stay Hungry. Stay Foolish.">
+  <meta name="description" content="Stay Hungry. Stay Foolish.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="滿五的部落格">
+<meta property="og:title" content="滿五 | Louis D&#39;s Blog">
 <meta property="og:url" content="https://blog.aeilot.top/page/6/index.html">
-<meta property="og:site_name" content="滿五的部落格">
+<meta property="og:site_name" content="滿五 | Louis D&#39;s Blog">
 <meta property="og:description" content="Stay Hungry. Stay Foolish.">
-<meta property="og:locale" content="zh_TW">
+<meta property="og:locale" content="en_US">
 <meta property="article:author" content="滿五">
+<meta property="article:tag" content="Algorithm">
+<meta property="article:tag" content="Art">
+<meta property="article:tag" content="Blog">
+<meta property="article:tag" content="Competitive Programming">
+<meta property="article:tag" content="Creative Coding">
+<meta property="article:tag" content="Design">
+<meta property="article:tag" content="Essays">
+<meta property="article:tag" content="Life">
+<meta property="article:tag" content="Literature">
 <meta property="article:tag" content="Louis Aeilot">
 <meta property="article:tag" content="OI">
+<meta property="article:tag" content="Photography">
+<meta property="article:tag" content="Programming">
+<meta property="article:tag" content="Tech">
+<meta property="article:tag" content="UI&#x2F;UX">
+<meta property="article:tag" content="Visual Arts">
 <meta property="article:tag" content="技術">
 <meta property="article:tag" content="攝影">
 <meta property="article:tag" content="文學">
-<meta property="article:tag" content="科技">
+<meta property="article:tag" content="演算法">
+<meta property="article:tag" content="生活">
 <meta property="article:tag" content="程式設計">
 <meta property="article:tag" content="藝術">
+<meta property="article:tag" content="設計">
+<meta property="article:tag" content="軟體工程">
+<meta property="article:tag" content="隨筆">
 <meta name="twitter:card" content="summary">
 
+  <script>window.ThemeCupertino = {}</script>
 
-<link rel="canonical" href="https://blog.aeilot.top/page/6/">
-
-
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-TW","comments":"","permalink":"","path":"page/6/index.html","title":""}</script>
-
-<script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>滿五的部落格</title>
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
   
-  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-138571809-2","only_pageview":true,"measure_protocol_api_secret":null}</script>
-  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
-
-
-
-
-
-
-
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@16/font/simple-icons.min.css">
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/7.2.0/pangu.umd.js" integrity="sha256-JnmRRnJK7DC6RQJbAJb6AXOM9OmWzS6z8eYultk/48Y=" crossorigin="anonymous" defer></script>
-<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/bookmark.js" defer></script><script src="/js/pjax.js" defer></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
-<script src="/js/third-party/search/local-search.js" defer></script>
-
-
-
-
-  <script src="/js/third-party/fancybox.js" defer></script>
-
-  <script src="/js/third-party/pace.js" defer></script>
-
-
   
-  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">true</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
-  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
-  <script src="/js/third-party/math/katex.js" defer></script>
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
 
 
-<link rel="dns-prefetch" href="https://comments.aeilot.top">
-  <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
-  </noscript>
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  <script>ThemeCupertino['_calloutStyles'] = `
+<link rel="stylesheet" href="/css/components/callout.css">
+`</script>
+  
+<script src="/js/components/callout.js"></script>
+
+  
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+<script src="/js/head.js"></script>
+
+  <link
+rel="stylesheet"
+href="https://unpkg.com/@waline/client@v3/dist/waline.css"
+/> 
+
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><link rel="alternate" href="/index.xml" title="滿五的部落格" type="application/atom+xml">
-</head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-rainbow-banner="true"
+    data-rainbow-banner-shown="auto"
+    data-rainbow-banner-month="6"
+    data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+    style="--config-corner-squircle: true"
+  >
+    
+<script src="/js/body-top.js"></script>
 
-  <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切換導航欄" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-    </div>
-  </div>
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
 
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <h1 class="site-title">滿五的部落格</h1>
-      <i class="logo-line"></i>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜尋" role="button">
-        <i class="fa fa-search fa-fw fa-lg"></i>
-    </div>
-  </div>
+<div class="nav-mask">
+  
+  <div style="--sharp: 1"></div>
+  
+  <div style="--sharp: 2"></div>
+  
+  <div style="--sharp: 3"></div>
+  
+  <div style="--sharp: 4"></div>
+  
+  <div style="--sharp: 5"></div>
+  
+  <div style="--sharp: 6"></div>
+  
 </div>
 
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Blog</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
 
-
-<nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/index.html" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li><li class="menu-item menu-item-english"><a href="https://en.blog.aeilot.top/" rel="section" target="_blank"><i class="fa fa-language fa-fw"></i>English</a></li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
-        </a>
-      </li>
-  </ul>
+      
+      <a class="nav-item" target="_blank" rel="noopener" href="https://aeilot.top/" style="--index: 1">Portfolio</a>
+      
+      <a class="nav-item" href="/archives" style="--index: 2">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 3"><i class="bi bi-search"></i></a>
+      
+    </div>
+  </div>
 </nav>
 
+    <main id="main-content">
+      <div class="container">
+  
+
+  <div class="post-list">
+  
+  <article class="post-list-item">
+    <a href="/2021/07/14/luogu-lgr087/">
+      
+      <div class="content">
+        
+        <div class="categories text-uppercase">
+        
+          <span>中文 | OI</span>
+        
+        </div>
+        
+        <div class="title">
+          洛谷 7 月月賽 Div.2 總結
+        </div>
+        
+        
+        <time class="time" datetime="2021-07-14T18:45:09-04:00">
+          July 14, 2021
+        </time>
+        
+      </div>
+    </a>
+  </article>
+  
+  <article class="post-list-item">
+    <a href="/2021/04/24/Luogu-P3379/">
+      
+      <div class="content">
+        
+        <div class="categories text-uppercase">
+        
+          <span>中文 | OI</span>
+        
+        </div>
+        
+        <div class="title">
+          題解 最近公共祖先 (LCA)
+        </div>
+        
+        
+        <time class="time" datetime="2021-04-24T05:45:09-04:00">
+          April 24, 2021
+        </time>
+        
+      </div>
+    </a>
+  </article>
+  
+  <article class="post-list-item">
+    <a href="/2020/12/24/newton-leibniz-proof/">
+      
+      <div class="content">
+        
+        <div class="categories text-uppercase">
+        
+          <span>中文 | 電腦科學與數學</span>
+        
+        </div>
+        
+        <div class="title">
+          用簡單的物理方法證明牛頓萊布尼茨公式
+        </div>
+        
+        
+        <time class="time" datetime="2020-12-24T18:45:09-05:00">
+          December 24, 2020
+        </time>
+        
+      </div>
+    </a>
+  </article>
+  
+  <article class="post-list-item">
+    <a href="/2020/12/24/honor-band6/">
+      
+      <div class="content">
+        
+        <div class="categories text-uppercase">
+        
+          <span>中文 | 數碼</span>
+        
+        </div>
+        
+        <div class="title">
+          簡評榮耀手環6
+        </div>
+        
+        
+        <time class="time" datetime="2020-12-24T17:45:09-05:00">
+          December 24, 2020
+        </time>
+        
+      </div>
+    </a>
+  </article>
+  
+  <article class="post-list-item">
+    <a href="/2020/09/30/mid-autumn-2020/">
+      
+      <div class="content">
+        
+        <div class="categories text-uppercase">
+        
+          <span>中文 | 攝影</span>
+        
+        </div>
+        
+        <div class="title">
+          海上生明月，天涯共此時。
+        </div>
+        
+        
+        <time class="time" datetime="2020-09-30T23:45:09-04:00">
+          September 30, 2020
+        </time>
+        
+      </div>
+    </a>
+  </article>
+  
+  <article class="post-list-item">
+    <a href="/2020/09/10/ipod-shuffle/">
+      
+      <div class="content">
+        
+        <div class="categories text-uppercase">
+        
+          <span>中文 | 數碼</span>
+        
+        </div>
+        
+        <div class="title">
+          我為什麼重新拿出了 iPod
+        </div>
+        
+        
+        <time class="time" datetime="2020-09-10T21:45:09-04:00">
+          September 10, 2020
+        </time>
+        
+      </div>
+    </a>
+  </article>
+  
+  <article class="post-list-item">
+    <a href="/2020/08/23/swift-userdefaults/">
+      
+      <div class="content">
+        
+        <div class="categories text-uppercase">
+        
+          <span>中文 | 程式設計</span>
+        
+        </div>
+        
+        <div class="title">
+          Swift 中的 SharedPreferance —— UserDefaults
+        </div>
+        
+        
+        <time class="time" datetime="2020-08-23T18:45:09-04:00">
+          August 23, 2020
+        </time>
+        
+      </div>
+    </a>
+  </article>
+  
+  <article class="post-list-item">
+    <a href="/2020/08/22/stare-at-moon/">
+      
+      <div class="content">
+        
+        <div class="categories text-uppercase">
+        
+          <span>中文 | 文學</span>
+        
+        </div>
+        
+        <div class="title">
+          凝視那一輪明月
+        </div>
+        
+        
+        <time class="time" datetime="2020-08-22T18:45:09-04:00">
+          August 22, 2020
+        </time>
+        
+      </div>
+    </a>
+  </article>
+  
+  <article class="post-list-item">
+    <a href="/2020/08/21/gh-action-hexo/">
+      
+      <div class="content">
+        
+        <div class="categories text-uppercase">
+        
+          <span>中文 | 程式設計</span>
+        
+        </div>
+        
+        <div class="title">
+          用 GitHub Actions 部署 Hexo 部落格
+        </div>
+        
+        
+        <time class="time" datetime="2020-08-21T18:45:09-04:00">
+          August 21, 2020
+        </time>
+        
+      </div>
+    </a>
+  </article>
+  
+  <article class="post-list-item">
+    <a href="/2020/08/19/wwdc2020/">
+      
+      <div class="content">
+        
+        <div class="categories text-uppercase">
+        
+          <span>中文 | 程式設計</span>
+        
+        </div>
+        
+        <div class="title">
+          遲來的日誌 - WWDC 2020 獎學金
+        </div>
+        
+        
+        <time class="time" datetime="2020-08-19T00:45:09-04:00">
+          August 19, 2020
+        </time>
+        
+      </div>
+    </a>
+  </article>
+  
+</div>
 
 
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-      <div class="search-header">
-        <span class="search-icon">
-          <i class="fa fa-search"></i>
-        </span>
-        <div class="search-input-container">
-          <input autocomplete="off" autocapitalize="off" maxlength="80"
-                placeholder="搜尋..." spellcheck="false"
-                type="search" class="search-input">
-        </div>
-        <span class="popup-btn-close" role="button">
-          <i class="fa fa-times-circle"></i>
-        </span>
+  
+<div class="paginator">
+  <a class="extend prev" rel="prev" href="/page/5/">Previous</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/">Next</a>
+</div>
+
+
+</div>
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/index.xml" class="item">RSS</a>
+        
       </div>
-      <div class="search-result-container">
-        <div class="search-result-icon">
-          <i class="fa fa-spinner fa-pulse fa-5x"></i>
-        </div>
+      
+      <div class="group">
+        <h2 class="title">Links</h2>
+        
+        <a target="_blank" rel="noopener" href="https://aeilot.top" class="item">Portfolio</a>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/aeilot" class="item">GitHub</a>
+        
+        <a target="_blank" rel="noopener" href="https://www.instagram.com/aeilotd/" class="item">Instagram</a>
+        
+        <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/chenluo-d-85b37a33a/" class="item">LinkedIn</a>
+        
       </div>
+      
+      <div class="group">
+        <h2 class="title">Friends</h2>
+        
+        <a target="_blank" rel="noopener" href="https://mrwillcom.now.sh" class="item">Mr.Will</a>
+        
+        <a target="_blank" rel="noopener" href="https://chungzh.cn" class="item">ChungZH</a>
+        
+        <a target="_blank" rel="noopener" href="https://shaojiaxu.github.io" class="item">SJX</a>
+        
+        <a target="_blank" rel="noopener" href="http://clckblog.space/" class="item">CLCK</a>
+        
+        <a target="_blank" rel="noopener" href="https://innei.in/" class="item">静かな森</a>
+        
+      </div>
+      
     </div>
+    <span>&copy; 2026 滿五<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
   </div>
+</footer>
 
-</header>
-        
-  
-  <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          文章目錄
-        </li>
-        <li class="sidebar-nav-overview">
-          本站概要
-        </li>
-      </ul>
-
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-        </div>
-        <!--/noindex-->
-
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="滿五"
-      src="/images/gravatar.jpeg">
-  <p class="site-author-name" itemprop="name">滿五</p>
-  <div class="site-description" itemprop="description">Stay Hungry. Stay Foolish.</div>
-</div>
-<div class="site-state-wrap animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">63</span>
-          <span class="site-state-item-name">文章</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-          <a href="/categories/">
-        <span class="site-state-item-count">13</span>
-        <span class="site-state-item-name">分類</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">51</span>
-        <span class="site-state-item-name">標籤</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author animated">
-      <span class="links-of-author-item">
-        <a href="https://github.com/aeilot" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;aeilot" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:louis.aeilot@icloud.com" title="E-Mail → mailto:louis.aeilot@icloud.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://stackoverflow.com/13011108" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;13011108" rel="noopener me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://instagram.com/louisaeilot" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;louisaeilot" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://space.bilibili.com/378981479" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;378981479" rel="noopener me" target="_blank"><i class="fab fa-youtube fa-fw"></i>Bilibili</a>
-      </span>
-  </div>
-  <div class="cc-license animated" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-TW" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
-  </div>
-
-        </div>
-      </div>
-    </div>
-
-    
-    <div class="sidebar-inner sidebar-blogroll">
-      <div class="links-of-blogroll animated">
-        <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
-          連結
-        </div>
-        <ul class="links-of-blogroll-list">
-            <li class="links-of-blogroll-item">
-              <a href="https://mrwillcom.now.sh/" title="https:&#x2F;&#x2F;mrwillcom.now.sh" rel="noopener" target="_blank">Mr.Will</a>
-            </li>
-            <li class="links-of-blogroll-item">
-              <a href="https://chungzh.cn/" title="https:&#x2F;&#x2F;chungzh.cn" rel="noopener" target="_blank">ChungZH</a>
-            </li>
-            <li class="links-of-blogroll-item">
-              <a href="https://shaojiaxu.github.io/" title="https:&#x2F;&#x2F;shaojiaxu.github.io" rel="noopener" target="_blank">SJX</a>
-            </li>
-            <li class="links-of-blogroll-item">
-              <a href="http://clckblog.space/" title="http:&#x2F;&#x2F;clckblog.space&#x2F;" rel="noopener" target="_blank">CLCK</a>
-            </li>
-            <li class="links-of-blogroll-item">
-              <a href="https://innei.in/" title="https:&#x2F;&#x2F;innei.in&#x2F;" rel="noopener" target="_blank">静かな森</a>
-            </li>
-        </ul>
-      </div>
-    </div>
-        <div class="pjax">
-        </div>
-  </aside>
-
-
-    </div>
-
-    <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://blog.aeilot.top/2021/04/24/Luogu-P3379/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/gravatar.jpeg">
-      <meta itemprop="name" content="滿五">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="滿五的部落格">
-      <meta itemprop="description" content="Stay Hungry. Stay Foolish.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 滿五的部落格">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/04/24/Luogu-P3379/" class="post-title-link" itemprop="url">題解 最近公共祖先 (LCA)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">發表於</span>
-
-      <time title="創建時間：2021-04-24 17:45:09" itemprop="dateCreated datePublished" datetime="2021-04-24T17:45:09+08:00">2021-04-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分類於</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/OI/" itemprop="url" rel="index"><span itemprop="name">OI</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2021/04/24/Luogu-P3379/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2021/04/24/Luogu-P3379/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="文章字數">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">文章字數：</span>
-      <span>4k</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>好久沒刷題了，複習一下：LCA。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/24/Luogu-P3379/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://blog.aeilot.top/2020/12/25/newton-leibniz-proof/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/gravatar.jpeg">
-      <meta itemprop="name" content="滿五">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="滿五的部落格">
-      <meta itemprop="description" content="Stay Hungry. Stay Foolish.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 滿五的部落格">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/12/25/newton-leibniz-proof/" class="post-title-link" itemprop="url">用簡單的物理方法證明牛頓萊布尼茨公式</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">發表於</span>
-
-      <time title="創建時間：2020-12-25 07:45:09" itemprop="dateCreated datePublished" datetime="2020-12-25T07:45:09+08:00">2020-12-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分類於</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%9B%BB%E8%85%A6%E7%A7%91%E5%AD%B8%E8%88%87%E6%95%B8%E5%AD%B8/" itemprop="url" rel="index"><span itemprop="name">電腦科學與數學</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/12/25/newton-leibniz-proof/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/12/25/newton-leibniz-proof/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="文章字數">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">文章字數：</span>
-      <span>383</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>前幾天經過苦思冥想，想出來了一種簡單的證明方法，現在來簡單分享一下。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/12/25/newton-leibniz-proof/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://blog.aeilot.top/2020/12/25/honor-band6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/gravatar.jpeg">
-      <meta itemprop="name" content="滿五">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="滿五的部落格">
-      <meta itemprop="description" content="Stay Hungry. Stay Foolish.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 滿五的部落格">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/12/25/honor-band6/" class="post-title-link" itemprop="url">簡評榮耀手環6</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">發表於</span>
-
-      <time title="創建時間：2020-12-25 06:45:09" itemprop="dateCreated datePublished" datetime="2020-12-25T06:45:09+08:00">2020-12-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分類於</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B8%E7%A2%BC/" itemprop="url" rel="index"><span itemprop="name">數碼</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/12/25/honor-band6/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/12/25/honor-band6/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="文章字數">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">文章字數：</span>
-      <span>354</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="https://i.loli.net/2020/12/25/bL2k4lVvfWIKxJp.png" alt="Band" /></p>
-<p>前幾天買了個 <strong>榮耀手環6</strong>，簡單點評點評。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/12/25/honor-band6/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://blog.aeilot.top/2020/10/01/mid-autumn-2020/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/gravatar.jpeg">
-      <meta itemprop="name" content="滿五">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="滿五的部落格">
-      <meta itemprop="description" content="Stay Hungry. Stay Foolish.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 滿五的部落格">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/10/01/mid-autumn-2020/" class="post-title-link" itemprop="url">海上生明月，天涯共此時。</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">發表於</span>
-
-      <time title="創建時間：2020-10-01 11:45:09" itemprop="dateCreated datePublished" datetime="2020-10-01T11:45:09+08:00">2020-10-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分類於</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%94%9D%E5%BD%B1/" itemprop="url" rel="index"><span itemprop="name">攝影</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/10/01/mid-autumn-2020/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/10/01/mid-autumn-2020/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="文章字數">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">文章字數：</span>
-      <span>33</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>使用單反拍攝，Louis Aeilot 版權所有。鏡頭不夠。。。。。。</p>
-</blockquote>
-<p><img data-src="https://i.loli.net/2020/10/01/ouLZczWMdQA3Crw.png" alt="Photo" /></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://blog.aeilot.top/2020/09/11/ipod-shuffle/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/gravatar.jpeg">
-      <meta itemprop="name" content="滿五">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="滿五的部落格">
-      <meta itemprop="description" content="Stay Hungry. Stay Foolish.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 滿五的部落格">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/09/11/ipod-shuffle/" class="post-title-link" itemprop="url">我為什麼重新拿出了 iPod</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">發表於</span>
-
-      <time title="創建時間：2020-09-11 09:45:09" itemprop="dateCreated datePublished" datetime="2020-09-11T09:45:09+08:00">2020-09-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分類於</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B8%E7%A2%BC/" itemprop="url" rel="index"><span itemprop="name">數碼</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/09/11/ipod-shuffle/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/09/11/ipod-shuffle/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="文章字數">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">文章字數：</span>
-      <span>337</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>我有一個 iPod Shuffle，已經吃灰多年了。。。最近重新拿出來用了。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/11/ipod-shuffle/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://blog.aeilot.top/2020/08/24/swift-userdefaults/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/gravatar.jpeg">
-      <meta itemprop="name" content="滿五">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="滿五的部落格">
-      <meta itemprop="description" content="Stay Hungry. Stay Foolish.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 滿五的部落格">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/08/24/swift-userdefaults/" class="post-title-link" itemprop="url">Swift 中的 SharedPreferance —— UserDefaults</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">發表於</span>
-
-      <time title="創建時間：2020-08-24 06:45:09" itemprop="dateCreated datePublished" datetime="2020-08-24T06:45:09+08:00">2020-08-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分類於</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/" itemprop="url" rel="index"><span itemprop="name">程式設計</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/08/24/swift-userdefaults/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/08/24/swift-userdefaults/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="文章字數">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">文章字數：</span>
-      <span>837</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>從 Android 開發又最終回到 iOS 了，好多東西都不知道。最近一直有需求要用一個類似 Android 的 SharedPreferance 的東西。找了一下資料，來總結一下。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/08/24/swift-userdefaults/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://blog.aeilot.top/2020/08/23/stare-at-moon/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/gravatar.jpeg">
-      <meta itemprop="name" content="滿五">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="滿五的部落格">
-      <meta itemprop="description" content="Stay Hungry. Stay Foolish.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 滿五的部落格">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/08/23/stare-at-moon/" class="post-title-link" itemprop="url">凝視那一輪明月</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">發表於</span>
-
-      <time title="創建時間：2020-08-23 06:45:09" itemprop="dateCreated datePublished" datetime="2020-08-23T06:45:09+08:00">2020-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分類於</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%96%87%E5%AD%B8/" itemprop="url" rel="index"><span itemprop="name">文學</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/08/23/stare-at-moon/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/08/23/stare-at-moon/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="文章字數">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">文章字數：</span>
-      <span>994</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>隨便亂寫的，，，要拿去參加一個小比賽。。。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/08/23/stare-at-moon/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://blog.aeilot.top/2020/08/22/gh-action-hexo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/gravatar.jpeg">
-      <meta itemprop="name" content="滿五">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="滿五的部落格">
-      <meta itemprop="description" content="Stay Hungry. Stay Foolish.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 滿五的部落格">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/08/22/gh-action-hexo/" class="post-title-link" itemprop="url">用 GitHub Actions 部署 Hexo 部落格</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">發表於</span>
-
-      <time title="創建時間：2020-08-22 06:45:09" itemprop="dateCreated datePublished" datetime="2020-08-22T06:45:09+08:00">2020-08-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分類於</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/" itemprop="url" rel="index"><span itemprop="name">程式設計</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/08/22/gh-action-hexo/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/08/22/gh-action-hexo/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="文章字數">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">文章字數：</span>
-      <span>1.2k</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>最近有一個朋友找我，說她弄了一個 Hexo 部落格，想做 GitHub Actions 自動部署，奈何不會弄，只好讓我幫忙。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/08/22/gh-action-hexo/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://blog.aeilot.top/2020/08/19/wwdc2020/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/gravatar.jpeg">
-      <meta itemprop="name" content="滿五">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="滿五的部落格">
-      <meta itemprop="description" content="Stay Hungry. Stay Foolish.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 滿五的部落格">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/08/19/wwdc2020/" class="post-title-link" itemprop="url">遲來的日誌 - WWDC 2020 獎學金</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">發表於</span>
-
-      <time title="創建時間：2020-08-19 12:45:09" itemprop="dateCreated datePublished" datetime="2020-08-19T12:45:09+08:00">2020-08-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分類於</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/" itemprop="url" rel="index"><span itemprop="name">程式設計</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
     
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/08/19/wwdc2020/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/08/19/wwdc2020/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="文章字數">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">文章字數：</span>
-      <span>418</span>
-    </span>
-</div>
-
-        </div>
-      </header>
+<script src="/js/main.js"></script>
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>今年 6 月份，因為疫情的影響，WWDC改為線上，之前的獎學金重新命名為 <a target="_blank" rel="noopener" href="https://developer.apple.com/wwdc20/swift-student-challenge/">Swift Student Challenge</a>。</p>
-<p>我老早就有參加這一活動的打算，只是一直沒能實現，也沒有達到要求。今年大膽嘗試了一會，雖然成績不理想，但還是收穫了許多。</p>
-<p>我今年的專案在 <a target="_blank" rel="noopener" href="https://github.com/aeilot/WWDC2020">aeilot/WWDC2020</a>。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/08/19/wwdc2020/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    
     
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
 
-
     
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://blog.aeilot.top/2020/08/13/vcpkg/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/gravatar.jpeg">
-      <meta itemprop="name" content="滿五">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="滿五的部落格">
-      <meta itemprop="description" content="Stay Hungry. Stay Foolish.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 滿五的部落格">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/08/13/vcpkg/" class="post-title-link" itemprop="url">vcpkg - 方便的 C/C++ 庫管理器</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">發表於</span>
-
-      <time title="創建時間：2020-08-13 12:45:09" itemprop="dateCreated datePublished" datetime="2020-08-13T12:45:09+08:00">2020-08-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分類於</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/" itemprop="url" rel="index"><span itemprop="name">程式設計</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
     
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/08/13/vcpkg/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/08/13/vcpkg/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="文章字數">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">文章字數：</span>
-      <span>872</span>
-    </span>
-</div>
+<script src="/js/scroll-reveal.js"></script>
 
-        </div>
-      </header>
-
-    
     
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>最近在做一個大型的 C++ 專案 ── <a target="_blank" rel="noopener" href="https://github.com/louis-studio/Albumist">Albumist</a>。它使用 Qt，需要用到很多類似 <code>sqlite3</code>、<code>exiv2</code>、<code>libcurl</code> 之類的庫。第三方庫管理似乎成了問題。</p>
-<p>支援 git 的都可以使用　<code>git submodule</code> 來管理，但是還有少部分是不支援的，或者是二進位制的，比如 <code>sqlite3</code>。這就要我們手動去下載，手動去更新，好生麻煩。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/08/13/vcpkg/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    
+    <style>
+  #waline {
+    max-width: 800px; 
+    margin: 40px auto;
+    padding: 30px;   
     
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一頁" aria-label="上一頁" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" title="下一頁" aria-label="下一頁" href="/page/7/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-</div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-
-  <div class="copyright">
-    &copy; 2015 – 
-    <span itemprop="copyrightYear">2026</span>
-    <span class="with-love">
-      <i class="fa fa-heart"></i>
-    </span>
-    <span class="author" itemprop="copyrightHolder">滿五</span>
-  </div>
-<div class="busuanzi-count">
-    <span class="post-meta-item" id="busuanzi_container_site_uv">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="訪客總數">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="總瀏覽次數">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
-
-    </div>
-  </footer>
+    background: var(--color-background-secondary); 
+    border-radius: var(--radius-medium); 
+  }
 
-  
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-  <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="回到頂端">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
-  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+  @container document-body style(--config-corner-squircle: true) {
+      @supports (corner-shape: squircle) {
+          #waline {
+              corner-shape: squircle;
+              --radius-tiny: 10px;
+              --radius-small: 20px;
+              --radius-medium: 30px;
+              --radius-large: 40px;
+              --radius-full: 999px;
+          }
+      }
+  }
 
-  <a href="https://github.com/aeilot" class="github-corner" title="在 GitHub 上關注我" aria-label="在 GitHub 上關注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+  @media (max-width: 768px) {
+    #waline {
+      margin: 20px 10px; 
+      padding: 20px;
+    }
+  }
+</style>
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-TW","enable":true,"serverURL":"https://comments.aeilot.top","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"dark":"auto","emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo","https://unpkg.com/@waline/emojis@1.0.1/alus","https://unpkg.com/@waline/emojis@1.0.1/bilibili","https://unpkg.com/@waline/emojis@1.0.1/qq","https://unpkg.com/@waline/emojis@1.0.1/tieba","https://unpkg.com/@waline/emojis@1.0.1/tw-emoji"],"meta":["nick","mail","link"],"requiredMeta":["nick"],"el":"#waline","comment":true,"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","path":"/page/6/"}</script>
-<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
-<script>
-document.addEventListener('page:loaded', () => {
-  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
-    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
-  ).then(() => 
-    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
-  );
-});
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
 </script>
-
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
