@@ -13,12 +13,12 @@
   <link rel='manifest' href='/manifest.json'>
   
 
-  <meta name="description" content="最近在做一個大型的 C++ 專案 ── Albumist。它使用 Qt，需要用到很多類似 sqlite3、exiv2、libcurl 之類的庫。第三方庫管理似乎成了問題。 支援 git 的都可以使用　git submodule 來管理，但是還有少部分是不支援的，或者是二進位制的，比如 sqlite3。這就要我們手動去下載，手動去更新，好生麻煩。  vcpkg 我一直想要一個類似 npm pip">
+  <meta name="description" content="最近在做一個大型的 C++ 專案 ── Albumist。它使用 Qt，需要用到很多類似 sqlite3、exiv2、libcurl 之類的庫。第三方庫管理似乎成了問題。 支援 git 的都可以使用　git submodule 來管理，但是還有少部分是不支援的，或者是二進位制的，比如 sqlite3。這就要我們手動去下載，手動去更新，好生麻煩。 vcpkg我一直想要一個類似 npm pip 一樣">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vcpkg - 方便的 C&#x2F;C++ 庫管理器">
 <meta property="og:url" content="https://blog.aeilot.top/2020/08/13/vcpkg/index.html">
 <meta property="og:site_name" content="滿五 | Louis D&#39;s Blog">
-<meta property="og:description" content="最近在做一個大型的 C++ 專案 ── Albumist。它使用 Qt，需要用到很多類似 sqlite3、exiv2、libcurl 之類的庫。第三方庫管理似乎成了問題。 支援 git 的都可以使用　git submodule 來管理，但是還有少部分是不支援的，或者是二進位制的，比如 sqlite3。這就要我們手動去下載，手動去更新，好生麻煩。  vcpkg 我一直想要一個類似 npm pip">
+<meta property="og:description" content="最近在做一個大型的 C++ 專案 ── Albumist。它使用 Qt，需要用到很多類似 sqlite3、exiv2、libcurl 之類的庫。第三方庫管理似乎成了問題。 支援 git 的都可以使用　git submodule 來管理，但是還有少部分是不支援的，或者是二進位制的，比如 sqlite3。這就要我們手動去下載，手動去更新，好生麻煩。 vcpkg我一直想要一個類似 npm pip 一樣">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-08-13T04:45:09.000Z">
 <meta property="article:modified_time" content="2026-01-22T17:20:57.025Z">
@@ -233,20 +233,16 @@
     <span id="more"></span>
 <p>最近在做一個大型的 C++ 專案 ── <a target="_blank" rel="noopener" href="https://github.com/louis-studio/Albumist">Albumist</a>。它使用 Qt，需要用到很多類似 <code>sqlite3</code>、<code>exiv2</code>、<code>libcurl</code> 之類的庫。第三方庫管理似乎成了問題。</p>
 <p>支援 git 的都可以使用　<code>git submodule</code> 來管理，但是還有少部分是不支援的，或者是二進位制的，比如 <code>sqlite3</code>。這就要我們手動去下載，手動去更新，好生麻煩。</p>
-<h2 id="vcpkg"><a class="markdownIt-Anchor" href="#vcpkg"></a> vcpkg</h2>
-<p>我一直想要一個類似 <code>npm</code> <code>pip</code> 一樣的東西，把依賴寫在檔案裡面，然後直接 <code>install</code> 即可。</p>
+<h2 id="vcpkg"><a href="#vcpkg" class="headerlink" title="vcpkg"></a>vcpkg</h2><p>我一直想要一個類似 <code>npm</code> <code>pip</code> 一樣的東西，把依賴寫在檔案裡面，然後直接 <code>install</code> 即可。</p>
 <p>經過搜尋，我發現了微軟的一個專案 <a target="_blank" rel="noopener" href="https://github.com/microsoft/vcpkg/">vcpkg</a>。官方定義它為 “C++ Library Manager for Windows, Linux, and MacOS”，簡單翻譯一下就是 “支援 Windows, Linux 和 macOS 的 C++ 庫管理器”。</p>
 <p>在 Arch Linux 上面，安裝它並不複雜，只需要：<code>sudo pacman -S vcpkg-git</code> 即可。其他系統沒有嘗試過，跟著它的 README 也很方便安裝。</p>
-<h2 id="清單-功能"><a class="markdownIt-Anchor" href="#清單-功能"></a> “清單” 功能</h2>
-<p>在專案根目錄建立一個 <code>vcpkg.json</code>， 然後 <code>vcpkg install</code>。這一功能就是“清單”功能。它正好是我想要的，可是卻暫時處在 Beta 階段，不過也無關緊要。</p>
+<h2 id="“清單”-功能"><a href="#“清單”-功能" class="headerlink" title="“清單” 功能"></a>“清單” 功能</h2><p>在專案根目錄建立一個 <code>vcpkg.json</code>， 然後 <code>vcpkg install</code>。這一功能就是“清單”功能。它正好是我想要的，可是卻暫時處在 Beta 階段，不過也無關緊要。</p>
 <p>要啟用“清單”功能，在執行命令時，需要接引數 <code>--feature-flags = manifests</code>。</p>
 <p>清單大概長這樣：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&lt;name of your project&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;version-string&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&lt;version of your project&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;abseil&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;boost&quot;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 <p>很方便，也很快捷。</p>
-<h2 id="不足"><a class="markdownIt-Anchor" href="#不足"></a> 不足</h2>
-<p>比起這樣一個純粹的管理器，我更希望獲得類似 Java 的 Gradle 的體驗。如果 CMake 能加入類似功能，體驗一定能夠翻倍，快捷方便且無需第三方軟體。</p>
-<h2 id="後記"><a class="markdownIt-Anchor" href="#後記"></a> 後記</h2>
-<p>— 2020 08 15 更新</p>
+<h2 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h2><p>比起這樣一個純粹的管理器，我更希望獲得類似 Java 的 Gradle 的體驗。如果 CMake 能加入類似功能，體驗一定能夠翻倍，快捷方便且無需第三方軟體。</p>
+<h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2><p>—- 2020 08 15 更新</p>
 <p>又停止使用這個東西了，Windows 上面需要 MSVC。。。</p>
 
   </div>
