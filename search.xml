@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>How to Use TouchID for Sudo Commands on macOS</title>
+      <link href="/2026/01/24/sudo_fingerprints/"/>
+      <url>/2026/01/24/sudo_fingerprints/</url>
+      
+        <content type="html"><![CDATA[<p>If you are a developer or power user on a Mac, you probably type your password into the terminal dozens of times a day using <code>sudo</code>. If your Mac has a TouchID sensor, you can save time and keystrokes by configuring your terminal to accept your fingerprint instead of your password.</p><p>Here is a quick guide on how to set it up.</p><span id="more"></span><h4 id="step-1-edit-the-sudo-configuration"><a class="markdownIt-Anchor" href="#step-1-edit-the-sudo-configuration"></a> Step 1: Edit the Sudo Configuration</h4><p>The safest way to edit system files is using the command line. Open your terminal and run the following command:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> -e /etc/pam.d/sudo</span><br></pre></td></tr></table></figure><p>This will open the configuration file in your default editor (usually Vim or Nano).</p><h4 id="step-2-add-the-touchid-module"><a class="markdownIt-Anchor" href="#step-2-add-the-touchid-module"></a> Step 2: Add the TouchID Module</h4><p>You will see a list of authentication rules. You need to add a specific line to the very top of the list, right under the first comment.</p><p><strong>Add this line:</strong></p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">auth       sufficient     pam_tid.so</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>Your file should now look something like this:</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># sudo: auth account password session</span><br><span class="line">auth       sufficient     pam_tid.so</span><br><span class="line">auth       sufficient     pam_smartcard.so</span><br><span class="line">auth       required       pam_opendirectory.so</span><br><span class="line">account    required       pam_permit.so</span><br><span class="line">password   required       pam_deny.so</span><br><span class="line">session    required       pam_permit.so</span><br></pre></td></tr></table></figure><p>Save the file and exit the editor.</p><h4 id="step-3-test-it-out"><a class="markdownIt-Anchor" href="#step-3-test-it-out"></a> Step 3: Test It Out</h4><p>Open a new terminal tab and try running a command like <code>sudo ls</code>. You should immediately see a prompt asking for your TouchID fingerprint.</p><p><img src="https://s2.loli.net/2026/01/26/DMse6fn59WEgR4v.jpg" alt="IMAGE 2026-01-25 19_07_14.jpg" /></p><p>If you hit <strong>Cancel</strong>, or if you are accessing the machine via SSH, it will simply fall back to asking for your password as usual.</p><h4 id="troubleshooting-for-iterm2-users"><a class="markdownIt-Anchor" href="#troubleshooting-for-iterm2-users"></a> Troubleshooting for iTerm2 Users</h4><p>If you use the default macOS Terminal app, you are done. However, if you use <strong>iTerm2</strong>, this feature might not work immediately due to how iTerm handles sessions.</p><p><img src="https://s2.loli.net/2026/01/26/jIohx6TpnYeEdCq.jpg" alt="IMAGE 2026-01-25 19_07_12.jpg" /></p><p>To fix this:</p><ol><li>Open iTerm2 <strong>Preferences</strong>.</li><li>Go to the <strong>Advanced</strong> tab.</li><li>Scroll to the <strong>Session</strong> heading.</li><li>Find <strong>“Allow sessions to survive logging out and back in”</strong> and set it to <strong>No</strong>.</li></ol><p>Alternatively, you can install the <code>pam_reattach</code> module if you need to keep that specific iTerm feature enabled.</p><h4 id="a-note-on-macos-updates"><a class="markdownIt-Anchor" href="#a-note-on-macos-updates"></a> A Note on macOS Updates</h4><p>Be aware that major macOS system updates often reset the <code>/etc/pam.d/sudo</code> file. If TouchID stops working after you update your Mac, simply follow these steps again to re-add the line.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> EN | macOS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> macOS </tag>
+            
+            <tag> iTerm2 </tag>
+            
+            <tag> Smart Tips </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CS188 Search Lecture Notes I</title>
       <link href="/2026/01/24/cs188-search-i/"/>
       <url>/2026/01/24/cs188-search-i/</url>
@@ -20,9 +49,9 @@
       
         <tags>
             
-            <tag> CS188 </tag>
-            
             <tag> AI </tag>
+            
+            <tag> CS188 </tag>
             
             <tag> Lecture Notes </tag>
             
