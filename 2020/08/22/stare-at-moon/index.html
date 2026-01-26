@@ -398,12 +398,20 @@
 
     <style>
   .giscus {
-    max-width: 800px; 
-    margin: 40px auto;
-    padding: 30px;   
+    max-width: 768px;
+    padding: 16px;
+    margin: 64px auto;
     
     background: var(--color-background-secondary); 
     border-radius: var(--radius-medium); 
+  }
+
+
+  @media (max-width: 800px) {
+      .giscus {
+          border-radius: 0;
+          width: auto;
+      }
   }
 
   @container document-body style(--config-corner-squircle: true) {

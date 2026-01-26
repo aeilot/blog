@@ -267,9 +267,9 @@
       
       <a href="/tags/%E5%B9%B4%E5%BA%A6%E5%9B%9E%E9%A1%A7/" class="tag">#年度回顧</a>
       
-      <a href="/tags/%E6%83%85%E6%84%9F/" class="tag">#情感</a>
-      
       <a href="/tags/%E6%95%A3%E6%96%87/" class="tag">#散文</a>
+      
+      <a href="/tags/%E6%83%85%E6%84%9F/" class="tag">#情感</a>
       
     </p>
     
@@ -406,12 +406,20 @@
 
     <style>
   .giscus {
-    max-width: 800px; 
-    margin: 40px auto;
-    padding: 30px;   
+    max-width: 768px;
+    padding: 16px;
+    margin: 64px auto;
     
     background: var(--color-background-secondary); 
     border-radius: var(--radius-medium); 
+  }
+
+
+  @media (max-width: 800px) {
+      .giscus {
+          border-radius: 0;
+          width: auto;
+      }
   }
 
   @container document-body style(--config-corner-squircle: true) {
