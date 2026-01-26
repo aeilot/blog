@@ -13,12 +13,12 @@
   <link rel='manifest' href='/manifest.json'>
   
 
-  <meta name="description" content="本文匯總 x64 架構下最核心的暫存器狀態與 ABI 約定。 暫存器x64 暫存器完美向下相容。寫入低 32 位 (如 MOV EAX, 1) 會自動清零高 32 位；但寫入 8&#x2F;16 位則保留高位數據。 通用暫存器 (GPRs) 速查表    64-bit 32-bit 16-bit 8-bit 用途 (System V &#x2F; 通用) 易失性     RAX EAX AX AL 返回值 &#x2F; 累加">
+  <meta name="description" content="本文匯總 x64 架構下最核心的暫存器狀態與 ABI 約定。  暫存器 x64 暫存器完美向下相容。寫入低 32 位 (如 MOV EAX, 1) 會自動清零高 32 位；但寫入 8&#x2F;16 位則保留高位數據。  通用暫存器 (GPRs) 速查表    64-bit 32-bit 16-bit 8-bit 用途 (System V &#x2F; 通用) 易失性     RAX EAX AX AL 返回值 &#x2F;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="x64 暫存器速查表">
 <meta property="og:url" content="https://blog.aeilot.top/2025/12/09/x64-registers/index.html">
 <meta property="og:site_name" content="滿五 | Louis D&#39;s Blog">
-<meta property="og:description" content="本文匯總 x64 架構下最核心的暫存器狀態與 ABI 約定。 暫存器x64 暫存器完美向下相容。寫入低 32 位 (如 MOV EAX, 1) 會自動清零高 32 位；但寫入 8&#x2F;16 位則保留高位數據。 通用暫存器 (GPRs) 速查表    64-bit 32-bit 16-bit 8-bit 用途 (System V &#x2F; 通用) 易失性     RAX EAX AX AL 返回值 &#x2F; 累加">
+<meta property="og:description" content="本文匯總 x64 架構下最核心的暫存器狀態與 ABI 約定。  暫存器 x64 暫存器完美向下相容。寫入低 32 位 (如 MOV EAX, 1) 會自動清零高 32 位；但寫入 8&#x2F;16 位則保留高位數據。  通用暫存器 (GPRs) 速查表    64-bit 32-bit 16-bit 8-bit 用途 (System V &#x2F; 通用) 易失性     RAX EAX AX AL 返回值 &#x2F;">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2025-12-09T06:45:09.000Z">
 <meta property="article:modified_time" content="2026-01-22T17:20:57.021Z">
@@ -233,8 +233,9 @@
   <div class="content">
     <span id="more"></span>
 <p>本文匯總 x64 架構下最核心的暫存器狀態與 ABI 約定。</p>
-<h2 id="暫存器"><a href="#暫存器" class="headerlink" title="暫存器"></a>暫存器</h2><p>x64 暫存器完美向下相容。<strong>寫入低 32 位 (如 <code>MOV EAX, 1</code>) 會自動清零高 32 位；但寫入 8/16 位則保留高位數據。</strong></p>
-<h3 id="通用暫存器-GPRs-速查表"><a href="#通用暫存器-GPRs-速查表" class="headerlink" title="通用暫存器 (GPRs) 速查表"></a>通用暫存器 (GPRs) 速查表</h3><div class="table-container">
+<h2 id="暫存器"><a class="markdownIt-Anchor" href="#暫存器"></a> 暫存器</h2>
+<p>x64 暫存器完美向下相容。<strong>寫入低 32 位 (如 <code>MOV EAX, 1</code>) 會自動清零高 32 位；但寫入 8/16 位則保留高位數據。</strong></p>
+<h3 id="通用暫存器-gprs-速查表"><a class="markdownIt-Anchor" href="#通用暫存器-gprs-速查表"></a> 通用暫存器 (GPRs) 速查表</h3>
 <table>
 <thead>
 <tr>
@@ -353,7 +354,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <blockquote>
 <p><strong>關鍵術語：</strong></p>
 <ul>
@@ -361,30 +361,38 @@
 <li><strong>Callee Saved:</strong> 被調用的函數必須保證在返回時，這些暫存器的值和調用前一樣（通常通過 <code>push/pop</code> 維護）。</li>
 </ul>
 </blockquote>
-<h2 id="函數調用約定"><a href="#函數調用約定" class="headerlink" title="函數調用約定"></a>函數調用約定</h2><h3 id="A-System-V-AMD64-ABI-Linux-macOS"><a href="#A-System-V-AMD64-ABI-Linux-macOS" class="headerlink" title="A. System V AMD64 ABI (Linux, macOS)"></a>A. System V AMD64 ABI (Linux, macOS)</h3><ul>
-<li><strong>傳參順序 (前6個):</strong><br><code>RDI</code> $\rightarrow$ <code>RSI</code> $\rightarrow$ <code>RDX</code> $\rightarrow$ <code>RCX</code> $\rightarrow$ <code>R8</code> $\rightarrow$ <code>R9</code></li>
+<h2 id="函數調用約定"><a class="markdownIt-Anchor" href="#函數調用約定"></a> 函數調用約定</h2>
+<h3 id="a-system-v-amd64-abi-linux-macos"><a class="markdownIt-Anchor" href="#a-system-v-amd64-abi-linux-macos"></a> A. System V AMD64 ABI (Linux, macOS)</h3>
+<ul>
+<li><strong>傳參順序 (前6個):</strong><br />
+<code>RDI</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <code>RSI</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <code>RDX</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <code>RCX</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <code>R8</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <code>R9</code></li>
 <li><strong>超過6個:</strong> 壓入棧 (Stack)。</li>
 <li><strong>返回值:</strong> <code>RAX</code> (若結果為 128 位，高位在 <code>RDX</code>)。</li>
 <li><strong>System Call:</strong> 使用 <code>syscall</code> 指令，參數傳給 <code>RAX</code> (系統調用號), <code>RDI</code>, <code>RSI</code>, <code>RDX</code>, <code>R10</code>, <code>R8</code>, <code>R9</code>。</li>
 </ul>
-<h3 id="B-Microsoft-x64-Windows"><a href="#B-Microsoft-x64-Windows" class="headerlink" title="B. Microsoft x64 (Windows)"></a>B. Microsoft x64 (Windows)</h3><ul>
-<li><strong>傳參順序 (前4個):</strong><br><code>RCX</code> $\rightarrow$ <code>RDX</code> $\rightarrow$ <code>R8</code> $\rightarrow$ <code>R9</code></li>
+<h3 id="b-microsoft-x64-windows"><a class="markdownIt-Anchor" href="#b-microsoft-x64-windows"></a> B. Microsoft x64 (Windows)</h3>
+<ul>
+<li><strong>傳參順序 (前4個):</strong><br />
+<code>RCX</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <code>RDX</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <code>R8</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <code>R9</code></li>
 <li><strong>超過4個:</strong> 壓入棧。</li>
 <li><strong>Shadow Space:</strong> 調用者必須在棧上預留 <strong>32位元組</strong> (4個暫存器寬) 的空間，即使參數很少。</li>
 <li><strong>返回值:</strong> <code>RAX</code>。</li>
 </ul>
-<h2 id="關鍵狀態標誌"><a href="#關鍵狀態標誌" class="headerlink" title="關鍵狀態標誌"></a>關鍵狀態標誌</h2><p>控制流指令 (<code>JMP</code>, <code>Jcc</code>) 的依據。</p>
+<h2 id="關鍵狀態標誌"><a class="markdownIt-Anchor" href="#關鍵狀態標誌"></a> 關鍵狀態標誌</h2>
+<p>控制流指令 (<code>JMP</code>, <code>Jcc</code>) 的依據。</p>
 <ul>
 <li><strong>ZF (Zero Flag):</strong> 運算結果為 0 時置位。</li>
 <li><strong>SF (Sign Flag):</strong> 結果為負（最高位為1）時置位。</li>
 <li><strong>OF (Overflow Flag):</strong> <strong>有符號</strong>運算溢出時置位。</li>
 <li><strong>CF (Carry Flag):</strong> <strong>無符號</strong>運算進位/借位時置位。</li>
 </ul>
-<h2 id="浮點與-SIMD-AVX-SSE"><a href="#浮點與-SIMD-AVX-SSE" class="headerlink" title="浮點與 SIMD (AVX/SSE)"></a>浮點與 SIMD (AVX/SSE)</h2><ul>
+<h2 id="浮點與-simd-avxsse"><a class="markdownIt-Anchor" href="#浮點與-simd-avxsse"></a> 浮點與 SIMD (AVX/SSE)</h2>
+<ul>
 <li><strong>XMM0 - XMM15</strong>: 128位 (Legacy SSE)。</li>
 <li><strong>YMM0 - YMM15</strong>: 256位 (AVX，低 128 位映射到 XMM)。</li>
 <li><strong>ZMM0 - ZMM31</strong>: 512位 (AVX-512，低 256 位映射到 YMM)。</li>
-<li><strong>參數傳遞 (System V ABI):</strong><ul>
+<li><strong>參數傳遞 (System V ABI):</strong>
+<ul>
 <li><strong>浮點參數</strong>: 前 8 個浮點參數通過 <code>XMM0</code> 到 <code>XMM7</code> 傳遞。</li>
 <li><strong>浮點返回</strong>: 通過 <code>XMM0</code> 返回。</li>
 <li><strong>易失性</strong>: <code>XMM0</code> - <code>XMM15</code> 通常都是 Caller-saved (易失的)。</li>
