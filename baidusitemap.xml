@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.aeilot.top/2026/02/09/cs231n-lecture-i/</loc>
+    <lastmod>2026-02-10</lastmod>
+  </url>
+  <url>
     <loc>https://blog.aeilot.top/2026/02/04/csapp-cache-lab-2/</loc>
     <lastmod>2026-02-05</lastmod>
   </url>
@@ -89,11 +93,11 @@
     <lastmod>2026-01-22</lastmod>
   </url>
   <url>
-    <loc>https://blog.aeilot.top/2023/03/30/bank-of-sea/</loc>
+    <loc>https://blog.aeilot.top/2022/11/24/P3147-262144P/</loc>
     <lastmod>2026-01-22</lastmod>
   </url>
   <url>
-    <loc>https://blog.aeilot.top/2022/11/24/P3147-262144P/</loc>
+    <loc>https://blog.aeilot.top/2023/03/30/bank-of-sea/</loc>
     <lastmod>2026-01-22</lastmod>
   </url>
   <url>
@@ -189,11 +193,11 @@
     <lastmod>2026-01-22</lastmod>
   </url>
   <url>
-    <loc>https://blog.aeilot.top/2022/12/17/recap/</loc>
+    <loc>https://blog.aeilot.top/2020/07/26/vimrc/</loc>
     <lastmod>2026-01-22</lastmod>
   </url>
   <url>
-    <loc>https://blog.aeilot.top/2020/07/26/vimrc/</loc>
+    <loc>https://blog.aeilot.top/2022/12/17/recap/</loc>
     <lastmod>2026-01-22</lastmod>
   </url>
   <url>
@@ -217,15 +221,15 @@
     <lastmod>2026-01-22</lastmod>
   </url>
   <url>
-    <loc>https://blog.aeilot.top/2025/09/11/qsort/</loc>
-    <lastmod>2026-01-22</lastmod>
-  </url>
-  <url>
     <loc>https://blog.aeilot.top/2022/11/23/riv-p3354/</loc>
     <lastmod>2026-01-22</lastmod>
   </url>
   <url>
     <loc>https://blog.aeilot.top/2023/02/01/stargazing/</loc>
+    <lastmod>2026-01-22</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.aeilot.top/2025/09/11/qsort/</loc>
     <lastmod>2026-01-22</lastmod>
   </url>
   <url>
