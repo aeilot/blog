@@ -13,12 +13,12 @@
   <link rel='manifest' href='/manifest.json'>
   
 
-  <meta name="description" content="從 Android 開發又最終回到 iOS 了，好多東西都不知道。最近一直有需求要用一個類似 Android 的 SharedPreferance 的東西。找了一下資料，來總結一下。 它是什麼 不會吧？不會還有人不知道 SharedPreferance 吧？？？  SharedPreferance 是一種輕量級的 Android 儲存API, 用於儲存簡單的資料，資料多了就不如其他方式高效了。">
+  <meta name="description" content="從 Android 開發又最終回到 iOS 了，好多東西都不知道。最近一直有需求要用一個類似 Android 的 SharedPreferance 的東西。找了一下資料，來總結一下。  它是什麼  不會吧？不會還有人不知道 SharedPreferance 吧？？？  SharedPreferance 是一種輕量級的 Android 儲存API, 用於儲存簡單的資料，資料多了就不如其他方式高效了">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Swift 中的 SharedPreferance —— UserDefaults">
 <meta property="og:url" content="https://blog.aeilot.top/2020/08/24/swift-userdefaults/index.html">
 <meta property="og:site_name" content="Louis C Deng&#39;s Blog">
-<meta property="og:description" content="從 Android 開發又最終回到 iOS 了，好多東西都不知道。最近一直有需求要用一個類似 Android 的 SharedPreferance 的東西。找了一下資料，來總結一下。 它是什麼 不會吧？不會還有人不知道 SharedPreferance 吧？？？  SharedPreferance 是一種輕量級的 Android 儲存API, 用於儲存簡單的資料，資料多了就不如其他方式高效了。">
+<meta property="og:description" content="從 Android 開發又最終回到 iOS 了，好多東西都不知道。最近一直有需求要用一個類似 Android 的 SharedPreferance 的東西。找了一下資料，來總結一下。  它是什麼  不會吧？不會還有人不知道 SharedPreferance 吧？？？  SharedPreferance 是一種輕量級的 Android 儲存API, 用於儲存簡單的資料，資料多了就不如其他方式高效了">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-08-24T10:45:09.000Z">
 <meta property="article:modified_time" content="2026-01-22T17:20:57.023Z">
@@ -231,20 +231,25 @@
   <div class="content">
     <span id="more"></span>
 <p>從 Android 開發又最終回到 iOS 了，好多東西都不知道。最近一直有需求要用一個類似 Android 的 SharedPreferance 的東西。找了一下資料，來總結一下。</p>
-<h2 id="它是什麼"><a href="#它是什麼" class="headerlink" title="它是什麼"></a>它是什麼</h2><blockquote>
+<h2 id="它是什麼"><a class="markdownIt-Anchor" href="#它是什麼"></a> 它是什麼</h2>
+<blockquote>
 <p>不會吧？不會還有人不知道 SharedPreferance 吧？？？</p>
 </blockquote>
 <p><code>SharedPreferance</code> 是一種輕量級的 Android 儲存API, 用於儲存<strong>簡單</strong>的資料，資料多了就不如其他方式高效了。</p>
 <p>iOS 中，起同樣作用的東西，叫 <code>UserDefaults</code>。</p>
 <p>這兩者都以 <code>key-value</code> 的形式儲存。</p>
-<h2 id="使用場景"><a href="#使用場景" class="headerlink" title="使用場景"></a>使用場景</h2><p><strong>簡單資料</strong></p>
+<h2 id="使用場景"><a class="markdownIt-Anchor" href="#使用場景"></a> 使用場景</h2>
+<p><strong>簡單資料</strong></p>
 <p><strong>簡單資料</strong></p>
 <p><strong>簡單資料</strong></p>
 <p>複雜資料建議使用 <code>SQLite</code> 或者 <code>Core Data</code>，不建議作死。。。</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><p>直接上程式碼，裡面註釋我都寫好了。</p>
+<h2 id="quick-start"><a class="markdownIt-Anchor" href="#quick-start"></a> Quick Start</h2>
+<p>直接上程式碼，裡面註釋我都寫好了。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> defaults <span class="operator">=</span> <span class="type">UserDefaults</span>.standard <span class="comment">// 獲取全域性的 UserDefaults</span></span><br><span class="line"></span><br><span class="line">defaults.set(<span class="type">Int</span>.max, forKey: <span class="string">&quot;int&quot;</span>) <span class="comment">// 儲存</span></span><br><span class="line">defaults.integer(forKey: <span class="string">&quot;int&quot;</span>) <span class="comment">// 讀取</span></span><br><span class="line"></span><br><span class="line">defaults.set(<span class="literal">true</span>, forKey: <span class="string">&quot;bool&quot;</span>)</span><br><span class="line">defaults.bool(forKey: <span class="string">&quot;bool&quot;</span>)</span><br><span class="line"></span><br><span class="line">defaults.set(<span class="type">Double</span>.infinity, forKey: <span class="string">&quot;double&quot;</span>)</span><br><span class="line">defaults.double(forKey: <span class="string">&quot;double&quot;</span>)</span><br><span class="line"></span><br><span class="line">defaults.set(<span class="type">Float</span>.infinity, forKey: <span class="string">&quot;float&quot;</span>)</span><br><span class="line">defaults.float(forKey: <span class="string">&quot;float&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="預設值"><a href="#預設值" class="headerlink" title="預設值"></a>預設值</h2><p><code>Float</code>, <code>Int</code>, <code>Double</code> 的預設值都是 0；<code>Bool</code> 的預設值是 false。</p>
-<h2 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h2><p>大家可以多在 Playgrounds 裡面試試，還可以看看 <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/foundation/userdefaults">Apple Developer Documentation</a>。</p>
+<h2 id="預設值"><a class="markdownIt-Anchor" href="#預設值"></a> 預設值</h2>
+<p><code>Float</code>, <code>Int</code>, <code>Double</code> 的預設值都是 0；<code>Bool</code> 的預設值是 false。</p>
+<h2 id="更多"><a class="markdownIt-Anchor" href="#更多"></a> 更多</h2>
+<p>大家可以多在 Playgrounds 裡面試試，還可以看看 <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/foundation/userdefaults">Apple Developer Documentation</a>。</p>
 
   </div>
 
