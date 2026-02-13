@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.aeilot.top/2026/02/13/backpropagation-calculus/</loc>
+    <lastmod>2026-02-13</lastmod>
+  </url>
+  <url>
     <loc>https://blog.aeilot.top/2026/02/13/cs231n-lecture-iv/</loc>
     <lastmod>2026-02-13</lastmod>
   </url>
@@ -109,11 +113,11 @@
     <lastmod>2026-01-22</lastmod>
   </url>
   <url>
-    <loc>https://blog.aeilot.top/2025/01/07/bridge/</loc>
+    <loc>https://blog.aeilot.top/2023/03/30/bank-of-sea/</loc>
     <lastmod>2026-01-22</lastmod>
   </url>
   <url>
-    <loc>https://blog.aeilot.top/2023/03/30/bank-of-sea/</loc>
+    <loc>https://blog.aeilot.top/2025/01/07/bridge/</loc>
     <lastmod>2026-01-22</lastmod>
   </url>
   <url>
@@ -141,11 +145,11 @@
     <lastmod>2026-01-22</lastmod>
   </url>
   <url>
-    <loc>https://blog.aeilot.top/2023/10/06/farewell/</loc>
+    <loc>https://blog.aeilot.top/2021/08/20/gh-action-clang-format/</loc>
     <lastmod>2026-01-22</lastmod>
   </url>
   <url>
-    <loc>https://blog.aeilot.top/2021/08/20/gh-action-clang-format/</loc>
+    <loc>https://blog.aeilot.top/2023/10/06/farewell/</loc>
     <lastmod>2026-01-22</lastmod>
   </url>
   <url>
@@ -157,11 +161,11 @@
     <lastmod>2026-01-22</lastmod>
   </url>
   <url>
-    <loc>https://blog.aeilot.top/2025/12/31/recap2025/</loc>
+    <loc>https://blog.aeilot.top/2024/01/01/sun-tides/</loc>
     <lastmod>2026-01-22</lastmod>
   </url>
   <url>
-    <loc>https://blog.aeilot.top/2024/01/01/sun-tides/</loc>
+    <loc>https://blog.aeilot.top/2025/12/31/recap2025/</loc>
     <lastmod>2026-01-22</lastmod>
   </url>
   <url>
@@ -189,11 +193,11 @@
     <lastmod>2026-01-22</lastmod>
   </url>
   <url>
-    <loc>https://blog.aeilot.top/2020/07/22/helloworld/</loc>
+    <loc>https://blog.aeilot.top/2023/01/04/in-search-of-lost-time-excerpt-1/</loc>
     <lastmod>2026-01-22</lastmod>
   </url>
   <url>
-    <loc>https://blog.aeilot.top/2023/01/04/in-search-of-lost-time-excerpt-1/</loc>
+    <loc>https://blog.aeilot.top/2020/07/22/helloworld/</loc>
     <lastmod>2026-01-22</lastmod>
   </url>
   <url>
@@ -229,11 +233,11 @@
     <lastmod>2026-01-22</lastmod>
   </url>
   <url>
-    <loc>https://blog.aeilot.top/2022/04/15/lsnotes/</loc>
+    <loc>https://blog.aeilot.top/2025/09/11/qsort/</loc>
     <lastmod>2026-01-22</lastmod>
   </url>
   <url>
-    <loc>https://blog.aeilot.top/2025/09/11/qsort/</loc>
+    <loc>https://blog.aeilot.top/2022/04/15/lsnotes/</loc>
     <lastmod>2026-01-22</lastmod>
   </url>
   <url>
