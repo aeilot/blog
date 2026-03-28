@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>x64 暫存器速查表 - Louis C Deng&#39;s Blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="本文匯總 x64 架構下最核心的暫存器狀態與 ABI 約定。  暫存器 x64 暫存器完美向下相容。寫入低 32 位 (如 MOV EAX, 1) 會自動清零高 32 位；但寫入 8&#x2F;16 位則保留高位數據。  通用暫存器 (GPRs) 速查表    64-bit 32-bit 16-bit 8-bit 用途 (System V &#x2F; 通用) 易失性     RAX EAX AX AL 返回值 &#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="x64 暫存器速查表">
+<meta property="og:url" content="https://blog.aeilot.top/2025/12/10/x64-registers/index.html">
+<meta property="og:site_name" content="Louis C Deng&#39;s Blog">
+<meta property="og:description" content="本文匯總 x64 架構下最核心的暫存器狀態與 ABI 約定。  暫存器 x64 暫存器完美向下相容。寫入低 32 位 (如 MOV EAX, 1) 會自動清零高 32 位；但寫入 8&#x2F;16 位則保留高位數據。  通用暫存器 (GPRs) 速查表    64-bit 32-bit 16-bit 8-bit 用途 (System V &#x2F; 通用) 易失性     RAX EAX AX AL 返回值 &#x2F;">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2025-12-09T19:45:09.000Z">
+<meta property="article:modified_time" content="2026-01-22T17:20:57.021Z">
+<meta property="article:author" content="Louis C Deng">
+<meta property="article:tag" content="x64">
+<meta property="article:tag" content="匯編">
+<meta property="article:tag" content="逆向">
+<meta name="twitter:card" content="summary">
+
+  <script>window.ThemeCupertino = {}</script>
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@16/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  <script>ThemeCupertino['_calloutStyles'] = `
+<link rel="stylesheet" href="/css/components/callout.css">
+`</script>
+  
+<script src="/js/components/callout.js"></script>
+
+  
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-rainbow-banner="true"
+    data-rainbow-banner-shown="auto"
+    data-rainbow-banner-month="6"
+    data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+    style="--config-corner-squircle: true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  
+  <div style="--sharp: 1"></div>
+  
+  <div style="--sharp: 2"></div>
+  
+  <div style="--sharp: 3"></div>
+  
+  <div style="--sharp: 4"></div>
+  
+  <div style="--sharp: 5"></div>
+  
+  <div style="--sharp: 6"></div>
+  
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Blog</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" target="_blank" rel="noopener" href="https://aeilot.top/" style="--index: 1">Portfolio</a>
+      
+      <a class="nav-item" href="/archives" style="--index: 2">Archives</a>
+      
+      <a class="nav-item" href="/about" style="--index: 3">About</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 4"><i class="bi bi-search"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/中文-電腦科學/">中文 | 電腦科學</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2025-12-10T03:45:09+08:00">
+      December 10, 2025
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">x64 暫存器速查表</h1>
+  </div>
+
+  <div class="content">
+    <span id="more"></span>
+<p>本文匯總 x64 架構下最核心的暫存器狀態與 ABI 約定。</p>
+<h2 id="暫存器"><a class="markdownIt-Anchor" href="#暫存器"></a> 暫存器</h2>
+<p>x64 暫存器完美向下相容。<strong>寫入低 32 位 (如 <code>MOV EAX, 1</code>) 會自動清零高 32 位；但寫入 8/16 位則保留高位數據。</strong></p>
+<h3 id="通用暫存器-gprs-速查表"><a class="markdownIt-Anchor" href="#通用暫存器-gprs-速查表"></a> 通用暫存器 (GPRs) 速查表</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">64-bit</th>
+<th style="text-align:left">32-bit</th>
+<th style="text-align:left">16-bit</th>
+<th style="text-align:left">8-bit</th>
+<th style="text-align:left">用途 (System V / 通用)</th>
+<th style="text-align:left">易失性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>RAX</strong></td>
+<td style="text-align:left">EAX</td>
+<td style="text-align:left">AX</td>
+<td style="text-align:left">AL</td>
+<td style="text-align:left"><strong>返回值</strong> / 累加器</td>
+<td style="text-align:left">Caller Saved</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>RBX</strong></td>
+<td style="text-align:left">EBX</td>
+<td style="text-align:left">BX</td>
+<td style="text-align:left">BL</td>
+<td style="text-align:left">基址 / 通用數據</td>
+<td style="text-align:left"><strong>Callee Saved</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>RCX</strong></td>
+<td style="text-align:left">ECX</td>
+<td style="text-align:left">CX</td>
+<td style="text-align:left">CL</td>
+<td style="text-align:left">循環計數 / 第4參數</td>
+<td style="text-align:left">Caller Saved</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>RDX</strong></td>
+<td style="text-align:left">EDX</td>
+<td style="text-align:left">DX</td>
+<td style="text-align:left">DL</td>
+<td style="text-align:left">I/O / 乘除法 / 第3參數</td>
+<td style="text-align:left">Caller Saved</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>RSI</strong></td>
+<td style="text-align:left">ESI</td>
+<td style="text-align:left">SI</td>
+<td style="text-align:left">SIL</td>
+<td style="text-align:left">源地址 / 第2參數</td>
+<td style="text-align:left">Caller Saved</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>RDI</strong></td>
+<td style="text-align:left">EDI</td>
+<td style="text-align:left">DI</td>
+<td style="text-align:left">DIL</td>
+<td style="text-align:left">目的地址 / <strong>第1參數</strong></td>
+<td style="text-align:left">Caller Saved</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>RBP</strong></td>
+<td style="text-align:left">EBP</td>
+<td style="text-align:left">BP</td>
+<td style="text-align:left">BPL</td>
+<td style="text-align:left"><strong>棧底指針 (Base Ptr)</strong></td>
+<td style="text-align:left"><strong>Callee Saved</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>RSP</strong></td>
+<td style="text-align:left">ESP</td>
+<td style="text-align:left">SP</td>
+<td style="text-align:left">SPL</td>
+<td style="text-align:left"><strong>棧頂指針 (Stack Ptr)</strong></td>
+<td style="text-align:left"><strong>Callee Saved</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>R8</strong></td>
+<td style="text-align:left">R8D</td>
+<td style="text-align:left">R8W</td>
+<td style="text-align:left">R8B</td>
+<td style="text-align:left">第5參數</td>
+<td style="text-align:left">Caller Saved</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>R9</strong></td>
+<td style="text-align:left">R9D</td>
+<td style="text-align:left">R9W</td>
+<td style="text-align:left">R9B</td>
+<td style="text-align:left">第6參數</td>
+<td style="text-align:left">Caller Saved</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>R10</strong></td>
+<td style="text-align:left">R10D</td>
+<td style="text-align:left">R10W</td>
+<td style="text-align:left">R10B</td>
+<td style="text-align:left">臨時暫存器 (Static Chain)</td>
+<td style="text-align:left">Caller Saved</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>R11</strong></td>
+<td style="text-align:left">R11D</td>
+<td style="text-align:left">R11W</td>
+<td style="text-align:left">R11B</td>
+<td style="text-align:left">臨時 / 連結暫存器</td>
+<td style="text-align:left">Caller Saved</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>R12-R15</strong></td>
+<td style="text-align:left">RxxD</td>
+<td style="text-align:left">RxxW</td>
+<td style="text-align:left">RxxB</td>
+<td style="text-align:left">通用數據儲存</td>
+<td style="text-align:left"><strong>Callee Saved</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>關鍵術語：</strong></p>
+<ul>
+<li><strong>Caller Saved:</strong> 調用函數前，如果還需要這些值，<strong>調用者</strong>必須自己壓棧保存。函數返回後值可能變了。</li>
+<li><strong>Callee Saved:</strong> 被調用的函數必須保證在返回時，這些暫存器的值和調用前一樣（通常通過 <code>push/pop</code> 維護）。</li>
+</ul>
+</blockquote>
+<h2 id="函數調用約定"><a class="markdownIt-Anchor" href="#函數調用約定"></a> 函數調用約定</h2>
+<h3 id="a-system-v-amd64-abi-linux-macos"><a class="markdownIt-Anchor" href="#a-system-v-amd64-abi-linux-macos"></a> A. System V AMD64 ABI (Linux, macOS)</h3>
+<ul>
+<li><strong>傳參順序 (前6個):</strong><br />
+<code>RDI</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <code>RSI</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <code>RDX</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <code>RCX</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <code>R8</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <code>R9</code></li>
+<li><strong>超過6個:</strong> 壓入棧 (Stack)。</li>
+<li><strong>返回值:</strong> <code>RAX</code> (若結果為 128 位，高位在 <code>RDX</code>)。</li>
+<li><strong>System Call:</strong> 使用 <code>syscall</code> 指令，參數傳給 <code>RAX</code> (系統調用號), <code>RDI</code>, <code>RSI</code>, <code>RDX</code>, <code>R10</code>, <code>R8</code>, <code>R9</code>。</li>
+</ul>
+<h3 id="b-microsoft-x64-windows"><a class="markdownIt-Anchor" href="#b-microsoft-x64-windows"></a> B. Microsoft x64 (Windows)</h3>
+<ul>
+<li><strong>傳參順序 (前4個):</strong><br />
+<code>RCX</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <code>RDX</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <code>R8</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <code>R9</code></li>
+<li><strong>超過4個:</strong> 壓入棧。</li>
+<li><strong>Shadow Space:</strong> 調用者必須在棧上預留 <strong>32位元組</strong> (4個暫存器寬) 的空間，即使參數很少。</li>
+<li><strong>返回值:</strong> <code>RAX</code>。</li>
+</ul>
+<h2 id="關鍵狀態標誌"><a class="markdownIt-Anchor" href="#關鍵狀態標誌"></a> 關鍵狀態標誌</h2>
+<p>控制流指令 (<code>JMP</code>, <code>Jcc</code>) 的依據。</p>
+<ul>
+<li><strong>ZF (Zero Flag):</strong> 運算結果為 0 時置位。</li>
+<li><strong>SF (Sign Flag):</strong> 結果為負（最高位為1）時置位。</li>
+<li><strong>OF (Overflow Flag):</strong> <strong>有符號</strong>運算溢出時置位。</li>
+<li><strong>CF (Carry Flag):</strong> <strong>無符號</strong>運算進位/借位時置位。</li>
+</ul>
+<h2 id="浮點與-simd-avxsse"><a class="markdownIt-Anchor" href="#浮點與-simd-avxsse"></a> 浮點與 SIMD (AVX/SSE)</h2>
+<ul>
+<li><strong>XMM0 - XMM15</strong>: 128位 (Legacy SSE)。</li>
+<li><strong>YMM0 - YMM15</strong>: 256位 (AVX，低 128 位映射到 XMM)。</li>
+<li><strong>ZMM0 - ZMM31</strong>: 512位 (AVX-512，低 256 位映射到 YMM)。</li>
+<li><strong>參數傳遞 (System V ABI):</strong>
+<ul>
+<li><strong>浮點參數</strong>: 前 8 個浮點參數通過 <code>XMM0</code> 到 <code>XMM7</code> 傳遞。</li>
+<li><strong>浮點返回</strong>: 通過 <code>XMM0</code> 返回。</li>
+<li><strong>易失性</strong>: <code>XMM0</code> - <code>XMM15</code> 通常都是 Caller-saved (易失的)。</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h2>About this Post</h2>
+    <div class="details">This post is written by Louis C Deng, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</div>
+    
+    <p class="tags">
+      <i class="bi bi-tags icon"></i>
+      
+      <a href="/tags/%E5%8C%AF%E7%B7%A8/" class="tag">#匯編</a>
+      
+      <a href="/tags/%E9%80%86%E5%90%91/" class="tag">#逆向</a>
+      
+      <a href="/tags/x64/" class="tag">#x64</a>
+      
+    </p>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/2025/12/21/csapp-lab2/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">CSAPP Bomb Lab 解析</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/2025/12/02/csapp-lab1/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">CSAPP Data Lab 解析</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    <script src="https://giscus.app/client.js"
+        data-repo="aeilot/blog"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNjEwODA2OTY="
+        data-category="General"
+        data-category-id="DIC_kwDOD4_GeM4B_VIn"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/index.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Links</h2>
+        
+        <a target="_blank" rel="noopener" href="https://aeilot.top" class="item">Portfolio</a>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/aeilot" class="item">GitHub</a>
+        
+        <a target="_blank" rel="noopener" href="https://www.instagram.com/aeilotd/" class="item">Instagram</a>
+        
+        <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/chenluo-d-85b37a33a/" class="item">LinkedIn</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Friends</h2>
+        
+        <a target="_blank" rel="noopener" href="https://mrwillcom.now.sh" class="item">Mr.Will</a>
+        
+        <a target="_blank" rel="noopener" href="https://chungzh.cn" class="item">ChungZH</a>
+        
+        <a target="_blank" rel="noopener" href="https://shaojiaxu.github.io" class="item">SJX</a>
+        
+        <a target="_blank" rel="noopener" href="http://clckblog.space/" class="item">CLCK</a>
+        
+        <a target="_blank" rel="noopener" href="https://innei.in/" class="item">静かな森</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2026 Louis C Deng<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    <style>
+  .giscus {
+    max-width: 768px;
+    padding: 16px;
+    margin: 64px auto;
+    
+    background: var(--color-background-secondary); 
+    border-radius: var(--radius-medium); 
+  }
+
+
+  @media (max-width: 800px) {
+      .giscus {
+          border-radius: 0;
+          width: auto;
+      }
+  }
+
+  @container document-body style(--config-corner-squircle: true) {
+      @supports (corner-shape: squircle) {
+          .giscus {
+              corner-shape: squircle;
+              --radius-tiny: 10px;
+              --radius-small: 20px;
+              --radius-medium: 30px;
+              --radius-large: 40px;
+              --radius-full: 999px;
+          }
+      }
+  }
+
+  @media (max-width: 768px) {
+    .giscus {
+      margin: 20px 10px; 
+      padding: 20px;
+    }
+  }
+</style>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

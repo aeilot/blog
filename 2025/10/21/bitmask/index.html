@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>聊一聊位掩碼（Bit Mask） - Louis C Deng&#39;s Blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="掩碼 (Mask) 是一種位運算技巧，它使用一個特定的值（掩碼）與目標值進行 &amp;\mathtt{\&amp;}&amp; (與)、∣\mathtt{|}∣ (或)、∧\mathtt{\wedge}∧ (異或) 運算，以精確地、批次地操作、提取或檢查目標值中的一個或多個位。   基本概念 掩碼利用位運算的特性，透過設定掩碼中的特定位為 1 或 0，來控制目標值中對應位的行為。 具體來說，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="聊一聊位掩碼（Bit Mask）">
+<meta property="og:url" content="https://blog.aeilot.top/2025/10/21/bitmask/index.html">
+<meta property="og:site_name" content="Louis C Deng&#39;s Blog">
+<meta property="og:description" content="掩碼 (Mask) 是一種位運算技巧，它使用一個特定的值（掩碼）與目標值進行 &amp;\mathtt{\&amp;}&amp; (與)、∣\mathtt{|}∣ (或)、∧\mathtt{\wedge}∧ (異或) 運算，以精確地、批次地操作、提取或檢查目標值中的一個或多個位。   基本概念 掩碼利用位運算的特性，透過設定掩碼中的特定位為 1 或 0，來控制目標值中對應位的行為。 具體來說，">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2025-10-20T23:45:09.000Z">
+<meta property="article:modified_time" content="2026-01-22T17:20:57.019Z">
+<meta property="article:author" content="Louis C Deng">
+<meta property="article:tag" content="C">
+<meta property="article:tag" content="CS">
+<meta property="article:tag" content="位運算">
+<meta name="twitter:card" content="summary">
+
+  <script>window.ThemeCupertino = {}</script>
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@16/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  <script>ThemeCupertino['_calloutStyles'] = `
+<link rel="stylesheet" href="/css/components/callout.css">
+`</script>
+  
+<script src="/js/components/callout.js"></script>
+
+  
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-rainbow-banner="true"
+    data-rainbow-banner-shown="auto"
+    data-rainbow-banner-month="6"
+    data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+    style="--config-corner-squircle: true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  
+  <div style="--sharp: 1"></div>
+  
+  <div style="--sharp: 2"></div>
+  
+  <div style="--sharp: 3"></div>
+  
+  <div style="--sharp: 4"></div>
+  
+  <div style="--sharp: 5"></div>
+  
+  <div style="--sharp: 6"></div>
+  
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Blog</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" target="_blank" rel="noopener" href="https://aeilot.top/" style="--index: 1">Portfolio</a>
+      
+      <a class="nav-item" href="/archives" style="--index: 2">Archives</a>
+      
+      <a class="nav-item" href="/about" style="--index: 3">About</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 4"><i class="bi bi-search"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/中文-CSAPP/">中文 | CSAPP</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2025-10-21T07:45:09+08:00">
+      October 21, 2025
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">聊一聊位掩碼（Bit Mask）</h1>
+  </div>
+
+  <div class="content">
+    <span id="more"></span>
+<blockquote>
+<p>掩碼 (Mask) 是一種位運算技巧，它使用一個特定的值（掩碼）與目標值進行 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="monospace">&amp;</mi></mrow><annotation encoding="application/x-tex">\mathtt{\&amp;}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord"><span class="mord mathtt">&amp;</span></span></span></span></span> (與)、<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="monospace">∣</mi></mrow><annotation encoding="application/x-tex">\mathtt{|}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord">∣</span></span></span></span></span> (或)、<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo lspace="0em" rspace="0em">∧</mo></mrow><annotation encoding="application/x-tex">\mathtt{\wedge}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.55556em;vertical-align:0em;"></span><span class="mord"><span class="mord">∧</span></span></span></span></span> (異或) 運算，以精確地、批次地操作、提取或檢查目標值中的一個或多個位。</p>
+</blockquote>
+<h2 id="基本概念"><a class="markdownIt-Anchor" href="#基本概念"></a> 基本概念</h2>
+<p>掩碼利用位運算的特性，透過設定掩碼中的特定位為 <code>1</code> 或 <code>0</code>，來控制目標值中對應位的行為。 具體來說，掩碼可以用來提取某些位的值，清除某些位的值，反轉某些位的值，或者設定某些位的值。</p>
+<h3 id="提取位"><a class="markdownIt-Anchor" href="#提取位"></a> 提取位</h3>
+<p>透過與運算（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="monospace">&amp;</mi></mrow><annotation encoding="application/x-tex">\mathtt{\&amp;}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord"><span class="mord mathtt">&amp;</span></span></span></span></span>）和一個掩碼，可以提取目標值中特定位置的位。例如，假設我們有一個 8 位的二進位制數 <code>10101100</code>，我們想提取其中的第 3 位（從右數起，0 開始計數）。我們可以使用掩碼 <code>00000100</code>：</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">  10101100  (目標值)</span></span><br><span class="line"><span class="section">&amp; 00000100  (掩碼)</span></span><br><span class="line"><span class="section">------------</span></span><br><span class="line"><span class="code">  00000100  (結果)</span></span><br></pre></td></tr></table></figure>
+<p>結果 <code>00000100</code> 表示第 3 位是 <code>1</code>。</p>
+<p>這一技巧可以用來提取多位，比如想要提取某個數的低 4 位，可以使用掩碼 <code>00001111</code>。</p>
+<h3 id="清除位"><a class="markdownIt-Anchor" href="#清除位"></a> 清除位</h3>
+<p>透過與運算（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="monospace">&amp;</mi></mrow><annotation encoding="application/x-tex">\mathtt{\&amp;}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord"><span class="mord mathtt">&amp;</span></span></span></span></span>）和一個掩碼，可以清除目標值中特定位置的位。例如，假設我們有一個 8 位的二進位制數 <code>10101100</code>，我們想清除其中的第 3 位。我們可以使用掩碼 <code>11111011</code>：</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">  10101100  (目標值)</span></span><br><span class="line"><span class="section">&amp; 11111011  (掩碼)</span></span><br><span class="line"><span class="section">------------</span></span><br><span class="line"><span class="code">  10101000  (結果)</span></span><br></pre></td></tr></table></figure>
+<p>結果 <code>10101000</code> 表示第 3 位被清除為 <code>0</code>。</p>
+<p>清除就是不提取某些位 lol</p>
+<h3 id="反轉位"><a class="markdownIt-Anchor" href="#反轉位"></a> 反轉位</h3>
+<p>透過異或運算（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo lspace="0em" rspace="0em">∧</mo></mrow><annotation encoding="application/x-tex">\mathtt{\wedge}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.55556em;vertical-align:0em;"></span><span class="mord"><span class="mord">∧</span></span></span></span></span>）和一個掩碼，可以反轉目標值中特定位置的位。例如，假設我們有一個 8 位的二進位制數 <code>10101100</code>，我們想反轉其中的第 3 位。我們可以使用掩碼 <code>00000100</code>：</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">  10101100  (目標值)</span></span><br><span class="line"><span class="section">^ 00000100  (掩碼)</span></span><br><span class="line"><span class="section">------------</span></span><br><span class="line"><span class="code">  10101000  (結果)</span></span><br></pre></td></tr></table></figure>
+<p>結果 <code>10101000</code> 表示第 3 位被反轉。</p>
+<h3 id="設定位"><a class="markdownIt-Anchor" href="#設定位"></a> 設定位</h3>
+<p>透過或運算（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="monospace">∣</mi></mrow><annotation encoding="application/x-tex">\mathtt{|}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord">∣</span></span></span></span></span>）和一個掩碼，可以設定目標值中特定位置的位。例如，假設我們有一個 8 位的二進位制數 <code>10101000</code>，我們想設定其中的第 3 位為 <code>1</code>。我們可以使用掩碼 <code>00000100</code>：</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">  10101000  (目標值)</span></span><br><span class="line"><span class="section">| 00000100  (掩碼)</span></span><br><span class="line"><span class="section">------------</span></span><br><span class="line"><span class="code">  10101100  (結果)</span></span><br></pre></td></tr></table></figure>
+<p>結果 <code>10101100</code> 表示第 3 位被設定為 <code>1</code>。</p>
+<h2 id="構造掩碼"><a class="markdownIt-Anchor" href="#構造掩碼"></a> 構造掩碼</h2>
+<p>構造合適的掩碼是使用技巧的關鍵。</p>
+<ol>
+<li>單個位: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="monospace">1</mn><mo>≪</mo><mi mathvariant="monospace">n</mi></mrow><annotation encoding="application/x-tex">\mathtt{1 \ll n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6502100000000001em;vertical-align:-0.0391em;"></span><span class="mord"><span class="mord mathtt">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≪</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathtt">n</span></span></span></span></span>
+<ol>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="monospace">1</mn><mo>≪</mo><mn mathvariant="monospace">5</mn></mrow><annotation encoding="application/x-tex">\mathtt{1 \ll 5}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6502100000000001em;vertical-align:-0.0391em;"></span><span class="mord"><span class="mord mathtt">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≪</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathtt">5</span></span></span></span></span> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="monospace">00100000</mn></mrow><annotation encoding="application/x-tex">\mathtt{00100000}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord"><span class="mord mathtt">0</span><span class="mord mathtt">0</span><span class="mord mathtt">1</span><span class="mord mathtt">0</span><span class="mord mathtt">0</span><span class="mord mathtt">0</span><span class="mord mathtt">0</span><span class="mord mathtt">0</span></span></span></span></span>) 是第 5 位的掩碼。</li>
+</ol>
+</li>
+<li>連續低位: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn mathvariant="monospace">1</mn><mo>≪</mo><mi mathvariant="monospace">n</mi><mo stretchy="false">)</mo><mo>−</mo><mn mathvariant="monospace">1</mn></mrow><annotation encoding="application/x-tex">\mathtt{(1 \ll n) - 1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mopen">(</span><span class="mord mathtt">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≪</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathtt">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathtt">1</span></span></span></span></span>
+<ol>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn mathvariant="monospace">1</mn><mo>≪</mo><mn mathvariant="monospace">8</mn><mo stretchy="false">)</mo><mo>−</mo><mn mathvariant="monospace">1</mn></mrow><annotation encoding="application/x-tex">\mathtt{(1 \ll 8) - 1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mopen">(</span><span class="mord mathtt">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≪</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathtt">8</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathtt">1</span></span></span></span></span> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="monospace">0</mn><mi mathvariant="monospace">x</mi><mi mathvariant="monospace">F</mi><mi mathvariant="monospace">F</mi></mrow><annotation encoding="application/x-tex">\mathtt{0xFF}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord"><span class="mord mathtt">0</span><span class="mord mathtt">x</span><span class="mord mathtt">F</span><span class="mord mathtt">F</span></span></span></span></span>) 是低 8 位的掩碼。</li>
+</ol>
+</li>
+<li>全 1 掩碼: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∼</mo><mn mathvariant="monospace">0</mn></mrow><annotation encoding="application/x-tex">\mathtt{\sim 0}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord"><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathtt">0</span></span></span></span></span> (即 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span>)
+<ol>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="monospace">0</mn><mi mathvariant="monospace">x</mi><mi mathvariant="monospace">F</mi><mi mathvariant="monospace">F</mi><mi mathvariant="monospace">F</mi><mi mathvariant="monospace">F</mi><mi mathvariant="monospace">F</mi><mi mathvariant="monospace">F</mi><mi mathvariant="monospace">F</mi><mi mathvariant="monospace">F</mi></mrow><annotation encoding="application/x-tex">\mathtt{0xFFFFFFFF}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord"><span class="mord mathtt">0</span><span class="mord mathtt">x</span><span class="mord mathtt">F</span><span class="mord mathtt">F</span><span class="mord mathtt">F</span><span class="mord mathtt">F</span><span class="mord mathtt">F</span><span class="mord mathtt">F</span><span class="mord mathtt">F</span><span class="mord mathtt">F</span></span></span></span></span> (假設 32 位)</li>
+</ol>
+</li>
+<li>全 0 掩碼: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn mathvariant="monospace">0</mn></mrow><annotation encoding="application/x-tex">\mathtt{0}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord"><span class="mord mathtt">0</span></span></span></span></span></li>
+</ol>
+<h2 id="條件掩碼"><a class="markdownIt-Anchor" href="#條件掩碼"></a> 條件掩碼</h2>
+<p>在 CSAPP Data Lab 中，我們有一道題目要求用位運算實現三目運算子 <code>x ? y : z</code>。我們可以使用條件掩碼來實現這一點。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">conditional</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y, <span class="type">int</span> z)</span> &#123;</span><br><span class="line">  <span class="type">int</span> mask = !!x;          <span class="comment">// mask 為 1 如果 x 非零，否則為 0</span></span><br><span class="line">  mask = ~mask + <span class="number">1</span>;       <span class="comment">// mask 為 0xFFFFFFFF 如果 x 非零，否則為 0x0</span></span><br><span class="line">  <span class="keyword">return</span> (y &amp; mask) | (z &amp; ~mask);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>這段程式碼的邏輯是：</p>
+<ol>
+<li>計算 <code>mask = !!x</code>，如果 <code>x</code> 非零，<code>mask</code> 為 <code>1</code>，否則為 <code>0</code>。</li>
+<li>透過 <code>mask = ~mask + 1</code>，將 <code>mask</code> 轉換為全 1 (<code>0xFFFFFFFF</code>) 或全 0 (<code>0x0</code>)。</li>
+<li>返回 <code>(y &amp; mask) | (z &amp; ~mask)</code>，如果 <code>x</code> 非零，結果為 <code>y</code>，否則為 <code>z</code>。</li>
+</ol>
+<h2 id="總結"><a class="markdownIt-Anchor" href="#總結"></a> 總結</h2>
+<p>掩碼是一種強大的位運算技巧，可以用來精確地操作和檢查資料中的特定位。</p>
+<p>透過合理構造掩碼，我們可以高效地實現各種位操作，如提取、清除、反轉和設定位。在實際程式設計中，掌握掩碼的使用能夠幫助我們編寫出更高效、更簡潔的程式碼。</p>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h2>About this Post</h2>
+    <div class="details">This post is written by Louis C Deng, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</div>
+    
+    <p class="tags">
+      <i class="bi bi-tags icon"></i>
+      
+      <a href="/tags/CS/" class="tag">#CS</a>
+      
+      <a href="/tags/C/" class="tag">#C</a>
+      
+      <a href="/tags/%E4%BD%8D%E9%81%8B%E7%AE%97/" class="tag">#位運算</a>
+      
+    </p>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/2025/11/27/matrix-mqr/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">矩陣的 Modified Gram Schmidt 方法</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/2025/10/14/bitlab-optimizer/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">整數溢位與未定義行為</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    <script src="https://giscus.app/client.js"
+        data-repo="aeilot/blog"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNjEwODA2OTY="
+        data-category="General"
+        data-category-id="DIC_kwDOD4_GeM4B_VIn"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/index.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Links</h2>
+        
+        <a target="_blank" rel="noopener" href="https://aeilot.top" class="item">Portfolio</a>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/aeilot" class="item">GitHub</a>
+        
+        <a target="_blank" rel="noopener" href="https://www.instagram.com/aeilotd/" class="item">Instagram</a>
+        
+        <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/chenluo-d-85b37a33a/" class="item">LinkedIn</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Friends</h2>
+        
+        <a target="_blank" rel="noopener" href="https://mrwillcom.now.sh" class="item">Mr.Will</a>
+        
+        <a target="_blank" rel="noopener" href="https://chungzh.cn" class="item">ChungZH</a>
+        
+        <a target="_blank" rel="noopener" href="https://shaojiaxu.github.io" class="item">SJX</a>
+        
+        <a target="_blank" rel="noopener" href="http://clckblog.space/" class="item">CLCK</a>
+        
+        <a target="_blank" rel="noopener" href="https://innei.in/" class="item">静かな森</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2026 Louis C Deng<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    <style>
+  .giscus {
+    max-width: 768px;
+    padding: 16px;
+    margin: 64px auto;
+    
+    background: var(--color-background-secondary); 
+    border-radius: var(--radius-medium); 
+  }
+
+
+  @media (max-width: 800px) {
+      .giscus {
+          border-radius: 0;
+          width: auto;
+      }
+  }
+
+  @container document-body style(--config-corner-squircle: true) {
+      @supports (corner-shape: squircle) {
+          .giscus {
+              corner-shape: squircle;
+              --radius-tiny: 10px;
+              --radius-small: 20px;
+              --radius-medium: 30px;
+              --radius-large: 40px;
+              --radius-full: 999px;
+          }
+      }
+  }
+
+  @media (max-width: 768px) {
+    .giscus {
+      margin: 20px 10px; 
+      padding: 20px;
+    }
+  }
+</style>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

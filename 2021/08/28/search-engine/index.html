@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>如何高效使用搜尋引擎 - Louis C Deng&#39;s Blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="這篇文章已經在 GitHub 開源了。 最近遇到一些人不太會用搜尋引擎，就寫了這篇文章。。。有不對的地方，或者要補充的地方希望大家踴躍評論、PR。  目錄  簡介 認識搜尋引擎  搜尋引擎的代表   如何高效檢索  言簡 意駭   高階技巧  一舉多得 讓搜尋引擎為你做減法 我只想看這一個網站怎麼辦 限定檔案格式 限定網址 限定標題 告訴搜尋引擎搜尋的是作品 告訴搜尋引擎不要拆開關鍵詞   推薦">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何高效使用搜尋引擎">
+<meta property="og:url" content="https://blog.aeilot.top/2021/08/28/search-engine/index.html">
+<meta property="og:site_name" content="Louis C Deng&#39;s Blog">
+<meta property="og:description" content="這篇文章已經在 GitHub 開源了。 最近遇到一些人不太會用搜尋引擎，就寫了這篇文章。。。有不對的地方，或者要補充的地方希望大家踴躍評論、PR。  目錄  簡介 認識搜尋引擎  搜尋引擎的代表   如何高效檢索  言簡 意駭   高階技巧  一舉多得 讓搜尋引擎為你做減法 我只想看這一個網站怎麼辦 限定檔案格式 限定網址 限定標題 告訴搜尋引擎搜尋的是作品 告訴搜尋引擎不要拆開關鍵詞   推薦">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2021-08-27T21:45:09.000Z">
+<meta property="article:modified_time" content="2026-01-22T17:20:57.024Z">
+<meta property="article:author" content="Louis C Deng">
+<meta property="article:tag" content="搜尋引擎">
+<meta property="article:tag" content="效率">
+<meta name="twitter:card" content="summary">
+
+  <script>window.ThemeCupertino = {}</script>
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@16/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  <script>ThemeCupertino['_calloutStyles'] = `
+<link rel="stylesheet" href="/css/components/callout.css">
+`</script>
+  
+<script src="/js/components/callout.js"></script>
+
+  
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-rainbow-banner="true"
+    data-rainbow-banner-shown="auto"
+    data-rainbow-banner-month="6"
+    data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+    style="--config-corner-squircle: true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  
+  <div style="--sharp: 1"></div>
+  
+  <div style="--sharp: 2"></div>
+  
+  <div style="--sharp: 3"></div>
+  
+  <div style="--sharp: 4"></div>
+  
+  <div style="--sharp: 5"></div>
+  
+  <div style="--sharp: 6"></div>
+  
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Blog</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" target="_blank" rel="noopener" href="https://aeilot.top/" style="--index: 1">Portfolio</a>
+      
+      <a class="nav-item" href="/archives" style="--index: 2">Archives</a>
+      
+      <a class="nav-item" href="/about" style="--index: 3">About</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 4"><i class="bi bi-search"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/中文-生產力/">中文 | 生產力</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2021-08-28T05:45:09+08:00">
+      August 28, 2021
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">如何高效使用搜尋引擎</h1>
+  </div>
+
+  <div class="content">
+    <span id="more"></span>
+<p>這篇文章已經在 <a target="_blank" rel="noopener" href="https://github.com/aeilot/HowToUseSearchEngines">GitHub</a> 開源了。</p>
+<p>最近遇到一些人不太會用搜尋引擎，就寫了這篇文章。。。有不對的地方，或者要補充的地方希望大家踴躍評論、PR。</p>
+<h2 id="目錄"><a class="markdownIt-Anchor" href="#目錄"></a> 目錄</h2>
+<ul>
+<li><a href="#%E7%B0%A1%E4%BB%8B">簡介</a></li>
+<li><a href="#%E8%AA%8D%E8%AD%98%E6%90%9C%E5%B0%8B%E5%BC%95%E6%93%8E">認識搜尋引擎</a>
+<ul>
+<li><a href="#%E6%90%9C%E5%B0%8B%E5%BC%95%E6%93%8E%E7%9A%84%E4%BB%A3%E8%A1%A8">搜尋引擎的代表</a></li>
+</ul>
+</li>
+<li><a href="#%E5%A6%82%E4%BD%95%E9%AB%98%E6%95%88%E6%AA%A2%E7%B4%A2">如何高效檢索</a>
+<ul>
+<li><a href="#%E8%A8%80%E7%B0%A1">言簡</a></li>
+<li><a href="#%E6%84%8F%E9%A7%AD">意駭</a></li>
+</ul>
+</li>
+<li><a href="#%E9%AB%98%E9%9A%8E%E6%8A%80%E5%B7%A7">高階技巧</a>
+<ul>
+<li><a href="#%E4%B8%80%E8%88%89%E5%A4%9A%E5%BE%97">一舉多得</a></li>
+<li><a href="#%E8%AE%93%E6%90%9C%E5%B0%8B%E5%BC%95%E6%93%8E%E7%82%BA%E4%BD%A0%E5%81%9A%E6%B8%9B%E6%B3%95">讓搜尋引擎為你做減法</a></li>
+<li><a href="#%E6%88%91%E5%8F%AA%E6%83%B3%E7%9C%8B%E9%80%99%E4%B8%80%E5%80%8B%E7%B6%B2%E7%AB%99%E6%80%8E%E9%BA%BC%E8%BE%A6">我只想看這一個網站怎麼辦</a></li>
+<li><a href="#%E9%99%90%E5%AE%9A%E6%AA%94%E6%A1%88%E6%A0%BC%E5%BC%8F">限定檔案格式</a></li>
+<li><a href="#%E9%99%90%E5%AE%9A%E7%B6%B2%E5%9D%80">限定網址</a></li>
+<li><a href="#%E9%99%90%E5%AE%9A%E6%A8%99%E9%A1%8C">限定標題</a></li>
+<li><a href="#%E5%91%8A%E8%A8%B4%E6%90%9C%E5%B0%8B%E5%BC%95%E6%93%8E%E6%90%9C%E5%B0%8B%E7%9A%84%E6%98%AF%E4%BD%9C%E5%93%81">告訴搜尋引擎搜尋的是作品</a></li>
+<li><a href="#%E5%91%8A%E8%A8%B4%E6%90%9C%E5%B0%8B%E5%BC%95%E6%93%8E%E4%B8%8D%E8%A6%81%E6%8B%86%E9%96%8B%E9%97%9C%E9%8D%B5%E8%A9%9E">告訴搜尋引擎不要拆開關鍵詞</a></li>
+</ul>
+</li>
+<li><a href="#%E6%8E%A8%E8%96%A6%E9%96%B1%E8%AE%80">推薦閱讀</a></li>
+<li><a href="#%E7%89%B9%E5%88%A5%E9%B3%B4%E8%AC%9D">特別鳴謝</a></li>
+<li><a href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99">參考資料</a></li>
+</ul>
+<h2 id="簡介"><a class="markdownIt-Anchor" href="#簡介"></a> 簡介</h2>
+<p>最近我經常遇到一些同學，經常跑來問我一些很明顯在搜尋引擎上面就可以搜到的問題。我問他們為什麼不去網上搜，卻發現其實他們搜過，只是效果不好：有些人直接把一整個問句打上去了，還有人漏關鍵字。這些都是他們沒有掌握搜尋引擎使用的精髓。所以，我寫了這個教程，幫助解決搜尋引擎的使用問題。</p>
+<h2 id="認識搜尋引擎"><a class="markdownIt-Anchor" href="#認識搜尋引擎"></a> 認識搜尋引擎</h2>
+<p>我這裡說的搜尋引擎是指網路搜尋引擎。下面給出<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%B6%B2%E8%B7%AF%E6%90%9C%E5%B0%8B%E5%BC%95%E6%93%8E">維基百科</a>中的定義：</p>
+<blockquote>
+<p>網路搜尋引擎（英語：web search engine）是設計在全球資訊網上進行搜尋，意思是指自動從全球資訊網蒐集特定的資訊，提供給使用者進行查詢的系統。</p>
+</blockquote>
+<p>搜尋引擎的工作原理大致可以分為蒐集資訊、整理資訊和接受查詢。<strong>為了使文章簡單，更深入的知識我在這裡就不展開了，本文以如何使用為主。</strong></p>
+<h3 id="搜尋引擎的代表"><a class="markdownIt-Anchor" href="#搜尋引擎的代表"></a> 搜尋引擎的代表</h3>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.baidu.com">百度</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bing.com">必應</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.sogou.com">搜狗</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.so.com">360搜尋</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.google.com">谷歌</a></li>
+<li><a target="_blank" rel="noopener" href="https://yandex.com">Yandex</a></li>
+</ul>
+<p>還有學術型搜尋引擎：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://xueshu.baidu.com">百度學術</a></li>
+<li><a target="_blank" rel="noopener" href="https://scholar.google.com">谷歌學術</a></li>
+</ul>
+<h2 id="如何高效檢索"><a class="markdownIt-Anchor" href="#如何高效檢索"></a> 如何高效檢索</h2>
+<p>我認為，高效檢索只需要注意：言簡、意駭</p>
+<h3 id="言簡"><a class="markdownIt-Anchor" href="#言簡"></a> 言簡</h3>
+<p>言簡，顧名思義，就是讓你的搜尋儘可能更簡單。在搜尋的時候，應該對問題提取關鍵詞。比如，我想要知道<code>高錳酸鉀製取氧氣的文字表示式是什麼</code>時，我僅僅需要寫<code>高錳酸鉀製取氧氣 文字表示式</code> 即可；同樣的，在查詢<code>怎麼寫檢討書時</code>，甚至只需搜尋<code>檢討書</code>；在想知道<code>《將進酒》是誰寫的</code>，只用查詢<code>將進酒 作者</code>。如果不確定要搜尋的內容名稱，應該做更少的準確限定，換為更零散的關鍵詞。如果是英文，則應去除複數和第三人稱複數。雖然某些搜尋引擎在進行查詢的時候會自動去除掉 「xxx的xxx」這種詞彙和標點符號，但在搜尋時還是應該儘量減少他們的使用。也儘可能不要出現 「如何」「怎樣」這些疑問詞，更不需要和搜尋引擎講禮貌——不要出現類似「請問寒假什麼時候放假？」而是寫成「寒假放假時間」。</p>
+<h3 id="意駭"><a class="markdownIt-Anchor" href="#意駭"></a> 意駭</h3>
+<p>意駭，就是把你的搜尋描述的儘可能完備。不要一昧地追求簡單，在有些情況下還是需要給出限定的：比如，在搜尋<code>蘋果</code>時，如果你指的是水果的蘋果，那為了提升效率，最好寫<code>蘋果 水果</code>；同理，想要搜尋蘋果公司，則應該寫<code>蘋果 公司</code>，這可以簡化為<code>蘋果公司</code>。如果不進行限定，有可能搜尋結果第一頁都會被此關鍵詞的其他意思所充滿，在搜尋時，就會降低效率。</p>
+<p>更加高階的限定方法，請見<a href="#%E9%AB%98%E9%9A%8E%E6%8A%80%E5%B7%A7">高階技巧</a>。</p>
+<h2 id="高階技巧"><a class="markdownIt-Anchor" href="#高階技巧"></a> 高階技巧</h2>
+<h3 id="一舉多得"><a class="markdownIt-Anchor" href="#一舉多得"></a> 一舉多得</h3>
+<p>如果我在搜尋的時候，想同時獲得多個關鍵詞的結果，我可以使用 <code>|</code>，即“或”。<strong>注意：用<code>|</code>分隔關鍵詞的時候，一定要加上空格，<code>|</code>必須要是半形的</strong>，舉個例子：<code>東京 | 塔</code>。</p>
+<h3 id="讓搜尋引擎為你做減法"><a class="markdownIt-Anchor" href="#讓搜尋引擎為你做減法"></a> 讓搜尋引擎為你做減法</h3>
+<p>如果我在搜尋的時候，不想獲得某個關鍵詞的結果，我可以使用 <code>-</code>，即“減”。<strong>注意：用<code>-</code>，一定要在之前加上空格</strong>，舉個例子：<code>蘋果 -水果</code>。</p>
+<h3 id="我只想看這一個網站怎麼辦"><a class="markdownIt-Anchor" href="#我只想看這一個網站怎麼辦"></a> 我只想看這一個網站怎麼辦</h3>
+<p>如果我只想獲得某個網站的結果，可以在<strong>整個搜尋之前或之後</strong>加上 <code>site:xxx網站</code>，比如：<code>site:blog.aeilot.top 數碼</code>。</p>
+<h3 id="限定檔案格式"><a class="markdownIt-Anchor" href="#限定檔案格式"></a> 限定檔案格式</h3>
+<p>如果我只想搜尋一種格式的檔案，可以在<strong>整個搜尋之前或之後</strong>加上 <code>filetype:xxx網站</code>，比如：<code>filetype:pdf 物理課本</code>。不指定檔案型別搜尋檔案時，可以使用<code>filetype:all</code>。</p>
+<h3 id="限定網址"><a class="markdownIt-Anchor" href="#限定網址"></a> 限定網址</h3>
+<p>如果我想讓我的搜尋結果的網址都包含某一字斷，可以加上 <code>inurl:xxx</code>，比如：<code>inurl:pan PPT模版</code>，就可以找到網址帶<code>pan</code>的所有相關結果。</p>
+<h3 id="限定標題"><a class="markdownIt-Anchor" href="#限定標題"></a> 限定標題</h3>
+<p>如果我想讓我的搜尋結果的標題都包含某一字斷，可以加上 <code>intitle:xxx</code>，比如：<code>intitle:免費 PPT模版</code>，就可以找到標題帶<code>免費</code>的所有相關結果。</p>
+<h3 id="告訴搜尋引擎搜尋的是作品"><a class="markdownIt-Anchor" href="#告訴搜尋引擎搜尋的是作品"></a> 告訴搜尋引擎搜尋的是作品</h3>
+<p>如果我搜尋的是作品，如文學作品、藝術作品，可以加上書名號，比如：<code>《星際穿越》</code>。</p>
+<h3 id="告訴搜尋引擎不要拆開關鍵詞"><a class="markdownIt-Anchor" href="#告訴搜尋引擎不要拆開關鍵詞"></a> 告訴搜尋引擎不要拆開關鍵詞</h3>
+<p>如果我不想要拆開搜尋的關鍵詞，可以加上引號，比如：<code>“九年級化學“</code></p>
+<h2 id="推薦閱讀"><a class="markdownIt-Anchor" href="#推薦閱讀"></a> 推薦閱讀</h2>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/28013848">知乎 - 如何高效地使用搜尋引擎</a></li>
+</ol>
+<h2 id="特別鳴謝"><a class="markdownIt-Anchor" href="#特別鳴謝"></a> 特別鳴謝</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/MrWillCom">MrWillCom</a> 他對我的創作進行了指導。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/QD-lazy-tm">Cathy Aeilot</a> 她啟發了我寫這份教程。</li>
+</ul>
+<h2 id="參考資料"><a class="markdownIt-Anchor" href="#參考資料"></a> 參考資料</h2>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%B6%B2%E8%B7%AF%E6%90%9C%E5%B0%8B%E5%BC%95%E6%93%8E">網路搜尋引擎 – 維基百科</a></li>
+</ol>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h2>About this Post</h2>
+    <div class="details">This post is written by Louis C Deng, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</div>
+    
+    <p class="tags">
+      <i class="bi bi-tags icon"></i>
+      
+      <a href="/tags/%E6%90%9C%E5%B0%8B%E5%BC%95%E6%93%8E/" class="tag">#搜尋引擎</a>
+      
+      <a href="/tags/%E6%95%88%E7%8E%87/" class="tag">#效率</a>
+      
+    </p>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/2021/10/02/Luogu-P1020/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">題解 導彈攔截</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/2021/08/20/gh-action-clang-format/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">用 GitHub Actions 格式化 C/C++ 程式碼</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    <script src="https://giscus.app/client.js"
+        data-repo="aeilot/blog"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNjEwODA2OTY="
+        data-category="General"
+        data-category-id="DIC_kwDOD4_GeM4B_VIn"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/index.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Links</h2>
+        
+        <a target="_blank" rel="noopener" href="https://aeilot.top" class="item">Portfolio</a>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/aeilot" class="item">GitHub</a>
+        
+        <a target="_blank" rel="noopener" href="https://www.instagram.com/aeilotd/" class="item">Instagram</a>
+        
+        <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/chenluo-d-85b37a33a/" class="item">LinkedIn</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Friends</h2>
+        
+        <a target="_blank" rel="noopener" href="https://mrwillcom.now.sh" class="item">Mr.Will</a>
+        
+        <a target="_blank" rel="noopener" href="https://chungzh.cn" class="item">ChungZH</a>
+        
+        <a target="_blank" rel="noopener" href="https://shaojiaxu.github.io" class="item">SJX</a>
+        
+        <a target="_blank" rel="noopener" href="http://clckblog.space/" class="item">CLCK</a>
+        
+        <a target="_blank" rel="noopener" href="https://innei.in/" class="item">静かな森</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2026 Louis C Deng<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    <style>
+  .giscus {
+    max-width: 768px;
+    padding: 16px;
+    margin: 64px auto;
+    
+    background: var(--color-background-secondary); 
+    border-radius: var(--radius-medium); 
+  }
+
+
+  @media (max-width: 800px) {
+      .giscus {
+          border-radius: 0;
+          width: auto;
+      }
+  }
+
+  @container document-body style(--config-corner-squircle: true) {
+      @supports (corner-shape: squircle) {
+          .giscus {
+              corner-shape: squircle;
+              --radius-tiny: 10px;
+              --radius-small: 20px;
+              --radius-medium: 30px;
+              --radius-large: 40px;
+              --radius-full: 999px;
+          }
+      }
+  }
+
+  @media (max-width: 768px) {
+    .giscus {
+      margin: 20px 10px; 
+      padding: 20px;
+    }
+  }
+</style>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
