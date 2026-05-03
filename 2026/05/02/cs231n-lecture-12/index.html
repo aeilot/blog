@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>CS231n Lecture Note: Self-Supervised Learning - Louis C Deng&#39;s Blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="With self-supervised learning, we can train neural networks without the need for manually labelled datasets.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CS231n Lecture Note: Self-Supervised Learning">
+<meta property="og:url" content="https://blog.aeilot.top/2026/05/02/cs231n-lecture-12/index.html">
+<meta property="og:site_name" content="Louis C Deng&#39;s Blog">
+<meta property="og:description" content="With self-supervised learning, we can train neural networks without the need for manually labelled datasets.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-05-02T00:45:09.000Z">
+<meta property="article:modified_time" content="2026-05-03T13:56:00.894Z">
+<meta property="article:author" content="Louis C Deng">
+<meta property="article:tag" content="CS231n">
+<meta property="article:tag" content="Deep Learning">
+<meta name="twitter:card" content="summary">
+
+  <script>window.ThemeCupertino = {}</script>
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@16/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  <script>ThemeCupertino['_calloutStyles'] = `
+<link rel="stylesheet" href="/css/components/callout.css">
+`</script>
+  
+<script src="/js/components/callout.js"></script>
+
+  
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-rainbow-banner="true"
+    data-rainbow-banner-shown="auto"
+    data-rainbow-banner-month="6"
+    data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+    style="--config-corner-squircle: true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  
+  <div style="--sharp: 1"></div>
+  
+  <div style="--sharp: 2"></div>
+  
+  <div style="--sharp: 3"></div>
+  
+  <div style="--sharp: 4"></div>
+  
+  <div style="--sharp: 5"></div>
+  
+  <div style="--sharp: 6"></div>
+  
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Blog</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" target="_blank" rel="noopener" href="https://aeilot.top/" style="--index: 1">Portfolio</a>
+      
+      <a class="nav-item" href="/archives" style="--index: 2">Archives</a>
+      
+      <a class="nav-item" href="/about" style="--index: 3">About</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 4"><i class="bi bi-search"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/EN-CS231n/">EN | CS231n</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2026-05-02T08:45:09+08:00">
+      May 2, 2026
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">CS231n Lecture Note: Self-Supervised Learning</h1>
+  </div>
+
+  <div class="content">
+    <p>With self-supervised learning, we can train neural networks without the need for manually labelled datasets.</p>
+<span id="more"></span>
+<h2 id="basics"><a class="markdownIt-Anchor" href="#basics"></a> Basics</h2>
+<p>We define a <strong>pretext task</strong> based on the data itself. It does not require manual annotation. The labels/outputs are automatically generated from the data. We train an encoder from them to get the learned representation.</p>
+<p>These learned representations can then be reused for a downstream task, either by freezing the encoder and training a task-specific head, or by fine-tuning the encoder together with the downstream model.</p>
+<p>Common pretext tasks include image completion, rotation prediction, jigsaw puzzle solving, colorization, contrastive learning, and masked image modeling.</p>
+<p>Pretext tasks focus on “visual common sense”, forcing the model to learn good features.</p>
+<p>Solving the pretext tasks allow the model to learn good features. And we can automatically generate labels for those tasks.</p>
+<h3 id="evaluation"><a class="markdownIt-Anchor" href="#evaluation"></a> Evaluation</h3>
+<ol>
+<li>Pretext Task Performance</li>
+</ol>
+<ul>
+<li>Measure how well the model performs on the task it was trained on without labels.</li>
+</ul>
+<ol start="2">
+<li>Representation Quality</li>
+</ol>
+<ul>
+<li>Evaluate the quality of the learned representations:
+<ul>
+<li>Linear Evaluation Protocol: Train a linear classifier on the learned representations.</li>
+<li>Clustering: Measure clustering performance.</li>
+<li>t-SNE: Visualize the representations to assess their separability.</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li>Robustness and Generalization</li>
+</ol>
+<ul>
+<li>Test how well the model generalizes to different datasets and is robust to variations.</li>
+</ul>
+<ol start="4">
+<li>Computational Efficiency</li>
+</ol>
+<ul>
+<li>Assess the efficiency of the method in terms of training time and resource requirements.</li>
+</ul>
+<ol start="5">
+<li>Transfer Learning and Downstream Task Performance</li>
+</ol>
+<ul>
+<li>Assess the utility of the learned representations by transferring them to a downstream supervised task.</li>
+</ul>
+<h2 id="masked-auto-encoders-mae"><a class="markdownIt-Anchor" href="#masked-auto-encoders-mae"></a> Masked Auto Encoders (MAE)</h2>
+<p>We divide the input into non-overlapping patches. Uniformly sample a very large proportion (75%) of these patches and mask them.</p>
+<p>Masking a high ratio makes the task challenging and meaningful.</p>
+<p>The MAE encoder only operates on unmasked patches. We embed the patches by linear projection and add positional embeddings, and then use transformer blocks for the model.</p>
+<p>For the MAE decoder, we merge the encoder outputs with the shared mask tokens in previously masked places, adding positional encodings to them. It uses transformer blocks, followed by a linear projection for finalizing pixel reconstruction.</p>
+<p>Since the decoder is solely responsible for reconstruction,it is independent of the encoder design, making it flexible.</p>
+<p>We compute loss only for masked patches, and use the MSE (mean squared error loss) in the pixel space between the input image and the reconstructed image.</p>
+<h2 id="linear-probing-and-full-fine-tuning"><a class="markdownIt-Anchor" href="#linear-probing-and-full-fine-tuning"></a> Linear Probing and Full Fine-tuning</h2>
+<p>In <strong>linear probing</strong>, the pre-trained model is fixed, and only one linear layer is added at the end, to predict the labels (or produce the output). This method is used to assess the quality of representations from a pre-trained feature extraction model.</p>
+<p>In <strong>fine-tuning</strong>, pre-trained model is further trained (not fixed), and one or more layers, possibly with non-linearities are added.</p>
+<h2 id="contrastive-representation-learning"><a class="markdownIt-Anchor" href="#contrastive-representation-learning"></a> Contrastive Representation Learning</h2>
+<p>In contrastive representation, the transformed and the original image are marked as positive, while the other images are marked negative.</p>
+<p>We want to get a score function:</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>s</mi><mi>c</mi><mi>o</mi><mi>r</mi><mi>e</mi><mo stretchy="false">(</mo><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo separator="true">,</mo><mi>f</mi><mo stretchy="false">(</mo><msup><mi>x</mi><mo>+</mo></msup><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>&gt;</mo><mo>&gt;</mo><mi>s</mi><mi>c</mi><mi>o</mi><mi>r</mi><mi>e</mi><mo stretchy="false">(</mo><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo separator="true">,</mo><mi>f</mi><mo stretchy="false">(</mo><msup><mi>x</mi><mo>−</mo></msup><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">score(f(x), f(x^+)) &gt;&gt; score(f(x), f(x^-))
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.071331em;vertical-align:-0.25em;"></span><span class="mord mathnormal">s</span><span class="mord mathnormal">c</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">e</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.821331em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.071331em;vertical-align:-0.25em;"></span><span class="mord mathnormal">s</span><span class="mord mathnormal">c</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">e</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.821331em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">−</span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mclose">)</span></span></span></span></span></p>
+<p>Given a chosen score function, we aim to learn an encoder function f that yields high score for positive pairs (x, x+) and low scores for negative pairs (x, 😆.</p>
+<p>Loss function given <strong>1</strong> positive sample and <strong>N - 1</strong> negative samples:</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>L</mi><mo>=</mo><mo>−</mo><msub><mi mathvariant="double-struck">E</mi><mi>X</mi></msub><mrow><mo fence="true">[</mo><mi>log</mi><mo>⁡</mo><mfrac><mrow><mi>exp</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">(</mo><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo separator="true">,</mo><mi>f</mi><mo stretchy="false">(</mo><msup><mi>x</mi><mo>+</mo></msup><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><mrow><mi>exp</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">(</mo><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo separator="true">,</mo><mi>f</mi><mo stretchy="false">(</mo><msup><mi>x</mi><mo>+</mo></msup><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>+</mo><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>N</mi><mo>−</mo><mn>1</mn></mrow></munderover><mi>exp</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">(</mo><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo separator="true">,</mo><mi>f</mi><mo stretchy="false">(</mo><msubsup><mi>x</mi><mi>j</mi><mo>−</mo></msubsup><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow></mfrac><mo fence="true">]</mo></mrow></mrow><annotation encoding="application/x-tex">L = -\mathbb{E}_X \left[ \log \frac{\exp(s(f(x), f(x^+)))}{\exp(s(f(x), f(x^+))) + \sum_{j=1}^{N-1} \exp(s(f(x), f(x_j^-)))} \right]
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">L</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:3.057049em;vertical-align:-1.3070490000000001em;"></span><span class="mord">−</span><span class="mord"><span class="mord"><span class="mord mathbb">E</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.07847em;">X</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">[</span></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.448331em;"><span style="top:-2.128769em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop">exp</span><span class="mopen">(</span><span class="mord mathnormal">s</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.697331em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mclose">)</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.981231em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">N</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43581800000000004em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">exp</span><span class="mopen">(</span><span class="mord mathnormal">s</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.811462em;"><span style="top:-2.4231360000000004em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span><span style="top:-3.1031310000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">−</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.412972em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mclose">)</span><span class="mclose">)</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop">exp</span><span class="mopen">(</span><span class="mord mathnormal">s</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.771331em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.3070490000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size4">]</span></span></span></span></span></span></span></p>
+<p>This is commonly known as the <strong>InfoNCE</strong> loss. It is a lower bound on the mutual information between f(x) and f(x+).</p>
+<p>Typical Contrastive Learning models include SimCLR, MoCo, and DINO.</p>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h2>About this Post</h2>
+    <div class="details">This post is written by Louis C Deng, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</div>
+    
+    <p class="tags text-capitalize">
+      <i class="bi bi-tags icon"></i>
+      
+      <a href="/tags/CS231n/" class="tag">#CS231n</a>
+      
+      <a href="/tags/Deep-Learning/" class="tag">#Deep Learning</a>
+      
+    </p>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    <a class="next"></a>
+    
+    <a href="/2026/04/19/cs231n-lecture11/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">CS231n Lecture Note: Large Scale Distributed Training</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    <script src="https://giscus.app/client.js"
+        data-repo="aeilot/blog"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNjEwODA2OTY="
+        data-category="General"
+        data-category-id="DIC_kwDOD4_GeM4B_VIn"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/index.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Links</h2>
+        
+        <a target="_blank" rel="noopener" href="https://aeilot.top" class="item">Portfolio</a>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/aeilot" class="item">GitHub</a>
+        
+        <a target="_blank" rel="noopener" href="https://www.instagram.com/aeilotd/" class="item">Instagram</a>
+        
+        <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/chenluo-d-85b37a33a/" class="item">LinkedIn</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Friends</h2>
+        
+        <a target="_blank" rel="noopener" href="https://mrwillcom.now.sh" class="item">Mr.Will</a>
+        
+        <a target="_blank" rel="noopener" href="https://chungzh.cn" class="item">ChungZH</a>
+        
+        <a target="_blank" rel="noopener" href="https://shaojiaxu.github.io" class="item">SJX</a>
+        
+        <a target="_blank" rel="noopener" href="http://clckblog.space/" class="item">CLCK</a>
+        
+        <a target="_blank" rel="noopener" href="https://innei.in/" class="item">静かな森</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2026 Louis C Deng<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    <style>
+  .giscus {
+    max-width: 768px;
+    padding: 16px;
+    margin: 64px auto;
+    
+    background: var(--color-background-secondary); 
+    border-radius: var(--radius-medium); 
+  }
+
+
+  @media (max-width: 800px) {
+      .giscus {
+          border-radius: 0;
+          width: auto;
+      }
+  }
+
+  @container document-body style(--config-corner-squircle: true) {
+      @supports (corner-shape: squircle) {
+          .giscus {
+              corner-shape: squircle;
+              --radius-tiny: 10px;
+              --radius-small: 20px;
+              --radius-medium: 30px;
+              --radius-large: 40px;
+              --radius-full: 999px;
+          }
+      }
+  }
+
+  @media (max-width: 768px) {
+    .giscus {
+      margin: 20px 10px; 
+      padding: 20px;
+    }
+  }
+</style>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
