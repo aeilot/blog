@@ -13,12 +13,12 @@
   <link rel='manifest' href='/manifest.json'>
   
 
-  <meta name="description" content="最近在複習資料結構與演算法，聊聊快速排序的幾種劃分演算法。 快速排序思路快速排序是一種基於分治策略的排序演算法。 對於待排序陣列，其核心操作是：  選取一個基準數pivot 將陣列分為兩塊，一塊小於等於基準數，另一塊大於等於基準數（注意 基準數作為分界點） 遞迴地對於分出來的兩個數字再次進行快速排序  不斷地進行劃分，遞迴，最後能保證整個陣列有序。 基準數的選取一般來說，基準數有幾種選取方法：">
+  <meta name="description" content="最近在複習資料結構與演算法，聊聊快速排序的幾種劃分演算法。  快速排序思路 快速排序是一種基於分治策略的排序演算法。 對於待排序陣列，其核心操作是：  選取一個基準數pivot 將陣列分為兩塊，一塊小於等於基準數，另一塊大於等於基準數（注意 基準數作為分界點） 遞迴地對於分出來的兩個數字再次進行快速排序  不斷地進行劃分，遞迴，最後能保證整個陣列有序。  基準數的選取 一般來說，基準數有幾種選取">
 <meta property="og:type" content="article">
 <meta property="og:title" content="快速排序 幾種劃分方法討論">
 <meta property="og:url" content="https://blog.aeilot.top/2025/09/11/qsort/index.html">
 <meta property="og:site_name" content="Louis C Deng&#39;s Blog">
-<meta property="og:description" content="最近在複習資料結構與演算法，聊聊快速排序的幾種劃分演算法。 快速排序思路快速排序是一種基於分治策略的排序演算法。 對於待排序陣列，其核心操作是：  選取一個基準數pivot 將陣列分為兩塊，一塊小於等於基準數，另一塊大於等於基準數（注意 基準數作為分界點） 遞迴地對於分出來的兩個數字再次進行快速排序  不斷地進行劃分，遞迴，最後能保證整個陣列有序。 基準數的選取一般來說，基準數有幾種選取方法：">
+<meta property="og:description" content="最近在複習資料結構與演算法，聊聊快速排序的幾種劃分演算法。  快速排序思路 快速排序是一種基於分治策略的排序演算法。 對於待排序陣列，其核心操作是：  選取一個基準數pivot 將陣列分為兩塊，一塊小於等於基準數，另一塊大於等於基準數（注意 基準數作為分界點） 遞迴地對於分出來的兩個數字再次進行快速排序  不斷地進行劃分，遞迴，最後能保證整個陣列有序。  基準數的選取 一般來說，基準數有幾種選取">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2025-09-11T13:45:09.000Z">
 <meta property="article:modified_time" content="2026-01-22T17:20:57.021Z">
@@ -231,7 +231,8 @@
   <div class="content">
     <span id="more"></span>
 <p>最近在複習資料結構與演算法，聊聊快速排序的幾種劃分演算法。</p>
-<h2 id="快速排序思路"><a href="#快速排序思路" class="headerlink" title="快速排序思路"></a>快速排序思路</h2><p>快速排序是一種基於分治策略的排序演算法。</p>
+<h2 id="快速排序思路"><a class="markdownIt-Anchor" href="#快速排序思路"></a> 快速排序思路</h2>
+<p>快速排序是一種基於分治策略的排序演算法。</p>
 <p>對於待排序陣列，其核心操作是：</p>
 <ol>
 <li>選取一個基準數<code>pivot</code></li>
@@ -239,29 +240,35 @@
 <li>遞迴地對於分出來的兩個數字再次進行快速排序</li>
 </ol>
 <p>不斷地進行劃分，遞迴，最後能保證整個陣列有序。</p>
-<h2 id="基準數的選取"><a href="#基準數的選取" class="headerlink" title="基準數的選取"></a>基準數的選取</h2><p>一般來說，基準數有幾種選取方法：</p>
+<h2 id="基準數的選取"><a class="markdownIt-Anchor" href="#基準數的選取"></a> 基準數的選取</h2>
+<p>一般來說，基準數有幾種選取方法：</p>
 <ol>
 <li>選取第一個數或者最後一個數：這樣做，如果陣列已經排好序，則每次劃分都是基準數和剩餘數，時間複雜度升至<code>O(n^2)</code></li>
 <li>隨機選擇一個數</li>
 <li>選取中位數：這樣做始終能對原陣列進行等分，尋找中位數是線性時間的。</li>
 </ol>
 <p>下面以最無腦的方法1為例。</p>
-<h2 id="幾種劃分方法"><a href="#幾種劃分方法" class="headerlink" title="幾種劃分方法"></a>幾種劃分方法</h2><p>主要的劃分方法有：</p>
+<h2 id="幾種劃分方法"><a class="markdownIt-Anchor" href="#幾種劃分方法"></a> 幾種劃分方法</h2>
+<p>主要的劃分方法有：</p>
 <ol>
 <li>樸素劃分</li>
 <li>Lomuto 劃分</li>
 <li>Hoare 劃分</li>
 </ol>
 <p>中國大陸教材中經常出現的是第三種，即 Hoare 劃分，也叫哨兵劃分。</p>
-<h3 id="樸素劃分"><a href="#樸素劃分" class="headerlink" title="樸素劃分"></a>樸素劃分</h3><p>思路很無腦。直接開一個新陣列，把比 <code>pivot</code> 小的放左邊，比 <code>pivot</code> 大的放右邊，最後把陣列複製回到原陣列。需要 <code>O(n)</code> 的額外空間。</p>
+<h3 id="樸素劃分"><a class="markdownIt-Anchor" href="#樸素劃分"></a> 樸素劃分</h3>
+<p>思路很無腦。直接開一個新陣列，把比 <code>pivot</code> 小的放左邊，比 <code>pivot</code> 大的放右邊，最後把陣列複製回到原陣列。需要 <code>O(n)</code> 的額外空間。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> N; <span class="comment">// 陣列長度</span></span><br><span class="line"><span class="type">int</span> A[N];</span><br><span class="line"><span class="type">int</span> tmp[N];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Native_Partition</span><span class="params">(<span class="type">int</span> left, <span class="type">int</span> right)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> pivot = A[left];</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> idx = left;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = left; i &lt;= right; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (A[i] &lt; pivot)</span><br><span class="line">            tmp[idx++] = A[i];</span><br><span class="line">    &#125;  <span class="comment">// 先將小於等於 pivot 的複製進入</span></span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> pid = idx;</span><br><span class="line">    tmp[idx++] = pivot;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = left; i &lt;= right; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (A[i] &gt; pivot)</span><br><span class="line">            tmp[idx++] = A[i];</span><br><span class="line">    &#125;  <span class="comment">// 再將大於 pivot 的複製進入</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = left; i &lt;= right; i++) &#123;</span><br><span class="line">        A[i] = tmp[i];</span><br><span class="line">    &#125; <span class="comment">// 複製回到 A</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> pid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Lomuto-劃分"><a href="#Lomuto-劃分" class="headerlink" title="Lomuto 劃分"></a>Lomuto 劃分</h2><p>Lomuto 劃分即使用單個指標，從左到右掃描陣列，交換，維持劃分順序。</p>
+<h2 id="lomuto-劃分"><a class="markdownIt-Anchor" href="#lomuto-劃分"></a> Lomuto 劃分</h2>
+<p>Lomuto 劃分即使用單個指標，從左到右掃描陣列，交換，維持劃分順序。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">Lomuto_Partition</span><span class="params">(<span class="type">int</span> left, <span class="type">int</span> right)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> pivot = A[right];</span><br><span class="line">  </span><br><span class="line">    <span class="type">int</span> i = left - <span class="number">1</span>; <span class="comment">// 維護的劃分中最右側的比 pivot 小的元素的下標</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 遍歷陣列，把所有比 pivot 小的元素全部移動到左邊</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = left; j &lt;= right - <span class="number">1</span>; j++) &#123;  <span class="comment">// 遍歷到 right - 1 可以對 pivot 進行保護，使得 pivot 不與自己對比，使邏輯更清晰，但或許沒必要</span></span><br><span class="line">        <span class="keyword">if</span> (A[j] &lt; pivot) &#123;</span><br><span class="line">            i++;</span><br><span class="line">            <span class="built_in">swap</span>(A[i], A[j]);</span><br><span class="line">        &#125; <span class="comment">// j 維護的是遍歷時下標，當發現一個比 pivot 小的數時，如果 i + 1 == j 則不動，否則說明之前存在一個數比 `pivot` 大需要交換，則及時進行交換</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 把 pivot 移回來</span></span><br><span class="line">    <span class="built_in">swap</span>(A[i + <span class="number">1</span>], A[right]);  </span><br><span class="line">    <span class="keyword">return</span> i + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Hoare-劃分"><a href="#Hoare-劃分" class="headerlink" title="Hoare 劃分"></a>Hoare 劃分</h2><p>Hoare 劃分採用雙指標，進行交換。</p>
+<h2 id="hoare-劃分"><a class="markdownIt-Anchor" href="#hoare-劃分"></a> Hoare 劃分</h2>
+<p>Hoare 劃分採用雙指標，進行交換。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">Hoare_Partition</span><span class="params">(<span class="type">int</span> left, <span class="type">int</span> right)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> pivot = A[left];</span><br><span class="line">    <span class="type">int</span> pid = left;</span><br><span class="line">    <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right &amp;&amp; A[right] &gt;= pivot) &#123;</span><br><span class="line">            right--;</span><br><span class="line">        &#125; <span class="comment">// 先從右往左掃描，保護 pivot</span></span><br><span class="line">        <span class="keyword">while</span> (left &lt; right &amp;&amp; A[left] &lt;= pivot) &#123;</span><br><span class="line">            left++;</span><br><span class="line">        &#125; <span class="comment">// 再從左往右掃描</span></span><br><span class="line">        <span class="built_in">swap</span>(A[left], A[right]); <span class="comment">// 交換不正確的數</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 跳出迴圈時，left = right 說明找到了 pivot 的位置</span></span><br><span class="line">    <span class="built_in">swap</span>(A[pid], A[left]);</span><br><span class="line">    <span class="keyword">return</span> pid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>掃描順序對於結果有影響。<code>pivot</code> 在最左邊時，應該先從右往左掃描。</p>
 <p>如果先從左往右掃，找第一個大於 <code>pivot</code> 的數 a，而第一個小於 <code>pivot</code> 的數在 a 左側，此時進行 pivot 和 <code>A[left]</code> 的交換，會導致交換錯誤。故應該優先保證 <code>pivot</code> 左側都小於等於 <code>pivot</code>，即先尋找第一個小於 <code>pivot</code> 的數，這樣交換是安全的。</p>
-<h2 id="快速排序演算法"><a href="#快速排序演算法" class="headerlink" title="快速排序演算法"></a>快速排序演算法</h2><p>對於某劃分函式 <code>partition(int st, int end) -&gt; pivot: int</code> 有</p>
+<h2 id="快速排序演算法"><a class="markdownIt-Anchor" href="#快速排序演算法"></a> 快速排序演算法</h2>
+<p>對於某劃分函式 <code>partition(int st, int end) -&gt; pivot: int</code> 有</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> N; <span class="comment">// 陣列長度</span></span><br><span class="line"><span class="type">int</span> A[N]; <span class="comment">// 待排序陣列</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">qsort</span><span class="params">(<span class="type">int</span> st, <span class="type">int</span> end)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(st &gt;= end) <span class="keyword">return</span>; <span class="comment">// 遞迴終止條件</span></span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> pivot = <span class="built_in">partition</span>(st, end);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 遞迴</span></span><br><span class="line">    <span class="built_in">qsort</span>(st, pivot<span class="number">-1</span>);</span><br><span class="line">    <span class="built_in">qsort</span>(pivot<span class="number">+1</span>, end);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
   </div>
 
