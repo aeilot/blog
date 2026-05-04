@@ -434,7 +434,7 @@
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/2025/01/01/recap2024/</loc>
+    <loc>https://blog.aeilot.top/2021/08/28/search-engine/</loc>
     
     <lastmod>2026-01-22</lastmod>
     
@@ -443,7 +443,7 @@
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/2021/08/28/search-engine/</loc>
+    <loc>https://blog.aeilot.top/2025/01/01/recap2024/</loc>
     
     <lastmod>2026-01-22</lastmod>
     
@@ -560,7 +560,7 @@
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/2020/07/23/helloworld/</loc>
+    <loc>https://blog.aeilot.top/2023/08/11/foams/</loc>
     
     <lastmod>2026-01-22</lastmod>
     
@@ -569,7 +569,7 @@
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/2023/08/11/foams/</loc>
+    <loc>https://blog.aeilot.top/2020/07/23/helloworld/</loc>
     
     <lastmod>2026-01-22</lastmod>
     
@@ -641,7 +641,7 @@
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/2020/12/25/honor-band6/</loc>
+    <loc>https://blog.aeilot.top/2020/09/11/ipod-shuffle/</loc>
     
     <lastmod>2026-01-22</lastmod>
     
@@ -650,7 +650,7 @@
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/2020/09/11/ipod-shuffle/</loc>
+    <loc>https://blog.aeilot.top/2020/12/25/honor-band6/</loc>
     
     <lastmod>2026-01-22</lastmod>
     
@@ -749,7 +749,7 @@
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/2025/03/30/waiting/</loc>
+    <loc>https://blog.aeilot.top/2023/06/11/xiangnian/</loc>
     
     <lastmod>2026-01-22</lastmod>
     
@@ -758,7 +758,7 @@
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/2023/06/11/xiangnian/</loc>
+    <loc>https://blog.aeilot.top/2025/03/30/waiting/</loc>
     
     <lastmod>2026-01-22</lastmod>
     
@@ -946,6 +946,41 @@
   </url>
   
   <url>
+    <loc>https://blog.aeilot.top/tags/DP/</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.aeilot.top/tags/%E5%8D%80%E9%96%93/</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.aeilot.top/tags/CS/</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.aeilot.top/tags/C/</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.aeilot.top/tags/%E4%BD%8D%E9%81%8B%E7%AE%97/</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.aeilot.top/tags/CS231n/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -967,6 +1002,13 @@
   </url>
   
   <url>
+    <loc>https://blog.aeilot.top/tags/%E7%B3%BB%E7%B5%B1/</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.aeilot.top/tags/Normalization/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -982,48 +1024,6 @@
   
   <url>
     <loc>https://blog.aeilot.top/tags/%E9%9B%9C%E6%96%87/</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.aeilot.top/tags/CS/</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.aeilot.top/tags/C/</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.aeilot.top/tags/%E7%B3%BB%E7%B5%B1/</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.aeilot.top/tags/%E4%BD%8D%E9%81%8B%E7%AE%97/</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.aeilot.top/tags/DP/</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.aeilot.top/tags/%E5%8D%80%E9%96%93/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1079,7 +1079,7 @@
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/tags/Architecture/</loc>
+    <loc>https://blog.aeilot.top/tags/Optimization/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1093,14 +1093,7 @@
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/tags/Optimization/</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.aeilot.top/tags/%E5%9C%96%E8%AB%96/</loc>
+    <loc>https://blog.aeilot.top/tags/Architecture/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1114,7 +1107,7 @@
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/tags/%E5%B9%B4%E5%BA%A6%E5%9B%9E%E9%A1%A7/</loc>
+    <loc>https://blog.aeilot.top/tags/%E5%9C%96%E8%AB%96/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1122,6 +1115,13 @@
   
   <url>
     <loc>https://blog.aeilot.top/tags/GitHub/</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.aeilot.top/tags/%E5%B9%B4%E5%BA%A6%E5%9B%9E%E9%A1%A7/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1149,7 +1149,7 @@
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/tags/%E6%B8%AC%E8%A9%95/</loc>
+    <loc>https://blog.aeilot.top/tags/Open-Source/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1177,7 +1177,7 @@
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/tags/Open-Source/</loc>
+    <loc>https://blog.aeilot.top/tags/%E6%B8%AC%E8%A9%95/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1198,20 +1198,6 @@
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/tags/%E6%95%B8%E5%AD%B8/</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.aeilot.top/tags/%E7%B7%9A%E6%80%A7%E4%BB%A3%E6%95%B8/</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.aeilot.top/tags/%E6%AF%94%E8%B3%BD/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -1219,14 +1205,14 @@
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/tags/%E6%95%A3%E6%96%87/</loc>
+    <loc>https://blog.aeilot.top/tags/%E6%83%85%E6%84%9F/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/tags/%E6%83%85%E6%84%9F/</loc>
+    <loc>https://blog.aeilot.top/tags/%E6%95%A3%E6%96%87/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1254,21 +1240,14 @@
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/tags/%E9%AB%98%E7%AD%89%E6%95%B8%E5%AD%B8/</loc>
+    <loc>https://blog.aeilot.top/tags/%E6%95%B8%E5%AD%B8/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/tags/%E5%BE%AE%E7%A9%8D%E5%88%86/</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.aeilot.top/tags/%E6%BC%94%E7%AE%97%E6%B3%95/</loc>
+    <loc>https://blog.aeilot.top/tags/%E7%B7%9A%E6%80%A7%E4%BB%A3%E6%95%B8/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1289,14 +1268,56 @@
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/tags/%E6%A8%B9/</loc>
+    <loc>https://blog.aeilot.top/tags/%E6%BC%94%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/tags/Mathematics/</loc>
+    <loc>https://blog.aeilot.top/tags/%E9%AB%98%E7%AD%89%E6%95%B8%E5%AD%B8/</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.aeilot.top/tags/%E5%BE%AE%E7%A9%8D%E5%88%86/</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.aeilot.top/tags/PyTorch/</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.aeilot.top/tags/%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92/</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.aeilot.top/tags/%E6%90%9C%E5%B0%8B%E5%BC%95%E6%93%8E/</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.aeilot.top/tags/%E6%95%88%E7%8E%87/</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.aeilot.top/tags/%E6%A8%B9/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1318,20 +1339,6 @@
   
   <url>
     <loc>https://blog.aeilot.top/tags/Smart-Tips/</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.aeilot.top/tags/%E6%90%9C%E5%B0%8B%E5%BC%95%E6%93%8E/</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.aeilot.top/tags/%E6%95%88%E7%8E%87/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1366,35 +1373,7 @@
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/tags/PyTorch/</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.aeilot.top/tags/%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92/</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.aeilot.top/tags/C/</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.aeilot.top/tags/%E9%80%86%E5%90%91/</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.aeilot.top/tags/x64/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1415,7 +1394,28 @@
   </url>
   
   <url>
+    <loc>https://blog.aeilot.top/tags/Mathematics/</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.aeilot.top/tags/WWDC/</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.aeilot.top/tags/%E9%80%86%E5%90%91/</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.aeilot.top/tags/x64/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1438,6 +1438,13 @@
   </url>
   
   <url>
+    <loc>https://blog.aeilot.top/categories/%E4%B8%AD%E6%96%87-CSAPP/</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.aeilot.top/categories/EN-CS231n/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -1446,13 +1453,6 @@
   
   <url>
     <loc>https://blog.aeilot.top/categories/EN-AI/</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.aeilot.top/categories/%E4%B8%AD%E6%96%87-CSAPP/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1473,14 +1473,21 @@
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/categories/%E4%B8%AD%E6%96%87-%E9%9B%9C%E6%96%87/</loc>
+    <loc>https://blog.aeilot.top/categories/EN-Essay/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/categories/EN-Essay/</loc>
+    <loc>https://blog.aeilot.top/categories/EN-Project/</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.aeilot.top/categories/%E4%B8%AD%E6%96%87-%E9%9B%9C%E6%96%87/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1495,13 +1502,6 @@
   
   <url>
     <loc>https://blog.aeilot.top/categories/%E4%B8%AD%E6%96%87-%E6%91%98%E9%8C%84/</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.aeilot.top/categories/EN-Project/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1529,7 +1529,7 @@
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/categories/EN-macOS/</loc>
+    <loc>https://blog.aeilot.top/categories/%E4%B8%AD%E6%96%87-AI/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1543,14 +1543,14 @@
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/categories/%E4%B8%AD%E6%96%87-%E9%9F%B3%E6%A8%82/</loc>
+    <loc>https://blog.aeilot.top/categories/EN-macOS/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.aeilot.top/categories/%E4%B8%AD%E6%96%87-AI/</loc>
+    <loc>https://blog.aeilot.top/categories/%E4%B8%AD%E6%96%87-%E9%9F%B3%E6%A8%82/</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

@@ -238,11 +238,13 @@
 <p>模型权重当然很大，但它们是静态的，加载进显存之后就一直待在那里。真正麻烦的是另一部分东西：随着请求不断生成新 token 而持续膨胀的 <code>KV cache</code>。它一边增长，一边释放，长度事先又不完全知道。如果你还用“给每个请求预留一整段连续内存”的思路去管它，那么很多显存并不是不够，而是被浪费掉了。</p>
 <p>这正是 vLLM 想处理的问题。</p>
 <span id="more"></span>
-<h2 id="先把问题摆正：LLM-Serving-为什么会被内存拖住"><a href="#先把问题摆正：LLM-Serving-为什么会被内存拖住" class="headerlink" title="先把问题摆正：LLM Serving 为什么会被内存拖住"></a>先把问题摆正：LLM Serving 为什么会被内存拖住</h2><p>在 Transformer 的自回归生成里，每生成一个新 token，都要回头看前面所有位置的 key 和 value。为了不在每一步都把前文重新算一遍，系统会把之前各层的 key/value 向量存起来，这就是 <code>KV cache</code>。</p>
+<h2 id="先把问题摆正llm-serving-为什么会被内存拖住"><a class="markdownIt-Anchor" href="#先把问题摆正llm-serving-为什么会被内存拖住"></a> 先把问题摆正：LLM Serving 为什么会被内存拖住</h2>
+<p>在 Transformer 的自回归生成里，每生成一个新 token，都要回头看前面所有位置的 key 和 value。为了不在每一步都把前文重新算一遍，系统会把之前各层的 key/value 向量存起来，这就是 <code>KV cache</code>。</p>
 <p>这件事本身没有问题。问题在于，它太大，而且增长方式很别扭。</p>
 <p>论文里举了一个直观的例子：对一个 13B 级别的模型，模型参数大约已经吃掉了大部分显存，而剩下那一截最关键的空间，往往就是拿来放 KV cache 的。单个 token 的 KV 状态并不小；当 prompt 很长、batch 很大、或者输出继续拉长时，这部分内存会迅速膨胀。于是 serving 系统的 batch size，不再主要受算力限制，而是受显存里还能不能继续塞请求限制。</p>
 <p>换句话说，吞吐上不去，很多时候不是 GPU 不够忙，而是 GPU 不敢接更多活。</p>
-<h2 id="传统做法为什么笨"><a href="#传统做法为什么笨" class="headerlink" title="传统做法为什么笨"></a>传统做法为什么笨</h2><p>过去很多推理系统沿用的是深度学习框架里更自然的一套假设：张量最好是连续存储的。于是，一个请求的 KV cache 往往会被表示成一整块连续 tensor。</p>
+<h2 id="传统做法为什么笨"><a class="markdownIt-Anchor" href="#传统做法为什么笨"></a> 传统做法为什么笨</h2>
+<p>过去很多推理系统沿用的是深度学习框架里更自然的一套假设：张量最好是连续存储的。于是，一个请求的 KV cache 往往会被表示成一整块连续 tensor。</p>
 <p>听起来很整齐，实际却很浪费。因为请求的长度是动态的。</p>
 <p>比如一个请求最多允许生成 2048 个 token，你很可能一开始就按 2048 的长度去预留空间。但最后它也许只生成了 300 个 token，中间那一大段保留位就一直闲着。即便你事先知道它大概不会太长，内存分配器仍然会因为不同大小的连续块反复申请、释放而产生碎片。</p>
 <p>论文把这些浪费分成了几类：</p>
@@ -254,7 +256,8 @@
 <p>更麻烦的是，复杂解码里本来存在共享机会，也被这种“每条序列一整块连续内存”的布局硬生生浪费掉了。</p>
 <p>举个例子。假设你对同一个 prompt 做 parallel sampling，采样出 4 个候选回答。它们的前缀 prompt 完全一样，照理说这部分 KV cache 本该只存一份。但如果每个候选序列都被要求拥有自己那块连续空间，那么这份本可共享的前缀状态还是会被复制四遍。</p>
 <p>所以问题开始变得清楚：<strong>vLLM 要解决的，不是 attention 数学公式错了，而是 KV cache 作为一种“会动态生长的序列状态”，不该再按静态大张量去管理。</strong></p>
-<h2 id="PagedAttention-的直觉：别再要求它连续"><a href="#PagedAttention-的直觉：别再要求它连续" class="headerlink" title="PagedAttention 的直觉：别再要求它连续"></a>PagedAttention 的直觉：别再要求它连续</h2><p>这篇论文最干净的一步，就是把操作系统里很老的一套想法搬了过来。</p>
+<h2 id="pagedattention-的直觉别再要求它连续"><a class="markdownIt-Anchor" href="#pagedattention-的直觉别再要求它连续"></a> PagedAttention 的直觉：别再要求它连续</h2>
+<p>这篇论文最干净的一步，就是把操作系统里很老的一套想法搬了过来。</p>
 <p>在虚拟内存里，程序看到的是连续地址空间，但底层物理页并不需要连续；逻辑页和物理页之间靠页表映射。vLLM 说，KV cache 也可以这么管。</p>
 <p>于是，一条序列的 KV cache 不再被看作“一个必须连续的长 tensor”，而被切成固定大小的 <code>KV blocks</code>。你可以把它理解成许多小页：</p>
 <ul>
@@ -267,7 +270,8 @@
 <p>第二，因为所有 block 大小一样，外部碎片问题大幅缓解。内部分片也被压缩到一个很小的边界里：最坏情况下，只会浪费最后那个尚未填满的 block。</p>
 <p>第三，共享终于变得自然了。两个逻辑块完全可以映射到同一个物理块，只要它们当前看到的是同一段前缀状态。</p>
 <p>你会发现，这里最重要的不是“分页”这个词本身，而是它带来的那层<strong>间接性</strong>。序列不再直接等于显存地址，而是先经过一层映射。正是这层映射，把系统的手脚放开了。</p>
-<h2 id="它到底怎么工作"><a href="#它到底怎么工作" class="headerlink" title="它到底怎么工作"></a>它到底怎么工作</h2><p>把流程拆开，其实不复杂。</p>
+<h2 id="它到底怎么工作"><a class="markdownIt-Anchor" href="#它到底怎么工作"></a> 它到底怎么工作</h2>
+<p>把流程拆开，其实不复杂。</p>
 <p>先看一个普通请求。</p>
 <p>假设 block size 是 4，一个 prompt 一共有 7 个 token。那系统会先创建两个逻辑块：</p>
 <ul>
@@ -279,7 +283,8 @@
 <p>如果下一步新生成的 token 还能塞进当前最后一个 block，就直接写进去，把 <code>#filled</code> 加一。等最后一个 block 写满了，再去申请一个新的物理块，并在 block table 里登记这段新映射。</p>
 <p>也就是说，序列增长的单位不再是“整体扩容”，而是“按块追加”。</p>
 <p>这个设计有一个很重要的结果：<strong>一个请求的显存浪费，上限基本被锁在一个 block 里。</strong> 这就是为什么论文里会说 vLLM 的 KV cache waste 接近于零。严格来说不是数学意义上的零，而是被压缩到了非常小、非常可控的范围。</p>
-<h2 id="PagedAttention-真正改了什么"><a href="#PagedAttention-真正改了什么" class="headerlink" title="PagedAttention 真正改了什么"></a>PagedAttention 真正改了什么</h2><p>讲到这里，容易出现第二个误会：既然内存已经分页了，那 attention 计算怎么办？原来不是默认从一整段连续 KV 里顺着读吗？</p>
+<h2 id="pagedattention-真正改了什么"><a class="markdownIt-Anchor" href="#pagedattention-真正改了什么"></a> PagedAttention 真正改了什么</h2>
+<p>讲到这里，容易出现第二个误会：既然内存已经分页了，那 attention 计算怎么办？原来不是默认从一整段连续 KV 里顺着读吗？</p>
 <p>这就是 PagedAttention 这个名字真正落点所在。</p>
 <p>传统 attention 实现默认 key/value 在内存里是连续展开的；而在 vLLM 里，历史 token 对应的 KV 已经被拆散到不同 block 上了。所以 attention kernel 必须学会一件新事：<strong>按 block table 去找数据。</strong></p>
 <p>它不是先把所有 block 重新拼回一个连续张量，再做 attention；那样就把前面的收益又吐回去了。它做的是：</p>
@@ -291,8 +296,10 @@
 <p>所以 PagedAttention 可以理解成一种“接受非连续 KV 布局的 attention 执行方式”。它当然涉及 kernel 实现、访存模式和并行策略，但它的系统意义比算子意义更大。它不是为了让 attention 更炫，而是为了让分页后的 KV cache 还能被高效地读出来。</p>
 <p>这一点也顺手解释了一个常见混淆：<strong>PagedAttention 不是 FlashAttention。</strong></p>
 <p>FlashAttention 主要在解决 attention 计算本身的 I/O 和 SRAM 访问效率，核心是 tiling 与 kernel fusion；PagedAttention 主要在解决 serving 场景里 KV cache 的组织和访问问题，核心是非连续块映射与按块读取。两者都和“attention 更快”有关，但关心的层次并不一样。</p>
-<h2 id="它为什么特别适合-vLLM"><a href="#它为什么特别适合-vLLM" class="headerlink" title="它为什么特别适合 vLLM"></a>它为什么特别适合 vLLM</h2><p>如果只有分页，这篇论文还不够完整。真正让 vLLM 在工程上站住的，是它把分页、调度和解码策略接在了一起。</p>
-<h3 id="1-Parallel-Sampling：共享-prompt，按块写时复制"><a href="#1-Parallel-Sampling：共享-prompt，按块写时复制" class="headerlink" title="1. Parallel Sampling：共享 prompt，按块写时复制"></a>1. Parallel Sampling：共享 prompt，按块写时复制</h3><p>当同一个 prompt 要采样出多个回答时，它们的前缀完全一样。于是最前面的那些逻辑块可以直接映射到同一组物理块上。</p>
+<h2 id="它为什么特别适合-vllm"><a class="markdownIt-Anchor" href="#它为什么特别适合-vllm"></a> 它为什么特别适合 vLLM</h2>
+<p>如果只有分页，这篇论文还不够完整。真正让 vLLM 在工程上站住的，是它把分页、调度和解码策略接在了一起。</p>
+<h3 id="1-parallel-sampling共享-prompt按块写时复制"><a class="markdownIt-Anchor" href="#1-parallel-sampling共享-prompt按块写时复制"></a> 1. Parallel Sampling：共享 prompt，按块写时复制</h3>
+<p>当同一个 prompt 要采样出多个回答时，它们的前缀完全一样。于是最前面的那些逻辑块可以直接映射到同一组物理块上。</p>
 <p>这时候系统只需要给这些共享块维护一个 <code>reference count</code>。</p>
 <p>如果后续某个样本要继续往最后一个共享块里写新 token，而这个物理块当前还被多个样本共同引用，那么 vLLM 就触发一次 <code>copy-on-write</code>：</p>
 <ul>
@@ -303,7 +310,8 @@
 </ul>
 <p>注意这里的粒度是 block，而不是整条序列。也就是说，复制不会扩散成“把整个 prompt 的 KV cache 全部重拷一遍”，通常只会落在最后那个需要被改写的共享块上。</p>
 <p>这很像操作系统里 <code>fork</code> 之后的页级写时复制。不是巧合，论文就是故意这么设计的。</p>
-<h3 id="2-Beam-Search：共享关系会动态变化"><a href="#2-Beam-Search：共享关系会动态变化" class="headerlink" title="2. Beam Search：共享关系会动态变化"></a>2. Beam Search：共享关系会动态变化</h3><p>beam search 比 parallel sampling 更有意思，因为它不仅共享 prompt，还会在搜索树内部持续出现“若干候选共享同一前缀”的情况。</p>
+<h3 id="2-beam-search共享关系会动态变化"><a class="markdownIt-Anchor" href="#2-beam-search共享关系会动态变化"></a> 2. Beam Search：共享关系会动态变化</h3>
+<p>beam search 比 parallel sampling 更有意思，因为它不仅共享 prompt，还会在搜索树内部持续出现“若干候选共享同一前缀”的情况。</p>
 <p>如果还沿用旧系统那种每条 beam 拥有独立连续缓存的做法，那么 beam 之间会频繁发生大段 KV copy。候选重组一次，你就搬一次家。</p>
 <p>而 vLLM 这里的处理方式要轻很多：</p>
 <ul>
@@ -312,15 +320,18 @@
 <li>新入选的 beam，只在真正需要分叉写入时触发 block 级 copy-on-write</li>
 </ul>
 <p>所以 beam search 在 vLLM 上的收益往往比普通采样更明显。因为它共享得更多，也更动态，而分页映射恰好非常适合处理这种“前缀关系不停重组”的访问模式。</p>
-<h2 id="这篇论文真正优雅的地方"><a href="#这篇论文真正优雅的地方" class="headerlink" title="这篇论文真正优雅的地方"></a>这篇论文真正优雅的地方</h2><p>我觉得这篇论文最值得记住的，不是那句“吞吐提升 2 到 4 倍”，虽然这个结果当然很强。更值得记住的是它处理问题的方式。</p>
+<h2 id="这篇论文真正优雅的地方"><a class="markdownIt-Anchor" href="#这篇论文真正优雅的地方"></a> 这篇论文真正优雅的地方</h2>
+<p>我觉得这篇论文最值得记住的，不是那句“吞吐提升 2 到 4 倍”，虽然这个结果当然很强。更值得记住的是它处理问题的方式。</p>
 <p>很多系统优化会盯着算子、盯着 kernel、盯着 FLOPS 利用率打转。但 vLLM 这篇工作先退了一步，看清楚了 serving 现场真正紧绷的地方在哪里。它说，GPU 不只是一个算力设备，它先是一个有限的内存空间；而 LLM serving 不是一个固定 shape 的离线训练任务，而是一堆长度未知、生命周期交错、还带共享关系的动态序列。</p>
 <p>一旦你这样描述问题，操作系统里的 paging、page table、reference count、copy-on-write，几乎就自然地走了进来。</p>
 <p>这也是为什么 PagedAttention 读起来会让人觉得很顺。它不是凭空发明了一种玄妙结构，而是把一个已经被很多系统问题验证过的抽象，挪到了 LLM serving 这里。新的部分，在于它把这层抽象接到了 attention kernel、batching 调度、beam search 和 prefix sharing 上，并把整套路径打通。</p>
-<h2 id="也别把它神化"><a href="#也别把它神化" class="headerlink" title="也别把它神化"></a>也别把它神化</h2><p>当然，这套方法不是没有代价。</p>
+<h2 id="也别把它神化"><a class="markdownIt-Anchor" href="#也别把它神化"></a> 也别把它神化</h2>
+<p>当然，这套方法不是没有代价。</p>
 <p>分页之后，attention 的访存模式会变复杂，kernel 需要额外查 block table，也要处理变长序列和非连续读取。论文里也坦率给出了这一点：单看 attention kernel 的延迟，PagedAttention 比高度优化的连续实现会有额外开销。</p>
 <p>但系统优化常常就是这样。局部算子慢一点，只要换来整体 batch size 更大、显存利用率更高、等待更少，端到端吞吐仍然会明显提升。vLLM 的胜负手不在单次 attention 的极限速度，而在于它终于让更多请求可以同时留在牌桌上。</p>
 <p>另外，block size 也不是越大越好。块太小，管理和访存开销上来；块太大，最后一个块的浪费和共享粒度损失又会变严重。论文最后给出的经验值是 <code>block size = 16</code>，本质上是在并行效率和碎片控制之间取一个中间点。</p>
-<h2 id="最后再收回来"><a href="#最后再收回来" class="headerlink" title="最后再收回来"></a>最后再收回来</h2><p>如果要把 PagedAttention 讲成一句话，我会这样说：</p>
+<h2 id="最后再收回来"><a class="markdownIt-Anchor" href="#最后再收回来"></a> 最后再收回来</h2>
+<p>如果要把 PagedAttention 讲成一句话，我会这样说：</p>
 <p>它让大模型推理系统第一次认真对待了这样一个事实: <code>KV cache</code> 不是一块静止的张量，而是一段不断生长、不断分叉、不断回收的内存历史。</p>
 <p>一旦你承认它是“历史”，很多事情就会变得不同。你不会再执着于给每个请求铺一条从头到尾的连续道路，而会接受它由许多小块拼起来，接受共享，接受映射，接受在必要的时候复制最后那一页，而不是搬走整座房子。</p>
 <p>vLLM 的漂亮，恰恰在这里。它没有改写 Transformer 的基本逻辑，却改写了这些逻辑在显存中的居住方式。很多时候，系统性能的跃迁并不是来自更激进的数学，而是来自一种更合适的组织秩序。</p>
