@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>CS231n Lecture Note: Generative Models - Louis C Deng&#39;s Blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="Discriminative Model: Learns the conditional probability $p(y|x)$. It focuses on predicting a label $y$ given the input data $x$. Generative Model: Learns the probability distribution of the data it">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CS231n Lecture Note: Generative Models">
+<meta property="og:url" content="https://blog.aeilot.top/2026/05/03/cs231n-lecture-13/index.html">
+<meta property="og:site_name" content="Louis C Deng&#39;s Blog">
+<meta property="og:description" content="Discriminative Model: Learns the conditional probability $p(y|x)$. It focuses on predicting a label $y$ given the input data $x$. Generative Model: Learns the probability distribution of the data it">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-05-03T00:45:09.000Z">
+<meta property="article:modified_time" content="2026-05-04T11:02:40.364Z">
+<meta property="article:author" content="Louis C Deng">
+<meta property="article:tag" content="CS231n">
+<meta property="article:tag" content="Deep Learning">
+<meta name="twitter:card" content="summary">
+
+  <script>window.ThemeCupertino = {}</script>
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@16/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  <script>ThemeCupertino['_calloutStyles'] = `
+<link rel="stylesheet" href="/css/components/callout.css">
+`</script>
+  
+<script src="/js/components/callout.js"></script>
+
+  
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-rainbow-banner="true"
+    data-rainbow-banner-shown="auto"
+    data-rainbow-banner-month="6"
+    data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+    style="--config-corner-squircle: true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  
+  <div style="--sharp: 1"></div>
+  
+  <div style="--sharp: 2"></div>
+  
+  <div style="--sharp: 3"></div>
+  
+  <div style="--sharp: 4"></div>
+  
+  <div style="--sharp: 5"></div>
+  
+  <div style="--sharp: 6"></div>
+  
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Blog</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" target="_blank" rel="noopener" href="https://aeilot.top/" style="--index: 1">Portfolio</a>
+      
+      <a class="nav-item" href="/archives" style="--index: 2">Archives</a>
+      
+      <a class="nav-item" href="/about" style="--index: 3">About</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 4"><i class="bi bi-search"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/EN-CS231n/">EN | CS231n</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2026-05-03T08:45:09+08:00">
+      May 3, 2026
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">CS231n Lecture Note: Generative Models</h1>
+  </div>
+
+  <div class="content">
+    <span id="more"></span>
+<ul>
+<li><strong>Discriminative Model:</strong> Learns the conditional probability $p(y|x)$. It focuses on predicting a label $y$ given the input data $x$.</li>
+<li><strong>Generative Model:</strong> Learns the probability distribution of the data itself, $p(x)$.</li>
+<li><strong>Conditional Generative Model:</strong> Learns the probability $p(x|y)$, which is the likelihood of observing specific data $x$ given a certain label $y$.</li>
+</ul>
+<p>The <strong>Density Functions</strong> $p(x)$:</p>
+<ul>
+<li><strong>Likelihood:</strong> A density function assigns a positive number to each possible $x$; a higher number indicates that the specific value of $x$ is more likely.</li>
+<li><strong>Normalization:</strong> Density functions must be normalized so that the total probability across all possible values of $x$ equals 1, expressed as:<script type="math/tex; mode=display">\int_{X} p(x)dx = 1</script></li>
+<li><strong>Competition:</strong> Because the total area must equal 1, different values of $x$ “compete” for density within the distribution.</li>
+</ul>
+<p>With Generative Models, all possible images compete for probability mass. Model can “reject” unreasonable inputs by giving them small probability mass.</p>
+<p>The <strong>Bayes’ Theorem</strong>:</p>
+<script type="math/tex; mode=display">P(x|y) = \frac{P(y|x) P(x)}{P(y)}</script><p>This means with two of the three models, we can get the third one.</p>
+<h2 id="Autoregressive-Models"><a href="#Autoregressive-Models" class="headerlink" title="Autoregressive Models"></a>Autoregressive Models</h2><p><strong>Maximum Likelihood Estimation (MLE)</strong> The core objective is to find the best parameters ($W$) for our function $f(x, W)$ so that it accurately models the true distribution $p(x)$ of our data.</p>
+<p>To train the model using a dataset $x^{(1)}, x^{(2)}, \dots, x^{(N)}$, we solve for the optimal weights $W^*$ through these steps:</p>
+<p>We start by trying to maximize the joint probability of all training data points. This is represented as the product of individual probabilities: $\arg \max<em>{W} \prod</em>{i} p(x^{(i)})$ .</p>
+<p>Since multiplying many small probabilities can lead to numerical instability (underflow), we apply a logarithm. Because the log is a monotonic function, maximizing the log-likelihood is equivalent to maximizing the likelihood, but it allows us to swap the <strong>product</strong> for a <strong>sum</strong>: $\arg \max<em>{W} \sum</em>{i} \log p(x^{(i)})$ .</p>
+<p>By substituting our model function $f(x, W)$ for $p(x)$, we arrive at our final objective: $\arg \max<em>{W} \sum</em>{i} \log f(x^{(i)}, W)$ .</p>
+<p><strong>Autoregressive models</strong> assume that the data $x$ is not a single static point, but a sequence of components:</p>
+<script type="math/tex; mode=display">x = (x_1, x_2, ..., x_T)</script><p>An autoregressive model predicts the “next” part of the data based on what has already been generated.</p>
+<p>It iterates through the elements, determining the probability of the next element given all previous elements.</p>
+<p>To calculate the probability of the entire sequence $p(x)$, these models decompose the joint probability using the chain rule. Instead of looking at the whole sequence at once, the model breaks it down into a series of conditional probabilities:</p>
+<script type="math/tex; mode=display">p(x) = \prod_{t=1}^{T} p(x_t | x_1, ..., x_{t-1})</script><h2 id="Variational-Autoencoders-VAE"><a href="#Variational-Autoencoders-VAE" class="headerlink" title="Variational Autoencoders (VAE)"></a>Variational Autoencoders (VAE)</h2><p><strong>Variational Autoencoders (VAE)</strong> define an intractable density that we cannot explicitly compute or optimize. We can determine its lower bound.</p>
+<p>The <strong>autoencoder</strong> is an unsupervised method for learning to extract features $z$ from inputs $x$, without labels.</p>
+<p>It trains an encoder and a decoder, which gets the intermediate representation of the input and then reconstructs the input data back. The intermediate representation $z$ has lower dimensionality.</p>
+<p>The loss function is the L2 distance between input and reconstructed data.</p>
+<p>After training, we can use encoder for downstream tasks.</p>
+<p>For generative tasks, we can force all $z$ to come from a known distribution so that we can sample $z$ to get generate outputs.</p>
+<p>We assume the latent factor $z$ conforms to Gaussian distribution. We train the model with maximum likelihood.</p>
+<script type="math/tex; mode=display">p_\theta(x) = \frac{p_\theta(x|z)p_\theta(z)}{p_\theta(z|x)}</script><p>We apply Bayes’ Rules. Since we cannot get the posterior $p<em>\theta(z|x)$ , we can train another network that learns $q</em>\phi(z|x) \approx p_\theta(z|x)$ .</p>
+<p>For VAE, we train two networks.</p>
+<p>The <strong>Encoder Network ($q_\phi(z|x)$):</strong> takes input data $x$ and maps it to a distribution over <strong>latent codes $z$</strong>. Instead of a single point, it outputs the parameters—mean ($\mu<em>{z|x}$) and variance ($\Sigma</em>{z|x}$)—of a distribution (typically Gaussian).</p>
+<p>The <strong>Decoder Network ($p_\theta(x|z)$):</strong> takes a latent code $z$ and reconstructs the data $x$. It outputs a distribution over the data, defined by its own mean ($\mu_{x|z}$) and variance ($\sigma^2$).</p>
+<p>The fundamental challenge in VAEs is that the true posterior $p_\theta(z|x)$ is intractable. To solve this, VAEs use <strong>Variational Inference</strong>:</p>
+<ol>
+<li><strong>Approximation:</strong> We ensure that our learned encoder distribution $q<em>\phi(z|x)$ is approximately equal to the true posterior $p</em>\theta(z|x)$.</li>
+<li><strong>Estimation:</strong> If this approximation holds, we can estimate the data likelihood $p_\theta(x)$ using the following relationship:<script type="math/tex; mode=display">p_\theta(x) \approx \frac{p_\theta(x|z)p(z)}{q_\phi(z|x)}</script></li>
+<li><strong>Joint Training:</strong> We jointly train both the encoder and decoder to maximize this evidence.</li>
+</ol>
+<h3 id="ELBO"><a href="#ELBO" class="headerlink" title="ELBO"></a>ELBO</h3><p>Building on the previous concepts, this derivation explains how we can optimize the log-likelihood of our data, $\log p_\theta(x)$, even when the true posterior is unknown.</p>
+<script type="math/tex; mode=display">\log p_\theta(x) = \log \frac{p_\theta(x | z)p(z)}{p_\theta(z | x)} = \log \frac{p_\theta(x | z)p(z)q_\phi(z | x)}{p_\theta(z | x)q_\phi(z | x)}</script><script type="math/tex; mode=display">= E_{Z \sim q_\phi(z|x)}[\log p_\theta(x|z)] - D_{KL}(q_\phi(z|x), p(z)) + D_{KL}(q_\phi(z|x), p_\theta(z|x))</script><p>The derivation uses the properties of logarithms and expectations to decompose the log-likelihood into three distinct terms:</p>
+<ol>
+<li><p><strong>The Reconstruction Term ($E<em>{Z \sim q</em>\phi(z|x)}[\log p_\theta(x|z)]$):</strong></p>
+<ul>
+<li>This measures how well the decoder can reconstruct the original input $x$ from the latent code $z$ sampled from the encoder.</li>
+<li>In training, we want to <strong>maximize</strong> this to ensure the model retains data fidelity.</li>
+</ul>
+</li>
+<li><p><strong>The Prior Regularization Term ($D<em>{KL}(q</em>\phi(z|x), p(z))$):</strong></p>
+<ul>
+<li>This is the Kullback-Leibler (KL) divergence between the encoder’s distribution and a simple prior (usually a standard normal distribution).</li>
+<li>It acts as a regularizer, forcing the latent space to be continuous and well-structured. We <strong>subtract</strong> this term, meaning we want the encoder to stay close to our prior.</li>
+</ul>
+</li>
+<li><p><strong>The Approximation Error ($D<em>{KL}(q</em>\phi(z|x), p_\theta(z|x))$):</strong></p>
+<ul>
+<li>This measures the divergence between our approximate posterior (the encoder) and the true, intractable posterior.</li>
+<li>Because KL divergence is always $\ge 0$, we know that the first two terms combined form a <strong>lower bound</strong> on the total log-likelihood.</li>
+</ul>
+</li>
+</ol>
+<p>Since we cannot calculate the true posterior (the third term), we ignore it and maximize the first two terms—the <strong>Evidence Lower Bound (ELBO)</strong>.  By maximizing the ELBO, we simultaneously improve the quality of our data generation and the efficiency of our latent representation.</p>
+<p>This is the lower bound of our maximal likelihood.</p>
+<p>To train this, we first run input data through encoder to get distribution over $z$, which should match the unit Gaussian. We sample $z$ from the output distribution and run it through decoder to get predicted data mean. Predicted mean should match x in L2.</p>
+<p>Reconstruction loss wants $\Sigma<em>{z|x} = 0$ and $\mu</em>{z|x}$ to be unique for each x, so decoder can deterministically reconstruct x.</p>
+<p>Prior loss wants $\Sigma<em>{z|x} = \mathbf{I}$ and $\mu</em>{z|x} = 0$ so encoder output is always a unit Gaussian.</p>
+<h2 id="Generative-Adversarial-Networks"><a href="#Generative-Adversarial-Networks" class="headerlink" title="Generative Adversarial Networks"></a>Generative Adversarial Networks</h2><p>We don’t model $p(x)$ any more. We only draw samples from it. </p>
+<p><strong>Generative Adversarial Networks</strong>: Have data $x<em>i$ drawn from distribution $p</em>{data}(x)$. Want to sample from $p_{data}$</p>
+<p>We introduce a latent variable z with simple prior $p(z)$ (e.g. unit Gaussian). Sample $z \sim p(z)$ and pass to a <strong>Generator Network</strong> $x = G(z)$. Then x is a sample from the <strong>Generator distribution</strong> $p_G$. </p>
+<p>Train <strong>Generator Network G</strong> to convert z into fake data x sampled from $p_G$ , fooling the discriminator D.</p>
+<p>Train <strong>Discriminator Network D</strong> to classify data as real or fake</p>
+<p>We jointly train G and D with a <strong>minimax game</strong>, hoping $p<em>G$ to converge to $p</em>{data}$ .</p>
+<script type="math/tex; mode=display">\min_G \max_D \left( E_{x \sim p_{data}} [\log D(x)] + E_{z \sim p(z)} [\log(1 - D(G(z)))] \right)</script><p>Generator wants $D(G(z)) = 1$. Train generator to minimize $-\log(D(G(z)))$ and discriminator to maximize $\log(1-D(G(z)))$ so generator gets strong gradients at start.</p>
+<p>Examples of GAN include DC-GAN and StyleGAN.</p>
+<p>Latent space is smooth. Given latent vectors z0 and z1, we can interpolate between them and have the resulting image interpolating smoothly between samples.</p>
+<p>However, the training of GAN is unstable.</p>
+<h2 id="Diffusion-amp-Flow-Matching"><a href="#Diffusion-amp-Flow-Matching" class="headerlink" title="Diffusion &amp; Flow Matching"></a>Diffusion &amp; Flow Matching</h2><p>We model the transformation between a simple noise distribution and the complex data distribution.</p>
+<p><strong>Flow Matching</strong>: Have data $x$ drawn from distribution $p<em>{data}$ and noise $z$ drawn from a simple prior $p</em>{noise}$ (e.g. unit Gaussian). We define a path that interpolates between them over time $t \in [0, 1]$.</p>
+<p>On each training iteration, we sample $x \sim p<em>{data}$, $z \sim p</em>{noise}$, and a time step $t \sim \text{Uniform}[0, 1]$. We construct a noisy sample $x_t$ and a target velocity $v$:</p>
+<script type="math/tex; mode=display">x_t = (1 - t)x + tz, \quad v = z - x</script><p>Train a <strong>Velocity Network</strong> $f_\theta(x_t, t)$ to predict the vector $v$ that points from the data toward the noise. This is optimized using a regression loss:</p>
+<script type="math/tex; mode=display">L = \| f_\theta(x_t, t) - v \|_2^2</script><p>During <strong>Inference (Sampling)</strong>, we start with pure noise $x<em>1 \sim p</em>{noise}$ and move backward toward the data distribution. We choose a number of steps $T$ (often $T=50$):</p>
+<p>For $t$ in $[1, 1 - \frac{1}{T}, 1 - \frac{2}{T}, \dots, 0]$:</p>
+<ol>
+<li>Evaluate the predicted velocity: $v<em>t = f</em>{\theta}(x_t, t)$</li>
+<li>Take a small step: $x = x - v_t/T$</li>
+</ol>
+<p>This approach, known as Optimal Transport Flow Matching, results in straight trajectories between noise and data.</p>
+<p><strong>Classifier-Free Guidance (CFG)</strong>: To control the generation process, we introduce a condition $y$ (e.g., a text prompt). During training, we occasionally drop $y$ so the model learns both conditional and unconditional distributions.</p>
+<p>During sampling, we compute two separate velocities for a noisy sample $x_t$:</p>
+<ul>
+<li><strong>Unconditional velocity</strong>: $v^\emptyset = f<em>\theta(x_t, y</em>\emptyset, t)$ (points toward $p(x)$)</li>
+<li><strong>Conditional velocity</strong>: $v^y = f_\theta(x_t, y, t)$ (points toward $p(x|y)$)</li>
+</ul>
+<p>We combine these using a <strong>guidance weight</strong> $w$ to shift the direction more strongly toward the condition:</p>
+<script type="math/tex; mode=display">v^{cfg} = (1 + w)v^y - w v^\emptyset</script><p>Increasing $w$ improves how well the image matches the prompt but can reduce sample diversity.</p>
+<p><strong>Noise Schedules</strong>: We may use a non-uniform noise schedule. The common choice is <strong>logit-normal sampling</strong>. For high-res data, we often shift to higher noise to account for pixel correlations.</p>
+<p><strong>Diffusion Distillation</strong>: We use distillation algorithms reduce the number of steps (sometimes all the way to 1).</p>
+<p>Examples of these models include Stable Diffusion (which uses a similar diffusion objective) and Flux.</p>
+<p>Unlike GANs, these models are much more stable to train and scale better to high-resolution data. However, sampling is typically slower because it requires multiple evaluations of the network.</p>
+<h2 id="Latent-Diffusion-Models-LDM"><a href="#Latent-Diffusion-Models-LDM" class="headerlink" title="Latent Diffusion Models (LDM)"></a>Latent Diffusion Models (LDM)</h2><p>Latent Diffusion Models are basically VAE + GAN + Diffusion.</p>
+<p>We train encoder + decoder to convert images to latents. Then train diffusion model to remove noise from latents. We run decoder to get image from denoised latents.</p>
+<p>The encoder + decoder is a VAE. For the decoder, we use GAN to prevent the outputs from being blurry.</p>
+<h2 id="Generalized-Diffusion"><a href="#Generalized-Diffusion" class="headerlink" title="Generalized Diffusion"></a>Generalized Diffusion</h2><p>This framework provides a unified view of generative modeling, where models like DDPM, DDIM, and Flow Matching are seen as specific configurations of a general training objective.</p>
+<p><strong>Core Concept</strong>: We define a forward process that transitions from clean data $x$ to noise $z$ over a continuous or discrete time $t$, and train a network to reverse or predict aspects of this transition.</p>
+<h3 id="1-Training-Procedure"><a href="#1-Training-Procedure" class="headerlink" title="1. Training Procedure"></a>1. Training Procedure</h3><p>For every training step, we sample the components of the transition:</p>
+<ul>
+<li><strong>Samples</strong>: $x \sim p<em>{data}$ (clean data), $z \sim p</em>{noise}$ (standard noise), and $t \sim p_t$ (time step).</li>
+<li><strong>Noisy Sample Construction</strong>: We create an intermediate state $x_t$ using time-dependent scalar functions $a(t)$ and $b(t)$:<script type="math/tex; mode=display">x_t = a(t)x + b(t)z</script></li>
+<li><strong>Ground Truth Target</strong>: We define what the model should predict ($y_{gt}$) using another set of functions $c(t)$ and $d(t)$:<script type="math/tex; mode=display">y_{gt} = c(t)x + d(t)z</script></li>
+</ul>
+<h3 id="2-Optimization"><a href="#2-Optimization" class="headerlink" title="2. Optimization"></a>2. Optimization</h3><p>The neural network $f_\theta$ takes the noisy sample and the time step to predict the target. We minimize the Mean Squared Error:</p>
+<script type="math/tex; mode=display">L = \| f_\theta(x_t, t) - y_{gt} \|_2^2</script><h3 id="3-Framework-Unification"><a href="#3-Framework-Unification" class="headerlink" title="3. Framework Unification"></a>3. Framework Unification</h3><p>By varying the coefficients $a, b, c,$ and $d$, this single loss function covers different popular models:</p>
+<ul>
+<li><strong>Standard Diffusion (DDPM)</strong>: Predicts the noise $z$ added to the data. <ul>
+<li>$a(t) = \sqrt{\bar{\alpha}_t}, \quad b(t) = \sqrt{1 - \bar{\alpha}_t}$</li>
+<li>Target: $c(t)=0, d(t)=1 \implies y_{gt} = z$</li>
+</ul>
+</li>
+<li><strong>Flow Matching (Optimal Transport)</strong>: Predicts the velocity $v$ along a straight line.<ul>
+<li>$a(t) = 1-t, \quad b(t) = t$</li>
+<li>Target: $c(t)=-1, d(t)=1 \implies y_{gt} = z - x$</li>
+</ul>
+</li>
+<li><strong>Data Prediction</strong>: The model directly estimates the clean sample $x$ from the noisy input.<ul>
+<li>Target: $c(t)=1, d(t)=0 \implies y_{gt} = x$</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-Classifier-Free-Guidance-CFG"><a href="#4-Classifier-Free-Guidance-CFG" class="headerlink" title="4. Classifier-Free Guidance (CFG)"></a>4. Classifier-Free Guidance (CFG)</h3><p>To steer these models during sampling (e.g., using a text prompt $y$), we compute a weighted average of the conditional and unconditional predictions:</p>
+<script type="math/tex; mode=display">v^{cfg} = (1 + w)f_\theta(x_t, y, t) - w f_\theta(x_t, y_\emptyset, t)</script><ul>
+<li><strong>Unconditional</strong>: $y_\emptyset$ (null or empty prompt).</li>
+<li><strong>Guidance Scale $w$</strong>: Higher values force the model to follow the condition $y$ more strictly, often at the cost of visual variety.</li>
+</ul>
+<p><strong>Summary</strong>: While GANs rely on a competitive game (minimax), Generalized Diffusion relies on direct regression. This makes training significantly more stable and allows for high-quality, diverse image and signal synthesis across various domains like photogrammetry and 3D reconstruction.</p>
+<h2 id="Perspectives-on-Diffusion-Models"><a href="#Perspectives-on-Diffusion-Models" class="headerlink" title="Perspectives on Diffusion Models"></a>Perspectives on Diffusion Models</h2><p>Diffusion models are multifaceted and can be understood through several mathematical and conceptual frameworks. Rather than just a single algorithm, they represent a class of models that bridge the gap between simple noise and complex data distributions.</p>
+<h3 id="1-Deep-Latent-Variable-Perspective"><a href="#1-Deep-Latent-Variable-Perspective" class="headerlink" title="1. Deep Latent Variable Perspective"></a>1. Deep Latent Variable Perspective</h3><p>In this view, diffusion is treated similarly to a Variational Autoencoder (VAE) but with a fixed encoder and a learned decoder.</p>
+<ul>
+<li><strong>Forward Process</strong>: We define a fixed “noising” process where Gaussian noise is iteratively added to the data $x_0$, moving through latent states $x_1, \dots, x_t, \dots, x_T$.</li>
+<li><strong>Backward Process</strong>: A neural network is trained to approximate the reverse step $p<em>\theta(x</em>{t-1}|x_t)$, effectively learning to “undo” the noise.</li>
+<li><strong>Optimization</strong>: The model is trained by optimizing the <strong>variational lower bound (VLB)</strong>, ensuring the generated samples represent the underlying data distribution.</li>
+</ul>
+<h3 id="2-Score-Based-Perspective"><a href="#2-Score-Based-Perspective" class="headerlink" title="2. Score-Based Perspective"></a>2. Score-Based Perspective</h3><p>Instead of modeling the probability density $p(x)$ directly, we can model its gradient with respect to the input.</p>
+<ul>
+<li><strong>Score Function</strong>: Defined as $s(x) = \frac{\partial}{\partial x} \log p(x)$. </li>
+<li><strong>Vector Field</strong>: The score function acts as a vector field that points toward areas of high probability density in the data space.</li>
+<li><strong>Learning</strong>: The diffusion model learns a neural network to approximate this score function for $p_{data}$. During sampling, we “walk” along this vector field to find high-density regions (real data).</li>
+</ul>
+<h3 id="3-Stochastic-Differential-Equations-SDEs"><a href="#3-Stochastic-Differential-Equations-SDEs" class="headerlink" title="3. Stochastic Differential Equations (SDEs)"></a>3. Stochastic Differential Equations (SDEs)</h3><p>For a more continuous mathematical treatment, the noising process can be described as an SDE.</p>
+<ul>
+<li><strong>The Equation</strong>: We describe infinitesimal changes in data $x$, time $t$, and noise $w$ as:<script type="math/tex; mode=display">dx = f(x, t)dt + g(t)dw</script></li>
+<li><strong>Reverse SDE</strong>: Diffusion models learn a neural network to solve the reverse version of this equation, allowing for continuous-time generation and more flexible sampling strategies.</li>
+</ul>
+<h3 id="Summary-of-Perspectives"><a href="#Summary-of-Perspectives" class="headerlink" title="Summary of Perspectives"></a>Summary of Perspectives</h3><p>Beyond the frameworks above, diffusion models can also be viewed as:</p>
+<ol>
+<li><strong>Autoencoders</strong>: Specifically, denoising autoencoders applied at different noise levels.</li>
+<li><strong>Recurrent Neural Networks</strong>: Since they apply the same network iteratively over time steps.</li>
+<li><strong>Autoregressive Models</strong>: When viewed as predicting the “next” state in a sequence from noise to data.</li>
+<li><strong>Expectation Estimators</strong>: Estimating the conditional mean of the data given the noisy observation.</li>
+</ol>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h2>About this Post</h2>
+    <div class="details">This post is written by Louis C Deng, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</div>
+    
+    <p class="tags text-capitalize">
+      <i class="bi bi-tags icon"></i>
+      
+      <a href="/tags/CS231n/" class="tag">#CS231n</a>
+      
+      <a href="/tags/Deep-Learning/" class="tag">#Deep Learning</a>
+      
+    </p>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    <a class="next"></a>
+    
+    <a href="/2026/05/02/cs231n-lecture-12/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">CS231n Lecture Note: Self-Supervised Learning</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    <script src="https://giscus.app/client.js"
+        data-repo="aeilot/blog"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNjEwODA2OTY="
+        data-category="General"
+        data-category-id="DIC_kwDOD4_GeM4B_VIn"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/index.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Links</h2>
+        
+        <a target="_blank" rel="noopener" href="https://aeilot.top" class="item">Portfolio</a>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/aeilot" class="item">GitHub</a>
+        
+        <a target="_blank" rel="noopener" href="https://www.instagram.com/aeilotd/" class="item">Instagram</a>
+        
+        <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/chenluo-d-85b37a33a/" class="item">LinkedIn</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Friends</h2>
+        
+        <a target="_blank" rel="noopener" href="https://mrwillcom.now.sh" class="item">Mr.Will</a>
+        
+        <a target="_blank" rel="noopener" href="https://chungzh.cn" class="item">ChungZH</a>
+        
+        <a target="_blank" rel="noopener" href="https://shaojiaxu.github.io" class="item">SJX</a>
+        
+        <a target="_blank" rel="noopener" href="http://clckblog.space/" class="item">CLCK</a>
+        
+        <a target="_blank" rel="noopener" href="https://innei.in/" class="item">静かな森</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2026 Louis C Deng<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    <style>
+  .giscus {
+    max-width: 768px;
+    padding: 16px;
+    margin: 64px auto;
+    
+    background: var(--color-background-secondary); 
+    border-radius: var(--radius-medium); 
+  }
+
+
+  @media (max-width: 800px) {
+      .giscus {
+          border-radius: 0;
+          width: auto;
+      }
+  }
+
+  @container document-body style(--config-corner-squircle: true) {
+      @supports (corner-shape: squircle) {
+          .giscus {
+              corner-shape: squircle;
+              --radius-tiny: 10px;
+              --radius-small: 20px;
+              --radius-medium: 30px;
+              --radius-large: 40px;
+              --radius-full: 999px;
+          }
+      }
+  }
+
+  @media (max-width: 768px) {
+    .giscus {
+      margin: 20px 10px; 
+      padding: 20px;
+    }
+  }
+</style>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
