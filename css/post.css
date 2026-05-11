@@ -84,7 +84,7 @@ body {
   /* only `& > .content > pre`, do not include <pre /> in <figure /> */
 }
 .post > .content > p, .post > .content > h1, .post > .content > h2, .post > .content > h3, .post > .content > h4, .post > .content > h5, .post > .content > h6, .post > .content > figure, .post > .content > pre, .post > .content > .divider,
-.post .container, .post > .content > hr, .post > aside > .toc, .post > .content > blockquote, .post > .content > table, .post > .content > video, .post > .content > ul, .post > .content > ol, .post > .content > mjx-container, .post > .content > .katex,
+.post .container, .post > .content > hr, .post > aside > .toc, .post > .content > blockquote, .post > .content > table, .post > .content > video, .post > .content > ul, .post > .content > ol, .post > .content > .katex,
 .post .about {
   max-width: 800px;
   margin-left: auto;
@@ -290,7 +290,8 @@ body {
   }
 }
 .post > .content .highlight, .post > .content > pre {
-  max-width: 768px;
+  padding: 0;
+  max-width: 800px;
 }
 @media (max-width: 800px) {
   .post > .content .highlight, .post > .content > pre {
@@ -301,7 +302,10 @@ body {
   border: none;
 }
 .post > .content .highlight .gutter {
-  padding-right: 16px;
+  padding-left: 16px;
+  position: sticky;
+  left: 0;
+  text-align: right;
 }
 .post > .content > pre {
   max-width: 752px;
@@ -329,7 +333,13 @@ body {
 .post {
   /* for [hexo-math](https://github.com/hexojs/hexo-math): */
 }
-.post > .content > mjx-container, .post > .content > .katex {
+.post > .content > p:has(mjx-container) {
+  max-width: none;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  text-align: center;
+}
+.post > .content > .katex {
   display: block;
   text-align: center;
 }
