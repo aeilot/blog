@@ -13,15 +13,15 @@
   <link rel='manifest' href='/manifest.json'>
   
 
-  <meta name="description" content="RoPE: Properties, Patterns, and Long-Context Behavior Rotary Position Embedding, usually called RoPE, is one of the most common positional encoding methods in modern decoder-only language models. It">
+  <meta name="description" content="Rotary Position Embedding, usually called RoPE, is one of the most common positional encoding methods in modern decoder-only language models. It appears in models such as LLaMA and many of its descend">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RoPE: Properties, Patterns, and Long-Context Behavior">
 <meta property="og:url" content="https://blog.aeilot.top/2026/08/02/rope-properties-and-patterns/index.html">
 <meta property="og:site_name" content="Louis C Deng&#39;s Blog">
-<meta property="og:description" content="RoPE: Properties, Patterns, and Long-Context Behavior Rotary Position Embedding, usually called RoPE, is one of the most common positional encoding methods in modern decoder-only language models. It">
+<meta property="og:description" content="Rotary Position Embedding, usually called RoPE, is one of the most common positional encoding methods in modern decoder-only language models. It appears in models such as LLaMA and many of its descend">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2026-08-02T02:00:00.000Z">
-<meta property="article:modified_time" content="2026-08-02T03:23:52.556Z">
+<meta property="article:modified_time" content="2026-08-02T03:52:16.825Z">
 <meta property="article:author" content="Louis C Deng">
 <meta property="article:tag" content="LLM">
 <meta property="article:tag" content="Positional Encoding">
@@ -232,8 +232,7 @@
   </div>
 
   <div class="content">
-    <h1 id="rope-properties-patterns-and-long-context-behavior"><a class="markdownIt-Anchor" href="#rope-properties-patterns-and-long-context-behavior"></a> RoPE: Properties, Patterns, and Long-Context Behavior</h1>
-<p>Rotary Position Embedding, usually called RoPE, is one of the most common positional encoding methods in modern decoder-only language models. It appears in models such as LLaMA and many of its descendants, and it is also the positional encoding used in CS336 Assignment 1.</p>
+    <p>Rotary Position Embedding, usually called RoPE, is one of the most common positional encoding methods in modern decoder-only language models. It appears in models such as LLaMA and many of its descendants, and it is also the positional encoding used in CS336 Assignment 1.</p>
 <p>RoPE is often introduced with one sentence: rotate the query and key vectors according to their positions. That description is correct, but it hides the most interesting part. The important question is not merely how to implement a rotation matrix. It is why rotating queries and keys makes the attention score depend on relative position, what mathematical invariants this creates, and why the same mechanism eventually becomes difficult to extrapolate to very long contexts.</p>
 <p>The main idea of this post is:</p>
 <p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>absolute position in </mtext><mi>Q</mi><mo separator="true">,</mo><mi>K</mi><mspace width="1em"/><mo>⟹</mo><mspace width="1em"/><mtext>relative position in </mtext><msup><mi>Q</mi><mi>T</mi></msup><mi>K</mi></mrow><annotation encoding="application/x-tex">\text{absolute position in } Q,K

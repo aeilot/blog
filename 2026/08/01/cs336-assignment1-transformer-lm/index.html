@@ -13,15 +13,15 @@
   <link rel='manifest' href='/manifest.json'>
   
 
-  <meta name="description" content="CS336 Assignment 1: Large Language Model Training and Inference Stanford CS336 Assignment 1 is titled Building a Transformer LM. It covers the main ideas behind a decoder-only language model: BPE tok">
+  <meta name="description" content="Stanford CS336 Assignment 1 is titled Building a Transformer LM. It covers the main ideas behind a decoder-only language model: BPE tokenization, Transformer architecture, cross-entropy, SGD, AdamW, l">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CS336 Assignment 1: Large Language Model Training and Inference">
 <meta property="og:url" content="https://blog.aeilot.top/2026/08/01/cs336-assignment1-transformer-lm/index.html">
 <meta property="og:site_name" content="Louis C Deng&#39;s Blog">
-<meta property="og:description" content="CS336 Assignment 1: Large Language Model Training and Inference Stanford CS336 Assignment 1 is titled Building a Transformer LM. It covers the main ideas behind a decoder-only language model: BPE tok">
+<meta property="og:description" content="Stanford CS336 Assignment 1 is titled Building a Transformer LM. It covers the main ideas behind a decoder-only language model: BPE tokenization, Transformer architecture, cross-entropy, SGD, AdamW, l">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2026-08-01T14:00:00.000Z">
-<meta property="article:modified_time" content="2026-08-02T03:16:08.916Z">
+<meta property="article:modified_time" content="2026-08-02T03:52:19.890Z">
 <meta property="article:author" content="Louis C Deng">
 <meta property="article:tag" content="CS336">
 <meta property="article:tag" content="Deep Learning">
@@ -232,8 +232,7 @@
   </div>
 
   <div class="content">
-    <h1 id="cs336-assignment-1-large-language-model-training-and-inference"><a class="markdownIt-Anchor" href="#cs336-assignment-1-large-language-model-training-and-inference"></a> CS336 Assignment 1: Large Language Model Training and Inference</h1>
-<p>Stanford CS336 Assignment 1 is titled <em>Building a Transformer LM</em>. It covers the main ideas behind a decoder-only language model: BPE tokenization, Transformer architecture, cross-entropy, SGD, AdamW, learning-rate schedules, gradient clipping, and decoding with temperature and top-p sampling.</p>
+    <p>Stanford CS336 Assignment 1 is titled <em>Building a Transformer LM</em>. It covers the main ideas behind a decoder-only language model: BPE tokenization, Transformer architecture, cross-entropy, SGD, AdamW, learning-rate schedules, gradient clipping, and decoding with temperature and top-p sampling.</p>
 <p>This post is not a line-by-line translation of the handout, nor is it mainly about software engineering. Instead, it organizes the assignment as a review of the large-language-model concepts behind training and inference.</p>
 <p>The central pipeline is:</p>
 <p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>text</mtext><mo>→</mo><mtext>tokens</mtext><mo>→</mo><mtext>Transformer</mtext><mo>→</mo><mtext>logits</mtext><mo>→</mo><mtext>loss</mtext><mo>→</mo><mtext>gradient update</mtext></mrow><annotation encoding="application/x-tex">\text{text} \rightarrow \text{tokens} \rightarrow \text{Transformer} \rightarrow \text{logits} \rightarrow \text{loss} \rightarrow \text{gradient update}
