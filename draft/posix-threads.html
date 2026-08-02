@@ -233,13 +233,15 @@
   </div>
 
   <div class="content">
-    <p><strong>Pthreads</strong> or <strong>POSIX Threads</strong> (coming in <code>&lt;pthreads.h&gt;</code>) allows a program to control multiple different flows of work that overlap in time. In this tutorial, we’ll cover some of the basic usages of <code>&lt;pthreads.h&gt;</code>, followed by an example — the Reader-Writer Lock.</p>
+    <p><strong>Pthreads</strong> or <strong>POSIX Threads</strong> (coming in <code>&lt;pthreads.h&gt;</code>) allows a program to control multiple different flows of work that overlap in time. In this tutorial, we’ll cover some of the basic usages of <code>&lt;pthreads.h&gt;</code>, followed by an example – the Reader-Writer Lock.</p>
 <span id="more"></span>
-<h2 id="Threads"><a href="#Threads" class="headerlink" title="Threads"></a>Threads</h2><p>A thread is a single sequence stream within a process.</p>
+<h2 id="threads"><a class="markdownIt-Anchor" href="#threads"></a> Threads</h2>
+<p>A thread is a single sequence stream within a process.</p>
 <p>Threads are like lightweight processes. They allow multiple tasks to run simultaneously, improving program efficiency.</p>
 <p>Threads share with other threads their code section, data section and OS resources, while having their own program counters (PC), register sets, and runtime stack spaces.</p>
 <p>In C, we use the POSIX Threads (or pthreads) to implement multithreading, defined in the <code>&lt;pthread.h&gt;</code> header file.</p>
-<h2 id="What’s-lt-pthreads-h-gt-all-about"><a href="#What’s-lt-pthreads-h-gt-all-about" class="headerlink" title="What’s &lt;pthreads.h&gt; all about?"></a>What’s <code>&lt;pthreads.h&gt;</code> all about?</h2><p><code>pthreads</code> comes with over 100 thread procedures in <code>&lt;pthreads.h&gt;</code>, all prefixed <code>pthread_</code>. They can be categorized into five groups:</p>
+<h2 id="whats-pthreadsh-all-about"><a class="markdownIt-Anchor" href="#whats-pthreadsh-all-about"></a> What’s <code>&lt;pthreads.h&gt;</code> all about?</h2>
+<p><code>pthreads</code> comes with over 100 thread procedures in <code>&lt;pthreads.h&gt;</code>, all prefixed <code>pthread_</code>. They can be categorized into five groups:</p>
 <ol>
 <li>Basic Thread Management</li>
 <li>Mutexes</li>
@@ -247,7 +249,8 @@
 <li>Thread synchronization</li>
 <li>Spinlocks</li>
 </ol>
-<h3 id="pthreads-Data-Structures"><a href="#pthreads-Data-Structures" class="headerlink" title="pthreads Data Structures"></a>pthreads Data Structures</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Process</span><br><span class="line"> ├── Thread (pthread_t)</span><br><span class="line"> │     ├── stack</span><br><span class="line"> │     ├── registers</span><br><span class="line"> │     ├── TLS</span><br><span class="line"> │     └── scheduling info</span><br><span class="line"> │</span><br><span class="line"> ├── Mutexes</span><br><span class="line"> ├── Condition variables</span><br><span class="line"> ├── RWLocks</span><br><span class="line"> └── Barriers</span><br></pre></td></tr></table></figure>
+<h3 id="pthreads-data-structures"><a class="markdownIt-Anchor" href="#pthreads-data-structures"></a> pthreads Data Structures</h3>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Process</span><br><span class="line"> ├── Thread (pthread_t)</span><br><span class="line"> │     ├── stack</span><br><span class="line"> │     ├── registers</span><br><span class="line"> │     ├── TLS</span><br><span class="line"> │     └── scheduling info</span><br><span class="line"> │</span><br><span class="line"> ├── Mutexes</span><br><span class="line"> ├── Condition variables</span><br><span class="line"> ├── RWLocks</span><br><span class="line"> └── Barriers</span><br></pre></td></tr></table></figure>
 <p>The POSIX threads API (usually provided by the pthread library on Unix/Linux systems) defines several core data structures used to represent threads and synchronization primitives.</p>
 <ol>
 <li><code>pthread_t</code>: represents a thread identifier.</li>
@@ -260,8 +263,10 @@
 <li><code>pthread_barrier_t</code>: A barrier synchronization primitive.</li>
 <li><code>pthread_key_t</code>: Used for thread-local storage (TLS).</li>
 </ol>
-<h2 id="Basic-Management"><a href="#Basic-Management" class="headerlink" title="Basic Management"></a>Basic Management</h2><p>Here are some of the most basic thread management operations.</p>
-<h3 id="1-Create-a-thread"><a href="#1-Create-a-thread" class="headerlink" title="1. Create a thread"></a>1. Create a thread</h3><p>We create a new thread with the <code>pthread_create()</code> function.</p>
+<h2 id="basic-management"><a class="markdownIt-Anchor" href="#basic-management"></a> Basic Management</h2>
+<p>Here are some of the most basic thread management operations.</p>
+<h3 id="1-create-a-thread"><a class="markdownIt-Anchor" href="#1-create-a-thread"></a> 1. Create a thread</h3>
+<p>We create a new thread with the <code>pthread_create()</code> function.</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;pthread.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">   <span class="type">int</span> <span class="title function_">pthread_create</span><span class="params">(<span class="type">pthread_t</span> *<span class="keyword">restrict</span> thread,</span></span><br><span class="line"><span class="params">                     <span class="type">const</span> <span class="type">pthread_attr_t</span> *<span class="keyword">restrict</span> attr,</span></span><br><span class="line"><span class="params">                     <span class="keyword">typeof</span>(<span class="type">void</span> *(<span class="type">void</span> *)) *start_routine,</span></span><br><span class="line"><span class="params">                     <span class="type">void</span> *<span class="keyword">restrict</span> arg)</span>;</span><br></pre></td></tr></table></figure>
 <p>where,</p>
 <ul>
@@ -275,13 +280,16 @@
 </blockquote>
 <p>A typical <strong>routine</strong> looks like:</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span>* <span class="title function_">worker</span><span class="params">(<span class="type">void</span>* arg)</span>&#123;</span><br><span class="line">  	<span class="comment">// Do something...</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2-Thread-Lifecycle"><a href="#2-Thread-Lifecycle" class="headerlink" title="2. Thread Lifecycle"></a>2. Thread Lifecycle</h3><p>After <code>pthread_create</code>, a thread has two possible lifecycle management modes: <strong>joinable</strong> or <strong>detached</strong>.</p>
+<h3 id="2-thread-lifecycle"><a class="markdownIt-Anchor" href="#2-thread-lifecycle"></a> 2. Thread Lifecycle</h3>
+<p>After <code>pthread_create</code>, a thread has two possible lifecycle management modes: <strong>joinable</strong> or <strong>detached</strong>.</p>
 <ul>
 <li><code>pthread_join</code> is used when another thread (usually the parent) must wait for the thread to finish and collect its return value.</li>
 <li><code>pthread_detach</code> marks a thread so that its resources are automatically released when it exits.</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">pthread_join</span><span class="params">(<span class="type">pthread_t</span> thread, <span class="type">void</span> **retval)</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">pthread_detach</span><span class="params">(<span class="type">pthread_t</span> thread)</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="Mutex"><a href="#Mutex" class="headerlink" title="Mutex"></a>Mutex</h2><h2 id="Credit"><a href="#Credit" class="headerlink" title="Credit"></a>Credit</h2><p>Part of the blog post comes from <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Pthreads">Wikipedia - pthreads</a>. I <strong>STRONGLY</strong> recommend you to read this wiki.</p>
+<h2 id="mutex"><a class="markdownIt-Anchor" href="#mutex"></a> Mutex</h2>
+<h2 id="credit"><a class="markdownIt-Anchor" href="#credit"></a> Credit</h2>
+<p>Part of the blog post comes from <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Pthreads">Wikipedia - pthreads</a>. I <strong>STRONGLY</strong> recommend you to read this wiki.</p>
 
   </div>
 

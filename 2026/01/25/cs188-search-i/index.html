@@ -235,16 +235,20 @@
   <div class="content">
     <p>Here are the lecture notes for UC Berkeley CS188 Lecture 1 and 2.</p>
 <span id="more"></span>
-<h1 id="Agents"><a href="#Agents" class="headerlink" title="Agents"></a>Agents</h1><p>The central problem of AI is to create a rational agent. A <strong>rational agent</strong> is an entity that has goals or preferences and tries to perform a series of actions that yield the best/optimal expected outcome given these goals. </p>
+<h1 id="agents"><a class="markdownIt-Anchor" href="#agents"></a> Agents</h1>
+<p>The central problem of AI is to create a rational agent. A <strong>rational agent</strong> is an entity that has goals or preferences and tries to perform a series of actions that yield the best/optimal expected outcome given these goals.</p>
 <p>The agent exists in an <strong>environment</strong>. Together, the agent and the environment constitute the <strong>world</strong>.</p>
-<h2 id="Types-of-Agents"><a href="#Types-of-Agents" class="headerlink" title="Types of Agents"></a>Types of Agents</h2><p>A <strong>reflex agent</strong> selects its action based on only the current state of the world.</p>
+<h2 id="types-of-agents"><a class="markdownIt-Anchor" href="#types-of-agents"></a> Types of Agents</h2>
+<p>A <strong>reflex agent</strong> selects its action based on only the current state of the world.</p>
 <p>A <strong>planning agent</strong> maintains a model of the world and uses this model to simulate performing various actions.</p>
 <p>Sometimes agents fail due to wrong world models.</p>
-<h2 id="Task-Environment"><a href="#Task-Environment" class="headerlink" title="Task Environment"></a>Task Environment</h2><p>The <strong>PEAS</strong> (Performance Measure, Environment, Actuators, Sensors) description is used for defining the task environment.</p>
+<h2 id="task-environment"><a class="markdownIt-Anchor" href="#task-environment"></a> Task Environment</h2>
+<p>The <strong>PEAS</strong> (Performance Measure, Environment, Actuators, Sensors) description is used for defining the task environment.</p>
 <p>The <strong>performance measure</strong> describes what utility the agent tries to increase.</p>
 <p>The <strong>environment</strong> summarizes where the agent acts and what affects the agent.</p>
 <p>The <strong>actuators</strong> and the <strong>sensors</strong> are the methods with which the agent acts on the environment and receives information from it.</p>
-<h2 id="Types-of-Environment"><a href="#Types-of-Environment" class="headerlink" title="Types of Environment"></a>Types of Environment</h2><p>We can characterize the types of environments in the following ways:</p>
+<h2 id="types-of-environment"><a class="markdownIt-Anchor" href="#types-of-environment"></a> Types of Environment</h2>
+<p>We can characterize the types of environments in the following ways:</p>
 <ul>
 <li>partially observable environments</li>
 <li>fully observable environments</li>
@@ -256,7 +260,8 @@
 <li>environments with known physics</li>
 <li>environments with unknown physics</li>
 </ul>
-<h1 id="State-Space-and-Search-Problems"><a href="#State-Space-and-Search-Problems" class="headerlink" title="State Space and Search Problems"></a>State Space and Search Problems</h1><p>A search problem consists of the following elements:</p>
+<h1 id="state-space-and-search-problems"><a class="markdownIt-Anchor" href="#state-space-and-search-problems"></a> State Space and Search Problems</h1>
+<p>A search problem consists of the following elements:</p>
 <ul>
 <li>A <strong>state space</strong> - The set of all possible states that are possible in your given world</li>
 <li>A set of <strong>actions</strong> available in each state</li>
@@ -267,13 +272,15 @@
 </ul>
 <p>A search problem is solved by first considering the start state, then exploring the state space using the action and transition and cost methods, iteratively computing children of various states until we arrive at a goal state.</p>
 <p>A <strong>world state</strong> contains all information about a given state, whereas a <strong>search state</strong> contains only the information about the world that’s necessary for planning.</p>
-<h2 id="State-Space-Graphs-and-Search-Trees"><a href="#State-Space-Graphs-and-Search-Trees" class="headerlink" title="State Space Graphs and Search Trees"></a>State Space Graphs and Search Trees</h2><p><img src="https://inst.eecs.berkeley.edu/~cs188/textbook/assets/images/graph_and_tree.png" alt="CS188 State Space Graphs and Search Trees"></p>
-<p>A <strong>state space graph</strong> is constructed with states representing nodes, with directed edges existing from a state to its children. These edges represent actions, and any associated weights represent the cost of performing the corresponding action. </p>
+<h2 id="state-space-graphs-and-search-trees"><a class="markdownIt-Anchor" href="#state-space-graphs-and-search-trees"></a> State Space Graphs and Search Trees</h2>
+<p><img src="https://inst.eecs.berkeley.edu/~cs188/textbook/assets/images/graph_and_tree.png" alt="CS188 State Space Graphs and Search Trees" /></p>
+<p>A <strong>state space graph</strong> is constructed with states representing nodes, with directed edges existing from a state to its children. These edges represent actions, and any associated weights represent the cost of performing the corresponding action.</p>
 <p>They can be noticeably large, but they represent states well. (All states occur only once)</p>
 <p><strong>Search trees</strong> encode the entire path (or plan) from the start state to the given state in the state space graph.</p>
 <p>Since there often exist multiple ways to get from one state to another, states tend to show up multiple times in search trees.</p>
 <p>Since these structures can be too large for computers, we can choose to store only states we’re immediately working with, and compute new ones on-demand.</p>
-<h1 id="Uninformed-Search"><a href="#Uninformed-Search" class="headerlink" title="Uninformed Search"></a>Uninformed Search</h1><p>The standard protocol for finding a plan from the start state to the goals is to maintain an outer frontier and continually expanding the frontier by replacing a node with its children.</p>
+<h1 id="uninformed-search"><a class="markdownIt-Anchor" href="#uninformed-search"></a> Uninformed Search</h1>
+<p>The standard protocol for finding a plan from the start state to the goals is to maintain an outer frontier and continually expanding the frontier by replacing a node with its children.</p>
 <p>Most implementations of such algorithms will encode information about the parent node, distance to node, and the state inside the node object. This procedure is known as <strong>tree search</strong>.</p>
 <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function TREE-SEARCH(problem, frontier) return a solution <span class="keyword">or</span> failure</span><br><span class="line">    frontier ← INSERT(MAKE-<span class="keyword">NODE</span><span class="title">(INITIAL-STATE</span>[problem]), frontier)</span><br><span class="line">    while not IS-EMPTY(frontier) do</span><br><span class="line">        <span class="keyword">node</span> <span class="title">← POP</span>(frontier)</span><br><span class="line">        if problem.IS-GOAL(node.STATE) then return <span class="keyword">node</span></span><br><span class="line">        <span class="title">for</span> each child-<span class="keyword">node</span> <span class="title">in</span> EXPAND(problem, <span class="keyword">node</span><span class="title">) do</span></span><br><span class="line">            add child-<span class="keyword">node</span> <span class="title">to</span> frontier</span><br><span class="line">    return failure</span><br></pre></td></tr></table></figure>
 <p>The <code>EXPAND</code> function appearing in the pseudocode returns all the possible nodes that can be reached from a given node by considering all available actions.</p>
@@ -281,24 +288,28 @@
 <ul>
 <li>The <strong>completeness</strong> of each search strategy - if there exists a solution to the search problem, is the strategy guaranteed to find it given infinite computational resources?</li>
 <li>The <strong>optimality</strong> of each search strategy - is the strategy guaranteed to find the lowest cost path to a goal state?</li>
-<li>The <strong>branching factor </strong> - The increase in the number of nodes on the frontier each time a frontier node is dequeued and replaced with its children is . At depth k in the search tree, there exists  nodes.</li>
+<li>The **branching factor ** - The increase in the number of nodes on the frontier each time a frontier node is dequeued and replaced with its children is . At depth k in the search tree, there exists  nodes.</li>
 <li>The maximum depth m.</li>
 <li>The depth of the shallowest solution s.</li>
 </ul>
-<h2 id="Depth-First-Search"><a href="#Depth-First-Search" class="headerlink" title="Depth-First Search"></a>Depth-First Search</h2><p>Depth-First Search (DFS) always selects the <em>deepest frontier</em> node.</p>
+<h2 id="depth-first-search"><a class="markdownIt-Anchor" href="#depth-first-search"></a> Depth-First Search</h2>
+<p>Depth-First Search (DFS) always selects the <em>deepest frontier</em> node.</p>
 <p>The frontier is represented by a stack.</p>
 <p>Depth-first search is not complete. If there exist cycles in the state space graph, this inevitably means that the corresponding search tree will be infinite in depth.</p>
 <p>Depth-first search is not optimal.</p>
-<h2 id="Breadth-Frist-Search"><a href="#Breadth-Frist-Search" class="headerlink" title="Breadth-Frist Search"></a>Breadth-Frist Search</h2><p>Breadth-first search (BFS) always selects the <em>shallowest frontier</em> node.</p>
+<h2 id="breadth-frist-search"><a class="markdownIt-Anchor" href="#breadth-frist-search"></a> Breadth-Frist Search</h2>
+<p>Breadth-first search (BFS) always selects the <em>shallowest frontier</em> node.</p>
 <p>The frontier is represented by a queue.</p>
 <p>If a solution exists, then the depth of the shallowest node s must be finite, so BFS must eventually search this depth. Hence, it’s complete.</p>
 <p>BFS is generally not optimal.</p>
-<h2 id="Iterative-Deepening"><a href="#Iterative-Deepening" class="headerlink" title="Iterative Deepening"></a>Iterative Deepening</h2><p>Iterative Deepening (ID) is basically BFS implemented with DFS. It repeatedly executes depth-first search with an increasing depth limit.</p>
+<h2 id="iterative-deepening"><a class="markdownIt-Anchor" href="#iterative-deepening"></a> Iterative Deepening</h2>
+<p>Iterative Deepening (ID) is basically BFS implemented with DFS. It repeatedly executes depth-first search with an increasing depth limit.</p>
 <p>The frontier is represented by a stack.</p>
 <p>Iterative deepening is complete. Because it exhaustively searches each depth level before increasing the limit, it avoids the infinite loops of DFS and will find a solution if one exists at a finite depth.</p>
 <p>ID is generally not optimal.</p>
 <p>If the cost is uniform, ID and BFS will be optimal.</p>
-<h2 id="Uniform-Cost-Search"><a href="#Uniform-Cost-Search" class="headerlink" title="Uniform Cost Search"></a>Uniform Cost Search</h2><p>Uniform cost search (UCS) always selects the <em>lowest cost frontier</em> node.</p>
+<h2 id="uniform-cost-search"><a class="markdownIt-Anchor" href="#uniform-cost-search"></a> Uniform Cost Search</h2>
+<p>Uniform cost search (UCS) always selects the <em>lowest cost frontier</em> node.</p>
 <p>The frontier is represented by a priority queue.</p>
 <p>Uniform cost search is complete and optimal.</p>
 <p>The three strategies outlined above are fundamentally the same - differing only in expansion strategy</p>
