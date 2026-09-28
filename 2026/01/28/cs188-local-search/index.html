@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   
-  <title>CS188 Search Lecture Notes III - Louis C Deng&#39;s Blog</title>
+  <title>CS188 Local Search: Hill Climbing and Simulated Annealing - Louis C Deng&#39;s Blog</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -13,16 +13,16 @@
   <link rel='manifest' href='/manifest.json'>
   
 
-  <meta name="description" content="Here are the notes for CS188 Local Search.">
+  <meta name="description" content="CS188 local search notes covering hill climbing, random restarts, simulated annealing, and the tradeoffs of searching for an optimal state.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CS188 Search Lecture Notes III">
+<meta property="og:title" content="CS188 Local Search: Hill Climbing and Simulated Annealing">
 <meta property="og:url" content="https://blog.aeilot.top/2026/01/28/cs188-local-search/">
 <meta property="og:site_name" content="Louis C Deng&#39;s Blog">
-<meta property="og:description" content="Here are the notes for CS188 Local Search.">
+<meta property="og:description" content="CS188 local search notes covering hill climbing, random restarts, simulated annealing, and the tradeoffs of searching for an optimal state.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://inst.eecs.berkeley.edu/~cs188/textbook/assets/images/maxima_global_local.png">
 <meta property="article:published_time" content="2026-01-27T18:26:09.000Z">
-<meta property="article:modified_time" content="2026-09-28T20:46:24.278Z">
+
 <meta property="article:author" content="Louis C Deng">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="CS188">
@@ -144,7 +144,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><link rel="canonical" href="https://blog.aeilot.top/2026/01/28/cs188-local-search/">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><script id="seo-structured-data" type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"CS188 Local Search: Hill Climbing and Simulated Annealing","description":"CS188 local search notes covering hill climbing, random restarts, simulated annealing, and the tradeoffs of searching for an optimal state.","url":"https://blog.aeilot.top/2026/01/28/cs188-local-search/","mainEntityOfPage":"https://blog.aeilot.top/2026/01/28/cs188-local-search/","inLanguage":"en-US","author":{"@type":"Person","name":"Louis C Deng","url":"https://aeilot.top/"},"publisher":{"@type":"Person","name":"Louis C Deng","url":"https://aeilot.top/"},"datePublished":"2026-01-27T18:26:09.000Z"}</script>
+<link rel="canonical" href="https://blog.aeilot.top/2026/01/28/cs188-local-search/">
 </head>
 
   <body
@@ -230,7 +231,7 @@
     </time>
     
 
-    <h1 class="title" data-pagefind-meta="title">CS188 Search Lecture Notes III</h1>
+    <h1 class="title" data-pagefind-meta="title">CS188 Local Search: Hill Climbing and Simulated Annealing</h1>
   </div>
 
   <div class="content">

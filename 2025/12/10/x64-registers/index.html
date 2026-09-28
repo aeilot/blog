@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="zh-TW">
   <head prefix="og: https://ogp.me/ns#">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,15 +13,15 @@
   <link rel='manifest' href='/manifest.json'>
   
 
-  <meta name="description" content="本文匯總 x64 架構下最核心的暫存器狀態與 ABI 約定。  暫存器 x64 暫存器完美向下相容。寫入低 32 位 (如 MOV EAX, 1) 會自動清零高 32 位；但寫入 8&#x2F;16 位則保留高位數據。  通用暫存器 (GPRs) 速查表    64-bit 32-bit 16-bit 8-bit 用途 (System V &#x2F; 通用) 易失性     RAX EAX AX AL 返回值 &#x2F;">
+  <meta name="description" content="本文匯總 x64 架構下最核心的暫存器狀態與 ABI 約定。 暫存器 x64 暫存器完美向下相容。寫入低 32 位 (如 MOV EAX, 1) 會自動清零高 32 位；但寫入 8/16 位則保留高位數據。 通用暫存器 (GPRs) 速查表 64-bit 32-bit 16-bit 8-bit 用途 (System V / 通用) 易失性 RAX EAX AX AL 返回值 /">
 <meta property="og:type" content="article">
 <meta property="og:title" content="x64 暫存器速查表">
 <meta property="og:url" content="https://blog.aeilot.top/2025/12/10/x64-registers/">
 <meta property="og:site_name" content="Louis C Deng&#39;s Blog">
-<meta property="og:description" content="本文匯總 x64 架構下最核心的暫存器狀態與 ABI 約定。  暫存器 x64 暫存器完美向下相容。寫入低 32 位 (如 MOV EAX, 1) 會自動清零高 32 位；但寫入 8&#x2F;16 位則保留高位數據。  通用暫存器 (GPRs) 速查表    64-bit 32-bit 16-bit 8-bit 用途 (System V &#x2F; 通用) 易失性     RAX EAX AX AL 返回值 &#x2F;">
+<meta property="og:description" content="本文匯總 x64 架構下最核心的暫存器狀態與 ABI 約定。 暫存器 x64 暫存器完美向下相容。寫入低 32 位 (如 MOV EAX, 1) 會自動清零高 32 位；但寫入 8/16 位則保留高位數據。 通用暫存器 (GPRs) 速查表 64-bit 32-bit 16-bit 8-bit 用途 (System V / 通用) 易失性 RAX EAX AX AL 返回值 /">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2025-12-09T19:45:09.000Z">
-<meta property="article:modified_time" content="2026-09-28T20:46:24.283Z">
+
 <meta property="article:author" content="Louis C Deng">
 <meta property="article:tag" content="x64">
 <meta property="article:tag" content="匯編">
@@ -142,7 +142,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><link rel="canonical" href="https://blog.aeilot.top/2025/12/10/x64-registers/">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><script id="seo-structured-data" type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"x64 暫存器速查表","description":"本文匯總 x64 架構下最核心的暫存器狀態與 ABI 約定。 暫存器 x64 暫存器完美向下相容。寫入低 32 位 (如 MOV EAX, 1) 會自動清零高 32 位；但寫入 8/16 位則保留高位數據。 通用暫存器 (GPRs) 速查表 64-bit 32-bit 16-bit 8-bit 用途 (System V / 通用) 易失性 RAX EAX AX AL 返回值 /","url":"https://blog.aeilot.top/2025/12/10/x64-registers/","mainEntityOfPage":"https://blog.aeilot.top/2025/12/10/x64-registers/","inLanguage":"zh-TW","author":{"@type":"Person","name":"Louis C Deng","url":"https://aeilot.top/"},"publisher":{"@type":"Person","name":"Louis C Deng","url":"https://aeilot.top/"},"datePublished":"2025-12-09T19:45:09.000Z"}</script>
+<link rel="canonical" href="https://blog.aeilot.top/2025/12/10/x64-registers/">
 </head>
 
   <body

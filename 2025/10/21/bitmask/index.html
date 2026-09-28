@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="zh-TW">
   <head prefix="og: https://ogp.me/ns#">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,15 +13,15 @@
   <link rel='manifest' href='/manifest.json'>
   
 
-  <meta name="description" content="掩碼 (Mask) 是一種位運算技巧，它使用一個特定的值（掩碼）與目標值進行 &amp;\mathtt{\&amp;}&amp; (與)、∣\mathtt{|}∣ (或)、∧\mathtt{\wedge}∧ (異或) 運算，以精確地、批次地操作、提取或檢查目標值中的一個或多個位。   基本概念 掩碼利用位運算的特性，透過設定掩碼中的特定位為 1 或 0，來控制目標值中對應位的行為。 具體來說，">
+  <meta name="description" content="以 C 語言與二進位範例說明位掩碼的基本操作：如何提取、清除、設定與反轉指定的位元。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="聊一聊位掩碼（Bit Mask）">
 <meta property="og:url" content="https://blog.aeilot.top/2025/10/21/bitmask/">
 <meta property="og:site_name" content="Louis C Deng&#39;s Blog">
-<meta property="og:description" content="掩碼 (Mask) 是一種位運算技巧，它使用一個特定的值（掩碼）與目標值進行 &amp;\mathtt{\&amp;}&amp; (與)、∣\mathtt{|}∣ (或)、∧\mathtt{\wedge}∧ (異或) 運算，以精確地、批次地操作、提取或檢查目標值中的一個或多個位。   基本概念 掩碼利用位運算的特性，透過設定掩碼中的特定位為 1 或 0，來控制目標值中對應位的行為。 具體來說，">
+<meta property="og:description" content="以 C 語言與二進位範例說明位掩碼的基本操作：如何提取、清除、設定與反轉指定的位元。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2025-10-20T23:45:09.000Z">
-<meta property="article:modified_time" content="2026-09-28T20:46:24.284Z">
+
 <meta property="article:author" content="Louis C Deng">
 <meta property="article:tag" content="C">
 <meta property="article:tag" content="CS">
@@ -142,7 +142,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><link rel="canonical" href="https://blog.aeilot.top/2025/10/21/bitmask/">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><script id="seo-structured-data" type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"聊一聊位掩碼（Bit Mask）","description":"以 C 語言與二進位範例說明位掩碼的基本操作：如何提取、清除、設定與反轉指定的位元。","url":"https://blog.aeilot.top/2025/10/21/bitmask/","mainEntityOfPage":"https://blog.aeilot.top/2025/10/21/bitmask/","inLanguage":"zh-TW","author":{"@type":"Person","name":"Louis C Deng","url":"https://aeilot.top/"},"publisher":{"@type":"Person","name":"Louis C Deng","url":"https://aeilot.top/"},"datePublished":"2025-10-20T23:45:09.000Z"}</script>
+<link rel="canonical" href="https://blog.aeilot.top/2025/10/21/bitmask/">
 </head>
 
   <body

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="zh-TW">
   <head prefix="og: https://ogp.me/ns#">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,15 +13,15 @@
   <link rel='manifest' href='/manifest.json'>
   
 
-  <meta name="description" content="最近在做一個大型的 C++ 專案 ── Albumist。它使用 Qt，需要用到很多類似 sqlite3、exiv2、libcurl 之類的庫。第三方庫管理似乎成了問題。 支援 git 的都可以使用　git submodule 來管理，但是還有少部分是不支援的，或者是二進位制的，比如 sqlite3。這就要我們手動去下載，手動去更新，好生麻煩。  vcpkg 我一直想要一個類似 npm pip">
+  <meta name="description" content="最近在做一個大型的 C++ 專案 ── Albumist。它使用 Qt，需要用到很多類似 sqlite3、exiv2、libcurl 之類的庫。第三方庫管理似乎成了問題。 支援 git 的都可以使用 git submodule 來管理，但是還有少部分是不支援的，或者是二進位制的，比如 sqlite3。這就要我們手動去下載，手動去更新，好生麻煩。 vcpkg 我一直想要一個類似 npm pip">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vcpkg - 方便的 C&#x2F;C++ 庫管理器">
 <meta property="og:url" content="https://blog.aeilot.top/2020/08/14/vcpkg/">
 <meta property="og:site_name" content="Louis C Deng&#39;s Blog">
-<meta property="og:description" content="最近在做一個大型的 C++ 專案 ── Albumist。它使用 Qt，需要用到很多類似 sqlite3、exiv2、libcurl 之類的庫。第三方庫管理似乎成了問題。 支援 git 的都可以使用　git submodule 來管理，但是還有少部分是不支援的，或者是二進位制的，比如 sqlite3。這就要我們手動去下載，手動去更新，好生麻煩。  vcpkg 我一直想要一個類似 npm pip">
+<meta property="og:description" content="最近在做一個大型的 C++ 專案 ── Albumist。它使用 Qt，需要用到很多類似 sqlite3、exiv2、libcurl 之類的庫。第三方庫管理似乎成了問題。 支援 git 的都可以使用 git submodule 來管理，但是還有少部分是不支援的，或者是二進位制的，比如 sqlite3。這就要我們手動去下載，手動去更新，好生麻煩。 vcpkg 我一直想要一個類似 npm pip">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-08-13T16:45:09.000Z">
-<meta property="article:modified_time" content="2026-09-28T20:46:24.280Z">
+
 <meta property="article:author" content="Louis C Deng">
 <meta property="article:tag" content="C">
 <meta property="article:tag" content="C++">
@@ -141,7 +141,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><link rel="canonical" href="https://blog.aeilot.top/2020/08/14/vcpkg/">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><script id="seo-structured-data" type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"vcpkg - 方便的 C/C++ 庫管理器","description":"最近在做一個大型的 C++ 專案 ── Albumist。它使用 Qt，需要用到很多類似 sqlite3、exiv2、libcurl 之類的庫。第三方庫管理似乎成了問題。 支援 git 的都可以使用 git submodule 來管理，但是還有少部分是不支援的，或者是二進位制的，比如 sqlite3。這就要我們手動去下載，手動去更新，好生麻煩。 vcpkg 我一直想要一個類似 npm pip","url":"https://blog.aeilot.top/2020/08/14/vcpkg/","mainEntityOfPage":"https://blog.aeilot.top/2020/08/14/vcpkg/","inLanguage":"zh-TW","author":{"@type":"Person","name":"Louis C Deng","url":"https://aeilot.top/"},"publisher":{"@type":"Person","name":"Louis C Deng","url":"https://aeilot.top/"},"datePublished":"2020-08-13T16:45:09.000Z"}</script>
+<link rel="canonical" href="https://blog.aeilot.top/2020/08/14/vcpkg/">
 </head>
 
   <body
