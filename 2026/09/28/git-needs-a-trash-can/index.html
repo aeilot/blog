@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>Git Needs a Trash Can - Louis C Deng&#39;s Blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="In a 2017 VS Code issue, someone described clicking Discard Changes after seeing roughly five thousand files in the Source Control view. They said the action removed their files, including work they c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git Needs a Trash Can">
+<meta property="og:url" content="https://blog.aeilot.top/2026/09/28/git-needs-a-trash-can/">
+<meta property="og:site_name" content="Louis C Deng&#39;s Blog">
+<meta property="og:description" content="In a 2017 VS Code issue, someone described clicking Discard Changes after seeing roughly five thousand files in the Source Control view. They said the action removed their files, including work they c">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-09-28T16:00:00.000Z">
+
+<meta property="article:author" content="Louis C Deng">
+<meta property="article:tag" content="Developer Tools">
+<meta property="article:tag" content="Git">
+<meta property="article:tag" content="Version Control">
+<meta name="twitter:card" content="summary">
+
+  <script>window.ThemeCupertino = {}</script>
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@16/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  <script>ThemeCupertino['_calloutStyles'] = `
+<link rel="stylesheet" href="/css/components/callout.css">
+`</script>
+  
+<script src="/js/components/callout.js"></script>
+
+  
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><script id="seo-structured-data" type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Git Needs a Trash Can","description":"In a 2017 VS Code issue, someone described clicking Discard Changes after seeing roughly five thousand files in the Source Control view. They said the action removed their files, including work they c","url":"https://blog.aeilot.top/2026/09/28/git-needs-a-trash-can/","mainEntityOfPage":"https://blog.aeilot.top/2026/09/28/git-needs-a-trash-can/","inLanguage":"en-US","author":{"@type":"Person","name":"Louis C Deng","url":"https://aeilot.top/"},"publisher":{"@type":"Person","name":"Louis C Deng","url":"https://aeilot.top/"},"datePublished":"2026-09-28T16:00:00.000Z"}</script>
+<link rel="canonical" href="https://blog.aeilot.top/2026/09/28/git-needs-a-trash-can/">
+</head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-rainbow-banner="true"
+    data-rainbow-banner-shown="auto"
+    data-rainbow-banner-month="6"
+    data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+    style="--config-corner-squircle: true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  
+  <div style="--sharp: 1"></div>
+  
+  <div style="--sharp: 2"></div>
+  
+  <div style="--sharp: 3"></div>
+  
+  <div style="--sharp: 4"></div>
+  
+  <div style="--sharp: 5"></div>
+  
+  <div style="--sharp: 6"></div>
+  
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Blog</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" target="_blank" rel="noopener" href="https://aeilot.top/" style="--index: 1">Portfolio</a>
+      
+      <a class="nav-item" href="/archives" style="--index: 2">Archives</a>
+      
+      <a class="nav-item" href="/about" style="--index: 3">About</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 4"><i class="bi bi-search"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/EN-Software-Development/">EN | Software Development</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2026-09-28T11:00:00-05:00">
+      September 28, 2026
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">Git Needs a Trash Can</h1>
+  </div>
+
+  <div class="content">
+    <p>In a <a target="_blank" rel="noopener" href="https://github.com/microsoft/vscode/issues/32405">2017 VS Code issue</a>, someone described clicking <strong>Discard Changes</strong> after seeing roughly five thousand files in the Source Control view. They said the action removed their files, including work they could not find in the Recycle Bin. A screenshot of the issue circulated again, this time described as a pull request. It was an issue, but the distinction does not make the failure less interesting. <a target="_blank" rel="noopener" href="https://x.com/aeilot/status/2104637526359118314">My first reaction</a> was short: we need <code>git trash</code>.</p>
+<p>The name is slightly misleading. This is less about adding another verb to Git than about a missing promise in our tools: <strong>before a tool destroys local work, it should know how to give that work back.</strong></p>
+<h2 id="What-Git-Can-Actually-Recover"><a href="#What-Git-Can-Actually-Recover" class="headerlink" title="What Git Can Actually Recover"></a>What Git Can Actually Recover</h2><p>Git gives us several places where a file can exist. They look similar in an editor’s Source Control panel, but they have very different recovery properties.</p>
+<ol>
+<li><strong>Committed content</strong> is in the repository’s history. If a tracked file is deleted or changed, we can usually restore its committed version.</li>
+<li><strong>Staged content</strong> has been copied into the index. It may differ from both the working file and the last commit.</li>
+<li><strong>Unstaged content</strong> lives in the working tree. Git can show a diff against the index, but the current bytes have not necessarily been saved as a Git object.</li>
+<li><strong>Untracked content</strong> is only a file on disk as far as ordinary Git history is concerned. <code>git status</code> can tell us that it exists; that does not mean Git has a copy.</li>
+</ol>
+<p>This is why “it’s in a Git repository” is a poor synonym for “it’s backed up.” A three-month-old file that was never added may be less recoverable than a file committed five minutes ago. <code>git restore</code> can reconstruct content from the index or a commit. It cannot reconstruct bytes that Git never recorded. <a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-clean"><code>git clean</code></a>, meanwhile, removes untracked files from the working tree; its <code>-n</code> option only previews that removal.</p>
+<p>An editor compresses these different states into one list of <em>changes</em>. That is convenient for staging, but dangerous for deletion. The word “discard” can mean “restore this tracked file from the index” or “remove this untracked file from disk.” The UI may look like one operation while the consequences are not the same.</p>
+<h2 id="What-a-Trash-Operation-Would-Need-to-Save"><a href="#What-a-Trash-Operation-Would-Need-to-Save" class="headerlink" title="What a Trash Operation Would Need to Save"></a>What a Trash Operation Would Need to Save</h2><p>A useful <code>git trash</code> would be a <strong>recoverable discard</strong>, not simply an alias for <code>git clean</code>.</p>
+<p>Before changing the working tree, it would capture the exact state being removed: file contents, paths, and whether each file was tracked, staged, untracked, or ignored. It would then record a durable recovery entry and only perform the discard after that entry had been written successfully. If saving fails, deletion should fail too.</p>
+<p>Recovery also has to be selective. I might want one deleted file back without restoring every other change from that afternoon. If a new file now occupies the old path, the tool should report a conflict and offer a different destination instead of silently overwriting it. A useful entry would show <em>when</em> the discard happened, <em>which</em> paths it affected, and <em>how much</em> data it saved.</p>
+<p>There are hard edges here. Repositories can contain gigabytes of generated files; ignored paths can hold secrets; a remote development environment may not have a desktop Recycle Bin. A trash system needs explicit size limits, retention rules, and clear handling for those cases. “Moved to Trash” should never be displayed when the bytes were actually deleted permanently.</p>
+<p>This is also why an operating-system Trash is only a partial answer. It can help with an untracked file that is removed as a file. A tracked file’s discarded edits are usually replaced with older contents in place; the removed version is not necessarily a deleted file for the operating system to catch.</p>
+<h2 id="What-We-Have-Today"><a href="#What-We-Have-Today" class="headerlink" title="What We Have Today"></a>What We Have Today</h2><p>The <a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/sourcecontrol/staging-commits#_discard-changes">current VS Code documentation</a> makes the distinction explicit. Discarding a tracked file restores its staged version, or the committed version if nothing is staged. Discarding an untracked file removes it. Untracked files <em>can</em> go to the Recycle Bin or Trash when <code>git.discardUntrackedChangesToTrash</code> is enabled and the environment supports it, but that is not guaranteed. The docs suggest checking Timeline local history or the system Trash after a mistake, while warning that neither is a guaranteed backup. The 2017 report should therefore not be read as a description of every current VS Code setup.</p>
+<p>For a command-line workflow, I would first inspect the actual boundary:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git status --short</span><br><span class="line">git diff</span><br><span class="line">git diff --cached</span><br><span class="line">git clean -nd</span><br></pre></td></tr></table></figure>
+<p>These commands show different things: working-tree status, unstaged changes, staged changes, and the untracked paths a clean operation would remove. None of them saves the work. When I need to set aside a whole working state, <a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-stash"><code>git stash push -u</code></a> can record tracked changes <em>and</em> untracked files before cleaning the tree. The <code>-u</code> flag does not include ignored files; <code>-a</code> does, with a much broader effect. A stash is useful, but it is an explicit temporary snapshot, not an automatic undo button for every discard.</p>
+<p>The simpler long-term habit is still to commit work in small increments. Yet “remember to commit” cannot be the entire design answer. We use discard precisely when we are exploring, reorganizing, or uncertain whether something deserves a commit. Those are the moments when a reversible operation is most valuable.</p>
+<p>Git is very good at remembering what we deliberately put into its history. A trash can would remember what we were about to throw away. The difference is small in the interface and enormous when we need to undo one click.</p>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h2>About this Post</h2>
+    <div class="details">This post is written by Louis C Deng, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</div>
+    
+    <p class="tags text-capitalize">
+      <i class="bi bi-tags icon"></i>
+      
+      <a href="/tags/Git/" class="tag">#Git</a>
+      
+      <a href="/tags/Developer-Tools/" class="tag">#Developer Tools</a>
+      
+      <a href="/tags/Version-Control/" class="tag">#Version Control</a>
+      
+    </p>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    <a class="next"></a>
+    
+    <a href="/2026/08/02/rope-properties-and-patterns/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">RoPE: Properties, Patterns, and Long-Context Behavior</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    <script src="https://giscus.app/client.js"
+        data-repo="aeilot/blog"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNjEwODA2OTY="
+        data-category="General"
+        data-category-id="DIC_kwDOD4_GeM4B_VIn"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/index.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Links</h2>
+        
+        <a target="_blank" rel="noopener" href="https://aeilot.top" class="item">Portfolio</a>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/aeilot" class="item">GitHub</a>
+        
+        <a target="_blank" rel="noopener" href="https://www.instagram.com/aeilotd/" class="item">Instagram</a>
+        
+        <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/chenluo-d-85b37a33a/" class="item">LinkedIn</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Friends</h2>
+        
+        <a target="_blank" rel="noopener" href="https://mrwillcom.now.sh" class="item">Mr.Will</a>
+        
+        <a target="_blank" rel="noopener" href="https://chungzh.cn" class="item">ChungZH</a>
+        
+        <a target="_blank" rel="noopener" href="https://shaojiaxu.github.io" class="item">SJX</a>
+        
+        <a target="_blank" rel="noopener" href="http://clckblog.space/" class="item">CLCK</a>
+        
+        <a target="_blank" rel="noopener" href="https://innei.in/" class="item">静かな森</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2026 Louis C Deng<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    <style>
+  .giscus {
+    max-width: 768px;
+    padding: 16px;
+    margin: 64px auto;
+    
+    background: var(--color-background-secondary); 
+    border-radius: var(--radius-medium); 
+  }
+
+
+  @media (max-width: 800px) {
+      .giscus {
+          border-radius: 0;
+          width: auto;
+      }
+  }
+
+  @container document-body style(--config-corner-squircle: true) {
+      @supports (corner-shape: squircle) {
+          .giscus {
+              corner-shape: squircle;
+              --radius-tiny: 10px;
+              --radius-small: 20px;
+              --radius-medium: 30px;
+              --radius-large: 40px;
+              --radius-full: 999px;
+          }
+      }
+  }
+
+  @media (max-width: 768px) {
+    .giscus {
+      margin: 20px 10px; 
+      padding: 20px;
+    }
+  }
+</style>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

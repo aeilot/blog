@@ -14,6 +14,7 @@ Articles are published in English or Traditional Chinese. Follow each page’s H
 - [XML sitemap](https://blog.aeilot.top/sitemap.xml)
 
 ## Published articles
+- [Git Needs a Trash Can](https://blog.aeilot.top/2026/09/28/git-needs-a-trash-can/)
 - [RoPE: Properties, Patterns, and Long-Context Behavior](https://blog.aeilot.top/2026/08/02/rope-properties-and-patterns/)
 - [CS336 Assignment 1: Large Language Model Training and Inference](https://blog.aeilot.top/2026/08/01/cs336-assignment1-transformer-lm/)
 - [CS231n Lecture Note: Generative Models](https://blog.aeilot.top/2026/05/03/cs231n-lecture-13/)
