@@ -1,0 +1,16 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "routes": [
+    {
+      "src": "^/(.*\\/)?index\\.html$",
+      "headers": { "Location": "/$1" },
+      "status": 301
+    },
+    {
+      "src": "^/((?:[^/.]+/)*[^/.]+)$",
+      "headers": { "Location": "/$1/" },
+      "status": 301
+    },
+    { "handle": "filesystem" }
+  ]
+}

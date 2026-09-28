@@ -1,5 +1,7 @@
 nav {
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -155,8 +157,10 @@ nav .inner .nav-items .nav-item-home {
   right: 0;
   background-color: var(--color-background-primary-translucent);
   backdrop-filter: blur(1px);
-  mask-image: linear-gradient(to bottom, #000, transparent);
-  mask-composite: destination-in;
+  -webkit-mask-image: linear-gradient(to bottom, #000, transparent);
+          mask-image: linear-gradient(to bottom, #000, transparent);
+  -webkit-mask-composite: destination-in;
+          mask-composite: destination-in;
   pointer-events: none;
   z-index: 1000;
   transition: height 0.6s cubic-bezier(0.86, 0, 0.07, 1), backdrop-filter 0.6s cubic-bezier(0.86, 0, 0.07, 1);

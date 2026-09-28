@@ -16,7 +16,7 @@
   <meta name="description" content="最近在練樹形 DP，正好看到 這一道 虛標的紫題，但本蒟蒻不會寫，想出來了便記錄一下  題面 &amp; 思考 先看題面，一顆有根樹，選定 k 個節點作為 ”伐木場“，求運送木料最小費用。注意木料費用是 dis * wood。 最開始想到簡單的樹形揹包，狀態轉移方程： 1f[i][k] &#x3D; min(f[j][s] + cost, f[i][k]); 但是注意到，如果某個後代節點如果是伐木場，co">
 <meta property="og:type" content="article">
 <meta property="og:title" content="P3354 Riv 河流 題解">
-<meta property="og:url" content="https://blog.aeilot.top/2022/11/23/riv-p3354/index.html">
+<meta property="og:url" content="https://blog.aeilot.top/2022/11/23/riv-p3354/">
 <meta property="og:site_name" content="Louis C Deng&#39;s Blog">
 <meta property="og:description" content="最近在練樹形 DP，正好看到 這一道 虛標的紫題，但本蒟蒻不會寫，想出來了便記錄一下  題面 &amp; 思考 先看題面，一顆有根樹，選定 k 個節點作為 ”伐木場“，求運送木料最小費用。注意木料費用是 dis * wood。 最開始想到簡單的樹形揹包，狀態轉移方程： 1f[i][k] &#x3D; min(f[j][s] + cost, f[i][k]); 但是注意到，如果某個後代節點如果是伐木場，co">
 <meta property="og:locale" content="zh_TW">
@@ -142,7 +142,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><link rel="canonical" href="https://blog.aeilot.top/2022/11/23/riv-p3354/">
+</head>
 
   <body
     data-color-scheme="auto"
@@ -222,7 +223,7 @@
     
 
     
-    <time class="date" datetime="2022-11-23T23:45:09+08:00">
+    <time class="date" datetime="2022-11-23T09:45:09-06:00">
       November 23, 2022
     </time>
     
