@@ -90,6 +90,9 @@
   <url><loc>https://blog.aeilot.top/2026/08/01/cs336-assignment1-transformer-lm/</loc></url>
   <url><loc>https://blog.aeilot.top/2026/08/02/rope-properties-and-patterns/</loc></url>
   <url><loc>https://blog.aeilot.top/2026/09/28/git-needs-a-trash-can/</loc></url>
+  <url><loc>https://blog.aeilot.top/2026/10/04/attention-io-complexity/</loc></url>
+  <url><loc>https://blog.aeilot.top/2026/10/04/cosma-communication-optimal-matmul/</loc></url>
+  <url><loc>https://blog.aeilot.top/2026/10/04/red-blue-pebble-game/</loc></url>
   <url><loc>https://blog.aeilot.top/about/</loc></url>
   <url><loc>https://blog.aeilot.top/archives/</loc></url>
   <url><loc>https://blog.aeilot.top/archives/2020/</loc></url>
@@ -139,8 +142,10 @@
   <url><loc>https://blog.aeilot.top/archives/2026/05/</loc></url>
   <url><loc>https://blog.aeilot.top/archives/2026/08/</loc></url>
   <url><loc>https://blog.aeilot.top/archives/2026/09/</loc></url>
+  <url><loc>https://blog.aeilot.top/archives/2026/10/</loc></url>
   <url><loc>https://blog.aeilot.top/archives/2026/page/2/</loc></url>
   <url><loc>https://blog.aeilot.top/archives/2026/page/3/</loc></url>
+  <url><loc>https://blog.aeilot.top/archives/page/10/</loc></url>
   <url><loc>https://blog.aeilot.top/archives/page/2/</loc></url>
   <url><loc>https://blog.aeilot.top/archives/page/3/</loc></url>
   <url><loc>https://blog.aeilot.top/archives/page/4/</loc></url>
@@ -176,6 +181,7 @@
   <url><loc>https://blog.aeilot.top/categories/EN-Software-Development/</loc></url>
   <url><loc>https://blog.aeilot.top/categories/EN-macOS/</loc></url>
   <url><loc>https://blog.aeilot.top/images/baidu_verify_d8CiSXcJwU.html</loc></url>
+  <url><loc>https://blog.aeilot.top/page/10/</loc></url>
   <url><loc>https://blog.aeilot.top/page/2/</loc></url>
   <url><loc>https://blog.aeilot.top/page/3/</loc></url>
   <url><loc>https://blog.aeilot.top/page/4/</loc></url>
@@ -224,7 +230,9 @@
   <url><loc>https://blog.aeilot.top/tags/%E9%AB%98%E7%AD%89%E6%95%B8%E5%AD%B8/</loc></url>
   <url><loc>https://blog.aeilot.top/tags/AI/</loc></url>
   <url><loc>https://blog.aeilot.top/tags/Architecture/</loc></url>
+  <url><loc>https://blog.aeilot.top/tags/Attention/</loc></url>
   <url><loc>https://blog.aeilot.top/tags/C/</loc></url>
+  <url><loc>https://blog.aeilot.top/tags/COSMA/</loc></url>
   <url><loc>https://blog.aeilot.top/tags/CS/</loc></url>
   <url><loc>https://blog.aeilot.top/tags/CS188/</loc></url>
   <url><loc>https://blog.aeilot.top/tags/CS231n/</loc></url>
@@ -239,25 +247,31 @@
   <url><loc>https://blog.aeilot.top/tags/Developer-Tools/</loc></url>
   <url><loc>https://blog.aeilot.top/tags/Docker/</loc></url>
   <url><loc>https://blog.aeilot.top/tags/EN/</loc></url>
+  <url><loc>https://blog.aeilot.top/tags/FlashAttention/</loc></url>
   <url><loc>https://blog.aeilot.top/tags/Git/</loc></url>
   <url><loc>https://blog.aeilot.top/tags/GitHub/</loc></url>
+  <url><loc>https://blog.aeilot.top/tags/I-O-Complexity/</loc></url>
   <url><loc>https://blog.aeilot.top/tags/LLM/</loc></url>
   <url><loc>https://blog.aeilot.top/tags/Lab-Notes/</loc></url>
   <url><loc>https://blog.aeilot.top/tags/Lecture-Notes/</loc></url>
   <url><loc>https://blog.aeilot.top/tags/Linux/</loc></url>
   <url><loc>https://blog.aeilot.top/tags/Math/</loc></url>
   <url><loc>https://blog.aeilot.top/tags/Mathematics/</loc></url>
+  <url><loc>https://blog.aeilot.top/tags/Matrix-Multiplication/</loc></url>
   <url><loc>https://blog.aeilot.top/tags/Misc/</loc></url>
   <url><loc>https://blog.aeilot.top/tags/Normalization/</loc></url>
   <url><loc>https://blog.aeilot.top/tags/Open-Source/</loc></url>
   <url><loc>https://blog.aeilot.top/tags/Optimization/</loc></url>
+  <url><loc>https://blog.aeilot.top/tags/Parallel-Computing/</loc></url>
   <url><loc>https://blog.aeilot.top/tags/Positional-Encoding/</loc></url>
   <url><loc>https://blog.aeilot.top/tags/PyTorch/</loc></url>
   <url><loc>https://blog.aeilot.top/tags/Python/</loc></url>
   <url><loc>https://blog.aeilot.top/tags/RNN/</loc></url>
+  <url><loc>https://blog.aeilot.top/tags/Red-Blue-Pebble-Game/</loc></url>
   <url><loc>https://blog.aeilot.top/tags/RoPE/</loc></url>
   <url><loc>https://blog.aeilot.top/tags/Smart-Tips/</loc></url>
   <url><loc>https://blog.aeilot.top/tags/Swift/</loc></url>
+  <url><loc>https://blog.aeilot.top/tags/Systems/</loc></url>
   <url><loc>https://blog.aeilot.top/tags/Transformer/</loc></url>
   <url><loc>https://blog.aeilot.top/tags/Transformers/</loc></url>
   <url><loc>https://blog.aeilot.top/tags/Vector-Calculus/</loc></url>
