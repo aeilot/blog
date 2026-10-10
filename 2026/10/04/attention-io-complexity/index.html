@@ -265,8 +265,10 @@ u=\sum_j e^{s_j-m}v_j.</script><p>If the new block’s score indices form a set 
 <script type="math/tex; mode=display">
 m'=\max\left(m,\max_{j\in J}s_j\right).</script><p>The existing accumulators must be rescaled:</p>
 <script type="math/tex; mode=display">
-\ell'=e^{m-m'}\ell+\sum_{j\in J}e^{s_j-m'},</script><script type="math/tex; mode=display">
-u'=e^{m-m'}u+\sum_{j\in J}e^{s_j-m'}v_j.</script><p>The final output remains $o=u/\ell$. These equations explain why score computation can be fused with accumulation and the score blocks discarded. They are background for understanding FlashAttention, rather than new contributions of this lower-bound paper. Exact attention means evaluating the same mathematical function; changing floating-point execution order can still change rounding.</p>
+\begin{aligned}
+\ell'&=e^{m-m'}\ell+\sum_{j\in J}e^{s_j-m'},\\
+u'&=e^{m-m'}u+\sum_{j\in J}e^{s_j-m'}v_j.
+\end{aligned}</script><p>The final output remains $o=u/\ell$. These equations explain why score computation can be fused with accumulation and the score blocks discarded. They are background for understanding FlashAttention, rather than new contributions of this lower-bound paper. Exact attention means evaluating the same mathematical function; changing floating-point execution order can still change rounding.</p>
 <h2 id="Large-caches-where-FlashAttention’s-I-O-comes-from"><a href="#Large-caches-where-FlashAttention’s-I-O-comes-from" class="headerlink" title="Large caches: where FlashAttention’s I/O comes from"></a>Large caches: where FlashAttention’s I/O comes from</h2><p>Let $B$ be the number of queries in a fast-memory block. Each query needs $d$ elements, alongside output accumulators and temporary storage. Ignoring constants,</p>
 <script type="math/tex; mode=display">
 B=\Theta(M/d).</script><p>One intuitive schedule keeps a query block and its output state in fast memory, then scans all of $K,V$. Each scan costs $\Theta(Nd)$, and there are about $N/B$ query blocks. The leading term is therefore</p>
@@ -277,17 +279,17 @@ L=\Theta\left(\frac NB\cdot Nd\right)
 Nd=262144,\qquad
 \frac{N^2d^2}{M}=1048576.</script><p>These are values of asymptotic expressions, rather than exact load and store counts. Actual block sizes must reserve room for accumulators, temporary scores, and other state. The example illustrates the scaling: in this regime, doubling fast memory can roughly halve the leading movement term.</p>
 <p>The paper proves a matching lower bound for the classical matrix multiplication model when $M\ge d^2$. This is more than a convenient tiling strategy: alternative schedules cannot improve its asymptotic order.</p>
-<h2 id="Small-caches-when-storing-an-intermediate-matrix-helps"><a href="#Small-caches-when-storing-an-intermediate-matrix-helps" class="headerlink" title="Small caches: when storing an intermediate matrix helps"></a>Small caches: when storing an intermediate matrix helps</h2><p>When $M&lt;d^2$, tiling around whole vectors of dimension $d$ is too restrictive. Instead, use square blocks with side length</p>
+<h2 id="Small-caches-when-storing-an-intermediate-matrix-helps"><a href="#Small-caches-when-storing-an-intermediate-matrix-helps" class="headerlink" title="Small caches: when storing an intermediate matrix helps"></a>Small caches: when storing an intermediate matrix helps</h2><p>When $M\lt d^2$, tiling around whole vectors of dimension $d$ is too restrictive. Instead, use square blocks with side length</p>
 <script type="math/tex; mode=display">
 b=\Theta(\sqrt M)</script><p>so that two input blocks and an output block fit in fast memory. A local product uses $\Theta(b^2)$ elements to support $\Theta(b^3)$ scalar multiply-adds, giving reuse efficiency $\Theta(b)=\Theta(\sqrt M)$.</p>
 <p>The two attention products require $\Theta(N^2d)$ multiply-adds in total, so this strategy achieves</p>
 <script type="math/tex; mode=display">
 L=O\left(\frac{N^2d}{\sqrt M}\right).</script><p>It writes the exponentiated score matrix to slow memory, consuming $\Theta(N^2)$ space. But the small-cache condition implies</p>
 <script type="math/tex; mode=display">
-\frac{N^2d}{\sqrt M}>N^2.</script><p>Writing $N^2$ elements therefore does not increase the asymptotic leading term. Never storing an intermediate matrix is not a universally optimal rule.</p>
+\frac{N^2d}{\sqrt M}\gt N^2.</script><p>Writing $N^2$ elements therefore does not increase the asymptotic leading term. Never storing an intermediate matrix is not a universally optimal rule.</p>
 <p>Compare the two strategies:</p>
 <script type="math/tex; mode=display">
-\frac{N^2d^2/M}{N^2d/\sqrt M}=\frac d{\sqrt M}.</script><p>For $M<d^2$, the ratio exceeds one and square tiling moves less data. For $M>d^2$, FlashAttention-style fused tiling does better. The crossover is precisely $M=d^2$.</p>
+\frac{N^2d^2/M}{N^2d/\sqrt M}=\frac d{\sqrt M}.</script><p>For $M\lt d^2$, the ratio exceeds one and square tiling moves less data. For $M\gt d^2$, FlashAttention-style fused tiling does better. The crossover is precisely $M=d^2$.</p>
 <h2 id="Putting-the-regimes-together"><a href="#Putting-the-regimes-together" class="headerlink" title="Putting the regimes together"></a>Putting the regimes together</h2><p>Theorem 3.1 gives the following leading term for classical matrix multiplication:</p>
 <script type="math/tex; mode=display">
 \Theta\left(\min\left\{
@@ -311,7 +313,7 @@ L_{\mathrm{classical}}
 </thead>
 <tbody>
 <tr>
-<td>$M&lt;d^2$</td>
+<td>$M\lt d^2$</td>
 <td>Square matrix multiplication tiles; store the intermediate matrix</td>
 <td>$N^2d/\sqrt M$</td>
 </tr>
@@ -340,7 +342,7 @@ L=\Omega\left(\frac{N^2d^2}{M}\right).</script><h2 id="What-if-we-use-a-Strassen
 <script type="math/tex; mode=display">
 B=O\left(\max\left\{\frac{M^2}{d^2},M\right\}\right)</script><p>product entries. This yields the lower bound in Theorem 4.8:</p>
 <script type="math/tex; mode=display">
-L=\Omega\left(\min\left\{\frac{N^2d^2}{M},N^2\right\}\right).</script><p>When $M\ge d^2$, this matches FlashAttention’s leading term. The proof uses a finite field $\mathbb F_q$ with $q&gt;N$ and constructions based on linear independence. The corresponding binary-input result loses logarithmic factors. It cannot be applied without qualification as an information-theoretic theorem for arbitrary floating-point representations.</p>
+L=\Omega\left(\min\left\{\frac{N^2d^2}{M},N^2\right\}\right).</script><p>When $M\ge d^2$, this matches FlashAttention’s leading term. The proof uses a finite field $\mathbb F_q$ with $q\gt N$ and constructions based on linear independence. The corresponding binary-input result loses logarithmic factors. It cannot be applied without qualification as an information-theoretic theorem for arbitrary floating-point representations.</p>
 <p>The scope also matters: the extension allows different matrix multiplication methods while still computing entries of $QK^\top$. It is not an unrestricted lower bound for every conceivable attention algorithm that might bypass those explicit entries, use approximation, or exploit special inputs.</p>
 <p>For small caches, the authors connect attention to the I/O complexity of rectangular matrix multiplication. Once fast matrix multiplication is allowed, the paper does not supply one tight closed-form expression covering every case.</p>
 <h2 id="From-a-movement-lower-bound-to-a-performance-upper-bound"><a href="#From-a-movement-lower-bound-to-a-performance-upper-bound" class="headerlink" title="From a movement lower bound to a performance upper bound"></a>From a movement lower bound to a performance upper bound</h2><p>The following is an application of the paper to performance modeling. If at least $L_{\min}$ elements must cross a memory boundary, each occupies $w$ bytes, and that boundary has a bandwidth ceiling $\beta$, then</p>

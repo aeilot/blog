@@ -314,7 +314,7 @@ P(G,2S)\ge\frac{W}{U(2S)}.</script><p>Substituting gives</p>
 L(G,S)\ge S\left(\frac{W}{U(2S)}-1\right).</script><p>This is a practical proof template: bound the work supported by a finite boundary, then divide total work by that bound. The difficulty usually lies in bounding $U(S)$, rather than enumerating schedules.</p>
 <h2 id="Matrix-multiplication-why-n³-√S-transfers-are-necessary"><a href="#Matrix-multiplication-why-n³-√S-transfers-are-necessary" class="headerlink" title="Matrix multiplication: why n³/√S transfers are necessary"></a>Matrix multiplication: why n³/√S transfers are necessary</h2><p>Classical $n\times n$ matrix multiplication requires $n^3$ scalar multiplications:</p>
 <script type="math/tex; mode=display">
-C_{ij}=\sum_{k=1}^{n}A_{ik}B_{kj}.</script><p>A subset of these multiplications can be represented as a set of triples $T\subseteq{(i,j,k)}$. Its projections onto the three coordinate planes correspond to the entries of $A$, $B$, and the partial sums of $C$ that it uses.</p>
+C_{ij}=\sum_{k=1}^{n}A_{ik}B_{kj}.</script><p>A subset of these multiplications can be represented as a set of triples $T\subseteq\lbrace(i,j,k)\rbrace$. Its projections onto the three coordinate planes correspond to the entries of $A$, $B$, and the partial sums of $C$ that it uses.</p>
 <p>A modern geometric explanation uses a discrete Loomis–Whitney-type inequality:</p>
 <script type="math/tex; mode=display">
 |T|^2\le
@@ -345,7 +345,7 @@ L=\Omega\left(\frac{n\log n}{\log S}\right).</script><p>In the usual regime $2\l
 r^{d-1}\lesssim S,
 \qquad r^d\lesssim S^{d/(d-1)}.</script><p>For the corresponding graph with $m^d$ vertices, this relationship leads to a related I/O lower bound of</p>
 <script type="math/tex; mode=display">
-L=\Omega\left(\frac{m^d}{S^{1/(d-1)}}\right)</script><p>The original paper establishes this using a graph-product theorem for dominators. The volume-and-boundary argument above provides intuition. This discussion assumes $d&gt;1$, as required by the exponents.</p>
+L=\Omega\left(\frac{m^d}{S^{1/(d-1)}}\right).</script><p>The original paper establishes this using a graph-product theorem for dominators. The volume-and-boundary argument above provides intuition. This discussion assumes $d\gt 1$, as required by the exponents.</p>
 <p>A common theme emerges: the geometry of dependencies determines how much work a small workbench can sustain.</p>
 <h2 id="From-I-O-lower-bounds-to-hardware-performance-limits"><a href="#From-I-O-lower-bounds-to-hardware-performance-limits" class="headerlink" title="From I/O lower bounds to hardware performance limits"></a>From I/O lower bounds to hardware performance limits</h2><p>The following applies the paper to modern performance estimation. If at least $L_{\min}$ words must move, each occupies $w$ bytes, and the relevant boundary has bandwidth ceiling $\beta$, then</p>
 <script type="math/tex; mode=display">
