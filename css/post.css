@@ -44,14 +44,11 @@ body {
 }
 .post > .cover > .cover-img {
   --h: 300px;
-  -webkit-mask-image: linear-gradient(to bottom, #000, transparent);
-          mask-image: linear-gradient(to bottom, #000, transparent);
-  -webkit-mask-composite: destination-in;
-          mask-composite: destination-in;
+  mask-image: linear-gradient(to bottom, #000, transparent);
+  mask-composite: destination-in;
   height: var(--h);
   margin-bottom: calc(var(--h) * -0.6);
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   pointer-events: none;
 }
 @supports (animation-timeline: scroll()) {

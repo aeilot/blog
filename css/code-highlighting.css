@@ -2,9 +2,7 @@
 .gutter {
   color: var(--color-text-tertiary);
   background-color: var(--color-background-secondary);
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 
 body[data-color-scheme=auto] .highlight .name,

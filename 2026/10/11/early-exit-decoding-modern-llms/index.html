@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>When the Answer Arrives Late: Early-Exit Decoding in Modern LLMs - Louis C Deng&#39;s Blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="A reading of early-exit decoding in modern LLMs: layer similarity, oracle skip ratios, training effects, and the gap between skipped computation and real speed.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="When the Answer Arrives Late: Early-Exit Decoding in Modern LLMs">
+<meta property="og:url" content="https://blog.aeilot.top/2026/10/11/early-exit-decoding-modern-llms/">
+<meta property="og:site_name" content="Louis C Deng&#39;s Blog">
+<meta property="og:description" content="A reading of early-exit decoding in modern LLMs: layer similarity, oracle skip ratios, training effects, and the gap between skipped computation and real speed.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-10-12T01:30:00.000Z">
+
+<meta property="article:author" content="Louis C Deng">
+<meta property="article:tag" content="Early Exit">
+<meta property="article:tag" content="LLM Inference">
+<meta property="article:tag" content="Model Efficiency">
+<meta name="twitter:card" content="summary">
+
+  <script>window.ThemeCupertino = {}</script>
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@16/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  <script>ThemeCupertino['_calloutStyles'] = `
+<link rel="stylesheet" href="/css/components/callout.css">
+`</script>
+  
+<script src="/js/components/callout.js"></script>
+
+  
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+<script src="/js/head.js"></script>
+
+  <link rel="stylesheet" href="/css/post-tables.css">
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><script id="seo-structured-data" type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"When the Answer Arrives Late: Early-Exit Decoding in Modern LLMs","description":"A reading of early-exit decoding in modern LLMs: layer similarity, oracle skip ratios, training effects, and the gap between skipped computation and real speed.","url":"https://blog.aeilot.top/2026/10/11/early-exit-decoding-modern-llms/","mainEntityOfPage":"https://blog.aeilot.top/2026/10/11/early-exit-decoding-modern-llms/","inLanguage":"en-US","author":{"@type":"Person","name":"Louis C Deng","url":"https://aeilot.top/"},"publisher":{"@type":"Person","name":"Louis C Deng","url":"https://aeilot.top/"},"datePublished":"2026-10-12T01:30:00.000Z"}</script>
+<link rel="canonical" href="https://blog.aeilot.top/2026/10/11/early-exit-decoding-modern-llms/">
+</head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-rainbow-banner="true"
+    data-rainbow-banner-shown="auto"
+    data-rainbow-banner-month="6"
+    data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+    style="--config-corner-squircle: true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  
+  <div style="--sharp: 1"></div>
+  
+  <div style="--sharp: 2"></div>
+  
+  <div style="--sharp: 3"></div>
+  
+  <div style="--sharp: 4"></div>
+  
+  <div style="--sharp: 5"></div>
+  
+  <div style="--sharp: 6"></div>
+  
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Blog</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" target="_blank" rel="noopener" href="https://aeilot.top/" style="--index: 1">Portfolio</a>
+      
+      <a class="nav-item" href="/archives" style="--index: 2">Archives</a>
+      
+      <a class="nav-item" href="/about" style="--index: 3">About</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 4"><i class="bi bi-search"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/EN-AI/">EN | AI</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2026-10-11T20:30:00-05:00">
+      October 11, 2026
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">When the Answer Arrives Late: Early-Exit Decoding in Modern LLMs</h1>
+  </div>
+
+  <div class="content">
+    <p>A language model may already know which word it will write before it reaches its last layer. If so, the remaining layers look like an opportunity: stop early, emit the token, and spend less computation on a decision that has already been made.</p>
+<p>The difficulty is knowing when a decision is finished. A plausible intermediate answer can still change. And as models improve, the work that once seemed redundant may become part of what makes the answer correct.</p>
+<p>This is the question behind Rui Wei and colleagues’ <em>The Diminishing Returns of Early-Exit Decoding in Modern LLMs</em>. Their experiments suggest that many newer models offer surprisingly little room for straightforward early exit, even when an experimental oracle can inspect the final answer before choosing an exit. The useful contribution is a way to examine that room before building a system around it. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2603.23701v1">Paper, arXiv v1</a></p>
+<span id="more"></span>
+<h2 id="What-it-means-to-leave-a-model-early"><a href="#What-it-means-to-leave-a-model-early" class="headerlink" title="What it means to leave a model early"></a>What it means to leave a model early</h2><p>Consider a decoder with $L$ layers. For each generated token, it transforms a hidden representation through those layers and uses a language-model head to produce scores over the vocabulary. These scores are called <strong>logits</strong>. A decoding rule then selects the next token.</p>
+<p>An early-exit decoder tries to make that selection at some intermediate layer $\ell&lt;L$. It needs both an intermediate prediction and a rule for deciding whether that prediction is trustworthy enough.</p>
+<p>At first glance, common words and punctuation seem likely to require less work than a difficult reasoning step. But “easy to predict” and “stable halfway through this particular model” are different properties. The model may use late layers to change a token’s ranking, adjust its confidence, or incorporate information that earlier layers have not resolved.</p>
+<p>Autoregressive generation also carries mistakes forward. Once an early-exit token enters the sequence, the next prediction is conditioned on it. A small local change can become a different reasoning path several tokens later.</p>
+<p>The paper therefore asks two connected questions: do intermediate layers resemble the final layer closely enough to support early exit, and does that resemblance survive an end-to-end task evaluation? Its focus is the model’s existing behavior under little or no extra training. <a target="_blank" rel="noopener" href="https://arxiv.org/html/2603.23701v1#S2">Sections 2–3</a></p>
+<h2 id="Three-ways-to-ask-whether-a-layer-is-ready"><a href="#Three-ways-to-ask-whether-a-layer-is-ready" class="headerlink" title="Three ways to ask whether a layer is ready"></a>Three ways to ask whether a layer is ready</h2><p>The authors compare intermediate and final layers through three signals:</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>What is compared</th>
+<th>What it helps reveal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hidden states</td>
+<td>Intermediate and final representations</td>
+<td>Whether the internal representation has become similar to its final form</td>
+</tr>
+<tr>
+<td>Logits</td>
+<td>Vocabulary scores from the shared language-model head</td>
+<td>Whether intermediate predictions resemble the final scores</td>
+</tr>
+<tr>
+<td>Top-10 candidates</td>
+<td>The leading token candidates at each depth</td>
+<td>Whether the set of plausible next tokens has stabilized</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>These signals describe different kinds of agreement. Similar hidden states need not produce the same next token. Two candidate sets can overlap while their first-ranked tokens differ. And similar logit vectors need not preserve the ranking of two nearly tied candidates.</p>
+<p>There is a further distinction worth keeping visible: <strong>logits are not probabilities</strong>. Softmax converts logits into probabilities. Cosine similarity between raw score vectors is a useful probe, but it is neither a calibrated confidence measure nor a guarantee that the resulting distributions or chosen tokens match.</p>
+<p>Across the models examined, many similarity curves rise meaningfully only near the end of the network. Llama2-7B shows earlier alignment than several newer models, while GPT-OSS-20B is a notable exception with relatively early logit alignment. Qwen2-7B shows low or negative logit similarity over much of its depth. The paper’s Figure 4 makes these differences more apparent than a single aggregate score can. <a target="_blank" rel="noopener" href="https://arxiv.org/html/2603.23701v1#S4.SS1">Section 4.1</a></p>
+<h2 id="A-score-for-the-available-room"><a href="#A-score-for-the-available-room" class="headerlink" title="A score for the available room"></a>A score for the available room</h2><p>Exiting one layer before the end may preserve quality but save little work. Exiting halfway through may save many layers but produce an unreliable answer. The authors combine these two considerations in an <strong>early-exit adaptability score</strong>, or EAS.</p>
+<p>The fraction of layers skipped by an exit at layer $\ell$ is</p>
+<script type="math/tex; mode=display">
+w_\ell=\frac{L-\ell}{L}.</script><p>They measure layer-to-final cosine similarity as</p>
+<script type="math/tex; mode=display">
+S_\ell=\frac{\mathbf{x}_\ell\cdot\mathbf{x}_L}{\|\mathbf{x}_\ell\|\,\|\mathbf{x}_L\|},</script><p>where $\mathbf{x}$ represents the signal being compared. After linearly mapping similarity into the interval $[0,1]$, giving $\widetilde S_\ell$, the per-layer score is</p>
+<script type="math/tex; mode=display">
+A_\ell=\widetilde S_\ell^{\alpha}\,w_\ell^{1-\alpha},
+\qquad 0\le\alpha\le1.</script><p>The model-level score averages over candidate exit layers:</p>
+<script type="math/tex; mode=display">
+\mathrm{EAS}=\frac{1}{L-1}\sum_{\ell=1}^{L-1}A_\ell.</script><p>For $0&lt;\alpha&lt;1$, the geometric mean rewards a layer that offers both similarity and savings. The parameter $\alpha$ controls the balance. The authors ultimately use logit similarity as the central signal after comparing its relationship with task accuracy. <a target="_blank" rel="noopener" href="https://arxiv.org/html/2603.23701v1#S3.SS3">Sections 3.3 and 4.2</a></p>
+<p>As an illustration, suppose a 32-layer model exits after layer 24. Its skip ratio is 0.25. If mapped similarity is 0.90 and we choose $\alpha=0.5$ for this example, its per-layer score is $\sqrt{0.90\times0.25}\approx0.474$. This is a teaching example, not a reported measurement or a claim about the paper’s experimental choice of $\alpha$.</p>
+<p>EAS is a screening metric. An EAS of 0.52 does <strong>not</strong> mean 52% of layers can safely be skipped, and it does not mean a 1.52× speedup. Averaging also hides the exact location of useful exits. A deployment decision still needs the layer curves and the task-level trade-off.</p>
+<h2 id="Giving-the-exit-rule-knowledge-it-cannot-normally-have"><a href="#Giving-the-exit-rule-knowledge-it-cannot-normally-have" class="headerlink" title="Giving the exit rule knowledge it cannot normally have"></a>Giving the exit rule knowledge it cannot normally have</h2><p>A practical exit rule cannot compare its current logits with the final layer’s logits without computing the final layer. The paper temporarily removes this obstacle through an oracle experiment.</p>
+<p>For each token, the oracle runs the full model, obtains intermediate predictions, and selects the earliest layer whose similarity to the final logits exceeds a threshold $\delta$. It then generates the token from that selected layer. The sequence continues using those selected tokens, so the task evaluation includes the consequences of changed generation.</p>
+<p>Appendix C describes this procedure. A simplified reading is:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">For each generation step:</span><br><span class="line">    Evaluate the full depth and collect intermediate logits.</span><br><span class="line">    Find the earliest layer meeting the similarity threshold.</span><br><span class="line">    Use that layer&#x27;s highest-scoring token, or fall back to full depth.</span><br><span class="line">    Extend the sequence and record the selected depth.</span><br></pre></td></tr></table></figure>
+<p>This is an experiment about potential savings. <strong>The oracle actually computes the full depth.</strong> Its recorded skip ratio describes the layers an exit would have avoided if the needed information were available for free. It is not a measured reduction in runtime.</p>
+<p>The oracle also has limits as an “upper bound.” It uses a particular similarity criterion and a threshold search. It offers unusually informed decisions within that setup, but it does not prove a universal maximum over all possible exit policies, retrained models, or speculative methods. <a target="_blank" rel="noopener" href="https://arxiv.org/html/2603.23701v1#A3">Section 4.3 and Appendix C</a></p>
+<h2 id="How-little-survives-the-accuracy-constraint"><a href="#How-little-survives-the-accuracy-constraint" class="headerlink" title="How little survives the accuracy constraint"></a>How little survives the accuracy constraint</h2><p>The benchmark uses OpenCompass, zero-shot evaluation, temperature zero, and a default maximum of 1,024 output tokens. The broader similarity study covers MMLU, GSM8K, GPQA, and HumanEval, using fixed subsets of 100 prompts per dataset with the same sampling seed across models.</p>
+<p>For the oracle results, the authors search for thresholds that maximize skipping while keeping accuracy loss within their stated “5%” budget. The table below reformats their Table 1. Accuracy values have been converted from fractions to percentages; skip ratios are already percentages.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>MMLU accuracy, full → exit</th>
+<th style="text-align:right">MMLU layers skipped</th>
+<th>GSM8K accuracy, full → exit</th>
+<th style="text-align:right">GSM8K layers skipped</th>
+<th style="text-align:right">EAS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Llama2-7B</td>
+<td>41% → 38%</td>
+<td style="text-align:right">4.69%</td>
+<td>21% → 17%</td>
+<td style="text-align:right">2.13%</td>
+<td style="text-align:right">0.52</td>
+</tr>
+<tr>
+<td>Llama3-8B</td>
+<td>54% → 52%</td>
+<td style="text-align:right">0.18%</td>
+<td>37% → 33%</td>
+<td style="text-align:right">0.04%</td>
+<td style="text-align:right">0.46</td>
+</tr>
+<tr>
+<td>Llama4-Scout</td>
+<td>76% → 73%</td>
+<td style="text-align:right">0.32%</td>
+<td>85% → 82%</td>
+<td style="text-align:right">0.18%</td>
+<td style="text-align:right">0.47</td>
+</tr>
+<tr>
+<td>Qwen2-7B</td>
+<td>24% → 24%</td>
+<td style="text-align:right">0.00%</td>
+<td>53% → 53%</td>
+<td style="text-align:right">0.00%</td>
+<td style="text-align:right">0.36</td>
+</tr>
+<tr>
+<td>Qwen3-8B</td>
+<td>41% → 39%</td>
+<td style="text-align:right">0.10%</td>
+<td>54% → 51%</td>
+<td style="text-align:right">0.62%</td>
+<td style="text-align:right">0.51</td>
+</tr>
+<tr>
+<td>GPT-OSS-20B</td>
+<td>74% → 69%</td>
+<td style="text-align:right">7.26%</td>
+<td>61% → 57%</td>
+<td style="text-align:right">4.48%</td>
+<td style="text-align:right">0.59</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>Source: <a target="_blank" rel="noopener" href="https://arxiv.org/html/2603.23701v1#S4.T1">Wei et al., Table 1</a>. The displayed losses fit a budget of five percentage points. They do not all fit a 5% relative-loss budget: for example, 21% to 17% is a four-point drop but about a 19% relative reduction. This distinction matters when interpreting the paper’s wording.</em></p>
+<p>The striking result is the size of the usable window. Llama3-8B skips just 0.18% of layers on MMLU and 0.04% on GSM8K. Qwen2-7B reaches zero savings in both reported settings. GPT-OSS-20B offers more room, but even its best value here is 7.26%.</p>
+<p>Suppose, purely as a cost model, every layer took the same time and all other work were free. Skipping a fraction $s$ of layers would give a speedup of $1/(1-s)$. At $s=0.0726$, that is about 1.078×. At $s=0.0018$, it is about 1.0018×. These are illustrative calculations from the reported skip ratios, not latency results from the paper.</p>
+<p>Real execution adds exit checks, intermediate vocabulary projections, memory traffic, and scheduling. Token-dependent exits also have to coexist with batched serving and the attention cache: when an earlier token skips deeper layers, a later token may still need their cached keys and values. Any missing state needs a handling strategy. Those costs make skip ratio a starting point for systems work, rather than its conclusion.</p>
+<h2 id="What-changes-the-opportunity"><a href="#What-changes-the-opportunity" class="headerlink" title="What changes the opportunity"></a>What changes the opportunity</h2><p>The paper examines four factors. Together they suggest that early-exit potential belongs to a particular trained model, rather than following automatically from its parameter count or architecture name. <a target="_blank" rel="noopener" href="https://arxiv.org/html/2603.23701v1#S5">Section 5</a></p>
+<p><strong>Scale.</strong> Larger models generally have higher EAS in the studied families, although the curves are not uniformly monotonic. More capacity can leave more room for similar intermediate predictions. That does not imply a larger model with early exit will be cheaper than a smaller model evaluated at full depth.</p>
+<p><strong>Architecture.</strong> A representative comparison gives EAS values of 0.51 for dense Qwen3-8B, 0.49 for Qwen3-30B-A3B, and 0.48 for Mamba-Codestral-7B. The authors interpret the dense model’s smoother alignment as offering more opportunity than the selected MoE and state-space models. But these checkpoints differ in size and training as well as architecture. GPT-OSS-20B, itself an MoE, also has the highest EAS in Table 1. The evidence supports a pattern in the selected comparisons, not a rule excluding MoE from useful early exit.</p>
+<p><strong>Training.</strong> Released Pythia-12B checkpoints let the authors inspect representation changes during pretraining. Later training produces a middle-layer region with lower similarity to the final layer. A separate Qwen3-4B base-versus-instruction comparison shows delayed logit alignment after instruction tuning. The proposed explanation is increasing specialization and late-layer calibration. Pythia gives a useful window into this process, but one training trajectory cannot establish the behavior of every model family.</p>
+<p><strong>Workload.</strong> Qwen3-8B’s layer curves have broadly similar shapes across the four datasets. This suggests a substantial model-level component to the pattern. It does not make task choice irrelevant: a multiple-choice answer, a numerical result, and executable code have different sensitivities to changed tokens and different evaluation rules.</p>
+<p>The title’s “diminishing returns” should also be read as an empirical tendency. Qwen3-8B’s EAS of 0.51 is above Qwen2-7B’s 0.36 and close to Llama2-7B’s 0.52. GPT-OSS-20B reaches 0.59. The results do not trace a smooth decline with every release.</p>
+<h2 id="What-I-would-take-into-an-implementation"><a href="#What-I-would-take-into-an-implementation" class="headerlink" title="What I would take into an implementation"></a>What I would take into an implementation</h2><p>My engineering reading is that measurement should precede the exit controller. For a chosen checkpoint and workload, I would first inspect intermediate predictions, then measure the task-accuracy curve under an optimistic exit policy. Only after finding meaningful room would I build a practical predictor and measure actual latency and throughput.</p>
+<p>The accuracy budget should be explicit in percentage points or relative loss. Threshold selection should use separate calibration data, followed by evaluation on held-out examples. With 100 prompts, one changed answer moves accuracy by one percentage point; a narrow margin deserves more evidence than a single small sample can supply.</p>
+<p>There are also two different projects to distinguish. One tries to exploit intermediate predictions that already exist. Another changes training so useful predictions emerge earlier, using auxiliary heads, early-exit objectives, or an early-exit draft verified by a fuller model. This paper mainly tests the first project’s assumptions. Its limitations section explicitly leaves room for methods that alter the model. <a target="_blank" rel="noopener" href="https://arxiv.org/html/2603.23701v1#S7">Conclusion and limitations</a></p>
+<p>I would treat EAS as a reason to investigate, then inspect the accuracy-versus-skip frontier directly. A single scalar can rank candidates approximately; it cannot choose a serving policy or account for hardware costs.</p>
+<h2 id="Depth-has-to-earn-its-removal"><a href="#Depth-has-to-earn-its-removal" class="headerlink" title="Depth has to earn its removal"></a>Depth has to earn its removal</h2><p>Early exit begins with an appealing thought: perhaps the answer arrives before the computation ends. The paper asks us to test that thought against the layers themselves, and then against the generated sequence.</p>
+<p>For many of the studied models, the trustworthy answer arrives late. Their improvement may have consumed some of the slack that earlier acceleration methods depended on. In that setting, removing depth means removing work that is still shaping the prediction.</p>
+<p>There is still a useful question to carry forward: at what point does this model, on this workload, have enough information to stop? The answer belongs to measurement. An optimization becomes convincing when the computation it removes has demonstrably finished its job.</p>
+<hr>
+<p>This article is an explanatory reading, not an independent reproduction of the experiments. Reported measurements come from Rui Wei, Rui Du, Hanfei Yu, Devesh Tiwari, Jian Li, Zhaozhuo Xu, and Hao Wang, <em>The Diminishing Returns of Early-Exit Decoding in Modern LLMs</em>, arXiv:2603.23701v1 (March 24, 2026). The cost examples and implementation recommendations are my interpretation. <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2603.23701v1">Original PDF</a> · <a target="_blank" rel="noopener" href="https://arxiv.org/html/2603.23701v1">HTML text</a> · <a target="_blank" rel="noopener" href="https://www.alphaxiv.org/abs/2603.23701">alphaXiv</a></p>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h2>About this Post</h2>
+    <div class="details">This post is written by Louis C Deng, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</div>
+    
+    <p class="tags text-capitalize">
+      <i class="bi bi-tags icon"></i>
+      
+      <a href="/tags/LLM-Inference/" class="tag">#LLM Inference</a>
+      
+      <a href="/tags/Early-Exit/" class="tag">#Early Exit</a>
+      
+      <a href="/tags/Model-Efficiency/" class="tag">#Model Efficiency</a>
+      
+    </p>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    <a class="next"></a>
+    
+    <a href="/2026/10/04/attention-io-complexity/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">How Close Is FlashAttention to the Limit? Understanding Attention Through Data Movement</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    <script src="https://giscus.app/client.js"
+        data-repo="aeilot/blog"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNjEwODA2OTY="
+        data-category="General"
+        data-category-id="DIC_kwDOD4_GeM4B_VIn"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/index.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Links</h2>
+        
+        <a target="_blank" rel="noopener" href="https://aeilot.top" class="item">Portfolio</a>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/aeilot" class="item">GitHub</a>
+        
+        <a target="_blank" rel="noopener" href="https://www.instagram.com/aeilotd/" class="item">Instagram</a>
+        
+        <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/chenluo-d-85b37a33a/" class="item">LinkedIn</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Friends</h2>
+        
+        <a target="_blank" rel="noopener" href="https://mrwillcom.now.sh" class="item">Mr.Will</a>
+        
+        <a target="_blank" rel="noopener" href="https://chungzh.cn" class="item">ChungZH</a>
+        
+        <a target="_blank" rel="noopener" href="https://shaojiaxu.github.io" class="item">SJX</a>
+        
+        <a target="_blank" rel="noopener" href="http://clckblog.space/" class="item">CLCK</a>
+        
+        <a target="_blank" rel="noopener" href="https://innei.in/" class="item">静かな森</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2026 Louis C Deng<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    <style>
+  .giscus {
+    max-width: 768px;
+    padding: 16px;
+    margin: 64px auto;
+    
+    background: var(--color-background-secondary); 
+    border-radius: var(--radius-medium); 
+  }
+
+
+  @media (max-width: 800px) {
+      .giscus {
+          border-radius: 0;
+          width: auto;
+      }
+  }
+
+  @container document-body style(--config-corner-squircle: true) {
+      @supports (corner-shape: squircle) {
+          .giscus {
+              corner-shape: squircle;
+              --radius-tiny: 10px;
+              --radius-small: 20px;
+              --radius-medium: 30px;
+              --radius-large: 40px;
+              --radius-full: 999px;
+          }
+      }
+  }
+
+  @media (max-width: 768px) {
+    .giscus {
+      margin: 20px 10px; 
+      padding: 20px;
+    }
+  }
+</style>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
