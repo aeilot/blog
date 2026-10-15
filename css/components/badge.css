@@ -5,6 +5,7 @@
   color: var(--color-text-accent);
   padding: 6px 12px;
   border-radius: var(--radius-full);
+  height: -moz-min-content;
   height: min-content;
   display: inline-block;
 }
