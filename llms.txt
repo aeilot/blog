@@ -14,6 +14,7 @@ Articles are published in English or Traditional Chinese. Follow each page’s H
 - [XML sitemap](https://blog.aeilot.top/sitemap.xml)
 
 ## Published articles
+- [北海之北](https://blog.aeilot.top/2026/10/18/northern-ocean/)
 - [When the Answer Arrives Late: Early-Exit Decoding in Modern LLMs](https://blog.aeilot.top/2026/10/11/early-exit-decoding-modern-llms/)
 - [How Close Is FlashAttention to the Limit? Understanding Attention Through Data Movement](https://blog.aeilot.top/2026/10/04/attention-io-complexity/)
 - [Beyond FLOPs: How COSMA Builds Parallel Matrix Multiplication from Communication Bounds](https://blog.aeilot.top/2026/10/04/cosma-communication-optimal-matmul/)
