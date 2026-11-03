@@ -143,6 +143,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><script id="seo-structured-data" type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"vcpkg - 方便的 C/C++ 庫管理器","description":"最近在做一個大型的 C++ 專案 ── Albumist。它使用 Qt，需要用到很多類似 sqlite3、exiv2、libcurl 之類的庫。第三方庫管理似乎成了問題。 支援 git 的都可以使用 git submodule 來管理，但是還有少部分是不支援的，或者是二進位制的，比如 sqlite3。這就要我們手動去下載，手動去更新，好生麻煩。 vcpkg我一直想要一個類似 npm pip 一樣","url":"https://blog.aeilot.top/2020/08/14/vcpkg/","mainEntityOfPage":"https://blog.aeilot.top/2020/08/14/vcpkg/","inLanguage":"zh-TW","author":{"@type":"Person","name":"Louis C Deng","url":"https://aeilot.top/"},"publisher":{"@type":"Person","name":"Louis C Deng","url":"https://aeilot.top/"},"datePublished":"2020-08-13T16:45:09.000Z"}</script>
 <link rel="canonical" href="https://blog.aeilot.top/2020/08/14/vcpkg/">
+<link rel="stylesheet" href="/css/chinese-variant.css">
 </head>
 
   <body
@@ -229,6 +230,14 @@
     
 
     <h1 class="title" data-pagefind-meta="title">vcpkg - 方便的 C/C++ 庫管理器</h1>
+    <div id="chinese-variant" class="chinese-variant" data-pagefind-ignore hidden data-original-lang="zh-TW" data-converter-src="/js/vendor/opencc-t2cn-1.4.2.js">
+      <div class="chinese-variant-options" role="group" aria-label="中文字體切換">
+        <button type="button" data-variant="traditional" aria-pressed="true" lang="zh-Hant">繁體</button>
+        <span class="chinese-variant-separator" aria-hidden="true">·</span>
+        <button type="button" data-variant="simplified" aria-pressed="false" lang="zh-Hans">简体</button>
+      </div>
+      <span class="chinese-variant-status" role="status" aria-live="polite"></span>
+    </div>
   </div>
 
   <div class="content">
@@ -448,5 +457,6 @@
     });
 </script>
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="/js/chinese-variant.js" defer></script>
 </body>
 </html>

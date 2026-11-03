@@ -144,6 +144,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><script id="seo-structured-data" type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"CSAPP Bomb Lab 解析","description":"做完了 CSAPP Bomb Lab，寫一篇解析。 題目要求運行一個二進制文件 bomb，它包括六個”階段(phase)”，每個階段要求學生通過 stdin 輸入一個特定的字串。如果輸入了預期的字串，那麼該階段被”拆除”，進入下一個階段，直到所有炸彈被成功”拆除”。否則，炸彈就會”爆炸”，列印出”BOOM!!!” 環境這個系統是在 x86_64 Linux 上運行的，而筆者的環境是 ARM 架構","url":"https://blog.aeilot.top/2025/12/21/csapp-lab2/","mainEntityOfPage":"https://blog.aeilot.top/2025/12/21/csapp-lab2/","inLanguage":"zh-TW","author":{"@type":"Person","name":"Louis C Deng","url":"https://aeilot.top/"},"publisher":{"@type":"Person","name":"Louis C Deng","url":"https://aeilot.top/"},"datePublished":"2025-12-20T18:45:09.000Z"}</script>
 <link rel="canonical" href="https://blog.aeilot.top/2025/12/21/csapp-lab2/">
+<link rel="stylesheet" href="/css/chinese-variant.css">
 </head>
 
   <body
@@ -230,6 +231,14 @@
     
 
     <h1 class="title" data-pagefind-meta="title">CSAPP Bomb Lab 解析</h1>
+    <div id="chinese-variant" class="chinese-variant" data-pagefind-ignore hidden data-original-lang="zh-TW" data-converter-src="/js/vendor/opencc-t2cn-1.4.2.js">
+      <div class="chinese-variant-options" role="group" aria-label="中文字體切換">
+        <button type="button" data-variant="traditional" aria-pressed="true" lang="zh-Hant">繁體</button>
+        <span class="chinese-variant-separator" aria-hidden="true">·</span>
+        <button type="button" data-variant="simplified" aria-pressed="false" lang="zh-Hans">简体</button>
+      </div>
+      <span class="chinese-variant-status" role="status" aria-live="polite"></span>
+    </div>
   </div>
 
   <div class="content">
@@ -855,5 +864,6 @@
     });
 </script>
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="/js/chinese-variant.js" defer></script>
 </body>
 </html>

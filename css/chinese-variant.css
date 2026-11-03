@@ -1,0 +1,45 @@
+.chinese-variant[hidden] { display: none; }
+
+.chinese-variant {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  max-width: 800px;
+  margin: 12px auto 0;
+  padding: 0 16px;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.chinese-variant-options {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chinese-variant button {
+  padding: 4px 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.chinese-variant button[aria-pressed="true"] {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.chinese-variant button:hover { text-decoration: underline; text-underline-offset: 3px; }
+.chinese-variant-separator { color: var(--color-text-tertiary); }
+
+.chinese-variant button:focus-visible {
+  outline: 2px solid var(--color-text-accent);
+  outline-offset: 3px;
+}
+
+.chinese-variant button:disabled { cursor: wait; opacity: .6; }
+.chinese-variant-status { color: var(--color-text-secondary); }

@@ -144,6 +144,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><script id="seo-structured-data" type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"x64 暫存器速查表","description":"本文匯總 x64 架構下最核心的暫存器狀態與 ABI 約定。 暫存器x64 暫存器完美向下相容。寫入低 32 位 (如 MOV EAX, 1) 會自動清零高 32 位；但寫入 8/16 位則保留高位數據。 通用暫存器 (GPRs) 速查表 64-bit 32-bit 16-bit 8-bit 用途 (System V / 通用) 易失性 RAX EAX AX AL 返回值 / 累加","url":"https://blog.aeilot.top/2025/12/10/x64-registers/","mainEntityOfPage":"https://blog.aeilot.top/2025/12/10/x64-registers/","inLanguage":"zh-TW","author":{"@type":"Person","name":"Louis C Deng","url":"https://aeilot.top/"},"publisher":{"@type":"Person","name":"Louis C Deng","url":"https://aeilot.top/"},"datePublished":"2025-12-09T19:45:09.000Z"}</script>
 <link rel="canonical" href="https://blog.aeilot.top/2025/12/10/x64-registers/">
+<link rel="stylesheet" href="/css/chinese-variant.css">
 </head>
 
   <body
@@ -230,6 +231,14 @@
     
 
     <h1 class="title" data-pagefind-meta="title">x64 暫存器速查表</h1>
+    <div id="chinese-variant" class="chinese-variant" data-pagefind-ignore hidden data-original-lang="zh-TW" data-converter-src="/js/vendor/opencc-t2cn-1.4.2.js">
+      <div class="chinese-variant-options" role="group" aria-label="中文字體切換">
+        <button type="button" data-variant="traditional" aria-pressed="true" lang="zh-Hant">繁體</button>
+        <span class="chinese-variant-separator" aria-hidden="true">·</span>
+        <button type="button" data-variant="simplified" aria-pressed="false" lang="zh-Hans">简体</button>
+      </div>
+      <span class="chinese-variant-status" role="status" aria-live="polite"></span>
+    </div>
   </div>
 
   <div class="content">
@@ -597,5 +606,6 @@
     });
 </script>
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="/js/chinese-variant.js" defer></script>
 </body>
 </html>
