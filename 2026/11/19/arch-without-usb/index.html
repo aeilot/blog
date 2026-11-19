@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>沒有隨身碟的 Arch 安裝記 - Louis C Deng&#39;s Blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="初中的時候有一種自由探索的快樂，當時用了一段時間 Arch Linux，可以什麼都不想，沉浸在這種技術之中，進入程式設計的心流，沒有 AI 打擾，沒有效率至上，沒有功利主義。程式設計是一種禪修。現在一切都變了，程式設計變成了工作，無休止的 agent 工作。再也回不來了？ 於是我突然非常想給我的 Windows PC 安裝上 Arch Linux 雙系統，正好我最近的研究任務也需要一個 Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="沒有隨身碟的 Arch 安裝記">
+<meta property="og:url" content="https://blog.aeilot.top/2026/11/19/arch-without-usb/">
+<meta property="og:site_name" content="Louis C Deng&#39;s Blog">
+<meta property="og:description" content="初中的時候有一種自由探索的快樂，當時用了一段時間 Arch Linux，可以什麼都不想，沉浸在這種技術之中，進入程式設計的心流，沒有 AI 打擾，沒有效率至上，沒有功利主義。程式設計是一種禪修。現在一切都變了，程式設計變成了工作，無休止的 agent 工作。再也回不來了？ 於是我突然非常想給我的 Windows PC 安裝上 Arch Linux 雙系統，正好我最近的研究任務也需要一個 Linux">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-19T17:00:00.000Z">
+
+<meta property="article:author" content="Louis C Deng">
+<meta property="article:tag" content="Arch Linux">
+<meta property="article:tag" content="ChatGPT">
+<meta property="article:tag" content="Windows">
+<meta name="twitter:card" content="summary">
+
+  <script>window.ThemeCupertino = {}</script>
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@16/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  <script>ThemeCupertino['_calloutStyles'] = `
+<link rel="stylesheet" href="/css/components/callout.css">
+`</script>
+  
+<script src="/js/components/callout.js"></script>
+
+  
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+<script src="/js/head.js"></script>
+
+  <link rel="stylesheet" href="/css/post-tables.css">
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><script id="seo-structured-data" type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"沒有隨身碟的 Arch 安裝記","description":"初中的時候有一種自由探索的快樂，當時用了一段時間 Arch Linux，可以什麼都不想，沉浸在這種技術之中，進入程式設計的心流，沒有 AI 打擾，沒有效率至上，沒有功利主義。程式設計是一種禪修。現在一切都變了，程式設計變成了工作，無休止的 agent 工作。再也回不來了？ 於是我突然非常想給我的 Windows PC 安裝上 Arch Linux 雙系統，正好我最近的研究任務也需要一個 Linux","url":"https://blog.aeilot.top/2026/11/19/arch-without-usb/","mainEntityOfPage":"https://blog.aeilot.top/2026/11/19/arch-without-usb/","inLanguage":"zh-TW","author":{"@type":"Person","name":"Louis C Deng","url":"https://aeilot.top/"},"publisher":{"@type":"Person","name":"Louis C Deng","url":"https://aeilot.top/"},"datePublished":"2026-11-19T17:00:00.000Z"}</script>
+<link rel="canonical" href="https://blog.aeilot.top/2026/11/19/arch-without-usb/">
+<link rel="stylesheet" href="/css/chinese-variant.css">
+</head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-rainbow-banner="true"
+    data-rainbow-banner-shown="auto"
+    data-rainbow-banner-month="6"
+    data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+    style="--config-corner-squircle: true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  
+  <div style="--sharp: 1"></div>
+  
+  <div style="--sharp: 2"></div>
+  
+  <div style="--sharp: 3"></div>
+  
+  <div style="--sharp: 4"></div>
+  
+  <div style="--sharp: 5"></div>
+  
+  <div style="--sharp: 6"></div>
+  
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Blog</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" target="_blank" rel="noopener" href="https://aeilot.top/" style="--index: 1">Portfolio</a>
+      
+      <a class="nav-item" href="/archives/" style="--index: 2">Archives</a>
+      
+      <a class="nav-item" href="/about/" style="--index: 3">About</a>
+      
+      <a class="nav-item is-icon" href="/search/" style="--index: 4"><i class="bi bi-search"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/中文-軟體與效率/">中文 | 軟體與效率</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2026-11-19T11:00:00-06:00">
+      November 19, 2026
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">沒有隨身碟的 Arch 安裝記</h1>
+    <div id="chinese-variant" class="chinese-variant" data-pagefind-ignore hidden data-original-lang="zh-TW" data-converter-src="/js/vendor/opencc-t2cn-1.4.2.js">
+      <div class="chinese-variant-options" role="group" aria-label="中文字體切換">
+        <button type="button" data-variant="traditional" aria-pressed="true" lang="zh-Hant">繁體</button>
+        <span class="chinese-variant-separator" aria-hidden="true">·</span>
+        <button type="button" data-variant="simplified" aria-pressed="false" lang="zh-Hans">简体</button>
+      </div>
+      <span class="chinese-variant-status" role="status" aria-live="polite"></span>
+    </div>
+  </div>
+
+  <div class="content">
+    <p>初中的時候有一種自由探索的快樂，當時用了一段時間 Arch Linux，可以什麼都不想，沉浸在這種技術之中，進入程式設計的心流，沒有 AI 打擾，沒有效率至上，沒有功利主義。程式設計是一種禪修。現在一切都變了，程式設計變成了工作，無休止的 agent 工作。再也回不來了？</p>
+<p>於是我突然非常想給我的 Windows PC 安裝上 Arch Linux 雙系統，正好我最近的研究任務也需要一個 Linux 環境。</p>
+<p>手邊沒有隨身碟，於是打算直接從硬碟啟動安裝映像。具體思路是，建立一個臨時分割區作為安裝媒體，之後可以改作 swap 分割區。</p>
+<p>從 Windows 分出約 150 GB，140 GB 留給 Arch，另外 10 GB 暫時充當安裝媒體。</p>
+<p>直到 Windows 在重新啟動後，留給我一行 <code>INACCESSIBLE_BOOT_DEVICE</code>。</p>
+<span id="more"></span>
+<p>有點諷刺，最開始，我都在使用 ChatGPT，讓它判斷狀態，再照著建議繼續操作。從壓縮磁碟區、設定 ISO 啟動，到 GPT 分割區和 GRUB，它總能接著給出下一步。解釋連貫，指令具體，於是我也逐漸省去了自己的核對。最後把 Windows 搞壞了。</p>
+<p>後來回看，問題恰好藏在這個「下一步」裡：它未必正確理解了眼前的機器，卻仍然可以繼續回答。</p>
+<p>這篇記下當時的分割區、啟動過程，以及最後留下的問題。指令是操作記錄，並非一份可以照抄的安裝教學。到整理這篇文章時，Arch 已經能啟動，Windows 的恢復仍未完成。</p>
+<h2 id="先從一塊磁碟開始"><a href="#先從一塊磁碟開始" class="headerlink" title="先從一塊磁碟開始"></a>先從一塊磁碟開始</h2><p>電腦是 HP Victus Gaming，使用 Samsung NVMe SSD。原有的 Windows 11 裝在啟用 BitLocker 的 C 槽，採用 UEFI 啟動，Secure Boot 最初也是開啟的。安裝媒體和兩個系統，都要放在這同一塊 SSD 上。</p>
+<p>第一個障礙出現在 Windows 的磁碟管理。C 槽明明還有很多可用空間，能壓縮出來的容量卻很少。查看系統事件記錄中的 Event ID 259，才發現限制壓縮的不可移動檔案，包括 <code>pagefile.sys</code> 和 NTFS 的 <code>$Extend\$UsnJrnl</code>。微軟的<a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/windows-server/storage/disk-management/shrink-a-basic-volume">磁碟區壓縮文件</a>也提到不可移動檔案造成的限制，以及透過事件記錄定位檔案的方法。其中一條記錄是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">The last unmovable file appears to be:</span><br><span class="line">\$Extend\$UsnJrnl:$J:$DATA</span><br><span class="line"></span><br><span class="line">The last cluster of the file is:</span><br><span class="line">0x6251a93</span><br><span class="line"></span><br><span class="line">Shrink potential target (LCN address):</span><br><span class="line">0x16f2c6a</span><br></pre></td></tr></table></figure>
+<p>關閉分頁檔等操作之後，可壓縮空間有所增加，最後取得了約 150 GB。後來用 PowerShell 重新列出分割區：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-Partition</span> <span class="literal">-DiskNumber</span> <span class="number">0</span> |</span><br><span class="line">    <span class="built_in">Format-Table</span> PartitionNumber,DriveLetter,GptType,Size,Offset</span><br></pre></td></tr></table></figure>
+<p>當時的對應關係如下。這裡按編號列出，並不代表它們在磁碟上的實際排列順序。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>分割區</th>
+<th>磁碟代號</th>
+<th>容量</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>p1</code></td>
+<td>—</td>
+<td>512 MiB</td>
+<td>EFI System Partition</td>
+</tr>
+<tr>
+<td><code>p2</code></td>
+<td>—</td>
+<td>16 MiB</td>
+<td>Microsoft Reserved</td>
+</tr>
+<tr>
+<td><code>p3</code></td>
+<td>C:</td>
+<td>325.46 GiB</td>
+<td>Windows，BitLocker 加密</td>
+</tr>
+<tr>
+<td><code>p4</code></td>
+<td>—</td>
+<td>約 985 MiB</td>
+<td>Windows Recovery</td>
+</tr>
+<tr>
+<td><code>p5</code></td>
+<td>D:</td>
+<td>140 GiB</td>
+<td>預留給 Arch</td>
+</tr>
+<tr>
+<td><code>p6</code></td>
+<td>E:</td>
+<td>10 GiB</td>
+<td>Arch 安裝媒體</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>這張表後來成了整次排查中最需要反覆確認的東西。ChatGPT 曾把 <code>p4</code>、<code>p5</code>、<code>p6</code> 的用途對錯，混淆了 Windows Recovery、Arch 的預留空間和安裝媒體，卻仍然給出針對具體分割區的操作建議。</p>
+<p><code>p5</code> 只是一個編號。真正需要確認的是它的大小、類型、位置，以及裡面裝著什麼。這些資訊不能靠對話中的印象補齊。</p>
+<p>C 槽當時的 BitLocker 狀態也值得留下：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Size:                 325.46 GB</span><br><span class="line">Conversion Status:    Used Space Only Encrypted</span><br><span class="line">Percentage Encrypted: 100.0%</span><br><span class="line">Encryption Method:    XTS-AES 128</span><br><span class="line">Protection Status:    Protection On</span><br><span class="line">Lock Status:          Unlocked</span><br><span class="line"></span><br><span class="line">Key Protectors:</span><br><span class="line">    Numerical Password</span><br><span class="line">    TPM</span><br></pre></td></tr></table></figure>
+<p>系統當下能讀取 C 槽，不代表它沒有加密。後續又會修改 EFI 和啟動設定，恢復金鑰是否可用、出了問題要從哪裡回去，本來就應該在動手前確認。微軟的 <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/windows/security/operating-system-security/data-protection/bitlocker/recovery-overview">BitLocker 復原概觀</a>列出了啟動管理員、分割區表或 TPM 等變更可能觸發復原的情況。</p>
+<h2 id="安裝變成了搶修"><a href="#安裝變成了搶修" class="headerlink" title="安裝變成了搶修"></a>安裝變成了搶修</h2><p>我把 Arch ISO 裡的檔案複製到 <code>E:</code>，將這個 FAT32 分割區的卷標設為 <code>ARCH-OS</code>，再檢查 Live 環境需要的檔案是否存在：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Test-Path</span> E:\arch\x86_64\airootfs.sfs</span><br><span class="line"><span class="built_in">Test-Path</span> E:\arch\boot\x86_64\vmlinuz<span class="literal">-linux</span></span><br><span class="line"><span class="built_in">Test-Path</span> E:\arch\boot\x86_64\initramfs<span class="literal">-linux</span>.img</span><br></pre></td></tr></table></figure>
+<p>原來的啟動設定使用 <code>archisosearchuuid</code> 尋找 ISO 檔案系統。現在檔案被複製到一般的 FAT32 分割區，尋找安裝媒體的方式也要跟著改。</p>
+<p>這裡其實隔著兩個步驟：UEFI 先找到 EFI 程式並執行；接著，Linux 的 initramfs 還要找到 Arch Live 的檔案系統。前一步成功，並不保證後一步也成功。當時很多看似相近的「啟動問題」，都需要這樣拆開才說得清楚。</p>
+<p>在後續的分割區和啟動設定調整之後，Windows 無法啟動了。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INACCESSIBLE_BOOT_DEVICE</span><br></pre></td></tr></table></figure>
+<p>從這時開始，原本的安裝變成了搶修。我重新進入 HP BIOS。</p>
+<p>啟動項裡顯然沒有剛剛做好的那個 Arch 安裝媒體。</p>
+<p>我最開始試圖透過 PXE 啟動 Arch。我從來沒有玩過 PXE，但是這台機器不支援 iPXE，也不知道該怎麼透過網路啟動 Arch。</p>
+<p>後來我自己找了半天，發現這台機器支援 <strong>Boot From EFI File</strong>。我便直接從硬碟上的 Arch 安裝媒體進入 Live 環境。沒有 Windows 恢復隨身碟，這個原本用來安裝新系統的環境，暫時成了檢查舊系統的入口。</p>
+<p>先看磁碟和分割區表：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lsblk -o NAME,SIZE,FSTYPE,PARTTYPENAME,MOUNTPOINTS</span><br><span class="line"><span class="built_in">sudo</span> fdisk -l</span><br><span class="line"><span class="built_in">sudo</span> sgdisk -p /dev/nvme0n1</span><br><span class="line"><span class="built_in">sudo</span> sgdisk -v /dev/nvme0n1</span><br></pre></td></tr></table></figure>
+<p>GPT、EFI、BitLocker 系統分割區和 Recovery 都是排查的重點。不過，「分割區還在」只能回答很有限的問題，並不能據此認定 Windows 還能正常啟動。BitLocker 加密的分割區也不能直接當作一般 NTFS 磁碟區，拿 <code>ntfsfix</code> 試著修一遍。</p>
+<p>當時沒有查明唯一根因。<a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/bug-check-0x7b--inaccessible-boot-device"><code>INACCESSIBLE_BOOT_DEVICE</code>（0x7B）</a>表示 Windows 在啟動過程中無法存取系統分割區；儲存控制器模式、驅動、檔案系統和啟動設定，都可能需要檢查。僅憑這行錯誤，還不能把問題歸結為 EFI 檔案損壞。</p>
+<p>同樣，故障發生在那些操作之後，也不足以證明某一條指令就是唯一原因。但分割區映射被理解錯誤、接著仍有具體的修改建議，這件事是明確的。它讓原本就不簡單的排查，又多了一層不確定。</p>
+<p>我先按照 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Installation_guide">ArchWiki 的安裝指南</a>安裝。安裝過程其實很熟悉，有些指令都能背出來了。過去這麼多年。</p>
+<h2 id="能啟動的-GRUB，留不住的啟動項"><a href="#能啟動的-GRUB，留不住的啟動項" class="headerlink" title="能啟動的 GRUB，留不住的啟動項"></a>能啟動的 GRUB，留不住的啟動項</h2><p>Arch 裝好後，接著設定 GRUB。第一次安裝就遇到：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/boot does not look like an EFI partition</span><br></pre></td></tr></table></figure>
+<p>這一次是把 <code>/boot</code> 和 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/EFI_system_partition">EFI System Partition</a> 混在了一起。<code>/boot</code> 可以只是 Linux 根檔案系統中的一個目錄；<code>grub-install</code> 的 <code>--efi-directory</code> 則需要指向已掛載的 EFI 系統分割區。這個參數的用法，可以對照 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/GRUB#Installation">ArchWiki 的 GRUB 安裝說明</a>。</p>
+<p>原有的 EFI 分割區是 FAT32 格式的 <code>p1</code>。將它掛載到 <code>/efi</code> 之後，安裝方式是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">grub-install \</span><br><span class="line">    --target=x86_64-efi \</span><br><span class="line">    --efi-directory=/efi \</span><br><span class="line">    --bootloader-id=GRUB</span><br><span class="line"></span><br><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
+<p>EFI 分割區中也出現了相應的檔案：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">EFI/</span><br><span class="line">├── Microsoft/</span><br><span class="line">├── HP/</span><br><span class="line">└── GRUB/</span><br><span class="line">    └── grubx64.efi</span><br></pre></td></tr></table></figure>
+<p>然而重新啟動後，HP 韌體仍然選擇 Windows 的啟動路徑。用 <code>efibootmgr -v</code> 檢查，找不到能持續保留的 Arch 啟動項；嘗試建立 UEFI NVRAM 項目，重啟後又消失了。BIOS 中也沒有可用的 Customized Boot 選項。</p>
+<p>有一條路卻是通的：從 HP 的 <strong>Boot From EFI File</strong> 手動選擇 <code>EFI/GRUB/grubx64.efi</code>，便能進入 GRUB。</p>
+<p>至少可以確定，這份 GRUB EFI 檔案能被韌體載入。接下來需要處理的，是韌體究竟選擇哪條路徑，以及為什麼自訂啟動項無法保留。</p>
+<p>最後採用了一個繞行的辦法。既然手動選擇 <code>grubx64.efi</code> 已經能進入 GRUB，而新建立的啟動項又留不住，我便不再依靠新增的 Arch 啟動項，轉而使用這台機器仍會自動選擇的 Windows Boot Manager 路徑。</p>
+<p>在這次排查中，需要分清楚的是「啟動項」和「啟動檔案」。前者記錄在韌體的 NVRAM 中，告訴韌體到哪個分割區、哪條路徑載入程式；後者則是 EFI 分割區裡實際存在的 <code>.efi</code> 檔案。GRUB 檔案已經安裝成功，不代表韌體就會自動選中它。手動啟動成功，恰好讓這兩個問題暫時分開了。</p>
+<p>當時採用的做法，是把已經驗證能夠啟動的 GRUB EFI 檔案，複製到 Windows Boot Manager 原有的位置：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">來源：/efi/EFI/GRUB/grubx64.efi</span><br><span class="line">目標：/efi/EFI/Microsoft/Boot/bootmgfw.efi</span><br></pre></td></tr></table></figure>
+<p>這裡的 <code>/efi</code> 是 EFI 系統分割區在 Linux 中的掛載點。從韌體的角度看，目標檔案的路徑是 <code>\EFI\Microsoft\Boot\bootmgfw.efi</code>。兩種寫法指向同一個位置，只是觀察它的環境不同。</p>
+<p>當時執行的複製指令如下。這一步會直接覆寫目標檔案；以下保留的是事故中的操作記錄。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> \</span><br><span class="line">    /efi/EFI/GRUB/grubx64.efi \</span><br><span class="line">    /efi/EFI/Microsoft/Boot/bootmgfw.efi</span><br></pre></td></tr></table></figure>
+<p>重新啟動後，韌體仍然走原來的 Windows 啟動路徑，但那個位置上的程式已經換成 GRUB。檔名仍是 <code>bootmgfw.efi</code>，內容卻不再是原來的 Windows Boot Manager。接著由 GRUB 載入 Arch，便繞過了自訂啟動項無法保留的障礙。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">替換前：HP 韌體 → bootmgfw.efi（Windows Boot Manager）→ Windows 啟動流程</span><br><span class="line">替換後：HP 韌體 → bootmgfw.efi（GRUB）→ Arch Linux</span><br></pre></td></tr></table></figure>
+<p>這只能說明，借用原有路徑確實讓 Arch 自動啟動了。自訂 NVRAM 啟動項為什麼消失，仍沒有查明；也不能僅憑這次經驗，就認定所有 HP 韌體都只能使用這條路徑。</p>
+<p>代價也落在同一個位置：<strong>原路徑上的 Windows Boot Manager 被覆寫了。</strong> 當時是否另外保存了原始 <code>bootmgfw.efi</code>，現有記錄還不足以確認，因此不能把它寫成一次已經準備好回復方式的替換。若要恢復 Windows 的啟動鏈，需要從有效備份或 Windows 恢復環境恢復原始啟動檔案，並核對 BCD 啟動設定。微軟的 <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/bcdboot-command-line-options-techref-di">BCDBoot 文件</a>說明了重建系統分割區啟動檔案和 BCD 的用途；具體操作仍要以恢復環境中實際辨識出的 Windows 分割區和 EFI 分割區為準。即使之後在 GRUB 選單中加入 Windows 項目，也必須確認它指向真正的 Windows 載入程式；原來那條路徑如今裝著的已經是 GRUB。</p>
+<p>至於先前的 <code>INACCESSIBLE_BOOT_DEVICE</code>，它仍然是另一個沒有解決的問題。韌體能載入 EFI 程式、Windows Boot Manager 能接續啟動流程，以及 Windows 核心能存取系統磁碟，是不同階段的檢查。這次替換改變了最前面的入口，並沒有修復後面的儲存裝置存取問題，也沒有解開或修復 BitLocker 系統分割區。</p>
+<p>所以，這個結果只能記作「Arch 可以自動啟動」。Windows 的原始啟動檔案需要恢復，系統磁碟無法存取的原因也仍要獨立排查。到這裡，安裝取得了一個能用的入口，搶修卻還沒有結束。</p>
+<h2 id="暫時停在這裡"><a href="#暫時停在這裡" class="headerlink" title="暫時停在這裡"></a>暫時停在這裡</h2><p>進入 Arch 後，又繼續設定 KDE Plasma、SDDM，以及日常開發環境。建立一般使用者，設定 <code>wheel</code> 群組的 sudo 權限，安裝終端機、檔案管理器和 Yakuake，再處理網路、藍牙和顯示卡驅動。</p>
+<p>這不是一次完成的雙系統安裝。多出來的 Arch 可以使用，原有的 Windows 卻還沒有回來。最初省去的一個隨身碟，最後讓安裝媒體、故障系統和恢復入口，全都擠在同一塊磁碟上。</p>
+<p>回想整個過程，我對 ChatGPT 的信任，逐漸超過了它實際掌握的資訊。它能解釋 GPT、UEFI 和 GRUB，也能把指令寫得完整，但眼前這塊磁碟的狀態，仍然需要一項一項核對。我把「回答得出下一步」當成了「已經確認上一步」，而這兩者之間的距離，最後要在自己的電腦上承擔。</p>
+<p>以後再讓 AI 協助處理磁碟和啟動鏈，我會先停在唯讀檢查：目標是哪個裝置，現在裝著什麼，寫入會改變什麼，失敗後從哪裡恢復。分割區表和備份都應該在指令之前。</p>
+<p>原本只是想多裝一個系統。最後留下的，是一個能啟動的 Arch，一個尚待恢復的 Windows，以及對「下一步」多一點的遲疑。</p>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h2>About this Post</h2>
+    <div class="details">This post is written by Louis C Deng, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</div>
+    
+    <p class="tags text-capitalize">
+      <i class="bi bi-tags icon"></i>
+      
+      <a href="/tags/Arch-Linux/" class="tag">#Arch Linux</a>
+      
+      <a href="/tags/Windows/" class="tag">#Windows</a>
+      
+      <a href="/tags/ChatGPT/" class="tag">#ChatGPT</a>
+      
+    </p>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    <a class="next"></a>
+    
+    <a href="/2026/11/08/guitu/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">歸途</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    <script src="https://giscus.app/client.js"
+        data-repo="aeilot/blog"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNjEwODA2OTY="
+        data-category="General"
+        data-category-id="DIC_kwDOD4_GeM4B_VIn"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives/" class="item">Archives</a>
+        
+        <a href="/tags/" class="item">Tags</a>
+        
+        <a href="/categories/" class="item">Categories</a>
+        
+        <a href="/search/" class="item">Search</a>
+        
+        <a href="/index.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Links</h2>
+        
+        <a target="_blank" rel="noopener" href="https://aeilot.top" class="item">Portfolio</a>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/aeilot" class="item">GitHub</a>
+        
+        <a target="_blank" rel="noopener" href="https://www.instagram.com/aeilotd/" class="item">Instagram</a>
+        
+        <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/chenluo-d-85b37a33a/" class="item">LinkedIn</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Friends</h2>
+        
+        <a target="_blank" rel="noopener" href="https://mrwillcom.now.sh" class="item">Mr.Will</a>
+        
+        <a target="_blank" rel="noopener" href="https://chungzh.cn" class="item">ChungZH</a>
+        
+        <a target="_blank" rel="noopener" href="https://shaojiaxu.github.io" class="item">SJX</a>
+        
+        <a target="_blank" rel="noopener" href="http://clckblog.space/" class="item">CLCK</a>
+        
+        <a target="_blank" rel="noopener" href="https://innei.in/" class="item">静かな森</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2026 Louis C Deng<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    <style>
+  .giscus {
+    max-width: 768px;
+    padding: 16px;
+    margin: 64px auto;
+    
+    background: var(--color-background-secondary); 
+    border-radius: var(--radius-medium); 
+  }
+
+
+  @media (max-width: 800px) {
+      .giscus {
+          border-radius: 0;
+          width: auto;
+      }
+  }
+
+  @container document-body style(--config-corner-squircle: true) {
+      @supports (corner-shape: squircle) {
+          .giscus {
+              corner-shape: squircle;
+              --radius-tiny: 10px;
+              --radius-small: 20px;
+              --radius-medium: 30px;
+              --radius-large: 40px;
+              --radius-full: 999px;
+          }
+      }
+  }
+
+  @media (max-width: 768px) {
+    .giscus {
+      margin: 20px 10px; 
+      padding: 20px;
+    }
+  }
+</style>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="/js/chinese-variant.js" defer></script>
+</body>
+</html>
