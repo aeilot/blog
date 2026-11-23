@@ -8,7 +8,6 @@
   <url><loc>https://blog.aeilot.top/2020/08/14/vcpkg/</loc></url>
   <url><loc>https://blog.aeilot.top/2020/08/20/wwdc2020/</loc></url>
   <url><loc>https://blog.aeilot.top/2020/08/22/gh-action-hexo/</loc></url>
-  <url><loc>https://blog.aeilot.top/2020/08/23/stare-at-moon/</loc></url>
   <url><loc>https://blog.aeilot.top/2020/08/24/swift-userdefaults/</loc></url>
   <url><loc>https://blog.aeilot.top/2020/09/11/ipod-shuffle/</loc></url>
   <url><loc>https://blog.aeilot.top/2020/10/01/mid-autumn-2020/</loc></url>
@@ -23,41 +22,15 @@
   <url><loc>https://blog.aeilot.top/2021/10/02/Luogu-P1094/</loc></url>
   <url><loc>https://blog.aeilot.top/2022/03/23/hexo-theme-paperwhite/</loc></url>
   <url><loc>https://blog.aeilot.top/2022/04/15/lsnotes/</loc></url>
-  <url><loc>https://blog.aeilot.top/2022/11/12/the-fog-1/</loc></url>
-  <url><loc>https://blog.aeilot.top/2022/11/19/rain-at-night-1/</loc></url>
   <url><loc>https://blog.aeilot.top/2022/11/21/manacher/</loc></url>
   <url><loc>https://blog.aeilot.top/2022/11/23/riv-p3354/</loc></url>
   <url><loc>https://blog.aeilot.top/2022/11/24/P3147-262144P/</loc></url>
   <url><loc>https://blog.aeilot.top/2022/12/05/cut-vertex/</loc></url>
-  <url><loc>https://blog.aeilot.top/2022/12/13/moonlight/</loc></url>
-  <url><loc>https://blog.aeilot.top/2022/12/18/recap/</loc></url>
-  <url><loc>https://blog.aeilot.top/2022/12/22/tower-dream-ice/</loc></url>
-  <url><loc>https://blog.aeilot.top/2022/12/23/jingyesibiandiao/</loc></url>
   <url><loc>https://blog.aeilot.top/2022/12/30/time-lyric/</loc></url>
   <url><loc>https://blog.aeilot.top/2023/01/04/in-search-of-lost-time-excerpt-1/</loc></url>
-  <url><loc>https://blog.aeilot.top/2023/01/12/revival/</loc></url>
-  <url><loc>https://blog.aeilot.top/2023/01/27/dust/</loc></url>
-  <url><loc>https://blog.aeilot.top/2023/02/02/stargazing/</loc></url>
-  <url><loc>https://blog.aeilot.top/2023/03/13/breeze/</loc></url>
-  <url><loc>https://blog.aeilot.top/2023/03/26/summer/</loc></url>
-  <url><loc>https://blog.aeilot.top/2023/03/31/bank-of-sea/</loc></url>
-  <url><loc>https://blog.aeilot.top/2023/06/11/xiangnian/</loc></url>
-  <url><loc>https://blog.aeilot.top/2023/08/09/kuangrenriji/</loc></url>
-  <url><loc>https://blog.aeilot.top/2023/08/11/foams/</loc></url>
   <url><loc>https://blog.aeilot.top/2023/08/11/python-zip-enumerate/</loc></url>
-  <url><loc>https://blog.aeilot.top/2023/08/15/kafka-hunger/</loc></url>
-  <url><loc>https://blog.aeilot.top/2023/10/06/farewell/</loc></url>
-  <url><loc>https://blog.aeilot.top/2023/10/13/tsingtao-sunset/</loc></url>
   <url><loc>https://blog.aeilot.top/2023/10/17/Luogu-P5888/</loc></url>
   <url><loc>https://blog.aeilot.top/2023/10/19/Luogu-P1622/</loc></url>
-  <url><loc>https://blog.aeilot.top/2023/12/29/foams-the-year/</loc></url>
-  <url><loc>https://blog.aeilot.top/2024/01/01/sun-tides/</loc></url>
-  <url><loc>https://blog.aeilot.top/2025/01/01/recap2024/</loc></url>
-  <url><loc>https://blog.aeilot.top/2025/01/08/2012-twilight/</loc></url>
-  <url><loc>https://blog.aeilot.top/2025/01/08/bridge/</loc></url>
-  <url><loc>https://blog.aeilot.top/2025/02/23/midnight_flight/</loc></url>
-  <url><loc>https://blog.aeilot.top/2025/03/14/dreams/</loc></url>
-  <url><loc>https://blog.aeilot.top/2025/03/30/waiting/</loc></url>
   <url><loc>https://blog.aeilot.top/2025/09/11/qsort/</loc></url>
   <url><loc>https://blog.aeilot.top/2025/10/14/bitlab-optimizer/</loc></url>
   <url><loc>https://blog.aeilot.top/2025/10/21/bitmask/</loc></url>
@@ -65,7 +38,6 @@
   <url><loc>https://blog.aeilot.top/2025/12/02/csapp-lab1/</loc></url>
   <url><loc>https://blog.aeilot.top/2025/12/10/x64-registers/</loc></url>
   <url><loc>https://blog.aeilot.top/2025/12/21/csapp-lab2/</loc></url>
-  <url><loc>https://blog.aeilot.top/2026/01/01/recap2025/</loc></url>
   <url><loc>https://blog.aeilot.top/2026/01/25/cs188-search-i/</loc></url>
   <url><loc>https://blog.aeilot.top/2026/01/25/sudo_fingerprints/</loc></url>
   <url><loc>https://blog.aeilot.top/2026/01/27/cs188-search-ii/</loc></url>
@@ -94,13 +66,7 @@
   <url><loc>https://blog.aeilot.top/2026/10/04/cosma-communication-optimal-matmul/</loc></url>
   <url><loc>https://blog.aeilot.top/2026/10/04/red-blue-pebble-game/</loc></url>
   <url><loc>https://blog.aeilot.top/2026/10/11/early-exit-decoding-modern-llms/</loc></url>
-  <url><loc>https://blog.aeilot.top/2026/10/18/asking-chuangzi/</loc></url>
-  <url><loc>https://blog.aeilot.top/2026/10/18/northern-ocean/</loc></url>
-  <url><loc>https://blog.aeilot.top/2026/10/31/cubism/</loc></url>
-  <url><loc>https://blog.aeilot.top/2026/11/03/north-north/</loc></url>
-  <url><loc>https://blog.aeilot.top/2026/11/08/guitu/</loc></url>
   <url><loc>https://blog.aeilot.top/2026/11/19/arch-without-usb/</loc></url>
-  <url><loc>https://blog.aeilot.top/2026/11/20/rain-survival/</loc></url>
   <url><loc>https://blog.aeilot.top/2026/11/22/sam-gilliam-art/</loc></url>
   <url><loc>https://blog.aeilot.top/about/</loc></url>
 </urlset>

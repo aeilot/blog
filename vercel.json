@@ -2,6 +2,251 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "routes": [
     {
+      "src": "^/2025/01/08/2012\\-twilight(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2025/01/07/2012-twilight/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2026/10/18/asking\\-chuangzi(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2026/10/18/asking-chuangzi/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2023/03/31/bank\\-of\\-sea(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2023/03/30/bank-of-sea/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2023/03/13/breeze(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2023/03/12/breeze/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2025/01/08/bridge(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2025/01/07/bridge/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2026/10/31/cubism(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2026/10/31/cubism/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2025/03/14/dreams(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2025/03/13/dreams/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2023/01/27/dust(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2023/01/26/dust/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2023/10/06/farewell(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2023/10/05/farewell/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2023/12/29/foams\\-the\\-year(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2023/12/28/foams-the-year/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2023/08/11/foams(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2023/08/10/foams/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2026/11/08/guitu(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2026/11/08/guitu/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2022/12/23/jingyesibiandiao(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2022/12/22/jingyesibiandiao/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2023/08/15/kafka\\-hunger(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2023/08/14/kafka-hunger/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2023/08/09/kuangrenriji(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2023/08/08/kuangrenriji/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2025/02/23/midnight_flight(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2025/02/22/midnight_flight/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2022/12/13/moonlight(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2022/12/12/moonlight/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2026/11/03/north\\-north(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2026/11/03/north-north/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2026/10/18/northern\\-ocean(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2026/10/18/northern-ocean/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2022/11/19/rain\\-at\\-night\\-1(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2022/11/17/rain-at-night-1/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2026/11/20/rain\\-survival(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2026/11/20/rain-survival/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2022/12/18/recap(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2022/12/16/recap/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2025/01/01/recap2024(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2024/12/31/recap2024/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2026/01/01/recap2025(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2025/12/31/recap2025/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2023/01/12/revival(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2023/01/11/revival/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2020/08/23/stare\\-at\\-moon(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2020/08/22/stare-at-moon/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2023/02/02/stargazing(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2023/02/01/stargazing/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2023/03/26/summer(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2023/03/25/summer/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2024/01/01/sun\\-tides(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2023/12/31/sun-tides/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2022/11/12/the\\-fog\\-1(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2022/11/10/the-fog-1/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2022/12/22/tower\\-dream\\-ice(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2022/12/21/tower-dream-ice/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2023/10/13/tsingtao\\-sunset(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2023/10/12/tsingtao-sunset/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2025/03/30/waiting(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2025/03/29/waiting/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/2023/06/11/xiangnian(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/2023/06/10/xiangnian/"
+      },
+      "status": 301
+    },
+    {
+      "src": "^/categories/(?:中文-文學|%E4%B8%AD%E6%96%87-%E6%96%87%E5%AD%B8)(?:/page/[0-9]+)?(?:/index\\.html|/)?$",
+      "headers": {
+        "Location": "https://wenji.aeilot.top/#all-works"
+      },
+      "status": 301
+    },
+    {
       "src": "^/categories/(?:AI)(?:/page/[0-9]+)?(?:/index\\.html|/)?$",
       "headers": {
         "Location": "/categories/EN-AI/"
