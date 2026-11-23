@@ -14,6 +14,7 @@ Articles are published in English or Traditional Chinese. Follow each page’s H
 - [XML sitemap](https://blog.aeilot.top/sitemap.xml)
 
 ## Published articles
+- [Sam Gilliam：變化、抽象藝術與自由](https://blog.aeilot.top/2026/11/22/sam-gilliam-art/)
 - [雨夜生存指南](https://blog.aeilot.top/2026/11/20/rain-survival/)
 - [沒有隨身碟的 Arch 安裝記](https://blog.aeilot.top/2026/11/19/arch-without-usb/)
 - [歸途](https://blog.aeilot.top/2026/11/08/guitu/)
